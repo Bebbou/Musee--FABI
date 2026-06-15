@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Schéma BDD — Musée FABI</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0f0d09;
+    font-family: 'Georgia', serif;
+    color: #e8d5a3;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 22px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #c8a030;
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    text-align: center;
+    font-size: 12px;
+    color: #806040;
+    letter-spacing: 3px;
+    margin-bottom: 48px;
+  }
+
+  /* ── Canvas SVG ── */
+  #canvas {
+    position: relative;
+    width: 1400px;
+    margin: 0 auto;
+  }
+  svg#lines {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  /* ── Table card ── */
+  .table {
+    position: absolute;
+    background: #1a1510;
+    border: 1px solid #6a5020;
+    border-radius: 6px;
+    width: 210px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+  .table-head {
+    background: linear-gradient(135deg, #3a2800, #5a3c00);
+    padding: 10px 14px;
+    border-bottom: 1px solid #c8a030;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .table-icon { font-size: 16px; }
+  .table-name {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #f0d060;
+    text-transform: uppercase;
+  }
+  .table-body { padding: 6px 0; }
+
+  .field {
+    display: flex;
+    align-items: center;
+    padding: 4px 14px;
+    font-size: 11px;
+    gap: 6px;
+    border-bottom: 1px solid rgba(100,70,20,0.15);
+  }
+  .field:last-child { border-bottom: none; }
+  .field:hover { background: rgba(200,160,48,0.07); }
+
+  .badge {
+    font-size: 9px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+  }
+  .pk  { background: #c8a030; color: #0f0d09; }
+  .fk  { background: #2a5080; color: #a0c8f0; }
+  .idx { background: #2a5030; color: #80c890; }
+
+  .field-name { color: #e8d5a3; flex: 1; }
+  .field-type { color: #806848; font-size: 10px; margin-left: auto; }
+
+  .separator {
+    height: 1px;
+    background: rgba(200,160,48,0.25);
+    margin: 4px 10px;
+  }
+
+  /* ── SVG Lines ── */
+  .rel-line { stroke-width: 1.5; fill: none; stroke-dasharray: none; }
+  .rel-one  { stroke: #c8a030; }
+  .rel-many { stroke: #4a8ab0; }
+  .rel-mm   { stroke: #8060c0; }
+
+  .card-label {
+    font-size: 11px;
+    font-family: Georgia, serif;
+    fill: #a08030;
+    font-weight: bold;
+  }
+
+  /* ── Legend ── */
+  .legend {
+    width: 1400px;
+    margin: 40px auto 0;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    padding: 14px 24px;
+    background: #1a1510;
+    border: 1px solid #3a2800;
+    border-radius: 6px;
+  }
+  .legend-title { color: #806040; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-right: 8px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 11px; color: #a08050; }
+  .legend-line { width: 32px; height: 2px; }
+  .l-one  { background: #c8a030; }
+  .l-many { background: #4a8ab0; }
+  .l-mm   { background: #8060c0; }
+</style>
+</head>
+<body>
+
+<h1>Base de Données — Musée FABI</h1>
+<p class="subtitle">Schéma relationnel · 9 tables · SQLite</p>
+
+<div id="canvas">
+<svg id="lines"></svg>
+
+<!-- ── ARTISTES ── -->
+<div class="table" id="t_artistes" style="left:30px; top:20px">
+  <div class="table-head"><span class="table-icon">🎨</span><span class="table-name">Artistes</span></div>
+  <div class="table-body">
+    <div class="field"><span class="badge pk">PK</span><span class="field-name">id</span><span class="field-type">INTEGER</span></div>
+    <div class="separator"></div>
+    <div class="field"><span class="field-name">nom</span><span class="field-type">TEXT NN</span></div>
+    <div class="field"><span class="field-name">prenom</span><span class="field-type">TEXT</span></div>
+    <div class="field"><span class="field-name">nationalite</span><span class="field-type">TEXT</span></div>
+    <div class="field"><span class="field-name">biographie</span><span class="field-type">TEXT</span></div>
+    <div class="field"><span class="field-name">date_naissance</span><span class="field-type">TEXT</span></div>
+    <div class="field"><span class="field-name">date_deces</span><span class="field-type">TEXT</span></div>
+  </div>
+</div>
+
+<!-- ── SALLES ── -->
+<div class="table" id="t_salles" style="left:30px; top:280px">
+  <div class="table-head"><span class="table-icon">🏛️</span><span class="table-name">Salles</span></div>
+  <div class="table-body">
+    <div class="field"><span class="badge pk">PK</span><span class="field-name">id</span><span class="field-type">INTEGER</span></div>
+    <div class="separator"></div>
+    <div class="field"><span class="field-name">nom</span><span class="field-type">TEXT NN</span></div>
+    <div class="field"><span class="field-name">description</span><span class="field-type">TEXT</span></div>
+    <div class="field"><span class="field-name">position_x</span><span class="field-type">REAL</span></div>
+    <div class="field"><span class="field-name">position_z</span><span class="field-type">REAL</span></div>
+  </div>
+</div>
+
+<!-- ── OEUVRES ── -->
+<div class="table" id="t_oeuvres" style="left:340px; top:140px">
+  <div class="table-head"><span class="table-icon">🖼️</span><span class="table-name">Oeuvres</span></div>
+  <div class="table-body">
+    <div class="field"><span class="badge pk">PK</span><span class="field-name">id</span><span class="field-type">INTEGER</span></div>
+    <div class="separator"></div>
+    <div class="field"><span class="field-name">titre</span><span class="field-type">TEXT NN</span></div>
+    <div class="field"><span class="field-name">description</span><span class="field-type">TEXT</span></div>
+    <div class="field"><span class="field-name">annee_creation</span><span class="field-type">TEXT</span></div>
+    <div class="field"><span class="field-name">type</span><span class="field-type">CHECK(…)</span></div>
+    <div class="separator"></div>
+    <div class="field"><span class="badge fk">FK</span><span class="field-name">artiste_id</span><span class="field-type">INTEGER</span></div>
+    <div class="field"><span class="badge fk">FK</span><span class="field-name">salle_id</span><span class="field-type">INTEGER</span></div>
+    <div class="separator"></div>
+    <div class="field"><span class="field-name">image_path</span><span class="field-type">TEXT</span></div>
+    <div class="field"><span class="field-name">modele_3d_path</span><span class="field-type">TEXT</span></div>
+  </div>
+</div>
+
+<!-- ── CATEGORIES ── -->
+<div class="table" id="t_categories" style="left:30px; top:520px">
+  <div class="table-head"><span class="table-icon">🏷️</span><span class="table-name">Categories</span></div>
+  <div class="table-body">
+    <div class="field"><span class="badge pk">PK</span><span class="field-name">id</span><span class="field-type">INTEGER</span></div>
+    <div class="separator"></div>
+    <div class="field"><span class="field-name">nom</span><span class="field-type">TEXT UNIQUE</span></div>
+    <div class="field"><span class="field-name">description</span><span class="field-type">TEXT</span></div>
+  </div>
+</div>
+
+<!-- ── OEUVRES_CATEGORIES ── -->
+<div class="table" id="t_oeuvres_cat" style="left:340px; top:480px">
+  <div class="table-head"><span class="table-icon">🔗</span><span class="table-name">Oeuvres_Cat.</span></div>
+  <div class="table-body">
+    <div class="field"><span class="badge pk">PK</span><span class="badge fk">FK</span><span class="field-name">oeuvre_id</span></div>
+    <div class="field"><span class="badge pk">PK</span><span class="badge fk">FK</span><span class="field-name">categorie_id</span></div>
+  </div>
+</div>
+
+<!-- ── UTILISATEURS ── -->
+<div class="table" id="t_utilisateurs" style="left:700px; top:20px">
+  <div class="table-head"><span class="table-icon">👤</span><span class="table-name">Utilisateurs</span></div>
+  <div class="table-body">
+    <div class="field"><span class="badge pk">PK</span><span class="field-name">id</span><span class="field-type">INTEGER</span></div>
+    <div class="separator"></div>
+    <div class="field"><span class="field-name">nom</span><span class="field-type">TEXT NN</span></div>
+    <div class="field"><span class="field-name">prenom</span><span class="field-type">TEXT NN</span></div>
+    <div class="field"><span class="field-name">email</span><span class="field-type">UNIQUE NN</span></div>
+    <div class="field"><span class="field-name">mot_de_passe</span><span class="field-type">TEXT NN</span></div>
+    <div class="field"><span class="field-name">role</span><span class="field-type">CHECK(…)</span></div>
+    <div class="field"><span class="field-name">date_inscription</span><span class="field-type">TEXT</span></div>
+  </div>
+</div>
+
+<!-- ── VISITES GUIDEES ── -->
+<div class="table" id="t_visites" style="left:700px; top:310px">
+  <div class="table-head"><span class="table-icon">🗺️</span><span class="table-name">Visites_Guidées</span></div>
+  <div class="table-body">
+    <div class="field"><span class="badge pk">PK</span><span class="field-name">id</span><span class="field-type">INTEGER</span></div>
+    <div class="separator"></div>
+    <div class="field"><span class="field-name">titre</span><span class="field-type">TEXT NN</span></div>
+    <div class="field"><span class="field-name">description</span><span class="field-type">TEXT</span></div>
+    <div class="field"><span class="field-name">duree_min</span><span class="field-type">INTEGER</span></div>
+    <div class="field"><span class="field-name">prix</span><span class="field-type">REAL</span></div>
+    <div class="field"><span class="field-name">places_max</span><span class="field-type">INTEGER</span></div>
+    <div class="field"><span class="field-name">date_heure</span><span class="field-type">TEXT NN</span></div>
+    <div class="separator"></div>
+    <div class="field"><span class="badge fk">FK</span><span class="field-name">guide_id</span><span class="field-type">INTEGER</span></div>
+  </div>
+</div>
+
+<!-- ── VISITES_OEUVRES ── -->
+<div class="table" id="t_visites_oeuvres" style="left:700px; top:620px">
+  <div class="table-head"><span class="table-icon">🔗</span><span class="table-name">Visites_Oeuvres</span></div>
+  <div class="table-body">
+    <div class="field"><span class="badge pk">PK</span><span class="badge fk">FK</span><span class="field-name">visite_id</span></div>
+    <div class="field"><span class="badge pk">PK</span><span class="badge fk">FK</span><span class="field-name">oeuvre_id</span></div>
+    <div class="field"><span class="field-name">ordre</span><span class="field-type">INTEGER</span></div>
+  </div>
+</div>
+
+<!-- ── RESERVATIONS ── -->
+<div class="table" id="t_reservations" style="left:1050px; top:160px">
+  <div class="table-head"><span class="table-icon">🎟️</span><span class="table-name">Reservations</span></div>
+  <div class="table-body">
+    <div class="field"><span class="badge pk">PK</span><span class="field-name">id</span><span class="field-type">INTEGER</span></div>
+    <div class="separator"></div>
+    <div class="field"><span class="badge fk">FK</span><span class="field-name">utilisateur_id</span><span class="field-type">INTEGER NN</span></div>
+    <div class="field"><span class="badge fk">FK</span><span class="field-name">visite_id</span><span class="field-type">INTEGER</span></div>
+    <div class="separator"></div>
+    <div class="field"><span class="field-name">type</span><span class="field-type">CHECK(…)</span></div>
+    <div class="field"><span class="field-name">date_visite</span><span class="field-type">TEXT NN</span></div>
+    <div class="field"><span class="field-name">nb_personnes</span><span class="field-type">INTEGER</span></div>
+    <div class="field"><span class="field-name">statut</span><span class="field-type">CHECK(…)</span></div>
+    <div class="field"><span class="field-name">date_reservation</span><span class="field-type">TEXT</span></div>
+  </div>
+</div>
+
+</div><!-- #canvas -->
+
+<!-- ── Legend ── -->
+<div class="legend">
+  <span class="legend-title">Légende</span>
+  <div class="legend-item"><div class="legend-line l-one"></div> Relation 1 — N</div>
+  <div class="legend-item"><div class="legend-line l-mm"></div> Relation N — N (via table pivot)</div>
+  <div class="legend-item"><span class="badge pk" style="font-size:10px">PK</span> Clé primaire</div>
+  <div class="legend-item"><span class="badge fk" style="font-size:10px">FK</span> Clé étrangère</div>
+  <div class="legend-item"><span style="color:#806848;font-size:11px">NN</span> NOT NULL</div>
+  <div class="legend-item"><span style="color:#806848;font-size:11px">CHECK(…)</span> Valeurs contraintes</div>
+</div>
+
+<script>
+// Draw SVG relationship lines between tables
+const svg = document.getElementById('lines');
+const canvas = document.getElementById('canvas');
+
+function center(el) {
+  return { x: el.offsetLeft + el.offsetWidth/2, y: el.offsetTop + el.offsetHeight/2 };
+}
+function edge(el, side, yOffset=0) {
+  const r = { x: el.offsetLeft, y: el.offsetTop, w: el.offsetWidth, h: el.offsetHeight };
+  if (side==='right') return { x: r.x+r.w, y: r.y+yOffset };
+  if (side==='left')  return { x: r.x,     y: r.y+yOffset };
+  if (side==='bottom')return { x: r.x+r.w/2, y: r.y+r.h };
+  if (side==='top')   return { x: r.x+r.w/2, y: r.y };
+}
+
+function drawLine(p1, p2, color, card1, card2, bend='h') {
+  const mid = bend==='h'
+    ? `${p1.x},${p1.y} ${(p1.x+p2.x)/2},${p1.y} ${(p1.x+p2.x)/2},${p2.y} ${p2.x},${p2.y}`
+    : `${p1.x},${p1.y} ${p1.x},${(p1.y+p2.y)/2} ${p2.x},${(p1.y+p2.y)/2} ${p2.x},${p2.y}`;
+
+  const poly = document.createElementNS('http://www.w3.org/2000/svg','polyline');
+  poly.setAttribute('points', mid);
+  poly.setAttribute('stroke', color);
+  poly.setAttribute('stroke-width','1.8');
+  poly.setAttribute('fill','none');
+  svg.appendChild(poly);
+
+  // Cardinality labels
+  [[p1, card1, 14], [p2, card2, -14]].forEach(([pt, card, dx]) => {
+    if (!card) return;
+    const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x', pt.x + dx);
+    t.setAttribute('y', pt.y - 6);
+    t.setAttribute('class','card-label');
+    t.setAttribute('text-anchor','middle');
+    t.textContent = card;
+    svg.appendChild(t);
+  });
+
+  // Circle at origin (1 side)
+  const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+  c.setAttribute('cx', p1.x); c.setAttribute('cy', p1.y);
+  c.setAttribute('r','4'); c.setAttribute('fill', color); c.setAttribute('opacity','0.8');
+  svg.appendChild(c);
+
+  // Arrow at destination (N side)
+  const angle = Math.atan2(p2.y - p1.y, p2.x - p1.x);
+  const ax = p2.x - Math.cos(angle)*10;
+  const ay = p2.y - Math.sin(angle)*10;
+  const arrow = document.createElementNS('http://www.w3.org/2000/svg','polygon');
+  const p = [
+    [p2.x, p2.y],
+    [ax + Math.sin(angle)*5, ay - Math.cos(angle)*5],
+    [ax - Math.sin(angle)*5, ay + Math.cos(angle)*5]
+  ].map(([x,y])=>`${x},${y}`).join(' ');
+  arrow.setAttribute('points', p);
+  arrow.setAttribute('fill', color);
+  svg.appendChild(arrow);
+}
+
+window.addEventListener('load', () => {
+  const h = canvas.scrollHeight + 40;
+  svg.setAttribute('height', h);
+  canvas.style.height = h + 'px';
+
+  const tA   = document.getElementById('t_artistes');
+  const tS   = document.getElementById('t_salles');
+  const tO   = document.getElementById('t_oeuvres');
+  const tC   = document.getElementById('t_categories');
+  const tOC  = document.getElementById('t_oeuvres_cat');
+  const tU   = document.getElementById('t_utilisateurs');
+  const tV   = document.getElementById('t_visites');
+  const tVO  = document.getElementById('t_visites_oeuvres');
+  const tR   = document.getElementById('t_reservations');
+
+  const gold   = '#c8a030';
+  const blue   = '#4a8ab0';
+  const purple = '#8060c0';
+
+  // artistes (1) → oeuvres (N)
+  drawLine(edge(tA,'right', 40), edge(tO,'left', 80), gold, '1', 'N');
+
+  // salles (1) → oeuvres (N)
+  drawLine(edge(tS,'right', 40), edge(tO,'left', 130), gold, '1', 'N');
+
+  // oeuvres (N) ↔ categories (N) via pivot
+  drawLine(edge(tO,'bottom'), edge(tOC,'top'), purple, 'N', null, 'v');
+  drawLine(edge(tC,'right',  30), edge(tOC,'left', 30), purple, 'N', null);
+
+  // utilisateurs (1) → visites_guidees (N)   [guide]
+  drawLine(edge(tU,'bottom'), edge(tV,'top'), gold, '1', 'N', 'v');
+
+  // utilisateurs (1) → reservations (N)
+  drawLine(edge(tU,'right', 50), edge(tR,'left', 60), gold, '1', 'N');
+
+  // visites_guidees (N) ↔ oeuvres (N) via pivot
+  drawLine(edge(tV,'bottom'), edge(tVO,'top'), purple, 'N', null, 'v');
+  drawLine(edge(tO,'right', 160), edge(tVO,'left', 30), purple, 'N', null);
+
+  // visites_guidees (1) → reservations (N)
+  drawLine(edge(tV,'right', 50), edge(tR,'left', 130), blue, '1', 'N');
+});
+</script>
+</body>
+</html>
