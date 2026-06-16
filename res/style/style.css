@@ -19,6 +19,27 @@ body{font-family:var(--sans);background:var(--cream);color:var(--black);overflow
 ::-webkit-scrollbar-thumb{background:var(--terra);}
 ::selection{background:rgba(193,68,14,.25);color:var(--beige-lt);}
 
+@font-face {
+  font-family: 'Relicta-Light';
+  src: url('../assets/fonts/Relicta-Light.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Relicta-UltraboldItalic';
+  src: url('../assets/fonts/Relicta-UltraboldItalic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Zallman';
+  src: url('../assets/fonts/ZallmanRegular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 /* ══ HEADER ══ */
 #main-header{
   position:fixed;top:0;left:0;right:0;z-index:200;
