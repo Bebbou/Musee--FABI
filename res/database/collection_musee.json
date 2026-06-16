@@ -7,7 +7,8 @@
       "date": "1503-1519",
       "musee_actuel": "Musée du Louvre - Paris",
       "descriptif": "Mona Lisa est l'un des portraits les plus célèbres de la Renaissance italienne. Commencée à Florence au début du XVIe siècle et probablement retravaillée par Léonard de Vinci jusqu'à la fin de sa vie, l'œuvre illustre les recherches du peintre sur le sfumato, la psychologie du modèle et l'intégration subtile de la figure dans un paysage atmosphérique. Son histoire muséale est également remarquable : entrée dans les collections royales françaises, puis conservée au Louvre, elle est devenue au XXe siècle un symbole mondial de la peinture occidentale.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg",
+      "mouvement": "Haute Renaissance"
     },
     {
       "id": 2,
@@ -16,7 +17,8 @@
       "date": "1889",
       "musee_actuel": "The Museum of Modern Art - New York",
       "descriptif": "Réalisée en 1889 pendant l'internement volontaire de Vincent van Gogh à Saint-Rémy-de-Provence, La Nuit étoilée traduit moins une observation réaliste du ciel qu'une vision intérieure fortement stylisée. Le village, les cyprès et les astres sont structurés par un mouvement de touches tourbillonnantes qui donne à la composition une intensité expressive exceptionnelle. L'œuvre est aujourd'hui considérée comme une synthèse majeure de la modernité picturale de Van Gogh, entre paysage, émotion et construction symbolique.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg",
+      "mouvement": "Post-impressionnisme"
     },
     {
       "id": 3,
@@ -25,7 +27,8 @@
       "date": "1893",
       "musee_actuel": "National Museum - Oslo",
       "descriptif": "Le Cri appartient à une série de compositions dans lesquelles Edvard Munch explore l'angoisse moderne, la solitude et la fragilité psychique de l'individu. Peinte dans le contexte du symbolisme fin-de-siècle, l'œuvre représente une figure déformée traversée par une tension existentielle, tandis que le paysage lui-même semble vibrer sous l'effet du malaise. Cette image est devenue l'un des emblèmes de l'expressionnisme naissant et de la représentation artistique de l'anxiété contemporaine.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Scream.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Scream.jpg",
+      "mouvement": "Expressionnisme / Symbolisme"
     },
     {
       "id": 4,
@@ -34,7 +37,8 @@
       "date": "vers 1665",
       "musee_actuel": "Mauritshuis - La Haye",
       "descriptif": "La Jeune Fille à la perle est généralement qualifiée de tronie, c'est-à-dire une étude de physionomie ou de caractère, plutôt qu'un portrait identifié. Vermeer y concentre son art sur la lumière, le modelé du visage, le contraste du fond sombre et l'éclat de la perle, élément visuel central de la composition. L'œuvre témoigne de la maîtrise technique de la peinture hollandaise du XVIIe siècle, mais aussi de la capacité de Vermeer à transformer une figure simple en présence silencieuse et énigmatique.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Girl_with_a_Pearl_Earring.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Girl_with_a_Pearl_Earring.jpg",
+      "mouvement": "Baroque / Siècle d'or hollandais"
     },
     {
       "id": 5,
@@ -43,7 +47,8 @@
       "date": "vers 1485",
       "musee_actuel": "Galeries des Offices - Florence",
       "descriptif": "Commandée dans le contexte de la Florence médicéenne, La Naissance de Vénus s'inscrit dans la redécouverte humaniste de l'Antiquité. Botticelli représente la déesse arrivant sur le rivage, selon une iconographie inspirée des textes antiques et de la culture néoplatonicienne. Par son dessin linéaire, son rythme décoratif et son traitement idéalisé du corps, l'œuvre constitue l'un des sommets de la première Renaissance florentine et marque une étape importante dans le retour du nu mythologique dans la peinture occidentale.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Birth_of_Venus_Botticelli.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Birth_of_Venus_Botticelli.jpg",
+      "mouvement": "Renaissance florentine"
     },
     {
       "id": 6,
@@ -52,7 +57,8 @@
       "date": "1656",
       "musee_actuel": "Musée du Prado - Madrid",
       "descriptif": "Les Ménines est une œuvre capitale de la peinture baroque espagnole et de la réflexion sur le statut du peintre. Velázquez y représente l'infante Marguerite entourée de sa suite, tout en se figurant lui-même au travail devant une grande toile. Le jeu complexe des regards, du miroir et de l'espace pictural interroge la relation entre le modèle, le spectateur et la représentation. Conservée au Prado, l'œuvre est souvent analysée comme une méditation magistrale sur la peinture, le pouvoir royal et la mise en scène de la cour.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Las_Meninas,_by_Diego_Vel%C3%A1zquez,_from_Prado_in_Google_Earth.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Las_Meninas,_by_Diego_Vel%C3%A1zquez,_from_Prado_in_Google_Earth.jpg",
+      "mouvement": "Baroque espagnol"
     },
     {
       "id": 7,
@@ -61,7 +67,8 @@
       "date": "1830",
       "musee_actuel": "Musée du Louvre - Paris",
       "descriptif": "Peinte à la suite des Trois Glorieuses de juillet 1830, La Liberté guidant le peuple associe événement historique récent et allégorie politique. Delacroix représente la Liberté sous les traits d'une figure féminine entraînant le peuple parisien au combat, dans une composition dramatique où se mêlent réalisme, idéalisation et énergie romantique. L'œuvre est devenue une image majeure de l'imaginaire républicain français, bien que son sens politique ait été interprété différemment selon les époques.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Eug%C3%A8ne_Delacroix_-_La_libert%C3%A9_guidant_le_peuple.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Eug%C3%A8ne_Delacroix_-_La_libert%C3%A9_guidant_le_peuple.jpg",
+      "mouvement": "Romantisme"
     },
     {
       "id": 8,
@@ -70,7 +77,8 @@
       "date": "1863",
       "musee_actuel": "Musée d'Orsay - Paris",
       "descriptif": "Présenté au Salon des refusés en 1863, Le Déjeuner sur l'herbe provoqua un scandale en raison de la présence d'un nu féminin contemporain au sein d'une scène de plein air avec des hommes habillés. Manet y rompt avec les conventions académiques du nu mythologique et revendique une peinture moderne, frontale et volontairement ambiguë. L'œuvre occupe une place décisive dans l'histoire de la modernité picturale, en annonçant les débats qui accompagneront l'impressionnisme et la peinture indépendante.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/%C3%89douard_Manet_-_Le_D%C3%A9jeuner_sur_l%27herbe.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/%C3%89douard_Manet_-_Le_D%C3%A9jeuner_sur_l%27herbe.jpg",
+      "mouvement": "Modernisme / Réalisme"
     },
     {
       "id": 9,
@@ -79,7 +87,8 @@
       "date": "1872",
       "musee_actuel": "Musée Marmottan Monet - Paris",
       "descriptif": "Impression, soleil levant représente le port du Havre dans une lumière brumeuse, avec une grande économie de moyens et une touche rapide. Exposée en 1874 lors de la première exposition du groupe impressionniste, l'œuvre donna son nom au mouvement après une critique ironique de Louis Leroy. Elle constitue un jalon essentiel de la peinture moderne : le sujet y compte moins que la perception fugitive de la lumière, de l'atmosphère et de la couleur.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Claude_Monet,_Impression,_soleil_levant.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Claude_Monet,_Impression,_soleil_levant.jpg",
+      "mouvement": "Impressionnisme"
     },
     {
       "id": 10,
@@ -88,7 +97,8 @@
       "date": "1888",
       "musee_actuel": "National Gallery - Londres",
       "descriptif": "Les Tournesols appartient à la série réalisée par Van Gogh à Arles en 1888, au moment où l'artiste prépare la Maison jaune pour accueillir Paul Gauguin. Le motif floral, apparemment simple, devient un laboratoire de couleur, de matière et de variation chromatique autour des jaunes. Cette série occupe une place centrale dans l'identité artistique de Van Gogh : elle associe ambition décorative, intensité émotionnelle et affirmation d'une peinture fondée sur l'énergie de la touche.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vincent_Willem_van_Gogh_127.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Vincent_Willem_van_Gogh_127.jpg",
+      "mouvement": "Post-impressionnisme"
     },
     {
       "id": 11,
@@ -97,7 +107,8 @@
       "date": "vers 1831",
       "musee_actuel": "The Metropolitan Museum of Art - New York",
       "descriptif": "La Grande Vague de Kanagawa est la première planche de la série Trente-six vues du mont Fuji. Hokusai y combine la tradition de l'estampe japonaise ukiyo-e, une composition très dynamique et l'usage du bleu de Prusse, pigment alors récemment diffusé au Japon. L'image met en tension la puissance de la mer, la fragilité des embarcations et la permanence du mont Fuji à l'arrière-plan. Sa diffusion internationale a profondément marqué le japonisme et l'art européen du XIXe siècle.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tsunami_by_hokusai_19th_century.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tsunami_by_hokusai_19th_century.jpg",
+      "mouvement": "Ukiyo-e"
     },
     {
       "id": 12,
@@ -106,7 +117,8 @@
       "date": "1930",
       "musee_actuel": "Art Institute of Chicago",
       "descriptif": "American Gothic fut peint par Grant Wood au début de la Grande Dépression et s'impose comme l'une des images les plus identifiables de l'art américain. La composition associe un couple rural frontal, une maison de style néogothique et une austérité volontairement théâtrale. L'œuvre a été interprétée tour à tour comme hommage, satire ou commentaire social sur l'Amérique provinciale. Sa force tient précisément à cette ambiguïté, qui en a fait une icône culturelle largement réappropriée.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Grant_Wood_-_American_Gothic_-_Google_Art_Project.jpg",
+      "mouvement": "Régionalisme américain"
     },
     {
       "id": 13,
@@ -115,7 +127,8 @@
       "date": "1907-1908",
       "musee_actuel": "Österreichische Galerie Belvedere - Vienne",
       "descriptif": "Le Baiser appartient à la période dorée de Gustav Klimt, marquée par l'usage décoratif de l'or, l'influence des arts byzantins et l'esthétique de la Sécession viennoise. Le couple enlacé se détache dans un espace presque abstrait où motifs géométriques, surface précieuse et symbolique érotique se combinent. L'œuvre condense les recherches de Klimt sur l'ornement, le désir et la fusion des corps, tout en demeurant l'un des tableaux les plus célèbres de l'art autrichien.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Kiss_-_Gustav_Klimt_-_Google_Cultural_Institute.jpg",
+      "mouvement": "Art nouveau / Sécession viennoise"
     },
     {
       "id": 14,
@@ -124,7 +137,8 @@
       "date": "1511-1512",
       "musee_actuel": "Chapelle Sixtine - Vatican",
       "descriptif": "La Création d'Adam est l'un des épisodes centraux du plafond de la chapelle Sixtine, commandé à Michel-Ange par le pape Jules II. La fresque représente l'instant précédant la transmission de la vie à Adam, selon une composition d'une grande tension visuelle entre les deux mains presque jointes. Elle illustre la monumentalité du corps humain dans l'art de la Haute Renaissance et la capacité de Michel-Ange à transformer un sujet théologique en image universelle de la création.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Creaci%C3%B3n_de_Ad%C3%A1m.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Creaci%C3%B3n_de_Ad%C3%A1m.jpg",
+      "mouvement": "Haute Renaissance"
     },
     {
       "id": 15,
@@ -133,7 +147,8 @@
       "date": "1818-1819",
       "musee_actuel": "Musée du Louvre - Paris",
       "descriptif": "Le Radeau de la Méduse prend pour sujet un fait divers politique majeur : le naufrage de la frégate Méduse en 1816 et l'abandon d'une partie de son équipage. Géricault mena une enquête approfondie, étudia des cadavres et construisit une composition monumentale où le désespoir collectif est organisé autour d'un mouvement ascendant vers l'espoir. Par son réalisme dramatique et son engagement implicite, l'œuvre marque une rupture avec l'héroïsme néoclassique et annonce la sensibilité romantique.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/JEAN_LOUIS_TH%C3%89ODORE_G%C3%89RICAULT_-_La_Balsa_de_la_Medusa_(Museo_del_Louvre,_1818-19).jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/JEAN_LOUIS_TH%C3%89ODORE_G%C3%89RICAULT_-_La_Balsa_de_la_Medusa_(Museo_del_Louvre,_1818-19).jpg",
+      "mouvement": "Romantisme"
     },
     {
       "id": 16,
@@ -142,7 +157,8 @@
       "date": "vers 1658",
       "musee_actuel": "Rijksmuseum - Amsterdam",
       "descriptif": "La Laitière représente une servante versant du lait dans un intérieur sobre, baigné par une lumière latérale caractéristique de Vermeer. La scène domestique, d'apparence ordinaire, est construite avec une grande précision spatiale et une attention exceptionnelle aux matières : pain, céramique, tissu et mur enduit. L'œuvre témoigne de l'intérêt de la peinture hollandaise du Siècle d'or pour la vie quotidienne, tout en élevant un geste simple au rang d'image méditative.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Johannes_Vermeer_-_Het_melkmeisje_-_Google_Art_Project.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Johannes_Vermeer_-_Het_melkmeisje_-_Google_Art_Project.jpg",
+      "mouvement": "Baroque / Siècle d'or hollandais"
     },
     {
       "id": 17,
@@ -151,7 +167,8 @@
       "date": "1434",
       "musee_actuel": "National Gallery - Londres",
       "descriptif": "Les Époux Arnolfini est un chef-d'œuvre de la peinture flamande du XVe siècle, célèbre pour son rendu minutieux des matières, son miroir convexe et sa densité symbolique. La scène a longtemps été interprétée comme une représentation de mariage ou de contrat social, même si les lectures contemporaines restent nuancées. Par son usage virtuose de la peinture à l'huile et sa précision optique, l'œuvre illustre le raffinement technique et intellectuel des anciens Pays-Bas bourguignons.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Van_Eyck_-_Arnolfini_Portrait.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Van_Eyck_-_Arnolfini_Portrait.jpg",
+      "mouvement": "Primitifs flamands"
     },
     {
       "id": 18,
@@ -160,7 +177,8 @@
       "date": "1784",
       "musee_actuel": "Musée du Louvre - Paris",
       "descriptif": "Le Serment des Horaces fut peint par Jacques-Louis David à Rome peu avant la Révolution française et s'imposa comme un manifeste du néoclassicisme. Inspirée de l'histoire romaine, la scène exalte le devoir civique, le sacrifice familial et la rigueur morale à travers une composition claire, architecturée et volontairement austère. L'œuvre annonce le rôle politique que la peinture d'histoire jouera dans la France de la fin du XVIIIe siècle.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jacques-Louis_David_-_Oath_of_the_Horatii_-_Google_Art_Project.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jacques-Louis_David_-_Oath_of_the_Horatii_-_Google_Art_Project.jpg",
+      "mouvement": "Néoclassicisme"
     },
     {
       "id": 19,
@@ -169,7 +187,8 @@
       "date": "1793",
       "musee_actuel": "Musées royaux des Beaux-Arts de Belgique - Bruxelles",
       "descriptif": "La Mort de Marat fut réalisée quelques mois après l'assassinat du révolutionnaire Jean-Paul Marat par Charlotte Corday. David transforme un événement politique immédiat en image de martyre républicain, réduisant la scène à quelques éléments : le corps, la baignoire, la lettre et la lumière. Par son dépouillement formel et sa puissance de propagande, l'œuvre constitue l'un des exemples les plus saisissants de l'art engagé pendant la Révolution française.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jacques-Louis_David_-_La_Mort_de_Marat.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Jacques-Louis_David_-_La_Mort_de_Marat.jpg",
+      "mouvement": "Néoclassicisme"
     },
     {
       "id": 20,
@@ -178,7 +197,8 @@
       "date": "vers 1490-1500",
       "musee_actuel": "Musée du Prado - Madrid",
       "descriptif": "Le Jardin des délices est un triptyque énigmatique de Jérôme Bosch, souvent interprété comme une méditation morale sur la création, le désir, le péché et la damnation. Sa profusion de figures hybrides, d'architectures fantastiques et de scènes symboliques en fait l'une des œuvres les plus complexes de la fin du Moyen Âge européen. Conservé au Prado, le tableau reste un support privilégié pour étudier l'imaginaire religieux, la satire morale et la richesse visuelle de la peinture nordique.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Garden_of_Earthly_Delights_by_Bosch_High_Resolution.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Garden_of_Earthly_Delights_by_Bosch_High_Resolution.jpg",
+      "mouvement": "Primitifs flamands / Gothique tardif"
     },
     {
       "id": 21,
@@ -187,7 +207,8 @@
       "date": "1942",
       "musee_actuel": "Art Institute of Chicago",
       "descriptif": "Nighthawks est l'œuvre la plus célèbre d'Edward Hopper, peintre américain du réalisme urbain. Elle représente quatre personnages attablés dans un diner illuminé au coin d'une rue new-yorkaise déserte en pleine nuit. L'absence de porte visible, le silence des silhouettes et le contraste brutal entre l'intérieur éclairé et l'extérieur sombre créent une atmosphère de solitude et d'aliénation caractéristique de l'œuvre de Hopper. Peinte peu après l'entrée en guerre des États-Unis, l'image est devenue un symbole de l'Amérique moderne et de l'isolement de l'individu dans la ville.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Nighthawks_by_Edward_Hopper_1942.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Nighthawks_by_Edward_Hopper_1942.jpg",
+      "mouvement": "Réalisme américain"
     },
     {
       "id": 22,
@@ -196,7 +217,8 @@
       "date": "vers 1735",
       "musee_actuel": "Musée du Louvre - Paris",
       "descriptif": "Giovanni Paolo Panini est le maître incontesté du capriccio architectural et de la représentation de l'Antiquité romaine. Ses compositions de temples antiques assemblent ruines, colonnes et figures dans des paysages idéalisés qui répondent au goût du Grand Tour européen. Ces œuvres témoignent de la fascination du XVIIIe siècle pour Rome, à la fois comme lieu de mémoire et comme source d'inspiration esthétique. Panini a profondément influencé la tradition du paysage architectural classique en Europe.",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Attribu201_192_jean_barbault_paysage_au_temple_antique_d6394975123108%29.jpg"
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Attribu201_192_jean_barbault_paysage_au_temple_antique_d6394975123108%29.jpg",
+      "mouvement": "Baroque / Vedutisme"
     },
     {
       "id": 23,
@@ -205,7 +227,8 @@
       "date": "vers 1818",
       "musee_actuel": "Hamburger Kunsthalle - Hambourg",
       "descriptif": "Der Wanderer über dem Nebelmeer est l'une des œuvres emblématiques du romantisme allemand. Un homme de dos, debout sur un rocher, contemple un paysage montagneux enveloppé de brumes et de nuages. La figure solitaire de dos — procédé récurrent chez Friedrich — invite le spectateur à s'identifier à ce regard perdu dans l'infini, entre sublime naturel et introspection mélancolique. L'œuvre condense les aspirations romantiques : la primauté de l'émotion, la spiritualité du paysage et la confrontation de l'individu à l'immensité du monde.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg",
+      "mouvement": "Romantisme allemand"
     },
     {
       "id": 24,
@@ -214,7 +237,8 @@
       "date": "1895",
       "musee_actuel": "Musée d'Orsay - Paris",
       "descriptif": "La Mort et le Fossoyeur est une œuvre majeure du symbolisme fin-de-siècle, réalisée par le peintre suisse Carlos Schwabe. Elle représente la Mort sous les traits d'un ange ailé aux ailes de neige, tenant fermement le vieux fossoyeur qui s'effondre. La composition associe la délicatesse décorative du style Art nouveau à une iconographie de la mort à la fois sereine et inexorable. Le contraste entre la blancheur de la Mort et la misère terrestre du vieil homme évoque une méditation poétique sur la condition humaine et le passage vers l'au-delà.",
-      "image_url": "https://cdn.mediatheque.epmoo.fr/link/3c9igq/hna1buttunfxpq8.jpg"
+      "image_url": "https://cdn.mediatheque.epmoo.fr/link/3c9igq/hna1buttunfxpq8.jpg",
+      "mouvement": "Symbolisme / Art nouveau"
     },
     {
       "id": 25,
@@ -223,7 +247,8 @@
       "date": "1883",
       "musee_actuel": "Alte Nationalgalerie - Berlin",
       "descriptif": "L'Île des morts est la plus célèbre des cinq versions peintes par Arnold Böcklin entre 1880 et 1886. Elle représente une île rocheuse aux cyprès noirs entourée d'une mer calme, vers laquelle une barque transporte un cercueil accompagné d'une figure blanche — image de Charon et du voyage des âmes. La composition silencieuse et monumentale, entre symbolisme et vision onirique, a exercé une fascination considérable sur les artistes et les écrivains de la fin du XIXe siècle. Böcklin refusa toujours d'en dévoiler la signification précise.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Arnold_B%C3%B6cklin_-_Die_Toteninsel_III_(Alte_Nationalgalerie,_Berlin).jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Arnold_B%C3%B6cklin_-_Die_Toteninsel_III_(Alte_Nationalgalerie,_Berlin).jpg",
+      "mouvement": "Symbolisme"
     },
     {
       "id": 26,
@@ -232,7 +257,8 @@
       "date": "1835",
       "musee_actuel": "Cleveland Museum of Art - Cleveland",
       "descriptif": "Turner assista en personne à l'incendie du Parlement de Westminster en octobre 1834 et réalisa deux grandes toiles de l'événement. Celle du Cleveland Museum of Art, peinte en 1835, dissout le bâtiment en flammes dans un tourbillon de lumières orangées se reflétant sur la Tamise. Turner y pousse à l'extrême sa technique du vortex lumineux, faisant du désastre architectural une expérience quasi abstraite de couleur et de feu. Cette œuvre annonce le tournant le plus radical de son art vers la dissolution des formes dans la lumière.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:The_Burning_of_the_Houses_of_Parliament_-_Google_Art_Project.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:The_Burning_of_the_Houses_of_Parliament_-_Google_Art_Project.jpg",
+      "mouvement": "Romantisme"
     },
     {
       "id": 27,
@@ -241,7 +267,8 @@
       "date": "1855",
       "musee_actuel": "Musée d'Orsay - Paris",
       "descriptif": "Johan Barthold Jongkind, peintre néerlando-français considéré comme un précurseur de l'impressionnisme, excelle dans la représentation de l'atmosphère lumineuse des paysages hollandais au crépuscule. Sunset Near Overschie illustre sa sensibilité particulière aux effets de lumière rasante sur les eaux et les ciels nuageux des Pays-Bas. Sa touche libre et sa palette lumineuse ont directement influencé Monet, qui le reconnaissait comme l'un de ses maîtres. L'œuvre témoigne du passage entre la peinture de paysage romantique et la modernité impressionniste.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Johan_Barthold_Jongkind_008.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Johan_Barthold_Jongkind_008.jpg",
+      "mouvement": "Précurseur de l'impressionnisme"
     },
     {
       "id": 28,
@@ -250,7 +277,8 @@
       "date": "1885",
       "musee_actuel": "Museum of Fine Arts - Boston",
       "descriptif": "The Fog Warning est l'une des œuvres majeures de Winslow Homer consacrées à la vie des pêcheurs de la côte atlantique. Elle représente un pêcheur seul dans une doris, avec deux flétans à bord, scrutant l'horizon où le brouillard menace de couper le chemin du retour vers le bateau-mère. La mer grise et houleuse, l'isolement de l'homme face aux éléments et l'imminence du danger confèrent à la scène une intensité dramatique retenue. Homer y exprime la dignité des travailleurs de la mer confrontés aux forces de la nature.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Winslow_Homer_-_The_Fog_Warning_-_Google_Art_Project.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Winslow_Homer_-_The_Fog_Warning_-_Google_Art_Project.jpg",
+      "mouvement": "Réalisme américain"
     },
     {
       "id": 29,
@@ -259,7 +287,8 @@
       "date": "1928",
       "musee_actuel": "Museum of Modern Art - New York",
       "descriptif": "Les Amants de René Magritte représente deux personnages qui s'embrassent, la tête enveloppée chacun dans un tissu blanc opaque. Ce voile, qui empêche tout contact réel entre les deux visages, transforme l'acte du baiser en geste aveugle et impossible. Magritte interroge ainsi les thèmes de la communication, du désir et de l'identité cachée, fondamentaux dans son œuvre surréaliste. Le tableau a été associé à la mort traumatisante de sa mère, retrouvée noyée la tête couverte de sa chemise de nuit.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rene_Magritte_-_The_Lovers_-_1928.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rene_Magritte_-_The_Lovers_-_1928.jpg",
+      "mouvement": "Surréalisme"
     },
     {
       "id": 30,
@@ -268,7 +297,8 @@
       "date": "1937",
       "musee_actuel": "Museo Reina Sofía - Madrid",
       "descriptif": "Guernica fut réalisée par Picasso en réponse au bombardement de la ville basque de Guernica par l'aviation nazie et fasciste en avril 1937. Grande composition en gris, noir et blanc, l'œuvre condense les figures du taureau, du cheval blessé, de la femme au bébé mort et des corps éclatés en un cri d'horreur contre la guerre. Exposée pendant des années à New York comme symbole de résistance, elle revint en Espagne après la mort de Franco. Guernica est aujourd'hui l'œuvre anti-guerre la plus universellement connue du XXe siècle.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Guernica_reproduction_on_tiled_wall,_Guernica,_Spain_(PPL3-Altered)_julesvernex2.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Guernica_reproduction_on_tiled_wall,_Guernica,_Spain_(PPL3-Altered)_julesvernex2.jpg",
+      "mouvement": "Cubisme / Art engagé"
     },
     {
       "id": 31,
@@ -277,7 +307,8 @@
       "date": "1907",
       "musee_actuel": "Museum of Modern Art - New York",
       "descriptif": "Les Demoiselles d'Avignon est considérée comme l'œuvre fondatrice du cubisme et l'un des tournants décisifs de l'histoire de l'art moderne. Picasso y représente cinq figures féminines aux corps fragmentés, combinant influences de l'art ibérique et des masques africains. La rupture avec la perspective traditionnelle, la déformation des corps et la confrontation directe du regard des personnages avec le spectateur font de cette toile une provocation formelle radicale. L'œuvre, d'abord tenue secrète, fut révélée au public en 1916 et changea durablement les conventions de la représentation.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Les_Demoiselles_d'Avignon_(7925004644).jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Les_Demoiselles_d'Avignon_(7925004644).jpg",
+      "mouvement": "Cubisme"
     },
     {
       "id": 32,
@@ -286,7 +317,8 @@
       "date": "1929",
       "musee_actuel": "Museo Reina Sofía - Madrid",
       "descriptif": "Le Grand Masturbateur est une œuvre clé de la période surréaliste de Salvador Dalí, réalisée l'année de sa rencontre avec Gala. La composition est dominée par une forme molle et organique inspirée d'un rocher du Cap de Creus, surmontée d'un visage aux yeux clos aux longs cils. De cette forme émergent des figures érotiques, des insectes et des éléments biomorphiques qui peuplent un paysage onirique. L'œuvre traduit les angoisses et les désirs de Dalí, sa fascination pour la psychanalyse freudienne et son rapport trouble à la sexualité.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/El_gran_masturbador.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/El_gran_masturbador.jpg",
+      "mouvement": "Surréalisme"
     },
     {
       "id": 33,
@@ -295,7 +327,8 @@
       "date": "1931",
       "musee_actuel": "Museum of Modern Art - New York",
       "descriptif": "La Persistance de la mémoire est la toile la plus célèbre de Salvador Dalí et l'une des images emblématiques du surréalisme. Ses montres molles et fondantes, disposées sur un paysage désolé qui rappelle la côte de Catalogne, remettent en question la rigidité du temps et la réalité de la perception. Dalí affirma avoir eu l'idée en contemplant un camembert fondant. L'œuvre illustre la méthode paranoïaque-critique qu'il développait alors, consistant à projeter des visions irrationnelles dans des représentations peintes avec une précision photographique.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Dargenta_&_Salvador_Dali_The_persistance_of_Memory.png"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Dargenta_&_Salvador_Dali_The_persistance_of_Memory.png",
+      "mouvement": "Surréalisme"
     },
     {
       "id": 34,
@@ -304,7 +337,8 @@
       "date": "1951",
       "musee_actuel": "Musée national Picasso - Paris",
       "descriptif": "Massacre en Corée fut peint par Picasso en janvier 1951 en réponse aux violences commises lors de la guerre de Corée, notamment les massacres de civils. La composition en deux groupes — soldats mécaniques armés d'un côté, femmes et enfants nus de l'autre — s'inspire explicitement du Tres de Mayo de Goya et des Fusillades de la princesse d'Asturies de Manet. L'œuvre, ouvertement politique et militante, fut diversement accueillie, mais incarne l'engagement de Picasso contre la guerre et les violences impérialistes.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pablo_Picasso,_1951_-_Massacre_in_Korea.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pablo_Picasso,_1951_-_Massacre_in_Korea.jpg",
+      "mouvement": "Cubisme / Art engagé"
     },
     {
       "id": 35,
@@ -313,7 +347,8 @@
       "date": "1964",
       "musee_actuel": "Collection privée",
       "descriptif": "Le Fils de l'homme est l'un des autoportraits les plus connus de René Magritte, dans lequel le peintre se représente en homme au chapeau melon dont le visage est masqué par une pomme verte flottant devant lui. L'œuvre joue sur le désir de voir ce qui est caché par ce qui est visible, thème central de la réflexion surréaliste de Magritte sur la représentation et le mystère de l'identité. Magritte a décrit lui-même l'œuvre comme une illustration du conflit entre ce qui est visible et ce qui est dissimulé.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Son_of_Man.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Son_of_Man.jpg",
+      "mouvement": "Surréalisme"
     },
     {
       "id": 36,
@@ -322,7 +357,8 @@
       "date": "1953",
       "musee_actuel": "The Menil Collection - Houston",
       "descriptif": "Golconde représente une pluie d'hommes en manteau et chapeau melon tombant — ou montant — sur fond de façades bourgeoises belges. Cette répétition sérielle de la figure masculine anonyme, emblème de Magritte lui-même, interroge la notion de singularité dans la masse, d'individualité et d'invisibilité sociale. Le titre renvoie à Golconde, ancienne ville de l'Inde réputée pour ses richesses, laissant entendre une ironie sur l'abondance d'hommes interchangeables. L'œuvre est l'une des plus célèbres du surréalisme belge.",
-      "image_url": "https://images.masterworksfineart.com/magritte4862.jpg?ref=block"
+      "image_url": "https://images.masterworksfineart.com/magritte4862.jpg?ref=block",
+      "mouvement": "Surréalisme"
     },
     {
       "id": 37,
@@ -331,7 +367,8 @@
       "date": "1814",
       "musee_actuel": "Musée du Prado - Madrid",
       "descriptif": "Le Tres de Mayo 1808 fut peint par Goya six ans après les événements pour commémorer les résistants madrilènes fusillés par les troupes napoléoniennes. La composition oppose la masse mécanique et anonyme des soldats aux civils espagnols regroupés, au centre desquels un homme en blanc aux bras levés incarne à la fois la victime et le martyr. Par son réalisme brutal et son refus de toute gloire héroïque, l'œuvre bouleverse les conventions de la peinture d'histoire et influence directement Manet et Picasso. C'est l'un des premiers grands tableaux politiques de la peinture moderne.",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/El_tres_de_mayo_de_1808_en_Madrid.jpg"
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/El_tres_de_mayo_de_1808_en_Madrid.jpg",
+      "mouvement": "Romantisme / Réalisme"
     },
     {
       "id": 38,
@@ -340,7 +377,8 @@
       "date": "1929",
       "musee_actuel": "Los Angeles County Museum of Art - Los Angeles",
       "descriptif": "La Trahison des images, connue sous le titre Ceci n'est pas une pipe, est l'œuvre la plus célèbre de René Magritte sur le rapport entre les mots, les images et la réalité. Sous la représentation peinte d'une pipe, l'inscription « Ceci n'est pas une pipe » rappelle que l'image d'une chose n'est pas la chose elle-même. Cette réflexion sur la nature du signe pictural et du langage a été théorisée par Michel Foucault dans un essai célèbre. L'œuvre demeure l'une des plus puissantes illustrations philosophiques produites par le surréalisme.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Ceci_n'est_pas_une_pipe_graffiti_in_Bucharest.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Ceci_n'est_pas_une_pipe_graffiti_in_Bucharest.jpg",
+      "mouvement": "Surréalisme"
     },
     {
       "id": 39,
@@ -349,7 +387,8 @@
       "date": "1962",
       "musee_actuel": "Museum of Modern Art - New York",
       "descriptif": "Campbell's Soup Cans est l'œuvre qui lança la notoriété d'Andy Warhol et devint un manifeste du Pop Art américain. La série de 32 toiles représente chacune une variété différente de soupe en boîte Campbell, reproduite avec une précision quasi mécanique qui efface toute trace de geste artistique. En choisissant un produit de grande consommation comme sujet pictural, Warhol interroge la valeur de l'art, la culture de masse et la société américaine de l'abondance. L'œuvre renverse les hiérarchies artistiques traditionnelles en élevant l'objet banal au rang d'icône.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Campbell's_Soup_Cans_by_Andy_Warhol.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Campbell's_Soup_Cans_by_Andy_Warhol.jpg",
+      "mouvement": "Pop Art"
     },
     {
       "id": 40,
@@ -358,7 +397,8 @@
       "date": "1962",
       "musee_actuel": "Tate Modern - Londres",
       "descriptif": "Le Diptyque Marilyn fut réalisé par Andy Warhol peu après la mort de Marilyn Monroe en août 1962. Il associe 50 images sérigraphiées du visage de l'actrice, en couleurs vives d'un côté et en noir et blanc de l'autre, évoquant la dégradation progressive de l'image et de l'idole. Warhol transforme le portrait d'une star en icône sacrée et commentaire sur la célébrité, la mort et la reproductibilité à l'ère des médias de masse. La référence au format du diptyque religieux n'est pas fortuite.",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Monroe_in_Niagara_%281953_publicity_photo%29.jpg"
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Monroe_in_Niagara_%281953_publicity_photo%29.jpg",
+      "mouvement": "Pop Art"
     },
     {
       "id": 41,
@@ -367,7 +407,8 @@
       "date": "1963",
       "musee_actuel": "Collection privée",
       "descriptif": "Eight Elvises est l'une des grandes sérigraphies d'Andy Warhol consacrées à la figure d'Elvis Presley, roi du rock'n'roll devenu icône de la culture populaire américaine. La répétition en série de la même image d'Elvis en cow-boy dégainé, sur fond argenté, démultiplie la star jusqu'à l'abstraction. L'effet de sérigraphie décalée, avec ses zones floues et ses écarts chromatiques, traduit la dissolution de l'individu dans sa propre image médiatique. L'œuvre est l'une des plus précieuses du marché de l'art contemporain.",
-      "image_url": "https://upload.wikimedia.org/wikipedia/en/b/be/Eight_Elvises.jpg"
+      "image_url": "https://upload.wikimedia.org/wikipedia/en/b/be/Eight_Elvises.jpg",
+      "mouvement": "Pop Art"
     },
     {
       "id": 42,
@@ -376,7 +417,8 @@
       "date": "1932",
       "musee_actuel": "Collection privée",
       "descriptif": "Femme assise près d'une fenêtre appartient à la série de portraits de Marie-Thérèse Walter que Picasso réalisa en 1932, considérée comme l'un des sommets de son œuvre. Les formes rondes, les couleurs vives et l'atmosphère lumineuse de ces toiles reflètent la passion de Picasso pour sa jeune maîtresse, qu'il représente dans une plénitude sensuelle et presque sculpturale. La synthèse entre cubisme et classicisme, le traitement du visage vu de face et de profil simultanément et la richesse chromatique font de ces portraits des chefs-d'œuvre de la modernité.",
-      "image_url": "https://press.christies.com/wp-content/uploads/2023/09/7e938c03495a0b2ce93f56770888bb49-2000x2600.jpg"
+      "image_url": "https://press.christies.com/wp-content/uploads/2023/09/7e938c03495a0b2ce93f56770888bb49-2000x2600.jpg",
+      "mouvement": "Cubisme"
     },
     {
       "id": 43,
@@ -385,7 +427,8 @@
       "date": "1889",
       "musee_actuel": "The Courtauld Gallery - Londres",
       "descriptif": "L'Autoportrait à l'oreille bandée fut peint par Van Gogh quelques semaines après l'épisode au cours duquel il se trancha le lobe de l'oreille gauche, en décembre 1888 à Arles, suite à une violente dispute avec Paul Gauguin. Le peintre se représente de face, bonnet de fourrure sur la tête, oreille gauche bandée, cigarette à la bouche, devant une toile et un tissu japonais. Le regard calme et déterminé contraste avec la violence récente de l'incident. C'est l'un des autoportraits les plus poignants et les plus connus de l'histoire de l'art.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Vincent_van_Gogh,_Autoportrait_à_l'oreille_bandée.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Vincent_van_Gogh,_Autoportrait_à_l'oreille_bandée.jpg",
+      "mouvement": "Post-impressionnisme"
     },
     {
       "id": 44,
@@ -394,7 +437,8 @@
       "date": "1888",
       "musee_actuel": "Kröller-Müller Museum - Otterlo",
       "descriptif": "Terrasse du café le soir représente la terrasse du café qui se trouvait place du Forum à Arles, illuminée la nuit sous un ciel étoilé. Peinte en septembre 1888, l'œuvre est remarquable par l'absence de noir : Van Gogh obtient la nuit par la seule opposition des jaunes intenses de la lumière artificielle et du bleu profond du ciel. C'est la première toile dans laquelle il intègre les étoiles directement dans la composition. Elle annonce La Nuit étoilée et illustre la recherche de Van Gogh sur la peinture nocturne en couleurs.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Vincent-van-gogh-cafe-terrace-on-the-place-du-forum-arles-at-night-the.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Vincent-van-gogh-cafe-terrace-on-the-place-du-forum-arles-at-night-the.jpg",
+      "mouvement": "Post-impressionnisme"
     },
     {
       "id": 45,
@@ -403,16 +447,18 @@
       "date": "1890",
       "musee_actuel": "Van Gogh Museum - Amsterdam",
       "descriptif": "Champ de blé aux corbeaux est l'une des dernières toiles peintes par Van Gogh à Auvers-sur-Oise, quelques semaines avant sa mort. Un ciel d'orage violacé s'ouvre sur un champ de blé agité, tandis qu'un vol de corbeaux noirs traverse la composition dans un mouvement menaçant. Les trois chemins qui s'enfoncent dans le tableau ne mènent nulle part, accentuant le sentiment d'angoisse et d'impasse. Longtemps considérée comme le dernier tableau de Van Gogh, l'œuvre reste une image bouleversante de son état d'esprit final.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Korenveld_met_kraaien_-_s0149V1962_-_Van_Gogh_Museum.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Korenveld_met_kraaien_-_s0149V1962_-_Van_Gogh_Museum.jpg",
+      "mouvement": "Post-impressionnisme"
     },
     {
       "id": 46,
       "nom_tableau": "La Chambre à Arles",
-      "auteur": "Vincent van Gogh", 
+      "auteur": "Vincent van Gogh",
       "date": "1888",
       "musee_actuel": "Van Gogh Museum - Amsterdam",
       "descriptif": "La Chambre à Arles représente la chambre à coucher de Van Gogh dans la Maison Jaune d'Arles, qu'il occupa de mai 1888 à mai 1889. Van Gogh réalisa trois versions de cette composition, destinées à donner l'impression de repos et de sommeil. La perspective volontairement faussée, les couleurs vives des murs bleus, du lit orangé et du sol vert, et la simplicité des objets traduisent à la fois son aspiration à la sérénité et la tension que dissimule cet intérieur apparemment paisible. C'est l'une des œuvres les plus aimées et les plus reproduites de Van Gogh.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:La_Chambre_à_Arles,_by_Vincent_van_Gogh,_from_C2RMF.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:La_Chambre_à_Arles,_by_Vincent_van_Gogh,_from_C2RMF.jpg",
+      "mouvement": "Post-impressionnisme"
     },
     {
       "id": 47,
@@ -421,7 +467,8 @@
       "date": "1876",
       "musee_actuel": "Musée d'Orsay - Paris",
       "descriptif": "Bal du moulin de la Galette est considéré comme l'un des chefs-d'œuvre de l'impressionnisme et de la peinture française du XIXe siècle. Renoir y représente une foule de Parisiens réunis un dimanche après-midi dans le célèbre bal de Montmartre, sous une lumière tachetée de soleil et d'ombre filtrée par les feuillages. La composition vibrante, l'atmosphère festive et la fluidité des silhouettes font de ce tableau une célébration de la vie moderne et populaire. La toile fut exposée à la troisième exposition impressionniste en 1877.",
-      "image_url": " https://commons.wikimedia.org/wiki/Special:FilePath/Pierre-Auguste_Renoir_-_Bal_du_moulin_de_la_Galette.jpg"
+      "image_url": " https://commons.wikimedia.org/wiki/Special:FilePath/Pierre-Auguste_Renoir_-_Bal_du_moulin_de_la_Galette.jpg",
+      "mouvement": "Impressionnisme"
     },
     {
       "id": 48,
@@ -430,7 +477,8 @@
       "date": "1877",
       "musee_actuel": "Art Institute of Chicago",
       "descriptif": "Paris Street, Rainy Day est le tableau le plus célèbre de Gustave Caillebotte et l'une des représentations les plus marquantes du Paris haussmannien. La composition montre un carrefour parisien sous la pluie, peuplé de bourgeois aux parapluies, avec une rigueur de cadrage et une perspective presque photographique. Caillebotte intègre les codes de l'impressionnisme tout en maintenant une précision réaliste qui lui est propre. L'œuvre capte le caractère moderne, anonyme et fluide de la vie urbaine dans la capitale rénovée par le baron Haussmann.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gustave_Caillebotte_-_Paris_Street%3B_Rainy_Day_-_Google_Art_Project.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gustave_Caillebotte_-_Paris_Street%3B_Rainy_Day_-_Google_Art_Project.jpg",
+      "mouvement": "Impressionnisme"
     },
     {
       "id": 49,
@@ -439,7 +487,8 @@
       "date": "1881",
       "musee_actuel": "The Phillips Collection - Washington D.C.",
       "descriptif": "Le Déjeuner des canotiers représente un groupe d'amis de Renoir attablés sur la terrasse de la Maison Fournaise à Chatou, au bord de la Seine. La lumière qui filtre à travers la treille, les visages animés, les verres et les fruits sur la table composent un hymne à la convivialité et aux plaisirs de la vie moderne. Parmi les personnages figurent plusieurs proches du peintre, dont Aline Charigot, sa future femme. Cette toile joyeuse et solaire est souvent considérée comme l'une des dernières grandes compositions impressionnistes de Renoir avant son virage vers un classicisme plus sévère.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pierre-Auguste_Renoir_-_Luncheon_of_the_Boating_Party_-_Google_Art_Project.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Pierre-Auguste_Renoir_-_Luncheon_of_the_Boating_Party_-_Google_Art_Project.jpg",
+      "mouvement": "Impressionnisme"
     },
     {
       "id": 50,
@@ -448,7 +497,8 @@
       "date": "1992",
       "musee_actuel": "Collection privée",
       "descriptif": "The Singing Butler est la peinture la plus célèbre du peintre écossais Jack Vettriano et l'une des images les plus reproduites de la peinture britannique contemporaine. Elle représente un couple élégant dansant sur une plage balayée par le vent, sous la surveillance souriante d'un majordome tenant un parapluie et d'une domestique. L'ambiance rétro, la romantisme discret et l'élégance mélancolique du tableau en ont fait un phénomène de culture populaire au Royaume-Uni. Vettriano, autodidacte, reste une figure atypique dans le paysage de l'art contemporain.",
-      "image_url": "https://upload.wikimedia.org/wikipedia/en/d/dc/Vettriano%2C_Singing_Butler.jpg"
+      "image_url": "https://upload.wikimedia.org/wikipedia/en/d/dc/Vettriano%2C_Singing_Butler.jpg",
+      "mouvement": "Réalisme contemporain"
     },
     {
       "id": 51,
@@ -457,7 +507,8 @@
       "date": "1877",
       "musee_actuel": "Musée d'Orsay - Paris",
       "descriptif": "La Gare Saint-Lazare est l'une des séries les plus ambitieuses de Monet, qui s'installa en 1877 dans la gare parisienne pour en peindre douze toiles différentes. Il y capture la vapeur des locomotives, la lumière filtrée par la verrière et l'animation des quais dans une palette de gris, de bleus et de roses. Cette série marque une étape décisive dans la méthode sérielle de Monet, qui cherche à saisir les variations d'un même motif sous différentes conditions lumineuses — méthode qu'il développera avec les Meules, les Cathédrales de Rouen et les Nymphéas.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Claude_Monet_-_The_Saint-Lazare_Station_-_Google_Art_Project.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Claude_Monet_-_The_Saint-Lazare_Station_-_Google_Art_Project.jpg",
+      "mouvement": "Impressionnisme"
     },
     {
       "id": 52,
@@ -466,7 +517,8 @@
       "date": "1913",
       "musee_actuel": "Œuvre disparue (anciennement Nationalgalerie - Berlin)",
       "descriptif": "La Tour des chevaux bleus est l'une des œuvres majeures de l'expressionnisme allemand et du groupe Der Blaue Reiter (Le Cavalier bleu), co-fondé par Franz Marc et Wassily Kandinsky. Elle représente quatre chevaux bleus dressés en colonne, dont les corps se fondent et s'entrelacent dans un paysage aux couleurs saturées. Pour Marc, le bleu symbolisait la spiritualité masculine et la profondeur ; le cheval incarnait la pureté et la beauté primordiale. L'œuvre fut saisie par les nazis en 1937 comme art dégénéré et a depuis disparu.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:The_Tower_of_Blue_Horses_Franz_Marc.jpeg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:The_Tower_of_Blue_Horses_Franz_Marc.jpeg",
+      "mouvement": "Expressionnisme allemand"
     },
     {
       "id": 53,
@@ -475,7 +527,8 @@
       "date": "1873",
       "musee_actuel": "Musée d'Orsay - Paris",
       "descriptif": "Les Coquelicots est l'une des œuvres les plus populaires de Claude Monet et de l'impressionnisme. Elle représente sa femme Camille et son fils Jean dans un champ de coquelicots rouges près d'Argenteuil, sous un ciel d'été lumineux. La composition en diagonale, les taches rouges des fleurs et la légèreté de la touche impressionniste donnent à l'œuvre une vivacité et une fraîcheur exceptionnelles. Présentée à la première exposition impressionniste de 1874, elle incarne parfaitement les ambitions du groupe : capter le moment fugitif, la lumière naturelle et la vie moderne.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Claude_Monet_-_Poppy_Field_-_Google_Art_Project.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/File:Claude_Monet_-_Poppy_Field_-_Google_Art_Project.jpg",
+      "mouvement": "Impressionnisme"
     },
     {
       "id": 54,
@@ -484,7 +537,8 @@
       "date": "1633",
       "musee_actuel": "Œuvre volée (anciennement Isabella Stewart Gardner Museum - Boston)",
       "descriptif": "Le Christ dans la tempête sur la mer de Galilée est la seule peinture de marine connue de Rembrandt, et l'une des œuvres les plus célèbres de sa carrière. Elle représente l'épisode évangélique où le Christ calme la tempête qui menace de couler la barque des disciples. La composition dramatique, avec la mer déchaînée, les figures en lutte contre les éléments et la lumière surnaturelle qui émane du Christ, illustre la maîtrise baroque de Rembrandt. L'œuvre fut volée en 1990 lors du plus grand cambriolage d'art de l'histoire et n'a jamais été retrouvée.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rembrandt_Christ_in_the_Storm_on_the_Lake_of_Galilee.jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Rembrandt_Christ_in_the_Storm_on_the_Lake_of_Galilee.jpg",
+      "mouvement": "Baroque / Siècle d'or hollandais"
     },
     {
       "id": 55,
@@ -493,8 +547,499 @@
       "date": "1820-1823",
       "musee_actuel": "Musée du Prado - Madrid",
       "descriptif": "Saturne dévorant un de ses fils appartient aux Peintures noires, ensemble de fresques que Goya réalisa directement sur les murs de sa maison — la Quinta del Sordo — entre 1819 et 1823, à la fin de sa vie. L'image monumentale et terrifiante du dieu dévorant son enfant, les yeux écarquillés dans un regard de folie, est traitée avec une violence et une liberté formelle sans précédent dans la peinture occidentale. Goya y exprime ses hantises les plus intimes, sa vision de la brutalité du pouvoir et son angoisse devant la mort. L'œuvre est considérée comme l'un des précurseurs de l'expressionnisme et de l'art moderne.",
-      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Francisco_de_Goya,_Saturno_devorando_a_su_hijo_(1819-1823).jpg"
+      "image_url": "https://commons.wikimedia.org/wiki/Special:FilePath/Francisco_de_Goya,_Saturno_devorando_a_su_hijo_(1819-1823).jpg",
+      "mouvement": "Romantisme / Précurseur de l'expressionnisme"
+    },
+    {
+      "id": 56,
+      "nom_tableau": "La Cène",
+      "auteur": "Léonard de Vinci",
+      "date": "1495-1498",
+      "musee_actuel": "Santa Maria delle Grazie - Milan",
+      "mouvement": "Haute Renaissance",
+      "descriptif": "Fresque monumentale représentant le dernier repas du Christ avec ses apôtres, au moment où Jésus annonce sa trahison. Léonard innove avec la perspective centrale et les groupes de trois apôtres saisis dans un instant de stupeur. Chef-d'œuvre absolu de la Haute Renaissance.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg/500px-The_Last_Supper_-_Leonardo_Da_Vinci_-_High_Resolution_32x16.jpg"
+    },
+    {
+      "id": 57,
+      "nom_tableau": "La Tempête",
+      "auteur": "Giorgione",
+      "date": "vers 1508",
+      "musee_actuel": "Gallerie dell'Accademia - Venise",
+      "mouvement": "Renaissance vénitienne",
+      "descriptif": "L'œuvre la plus énigmatique de la peinture vénitienne. Un soldat, une femme allaitant, un éclair dans le ciel. Giorgione invente le tableau de 'poésie' où l'atmosphère prime sur le récit. Aucun sujet n'a jamais été clairement identifié.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Giorgione,_The_tempest.jpg/500px-Giorgione,_The_tempest.jpg"
+    },
+    {
+      "id": 58,
+      "nom_tableau": "La Vénus d'Urbino",
+      "auteur": "Titien",
+      "date": "1538",
+      "musee_actuel": "Galeries des Offices - Florence",
+      "mouvement": "Renaissance vénitienne",
+      "descriptif": "Nu féminin allongé dans un intérieur aristocratique, regardant le spectateur. Modèle direct de l'Olympia de Manet, ce tableau illustre la maîtrise chromatique de Titien et le nouveau rapport au corps dans la peinture vénitienne de la Renaissance.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tiziano_-_Venere_di_Urbino_-_Google_Art_Project.jpg/500px-Tiziano_-_Venere_di_Urbino_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 59,
+      "nom_tableau": "Les Ambassadeurs",
+      "auteur": "Hans Holbein le Jeune",
+      "date": "1533",
+      "musee_actuel": "National Gallery - Londres",
+      "mouvement": "Renaissance nordique",
+      "descriptif": "Double portrait de deux diplomates français entourés d'instruments scientifiques. L'œuvre cache une anamorphose célèbre : une forme oblongue au sol révèle un crâne humain vu de côté, memento mori parmi les plus sophistiqués de la Renaissance.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Hans_Holbein_the_Younger_-_The_Ambassadors_-_Google_Art_Project.jpg/500px-Hans_Holbein_the_Younger_-_The_Ambassadors_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 60,
+      "nom_tableau": "Le Printemps",
+      "auteur": "Sandro Botticelli",
+      "date": "vers 1482",
+      "musee_actuel": "Galeries des Offices - Florence",
+      "mouvement": "Renaissance florentine",
+      "descriptif": "Grande allégorie néoplatonicienne représentant Vénus, les Trois Grâces, Mercure et Flora dans un verger de myrtes. Programme intellectuel élaboré avec Marsile Ficin, méditation sur l'amour et la beauté dans le cercle médicéen.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Sandro_Botticelli_-_La_Primavera_-_Google_Art_Project.jpg/500px-Sandro_Botticelli_-_La_Primavera_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 61,
+      "nom_tableau": "L'École d'Athènes",
+      "auteur": "Raphaël",
+      "date": "1509-1511",
+      "musee_actuel": "Palais apostolique - Vatican",
+      "mouvement": "Haute Renaissance",
+      "descriptif": "Fresque commandée par Jules II rassemblant les grands philosophes de l'Antiquité — Platon, Aristote, Socrate, Pythagore — dans un espace architectural idéal. Synthèse entre pensée antique et humanisme de la Haute Renaissance.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Raphael_School_of_Athens.jpg/500px-Raphael_School_of_Athens.jpg"
+    },
+    {
+      "id": 62,
+      "nom_tableau": "Autoportrait de Raphaël",
+      "auteur": "Raphaël",
+      "date": "vers 1506",
+      "musee_actuel": "Galeries des Offices - Florence",
+      "mouvement": "Haute Renaissance",
+      "descriptif": "Autoportrait du maître peint vers ses vingt-trois ans. Le fond sombre et le regard direct composent une image de maîtrise qui influencera le portrait de la Renaissance jusqu'au XVIIe siècle.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/57/Raffael.jpeg"
+    },
+    {
+      "id": 63,
+      "nom_tableau": "Judith décapitant Holopherne",
+      "auteur": "Artemisia Gentileschi",
+      "date": "1614-1620",
+      "musee_actuel": "Galeries des Offices - Florence",
+      "mouvement": "Baroque",
+      "descriptif": "Version la plus célèbre du thème, peinte avec une violence et une résolution sans précédent. Judith et sa servante décapitent Holopherne dans une lumière caravagesque dramatique. Souvent lue à la lumière du viol subi par Artemisia.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Artemisia_Gentileschi_-_Giuditta_decapita_Oloferne_-_Google_Art_Project-Adjust.jpg"
+    },
+    {
+      "id": 64,
+      "nom_tableau": "Vocation de saint Matthieu",
+      "auteur": "Caravage",
+      "date": "1600",
+      "musee_actuel": "San Luigi dei Francesi - Rome",
+      "mouvement": "Caravagisme",
+      "descriptif": "Le Christ désigne Matthieu parmi les collecteurs d'impôts dans une scène réaliste baignée de lumière latérale. Manifeste du naturalisme baroque, ce tableau transforme un épisode évangélique en scène de rue contemporaine saisie sur le vif.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Caravaggio_-_La_vocazione_di_San_Matteo.jpg"
+    },
+    {
+      "id": 65,
+      "nom_tableau": "La Ronde de nuit",
+      "auteur": "Rembrandt van Rijn",
+      "date": "1642",
+      "musee_actuel": "Rijksmuseum - Amsterdam",
+      "mouvement": "Baroque / Siècle d'or hollandais",
+      "descriptif": "La compagnie du capitaine Frans Banninck Cocq en marche dans une lumière mystérieuse. La composition dynamique rompt avec les portraits de groupe statiques du Siècle d'or. Son titre romantique lui fut donné au XIXe siècle après l'assombrissement des vernis.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/The_Nightwatch_by_Rembrandt_-_Rijksmuseum.jpg/500px-The_Nightwatch_by_Rembrandt_-_Rijksmuseum.jpg"
+    },
+    {
+      "id": 66,
+      "nom_tableau": "Le Retour du fils prodigue",
+      "auteur": "Rembrandt van Rijn",
+      "date": "vers 1669",
+      "musee_actuel": "Musée de l'Ermitage - Saint-Pétersbourg",
+      "mouvement": "Baroque / Siècle d'or hollandais",
+      "descriptif": "Testament spirituel de Rembrandt, peint peu avant sa mort. Le fils agenouillé en haillons reçoit l'accolade du père dans une lumière dorée d'une douceur inégalée. L'une des représentations les plus puissantes de la miséricorde dans l'histoire de l'art.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Rembrandt-The_return_of_the_prodigal_son.jpg/500px-Rembrandt-The_return_of_the_prodigal_son.jpg"
+    },
+    {
+      "id": 67,
+      "nom_tableau": "Samson et Dalila",
+      "auteur": "Pierre Paul Rubens",
+      "date": "1609-1610",
+      "musee_actuel": "National Gallery - Londres",
+      "mouvement": "Baroque flamand",
+      "descriptif": "Dalila fait couper les cheveux de Samson endormi pendant que les soldats philistins attendent. La lumière artificielle d'une bougie, les corps sensuels et la tension dramatique illustrent la puissance baroque de Rubens dans les sujets bibliques.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Rubens_samson_and_delilah.jpg/500px-Rubens_samson_and_delilah.jpg"
+    },
+    {
+      "id": 68,
+      "nom_tableau": "La Leçon d'anatomie du Dr Tulp",
+      "auteur": "Rembrandt van Rijn",
+      "date": "1632",
+      "musee_actuel": "Mauritshuis - La Haye",
+      "mouvement": "Baroque / Siècle d'or hollandais",
+      "descriptif": "Séance de dissection publique par le docteur Tulp devant les membres de la guilde des chirurgiens d'Amsterdam. La composition en diagonale et les visages expressifs en font l'un des portraits de groupe les plus innovants de la peinture hollandaise.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Rembrandt_-_The_Anatomy_Lesson_of_Dr._Nicolaes_Tulp.jpg/500px-Rembrandt_-_The_Anatomy_Lesson_of_Dr._Nicolaes_Tulp.jpg"
+    },
+    {
+      "id": 69,
+      "nom_tableau": "Napoléon franchissant le Grand-Saint-Bernard",
+      "auteur": "Jacques-Louis David",
+      "date": "1801",
+      "musee_actuel": "Château de Malmaison - Rueil-Malmaison",
+      "mouvement": "Néoclassicisme",
+      "descriptif": "Portrait équestre héroïque commandé en cinq exemplaires par Napoléon. David représente le Premier Consul sur un cheval cabré désignant le col alpin dans une posture inspirée des statues antiques — alors que Napoléon traversa le col à dos de mulet.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/David_-_Napoleon_crossing_the_Alps_-_Malmaison2.jpg/500px-David_-_Napoleon_crossing_the_Alps_-_Malmaison2.jpg"
+    },
+    {
+      "id": 70,
+      "nom_tableau": "La Grande Odalisque",
+      "auteur": "Jean-Auguste-Dominique Ingres",
+      "date": "1814",
+      "musee_actuel": "Musée du Louvre - Paris",
+      "mouvement": "Néoclassicisme / Orientalisme",
+      "descriptif": "Nu féminin allongé de dos dans un décor oriental. Ingres scandalise le Salon de 1819 par ses distorsions anatomiques délibérées — le dos trop long — sacrifiant l'anatomie à la beauté de la ligne. Geste précurseur des libertés formelles modernes.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Jean_Auguste_Dominique_Ingres,_La_Grande_Odalisque,_1814.jpg/500px-Jean_Auguste_Dominique_Ingres,_La_Grande_Odalisque,_1814.jpg"
+    },
+    {
+      "id": 71,
+      "nom_tableau": "Les Glaneuses",
+      "auteur": "Jean-François Millet",
+      "date": "1857",
+      "musee_actuel": "Musée d'Orsay - Paris",
+      "mouvement": "Réalisme",
+      "descriptif": "Trois paysannes ramassent les épis oubliés après la moisson dans un champ normand. Millet érige le travail agricole en sujet noble dans une composition solennelle. L'œuvre provoqua des réactions politiques vives : certains y virent une menace révolutionnaire.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Jean-François_Millet_(II)_-_The_Gleaners_-_Google_Art_Project.jpg/500px-Jean-François_Millet_(II)_-_The_Gleaners_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 72,
+      "nom_tableau": "Le Sacre de Napoléon",
+      "auteur": "Jacques-Louis David",
+      "date": "1806-1807",
+      "musee_actuel": "Musée du Louvre - Paris",
+      "mouvement": "Néoclassicisme / Empire",
+      "descriptif": "Immense toile commandée par Napoléon représentant son sacre à Notre-Dame. David choisit le moment où Napoléon couronne Joséphine. Les 200 portraits identifiables et la lumière artificielle en font un chef-d'œuvre de la peinture d'apparat.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Jacques-Louis_David_-_The_Coronation_of_Napoleon_(1805-1807).jpg/500px-Jacques-Louis_David_-_The_Coronation_of_Napoleon_(1805-1807).jpg"
+    },
+    {
+      "id": 73,
+      "nom_tableau": "La Mère de Whistler",
+      "auteur": "James Abbott McNeill Whistler",
+      "date": "1871",
+      "musee_actuel": "Musée d'Orsay - Paris",
+      "mouvement": "Tonalisme / Esthétisme",
+      "descriptif": "Portrait de la mère de Whistler assise de profil dans un intérieur austère. Whistler renomme ses tableaux en termes musicaux pour affirmer l'autonomie de l'art. Sobre et presque japonaise, cette composition est devenue une icône de la maternité.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Whistler_-_Arrangement_in_grey_and_black_No.1_(Portrait_of_the_Artist's_Mother)_-_Google_Art_Project.jpg/500px-Whistler_-_Arrangement_in_grey_and_black_No.1_(Portrait_of_the_Artist's_Mother)_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 74,
+      "nom_tableau": "La Classe de danse",
+      "auteur": "Edgar Degas",
+      "date": "1874",
+      "musee_actuel": "Musée d'Orsay - Paris",
+      "mouvement": "Impressionnisme",
+      "descriptif": "Répétition dans la salle de ballet de l'Opéra de Paris sous la direction de Jules Perrot. Les danseuses saisies dans des poses informelles et les cadrages asymétriques révèlent l'influence de la photographie et de l'estampe japonaise sur Degas.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Edgar_Degas_-_The_Ballet_Class_-_Google_Art_Project.jpg/500px-Edgar_Degas_-_The_Ballet_Class_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 75,
+      "nom_tableau": "La Danseuse au bouquet",
+      "auteur": "Edgar Degas",
+      "date": "1877",
+      "musee_actuel": "Musée d'Orsay - Paris",
+      "mouvement": "Impressionnisme",
+      "descriptif": "Pastel représentant une danseuse saluant sous les feux de la rampe, bouquet en main. La perspective plongeante et la lumière artificielle dissolvent les formes dans une palette de teintes pastel, les œuvres de ballet les plus abouties de Degas.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Edgar_Degas_-_Dancer_with_a_Bouquet_of_Flowers_(Star_of_the_Ballet)_-_Google_Art_Project.jpg/500px-Edgar_Degas_-_Dancer_with_a_Bouquet_of_Flowers_(Star_of_the_Ballet)_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 76,
+      "nom_tableau": "Le Bar aux Folies-Bergère",
+      "auteur": "Édouard Manet",
+      "date": "1882",
+      "musee_actuel": "The Courtauld Gallery - Londres",
+      "mouvement": "Modernisme",
+      "descriptif": "Dernière grande toile de Manet : une barmaid devant un miroir dont le reflet est volontairement inexact. Cette incohérence transforme le tableau en méditation sur le regard et la solitude dans l'atmosphère scintillante d'un lieu de divertissement parisien.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Edouard_Manet,_A_Bar_at_the_Folies-Bergère.jpg/500px-Edouard_Manet,_A_Bar_at_the_Folies-Bergère.jpg"
+    },
+    {
+      "id": 77,
+      "nom_tableau": "Un dimanche à la Grande Jatte",
+      "auteur": "Georges Seurat",
+      "date": "1884-1886",
+      "musee_actuel": "Art Institute of Chicago",
+      "mouvement": "Pointillisme / Néo-impressionnisme",
+      "descriptif": "Seurat applique le pointillisme : des milliers de points de couleur pure que l'œil mélange optiquement. Les silhouettes figées dans des postures artificielles confèrent une atmosphère étrange et hiératique à cette promenade dominicale au bord de la Seine.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/A_Sunday_on_La_Grande_Jatte,_Georges_Seurat,_1884.jpg/500px-A_Sunday_on_La_Grande_Jatte,_Georges_Seurat,_1884.jpg"
+    },
+    {
+      "id": 78,
+      "nom_tableau": "La Vision après le sermon",
+      "auteur": "Paul Gauguin",
+      "date": "1888",
+      "musee_actuel": "Scottish National Gallery - Édimbourg",
+      "mouvement": "Synthétisme",
+      "descriptif": "Des paysannes bretonnes voient Jacob lutter avec l'ange après le sermon. Le fond rouge saturé sépare la réalité des paysannes de la vision biblique. Cette rupture avec le naturalisme impressionniste annonce une peinture de la couleur comme émotion pure.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Paul_Gauguin_-_Vision_of_the_Sermon.jpg/500px-Paul_Gauguin_-_Vision_of_the_Sermon.jpg"
+    },
+    {
+      "id": 79,
+      "nom_tableau": "D'où venons-nous ? Que sommes-nous ? Où allons-nous ?",
+      "auteur": "Paul Gauguin",
+      "date": "1897-1898",
+      "musee_actuel": "Museum of Fine Arts - Boston",
+      "mouvement": "Post-impressionnisme",
+      "descriptif": "Grande fresque peinte à Tahiti, testament de Gauguin. De droite à gauche, les âges de la vie autour d'une figure cueillant un fruit. Gauguin y pose les questions existentielles fondamentales de l'humanité dans un paysage tropical rêvé.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Paul_Gauguin_-_D'ou_venons-nous.jpg/500px-Paul_Gauguin_-_D'ou_venons-nous.jpg"
+    },
+    {
+      "id": 80,
+      "nom_tableau": "Le Joueur de cartes",
+      "auteur": "Paul Cézanne",
+      "date": "vers 1892-1896",
+      "musee_actuel": "Musée d'Orsay - Paris",
+      "mouvement": "Post-impressionnisme",
+      "descriptif": "La plus dépouillée et monumentale des cinq versions de la série. Cézanne construit les volumes par plans colorés successifs, conférant aux paysans provençaux une dignité sculpturale et une solidité architecturale qui influencera directement le cubisme.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Paul_Cézanne,_The_Card_Players,_1892-95.jpg/500px-Paul_Cézanne,_The_Card_Players,_1892-95.jpg"
+    },
+    {
+      "id": 81,
+      "nom_tableau": "La Montagne Sainte-Victoire",
+      "auteur": "Paul Cézanne",
+      "date": "vers 1904-1906",
+      "musee_actuel": "Kunstmuseum Basel - Bâle",
+      "mouvement": "Post-impressionnisme",
+      "descriptif": "L'une des dernières versions de ce motif. La montagne se dissout en plans colorés qui anticipent l'abstraction. Cézanne cherche à 'faire de l'impressionnisme quelque chose de solide et de durable, comme l'art des musées'.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Paul_Cézanne_-_La_Montagne_Sainte-Victoire_-_Google_Art_Project.jpg/500px-Paul_Cézanne_-_La_Montagne_Sainte-Victoire_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 82,
+      "nom_tableau": "Les Grandes Baigneuses",
+      "auteur": "Paul Cézanne",
+      "date": "1898-1905",
+      "musee_actuel": "Philadelphia Museum of Art - Philadelphie",
+      "mouvement": "Post-impressionnisme",
+      "descriptif": "Des baigneuses nues sous une voûte d'arbres, corps réduits à des volumes géométriques et couleurs construisant l'espace par plans. Cette synthèse entre nature et géométrie influencera directement le cubisme de Picasso et Braque.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Paul_Cézanne_0312.jpg/500px-Paul_Cézanne_0312.jpg"
+    },
+    {
+      "id": 83,
+      "nom_tableau": "Portrait de Van Gogh par lui-même (dédié à Gauguin)",
+      "auteur": "Vincent van Gogh",
+      "date": "1888",
+      "musee_actuel": "Fogg Museum - Cambridge",
+      "mouvement": "Post-impressionnisme",
+      "descriptif": "Autoportrait peint sans barbe en cadeau pour Paul Gauguin. Les tourbillons de la touche et le fond bleu-vert créent un espace vibrant. L'expression déterminée mais sereine contraste avec l'instabilité que Van Gogh ressentait alors à Arles.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Van_Gogh_self-portrait_dedicated_to_Paul_Gauguin.jpg/500px-Van_Gogh_self-portrait_dedicated_to_Paul_Gauguin.jpg"
+    },
+    {
+      "id": 84,
+      "nom_tableau": "La Danse",
+      "auteur": "Henri Matisse",
+      "date": "1910",
+      "musee_actuel": "Musée de l'Ermitage - Saint-Pétersbourg",
+      "mouvement": "Fauvisme",
+      "descriptif": "Cinq figures nues en rouge vif dansent en ronde sur un fond bleu et vert saturé. Commandée par Chtchoukine, c'est un sommet du fauvisme : la couleur y est émotion pure, libérée de tout réalisme. La composition circulaire évoque une célébration primitive.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/La_danse_(I)_by_Matisse.jpg/500px-La_danse_(I)_by_Matisse.jpg"
+    },
+    {
+      "id": 85,
+      "nom_tableau": "La Raie verte (Portrait de Mme Matisse)",
+      "auteur": "Henri Matisse",
+      "date": "1905",
+      "musee_actuel": "Statens Museum for Kunst - Copenhague",
+      "mouvement": "Fauvisme",
+      "descriptif": "Portrait divisant le visage par une raie verte — côté froid à gauche, côté chaud à droite. Traitement arbitraire de la couleur affranchie de toute vérité réaliste, l'un des gestes fondateurs du fauvisme, scandale du Salon d'Automne de 1905.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Matissegrønnestribe.jpg/500px-Matissegrønnestribe.jpg"
+    },
+    {
+      "id": 86,
+      "nom_tableau": "Le Cri de la Nature (autoportrait Schiele)",
+      "auteur": "Egon Schiele",
+      "date": "1912",
+      "musee_actuel": "Albertina - Vienne",
+      "mouvement": "Expressionnisme viennois",
+      "descriptif": "Autoportrait aux bras tordus et au regard halluciné, avec une économie de moyens radicale. Schiele distord son corps selon une logique d'expressivité pure, produisant une image d'angoisse existentielle et de désintégration identitaire caractéristique de l'expressionnisme viennois.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Egon_Schiele_-_Selbstbildnis_mit_gespreizten_Fingern_(Self-Portrait_with_Spread_Fingers)_-_Google_Art_Project.jpg/500px-Egon_Schiele_-_Selbstbildnis_mit_gespreizten_Fingern_(Self-Portrait_with_Spread_Fingers)_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 87,
+      "nom_tableau": "Le Rêve",
+      "auteur": "Henri Rousseau",
+      "date": "1910",
+      "musee_actuel": "Museum of Modern Art - New York",
+      "mouvement": "Naïf / Proto-surréalisme",
+      "descriptif": "Dernière grande œuvre du Douanier Rousseau : une femme nue allongée sur un canapé rouge au milieu d'une forêt tropicale peuplée d'animaux exotiques et d'un charmeur de serpents. L'espace onirique créé anticipera le surréalisme.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Henri_Rousseau_-_The_Dream_-_Google_Art_Project.jpg/500px-Henri_Rousseau_-_The_Dream_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 88,
+      "nom_tableau": "Nu descendant un escalier n°2",
+      "auteur": "Marcel Duchamp",
+      "date": "1912",
+      "musee_actuel": "Philadelphia Museum of Art - Philadelphie",
+      "mouvement": "Cubisme / Futurisme",
+      "descriptif": "La figure décomposée en plans superposés suggère le mouvement dans le temps. Rejeté à Paris en 1912, il fit scandale à l'Armory Show de New York en 1913, symbolisant l'entrée fracassante de l'art moderne en Amérique.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Duchamp_-_Nude_Descending_a_Staircase.jpg/500px-Duchamp_-_Nude_Descending_a_Staircase.jpg"
+    },
+    {
+      "id": 89,
+      "nom_tableau": "Christina's World",
+      "auteur": "Andrew Wyeth",
+      "date": "1948",
+      "musee_actuel": "Museum of Modern Art - New York",
+      "mouvement": "Réalisme américain",
+      "descriptif": "Une femme aux bras atrophiés rampe dans un champ vers une ferme lointaine. Wyeth représente sa voisine Christina Olson atteinte d'une maladie musculaire, en fait une figure universelle de la volonté. La tempera sèche et le ciel vide donnent à l'image une intensité mélancolique unique.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Christinas_world.jpg/500px-Christinas_world.jpg"
+    },
+    {
+      "id": 90,
+      "nom_tableau": "Nymphéas",
+      "auteur": "Claude Monet",
+      "date": "1906",
+      "musee_actuel": "Art Institute of Chicago",
+      "mouvement": "Impressionnisme tardif",
+      "descriptif": "L'une des toiles de la grande série des Nymphéas peintes à Giverny. Monet abolit progressivement l'horizon et la perspective. Le bassin et ses nénuphars deviennent un prétexte à l'étude des reflets et de la lumière dans l'eau, anticipant l'abstraction.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Claude_Monet_-_Water_Lilies_-_1906,_Ryerson_(Ryerson_Collection).jpg/500px-Claude_Monet_-_Water_Lilies_-_1906,_Ryerson_(Ryerson_Collection).jpg"
+    },
+    {
+      "id": 91,
+      "nom_tableau": "Soleil couchant sur la Seine",
+      "auteur": "Claude Monet",
+      "date": "1880",
+      "musee_actuel": "Städel Museum - Francfort",
+      "mouvement": "Impressionnisme",
+      "descriptif": "Coucher de soleil sur la Seine en face de l'atelier de Vétheuil, palette de rouges et d'orangés vibrants se reflétant dans l'eau. Illustration de la méthode impressionniste de Monet : saisir l'effet atmosphérique fugace dans toute son intensité chromatique.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Claude_Monet_-_Sunset_on_the_Seine_in_Winter_-_Google_Art_Project.jpg/500px-Claude_Monet_-_Sunset_on_the_Seine_in_Winter_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 92,
+      "nom_tableau": "Le Repas des rameurs",
+      "auteur": "Pierre-Auguste Renoir",
+      "date": "1880-1881",
+      "musee_actuel": "Clark Art Institute - Williamstown",
+      "mouvement": "Impressionnisme",
+      "descriptif": "Scène estivale animée au bord de la Seine avec des rameurs et leurs compagnes. Renoir capture l'instant fugitif avec une palette lumineuse. Plusieurs personnages sont des amis du peintre, dont Gustave Caillebotte au premier plan.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Pierre_Auguste_Renoir_-_The_Rowers_Lunch.jpg/500px-Pierre_Auguste_Renoir_-_The_Rowers_Lunch.jpg"
+    },
+    {
+      "id": 93,
+      "nom_tableau": "Femme à la fenêtre",
+      "auteur": "Caspar David Friedrich",
+      "date": "1822",
+      "musee_actuel": "Alte Nationalgalerie - Berlin",
+      "mouvement": "Romantisme",
+      "descriptif": "Une femme vue de dos regarde par une fenêtre ouverte sur l'Elbe. Cette figure de dos — procédé récurrent chez Friedrich — incarne le désir de dépassement vers l'infini et invite le spectateur à s'identifier au regard de la figure contemplant la nature.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Caspar_David_Friedrich_-_Woman_at_a_Window_-_Google_Art_Project.jpg/500px-Caspar_David_Friedrich_-_Woman_at_a_Window_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 94,
+      "nom_tableau": "Ophélie",
+      "auteur": "John Everett Millais",
+      "date": "1851-1852",
+      "musee_actuel": "Tate Britain - Londres",
+      "mouvement": "Préraphaélisme",
+      "descriptif": "Elizabeth Siddal a posé des heures dans une baignoire d'eau froide pour incarner Ophélie, le personnage de Shakespeare. Le détail botanique minutieux de la végétation flottante et l'expression sereine du visage en font l'une des œuvres les plus reconnaissables du préraphaélisme.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/John_Everett_Millais_-_Ophelia_-_Google_Art_Project.jpg/500px-John_Everett_Millais_-_Ophelia_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 95,
+      "nom_tableau": "Le Chevalier, la Mort et le Diable",
+      "auteur": "Albrecht Dürer",
+      "date": "1513",
+      "musee_actuel": "Nombreuses collections (gravure)",
+      "mouvement": "Renaissance nordique",
+      "descriptif": "Gravure au burin représentant un chevalier accompagné de la Mort et du Diable qui avance sans s'arrêter dans un paysage sinistre. Symbole de la persévérance chrétienne face aux puissances du mal, c'est l'une des gravures les plus célèbres de Dürer.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Dürer_-_Ritter,_Tod_und_Teufel_(Recto).jpg/500px-Dürer_-_Ritter,_Tod_und_Teufel_(Recto).jpg"
+    },
+    {
+      "id": 96,
+      "nom_tableau": "Judith I",
+      "auteur": "Gustav Klimt",
+      "date": "1901",
+      "musee_actuel": "Österreichische Galerie Belvedere - Vienne",
+      "mouvement": "Art nouveau / Sécession viennoise",
+      "descriptif": "Judith tient la tête d'Holopherne dans une composition érotique et menaçante. Le fond doré, les motifs décoratifs et le regard à demi-clos de la figure féminine condensent les recherches de Klimt sur le désir, la mort et l'ornement.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Klimt_-_Judith_I_(1901)_-_Google_Art_Project.jpg/500px-Klimt_-_Judith_I_(1901)_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 97,
+      "nom_tableau": "Les Tournesols (version Munich)",
+      "auteur": "Vincent van Gogh",
+      "date": "1888",
+      "musee_actuel": "Neue Pinakothek - Munich",
+      "mouvement": "Post-impressionnisme",
+      "descriptif": "L'une des versions de la célèbre série peinte à Arles pour décorer la Maison Jaune avant l'arrivée de Gauguin. Les tournesols deviennent un laboratoire de couleur autour des jaunes dans leur infinite variation chromatique.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Vincent_Van_Gogh_-_Sunflowers.jpg/500px-Vincent_Van_Gogh_-_Sunflowers.jpg"
+    },
+    {
+      "id": 98,
+      "nom_tableau": "Portrait d'Adèle Bloch-Bauer I",
+      "auteur": "Gustav Klimt",
+      "date": "1907",
+      "musee_actuel": "Neue Galerie - New York",
+      "mouvement": "Art nouveau / Sécession viennoise",
+      "descriptif": "Commandé par Ferdinand Bloch-Bauer, ce portrait est entièrement recouvert d'or selon une technique inspirée des mosaïques byzantines. Après confiscation par les nazis, restitué à la famille en 2006, il reste l'une des toiles les plus précieuses jamais vendues.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Adele-bloch-bauer.jpg/500px-Adele-bloch-bauer.jpg"
+    },
+    {
+      "id": 99,
+      "nom_tableau": "Napoléon dans son cabinet de travail",
+      "auteur": "Jacques-Louis David",
+      "date": "1812",
+      "musee_actuel": "National Gallery of Art - Washington D.C.",
+      "mouvement": "Néoclassicisme / Empire",
+      "descriptif": "Napoléon en uniforme de colonel des Grenadiers de la Garde se tient à son bureau après une nuit de travail, avec bougies consumées et montre indiquant 4h13. David crée une image du souverain au travail pour le peuple, à la fois intime et propagandiste.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg/500px-Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 100,
+      "nom_tableau": "Suzanne et les vieillards",
+      "auteur": "Artemisia Gentileschi",
+      "date": "vers 1610",
+      "musee_actuel": "Schloss Weißenstein - Pommersfelden",
+      "mouvement": "Baroque",
+      "descriptif": "L'une des premières œuvres connues d'Artemisia, peinte vers ses 17 ans. Contrairement aux versions contemporaines qui sexualisent Suzanne, Gentileschi représente la femme dans son refus et son effroi, donnant à l'histoire biblique une dimension de résistance féminine.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Artemisia_Gentileschi_-_Susanna_and_the_Elders_(1610).jpg/500px-Artemisia_Gentileschi_-_Susanna_and_the_Elders_(1610).jpg"
+    },
+    {
+      "id": 101,
+      "nom_tableau": "L'Adoration des Mages",
+      "auteur": "Sandro Botticelli",
+      "date": "vers 1475",
+      "musee_actuel": "Galeries des Offices - Florence",
+      "mouvement": "Renaissance florentine",
+      "descriptif": "Commande des Médicis représentant l'adoration des rois mages. Botticelli y insère de nombreux portraits de la famille Médicis parmi les personnages, dont Laurent le Magnifique. Le groupe compact et les poses élaborées révèlent la maîtrise de Botticelli à seulement 30 ans.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Sandro_Botticelli_-_Adoration_of_the_Magi_-_Google_Art_Project.jpg/500px-Sandro_Botticelli_-_Adoration_of_the_Magi_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 102,
+      "nom_tableau": "La Vénus endormie",
+      "auteur": "Giorgione / Titien",
+      "date": "vers 1510",
+      "musee_actuel": "Gemäldegalerie Alte Meister - Dresde",
+      "mouvement": "Renaissance vénitienne",
+      "descriptif": "Première représentation du nu couché dans l'histoire de l'art occidental. Commencée par Giorgione et achevée par Titien après la mort de Giorgione, cette Vénus endormie dans un paysage inaugurera un type iconographique repris par Titien, Manet et Goya.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Giorgione_-_Sleeping_Venus_-_Google_Art_Project_2.jpg/500px-Giorgione_-_Sleeping_Venus_-_Google_Art_Project_2.jpg"
+    },
+    {
+      "id": 103,
+      "nom_tableau": "Femme lisant une lettre",
+      "auteur": "Johannes Vermeer",
+      "date": "vers 1663",
+      "musee_actuel": "Rijksmuseum - Amsterdam",
+      "mouvement": "Baroque / Siècle d'or hollandais",
+      "descriptif": "Une jeune femme lit une lettre devant une fenêtre ouverte, dans la lumière caractéristique de Vermeer. La légère proéminence du ventre suggère une grossesse. La concentration totale de la figure et l'économie de la composition créent une intimité psychologique saisissante.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Johannes_Vermeer_-_Woman_Reading_a_Letter_-_Google_Art_Project.jpg/500px-Johannes_Vermeer_-_Woman_Reading_a_Letter_-_Google_Art_Project.jpg"
+    },
+    {
+      "id": 104,
+      "nom_tableau": "Le Concert",
+      "auteur": "Johannes Vermeer",
+      "date": "vers 1664",
+      "musee_actuel": "Volée (anciennement Isabella Stewart Gardner Museum - Boston)",
+      "mouvement": "Baroque / Siècle d'or hollandais",
+      "descriptif": "Trois personnes font de la musique dans un intérieur du Siècle d'or. Volée lors du célèbre cambriolage du Gardner Museum en 1990 avec le Rembrandt de la tempête, cette œuvre reste l'une des plus grandes disparitions de l'histoire de l'art.",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Johannes_Vermeer_-_The_Concert_-_Google_Art_Project.jpg/500px-Johannes_Vermeer_-_The_Concert_-_Google_Art_Project.jpg"
     }
   ],
-  "total": 55
+  "total": 104
 }

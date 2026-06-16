@@ -66,7 +66,10 @@ document.getElementById('btn-login').addEventListener('click', async () => {
     });
     const data = await res.json();
     showMsg('msg-login', data.message, data.success);
-    if (data.success) setTimeout(() => showDashboard(data.user), 800);
+    if (data.success) {
+      localStorage.setItem('fabi_user', JSON.stringify(data.user));
+      setTimeout(() => showDashboard(data.user), 800);
+    }
   } catch {
     showMsg('msg-login', 'Serveur inaccessible — lancez PHP : php -S 127.0.0.1:8000 -t res/', false);
   }
@@ -104,5 +107,6 @@ document.getElementById('btn-register').addEventListener('click', async () => {
 /* ── Déconnexion ── */
 document.getElementById('btn-logout').addEventListener('click', async () => {
   await fetch('../api/logout.php', { credentials: 'include' });
+  localStorage.removeItem('fabi_user');
   showAuth();
 });
