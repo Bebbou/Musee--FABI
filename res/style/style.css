@@ -480,3 +480,92 @@ body::after{
 }
 .back-link:hover { color: rgba(196,168,130,.7); }
 .back-link::before { content: '← '; }
+
+/* ── HEADER : bouton espace client ── */
+.header-client-btn {
+  display: flex; align-items: center; gap: .5rem;
+  padding: .45rem 1rem;
+  border: .5px solid rgba(196,168,130,.3);
+  color: rgba(196,168,130,.6);
+  font-family: 'Montserrat', sans-serif;
+  font-size: .5rem; letter-spacing: .3em; text-transform: uppercase;
+  text-decoration: none;
+  transition: border-color .3s, color .3s;
+  white-space: nowrap;
+}
+.header-client-btn:hover,
+.header-client-btn.active-page {
+  border-color: rgba(193,68,14,.7);
+  color: #E8DDD0;
+}
+
+/* ── DASHBOARD ── */
+.dashboard-avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C1440E, #8a2f08);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 300; letter-spacing: .05em;
+  color: #E8DDD0;
+  margin: 0 auto 1.2rem;
+  border: 1px solid rgba(193,68,14,.35);
+}
+
+.dashboard-welcome {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .95rem; font-weight: 300; font-style: italic;
+  letter-spacing: .08em;
+  color: rgba(196,168,130,.5);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-info {
+  border-top: .5px solid rgba(196,168,130,.15);
+  border-bottom: .5px solid rgba(196,168,130,.15);
+  padding: 1.5rem 0;
+  display: flex; flex-direction: column; gap: 1.1rem;
+  margin-bottom: .5rem;
+}
+
+.info-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 1rem;
+}
+
+.info-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .48rem; letter-spacing: .35em; text-transform: uppercase;
+  color: rgba(196,168,130,.4);
+  white-space: nowrap;
+}
+
+.info-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 300; letter-spacing: .04em;
+  color: #E8DDD0;
+  text-align: right;
+}
+
+.info-badge {
+  font-size: .55rem; letter-spacing: .25em;
+  font-family: 'Montserrat', sans-serif;
+  color: #C1440E; text-transform: uppercase;
+}
+
+.btn-logout {
+  display: block; width: 100%; margin-top: 2rem;
+  padding: .85rem 1.5rem;
+  background: transparent;
+  border: .5px solid rgba(196,168,130,.2);
+  color: rgba(196,168,130,.45);
+  font-family: 'Montserrat', sans-serif;
+  font-size: .5rem; letter-spacing: .35em; text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color .3s, color .3s;
+}
+.btn-logout:hover {
+  border-color: rgba(193,68,14,.7);
+  color: #E8DDD0;
+}
