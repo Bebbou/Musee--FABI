@@ -1,0 +1,3 @@
+-- database: /Users/liliancornet/Documents/GitHub/Musee--FABI/res/database/musee.db
+
+SELECT * FROM users;
