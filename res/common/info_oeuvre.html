@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">Musée FABI — Œuvre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="/res/style/style.css" rel="stylesheet">
+  <link href="/res/style/style-info.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER commun -->
+  <header id="main-header">
+    <div class="logo">
+      <a href="/res/common/index.html" style="text-decoration:none;">
+        <img src="/res/assets/img/logo/logoFABI_White.svg" alt="Logo Musée FABI">
+      </a>
+    </div>
+    <div class="logo"><h1>Musée FABI</h1></div>
+    <nav>
+      <ul>
+        <li><a href="/res/common/catalogue.html">Catalogue</a></li>
+        <li><a href="/res/common/contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ════════════════════════════════════════
+       LAYOUT 1 — ÉDITORIAL (fond clair)
+       Inspiré : double-page magazine, lettre ornée
+  ════════════════════════════════════════ -->
+  <div id="layout-editorial" class="info-layout" hidden>
+
+    <!-- Cadre rouge supérieur gauche -->
+    <div class="ed-frame-top"></div>
+    <!-- Cadre rouge inférieur gauche -->
+    <div class="ed-frame-bottom"></div>
+
+    <!-- Localisation + trait -->
+    <div class="ed-location">
+      <span id="ed-museum"></span>
+      <div class="ed-location-line"></div>
+    </div>
+
+    <!-- Année verticale (droite) -->
+    <div class="ed-year-vert"><span id="ed-year"></span></div>
+
+    <!-- Lettre ornée + suite du titre -->
+    <div class="ed-drop-cap-zone">
+      <span class="ed-drop-letter" id="ed-drop-letter"></span>
+      <span class="ed-drop-rest" id="ed-drop-rest"></span>
+    </div>
+
+    <!-- Grille de 3 photos à droite -->
+    <div class="ed-photo-grid">
+      <div class="ed-photo-cell ed-photo-top">
+        <img id="ed-img1" src="" alt="">
+        <img id="ed-img2" src="" alt="">
+      </div>
+      <div class="ed-photo-cell ed-photo-mid">
+        <img id="ed-img3" src="" alt="">
+      </div>
+      <div class="ed-photo-cell ed-photo-bot">
+        <img id="ed-img4" src="" alt="">
+      </div>
+    </div>
+
+    <!-- Texte descriptif 2 colonnes -->
+    <div class="ed-text-zone">
+      <div class="ed-text-col" id="ed-desc1"></div><br>
+      <div class="ed-text-col" id="ed-desc2"></div>
+    </div>
+
+    <!-- Pied de page -->
+    <div class="ed-footer-name">MUSÉE FABI</div>
+
+    <!-- Bouton retour -->
+    <a href="/res/common/catalogue.html" class="info-back-btn">← Retour au catalogue</a>
+  </div>
+
+
+  <!-- ════════════════════════════════════════
+       LAYOUT 2 — BAROQUE (fond sombre)
+       Inspiré : composition ornementale, fond noir
+  ════════════════════════════════════════ -->
+  <div id="layout-baroque" class="info-layout" hidden>
+
+    <!-- Grande peinture principale -->
+    <div class="ba-main-img-wrap">
+      <img id="ba-main-img" src="" alt="">
+    </div>
+
+    <!-- Cercle photo + anneau (haut droite) -->
+    <div class="ba-circle-zone">
+      <div class="ba-circle-ring"></div>
+      <div class="ba-circle-img">
+        <img id="ba-circle-img" src="" alt="">
+      </div>
+      <div class="ba-badge-small">
+        <img id="ba-badge-img" src="" alt="">
+      </div>
+    </div>
+
+    <!-- Titre + nom de l'oeuvre (bas gauche) -->
+    <div class="ba-title-card">
+      <p class="ba-style-label" id="ba-style-label"></p>
+      <div class="ba-title-ornament"></div>
+      <p class="ba-artist" id="ba-artist"></p>
+    </div>
+
+    <!-- Grand texte de style (très grand, fond gauche) -->
+    <div class="ba-big-title" id="ba-big-title"></div>
+
+    <!-- 3 blocs d'info (droite) -->
+    <div class="ba-info-blocks">
+      <div class="ba-info-block">
+        <h2 id="ba-block1-title"></h2>
+        <p id="ba-block1-text"></p>
+      </div>
+      <div class="ba-info-block">
+        <h2 id="ba-block2-title"></h2>
+        <p id="ba-block2-text"></p>
+      </div>
+      <div class="ba-info-block">
+        <h2 id="ba-block3-title"></h2>
+        <p id="ba-block3-text"></p>
+      </div>
+    </div>
+
+    <!-- Méta info (musée, date) -->
+    <div class="ba-meta">
+      <span id="ba-date"></span>
+      <span class="ba-meta-sep">·</span>
+      <span id="ba-museum"></span>
+    </div>
+
+    <!-- Bouton retour -->
+    <a href="/res/common/catalogue.html" class="info-back-btn ba-back">← Retour au catalogue</a>
+  </div>
+
+
+  <!-- État de chargement -->
+  <div id="info-loading">
+    <p>Chargement de l'œuvre…</p>
+  </div>
+
+  <script src="/res/script/script-info.js"></script>
+</body>
+</html>
