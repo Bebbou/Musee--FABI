@@ -1005,6 +1005,7 @@ body{
 
 /* Séparation haute */
 .footer-separator {
+  border: none;         /* reset <hr> natif */
   height: 2px;
   background: linear-gradient(90deg, transparent, var(--terra) 20%, var(--blue-mid) 80%, transparent);
   margin-bottom: 3.5rem;
