@@ -189,8 +189,11 @@ nav ul li a:hover::after{width:100%;}
   font-size:clamp(3.5rem,8.5vw,7.5rem);
   font-weight:300;
   letter-spacing:.05em;
-  line-height:.9;
+  line-height:.85;
   text-transform:uppercase;
+  display:flex;
+  flex-direction:column;
+  gap:0;
   /*
    * Couche 1 (text)    : texture clippée aux lettres → donne la matière
    * Couche 2 (padding) : dégradé bleu plein couvre toute la zone → bloque le fond
@@ -205,6 +208,14 @@ nav ul li a:hover::after{width:100%;}
   -webkit-background-clip: text;
           background-clip: text;
   color: transparent;
+}
+
+.hero-title-main {
+  font-size: 1em;
+}
+
+.hero-title-sub {
+  font-size: 0.55em;
 }
 .hero-rule{
   width:40px;height:1px;
@@ -227,10 +238,10 @@ nav ul li a:hover::after{width:100%;}
 .hero-meta-item{display:flex;flex-direction:column;gap:3px;}
 .hero-meta-label{
   font-family:var(--sans);font-size:.46rem;letter-spacing:.4em;
-  text-transform:uppercase;color:rgba(196,168,130,.6);
+  text-transform:uppercase;color:rgba(196,168,130,.6);color:var(--terra-dk);
 }
 .hero-meta-value{
-  font-family:var(--serif);font-size:.88rem;letter-spacing:.12em;color:var(--beige-lt);
+  font-family:var(--serif);font-size:.88rem;letter-spacing:.12em;color:var(--terra);
 }
 .hero-meta-sep{width:1px;height:26px;background:rgba(196,168,130,.18);}
 
@@ -779,3 +790,152 @@ body::after{
 }
 .back-link:hover { color: rgba(196,168,130,.7); }
 .back-link::before { content: '← '; }
+
+/* ══ FOOTER ══ */
+#main-footer {
+  position: relative;
+  background: rgba(14, 11, 9, 0.85);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(196, 168, 130, 0.15);
+  margin-top: 6rem;
+  padding: 4rem 2.5rem;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Séparation haute */
+.footer-separator {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--terra) 20%, var(--blue-mid) 80%, transparent);
+  margin-bottom: 3.5rem;
+  opacity: 0.6;
+}
+
+/* Grille principale footer */
+.footer-main {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-title {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--beige-lt);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(193, 68, 14, 0.25);
+  padding-bottom: 0.8rem;
+}
+
+.footer-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(232, 221, 208, 0.7);
+}
+
+.footer-label {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(196, 168, 130, 0.6);
+}
+
+.footer-list a {
+  color: rgba(232, 221, 208, 0.7);
+  text-decoration: none;
+  transition: color 0.3s, text-decoration 0.3s;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+}
+
+.footer-list a:hover {
+  color: var(--beige-lt);
+  border-bottom: 1px solid rgba(193, 68, 14, 0.4);
+}
+
+/* Réseaux sociaux */
+.footer-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.social-link {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(196, 168, 130, 0.6);
+  text-decoration: none;
+  transition: all 0.3s;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 8px;
+  height: 1px;
+  background: var(--terra);
+  top: 50%;
+  transform: translateY(-50%);
+  transition: width 0.3s;
+}
+
+.social-link:hover {
+  color: var(--beige-lt);
+}
+
+.social-link:hover::before {
+  width: 12px;
+}
+
+/* Copyright */
+.footer-copyright {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(196, 168, 130, 0.1);
+}
+
+.footer-copyright p {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: rgba(196, 168, 130, 0.55);
+  margin: 0.4rem 0;
+  letter-spacing: 0.05em;
+}
+
+.footer-credit {
+  font-style: italic;
+  color: rgba(196, 168, 130, 0.4);
+  font-size: 0.75rem;
+  margin-top: 0.8rem;
+}
