@@ -83,19 +83,31 @@
   <!-- CARROUSEL 3 POSTERS -->
   <div class="aw-scene" id="artworks-parallax">
 
-    <article class="fiche" data-index="0">
-      <span class="fiche-label">Collection</span>
-      <img src="./assets/img/ange_rouge.png" alt="L'Ange Rouge">
+    <!-- Titre flottant au-dessus du poster central -->
+    <div class="aw-poster-title" id="aw-poster-title">
+      <span class="aw-poster-eyebrow" id="aw-poster-eyebrow">Nouveauté</span>
+      <h3 class="aw-poster-name" id="aw-poster-name">Claude Monet</h3>
+    </div>
+
+    <article class="fiche" data-index="0"
+             data-eyebrow="Collection" data-title="L'Ange Rouge">
+      <div class="fiche-float">
+        <img src="./assets/img/ange_rouge.png" alt="L'Ange Rouge">
+      </div>
     </article>
 
-    <article class="fiche" data-index="1">
-      <span class="fiche-label">Nouveauté</span>
-      <img src="./assets/img/Claud Monet.png" alt="Claude Monet">
+    <article class="fiche" data-index="1"
+             data-eyebrow="Nouveauté" data-title="Claude Monet">
+      <div class="fiche-float">
+        <img src="./assets/img/Claud Monet.png" alt="Claude Monet">
+      </div>
     </article>
 
-    <article class="fiche" data-index="2">
-      <span class="fiche-label">Événement</span>
-      <img src="./assets/img/guerrier.png" alt="Le Guerrier">
+    <article class="fiche" data-index="2"
+             data-eyebrow="Événement" data-title="Le Guerrier">
+      <div class="fiche-float">
+        <img src="./assets/img/guerrier.png" alt="Le Guerrier">
+      </div>
     </article>
 
     <!-- Flèches -->
@@ -139,35 +151,82 @@
 
 <script src="./script/script.js"></script>
 <script>
-// Carrousel 3 posters
+// ── Scroll-snap par IntersectionObserver ──────────────────────────────
 (function(){
-  const fiches = Array.from(document.querySelectorAll('.fiche'));
-  const dots   = Array.from(document.querySelectorAll('.aw-dot'));
-  const btnPrev = document.getElementById('aw-prev');
-  const btnNext = document.getElementById('aw-next');
+  const SECTIONS = [
+    document.querySelector('.hero'),
+    document.getElementById('artworks-parallax'),
+    document.querySelector('.collection-section')
+  ].filter(Boolean);
+
+  let locked = false;   // bloque les re-déclenchements pendant l'animation
+
+  const obs = new IntersectionObserver(function(entries){
+    if(locked) return;
+
+    // Garde uniquement les sections qui dépassent 50 % de visibilité
+    const visible = entries
+      .filter(e => e.intersectionRatio >= 0.5)
+      .sort((a,b) => b.intersectionRatio - a.intersectionRatio);
+
+    if(!visible.length) return;
+
+    const target = visible[0].target;
+
+    // Ne scrolle pas si on est déjà dessus
+    const rect = target.getBoundingClientRect();
+    if(Math.abs(rect.top) < 4) return;
+
+    locked = true;
+    target.scrollIntoView({ behavior:'smooth', block:'start' });
+
+    // Délai de cooldown pour éviter les rebonds
+    setTimeout(function(){ locked = false; }, 900);
+
+  }, { threshold: 0.5 });
+
+  SECTIONS.forEach(s => obs.observe(s));
+})();
+</script>
+<script>
+// Carrousel 3 posters avec titre animé + lévitation
+(function(){
+  const fiches   = Array.from(document.querySelectorAll('.fiche'));
+  const dots     = Array.from(document.querySelectorAll('.aw-dot'));
+  const btnPrev  = document.getElementById('aw-prev');
+  const btnNext  = document.getElementById('aw-next');
+  const titleBox = document.getElementById('aw-poster-title');
+  const titleEyebrow = document.getElementById('aw-poster-eyebrow');
+  const titleName    = document.getElementById('aw-poster-name');
   if(!fiches.length) return;
 
   // order[0]=gauche  order[1]=centre  order[2]=droite
   let order = [0, 1, 2];
-
   const STATES = ['left','center','right'];
+
+  function updateTitle(centerIndex){
+    const f = fiches[centerIndex];
+    titleBox.classList.add('fading');
+    setTimeout(() => {
+      titleEyebrow.textContent = f.dataset.eyebrow || '';
+      titleName.textContent    = f.dataset.title   || '';
+      titleBox.classList.remove('fading');
+    }, 260);
+  }
 
   function render(){
     fiches.forEach((f, i) => {
-      const pos = order.indexOf(i);
-      f.dataset.state = STATES[pos];
+      f.dataset.state = STATES[order.indexOf(i)];
     });
-    // point actif = celui au centre
     dots.forEach((d,i) => d.classList.toggle('active', i === order[1]));
+    updateTitle(order[1]);
   }
 
   function rotateRight(){
-    // droite → centre → gauche → droite
     order = [order[2], order[0], order[1]];
     render();
   }
   function rotateLeft(){
-    // gauche → centre → droite → gauche
     order = [order[1], order[2], order[0]];
     render();
   }
@@ -175,7 +234,6 @@
   btnNext && btnNext.addEventListener('click', rotateRight);
   btnPrev && btnPrev.addEventListener('click', rotateLeft);
 
-  // Clic sur les posters latéraux pour les centrer
   fiches.forEach((f, i) => {
     f.addEventListener('click', () => {
       const pos = order.indexOf(i);
