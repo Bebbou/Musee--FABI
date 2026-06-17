@@ -126,3 +126,32 @@ CREATE TABLE reservations (
   FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id)    ON DELETE CASCADE,
   FOREIGN KEY (visite_id)      REFERENCES visites_guidees(id) ON DELETE SET NULL
 );
+
+-- ------------------------------------------------------------
+-- NOTES  (1 note par utilisateur par oeuvre, de 0.5 à 5)
+-- ------------------------------------------------------------
+CREATE TABLE notes (
+  id             INT           NOT NULL AUTO_INCREMENT,
+  oeuvre_id      INT           NOT NULL,
+  utilisateur_id INT           NOT NULL,
+  note           DECIMAL(2,1)  NOT NULL CHECK(note >= 0.5 AND note <= 5.0),
+  date_note      DATETIME      NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  UNIQUE KEY unique_note_par_user (oeuvre_id, utilisateur_id),
+  FOREIGN KEY (oeuvre_id)      REFERENCES oeuvres(id)      ON DELETE CASCADE,
+  FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id) ON DELETE CASCADE
+);
+
+-- ------------------------------------------------------------
+-- COMMENTAIRES
+-- ------------------------------------------------------------
+CREATE TABLE commentaires (
+  id             INT      NOT NULL AUTO_INCREMENT,
+  oeuvre_id      INT      NOT NULL,
+  utilisateur_id INT      NOT NULL,
+  contenu        TEXT     NOT NULL,
+  date_commentaire DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id),
+  FOREIGN KEY (oeuvre_id)      REFERENCES oeuvres(id)      ON DELETE CASCADE,
+  FOREIGN KEY (utilisateur_id) REFERENCES utilisateurs(id) ON DELETE CASCADE
+);
