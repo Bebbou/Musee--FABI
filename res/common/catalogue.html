@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catalogue</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- fond fixe : remplace --hero-art dans style.css par url('ton-ophelie.jpg') -->
+<div class="ct-bg" aria-hidden="true"></div>
+
+<header class="ct-header">
+  <div class="ct-brand">MUSÉE&nbsp;·&nbsp;COLLECTION</div>
+  <nav class="ct-nav">
+    <a href="#ct-artistes">Artistes</a>
+    <a href="#ct-oeuvres">Œuvres</a>
+    <a href="#">Expositions</a>
+    <a href="#">À propos</a>
+  </nav>
+</header>
+
+<!-- HERO : filtre noir troué + titre, en parallaxe -->
+<section class="ct-hero">
+  <div class="ct-frame" id="ct-frame">
+    <div class="ct-cutout"></div>
+    <h1 class="ct-title">Catalogue</h1>
+  </div>
+</section>
+
+<!-- bande de tableaux (remplie par script.js) -->
+<section class="ct-strip" id="ct-strip"></section>
+
+<!-- catégorie ARTISTES (rétractable) -->
+<section class="ct-cat" id="ct-artistes">
+  <button class="ct-cat-head" aria-expanded="true">
+    <h2 class="ct-cat-title">Artistes</h2>
+    <span class="ct-cat-line"></span>
+    <span class="ct-cat-tri">▼</span>
+  </button>
+  <div class="ct-mosaic" id="ct-mosaic-artistes"></div>
+</section>
+
+<!-- catégorie ŒUVRES (rétractable) -->
+<section class="ct-cat" id="ct-oeuvres">
+  <button class="ct-cat-head" aria-expanded="true">
+    <h2 class="ct-cat-title">Œuvres</h2>
+    <span class="ct-cat-line"></span>
+    <span class="ct-cat-tri">▼</span>
+  </button>
+  <div class="ct-mosaic" id="ct-mosaic-oeuvres"></div>
+</section>
+
+<footer class="ct-footer">
+  Collection permanente — entrée libre · Catalogue mis à jour chaque saison.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
