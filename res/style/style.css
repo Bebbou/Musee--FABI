@@ -18,7 +18,13 @@ body{font-family:var(--sans);background:var(--cream);color:var(--black);overflow
 ::-webkit-scrollbar-track{background:var(--black);}
 ::-webkit-scrollbar-thumb{background:var(--terra);}
 ::selection{background:rgba(193,68,14,.25);color:var(--beige-lt);}
-
+@font-face {
+  font-family: 'CitadelOfBlackrose';
+  src: url('../assets/fonts/CitadelOfBlackrose.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 @font-face {
   font-family: 'Relicta-Light';
   src: url('../assets/fonts/Relicta-Light.woff2') format('woff2');
