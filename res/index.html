@@ -45,7 +45,7 @@
   <div class="hero-content-wrap">
     <div class="hero-content">
       <p class="hero-eyebrow">Exposition permanente · 2025</p>
-      <h1 class="hero-title">BONJOUR</h1>
+      <h1 class="hero-title">BIENVENUE AU MUSÉE FABI</h1>
       <div class="hero-rule"></div>
       <p class="hero-subtitle">
         <span class="initiale">L</span>e <strong><u>Musée&nbsp;FABI</u></strong>
@@ -151,44 +151,7 @@
 
 <script src="./script/script.js"></script>
 <script>
-// ── Scroll-snap par IntersectionObserver ──────────────────────────────
-(function(){
-  const SECTIONS = [
-    document.querySelector('.hero'),
-    document.getElementById('artworks-parallax'),
-    document.querySelector('.collection-section')
-  ].filter(Boolean);
 
-  let locked = false;   // bloque les re-déclenchements pendant l'animation
-
-  const obs = new IntersectionObserver(function(entries){
-    if(locked) return;
-
-    // Garde uniquement les sections qui dépassent 50 % de visibilité
-    const visible = entries
-      .filter(e => e.intersectionRatio >= 0.5)
-      .sort((a,b) => b.intersectionRatio - a.intersectionRatio);
-
-    if(!visible.length) return;
-
-    const target = visible[0].target;
-
-    // Ne scrolle pas si on est déjà dessus
-    const rect = target.getBoundingClientRect();
-    if(Math.abs(rect.top) < 4) return;
-
-    locked = true;
-    target.scrollIntoView({ behavior:'smooth', block:'start' });
-
-    // Délai de cooldown pour éviter les rebonds
-    setTimeout(function(){ locked = false; }, 900);
-
-  }, { threshold: 0.5 });
-
-  SECTIONS.forEach(s => obs.observe(s));
-})();
-</script>
-<script>
 // Carrousel 3 posters avec titre animé + lévitation
 (function(){
   const fiches   = Array.from(document.querySelectorAll('.fiche'));

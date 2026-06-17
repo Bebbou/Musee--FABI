@@ -180,12 +180,25 @@ nav ul li a:hover::after{width:100%;}
 }
 .hero-title{
   font-family:var(--serif);
-  font-size:clamp(3.5rem,8.5vw,7.5rem);font-weight:300;
-  letter-spacing:.05em;line-height:.9;text-transform:uppercase;
-  color:transparent;
-  background:linear-gradient(155deg,var(--beige-lt) 0%,var(--beige) 45%,var(--taupe) 100%);
-  -webkit-background-clip:text;background-clip:text;
-  margin-bottom:.4em;
+  font-size:clamp(3.5rem,8.5vw,7.5rem);
+  font-weight:300;
+  letter-spacing:.05em;
+  line-height:.9;
+  text-transform:uppercase;
+  /*
+   * Couche 1 (text)    : texture clippée aux lettres → donne la matière
+   * Couche 2 (padding) : dégradé bleu plein couvre toute la zone → bloque le fond
+   * color:transparent  : laisse voir les couches à travers les glyphes
+   * Résultat : lettres texturées bleues, OPAQUES (pas de parallaxe visible dans les lettres)
+   */
+  background-image:
+    url('./assets/img/texture_font/hero_title_texture1.jpg'),
+    linear-gradient(135deg, var(--blue) 0%, var(--blue-mid) 100%);
+  background-size: cover, 100% 100%;
+  background-position: center, center;
+  -webkit-background-clip: text, padding-box;
+          background-clip: text, padding-box;
+  color: transparent;
 }
 .hero-rule{
   width:40px;height:1px;
