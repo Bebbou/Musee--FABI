@@ -38,15 +38,16 @@ if (strlen($mdp) < 6) {
 }
 
 // Vérifier si l'email existe déjà
-$stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
+$stmt = $pdo->prepare("SELECT id FROM utilisateurs WHERE email = ?");
 $stmt->execute([$email]);
 if ($stmt->fetch()) {
     echo json_encode(['success' => false, 'message' => 'Cet email est déjà utilisé']);
     exit;
 }
 
-// Insérer l'utilisateur
-$stmt = $pdo->prepare("INSERT INTO users (nom, prenom, email, password) VALUES (?, ?, ?, ?)");
-$stmt->execute([$nom, $prenom, $email, $mdp]);
+// Insérer l'utilisateur avec mot de passe hashé
+$hash = password_hash($mdp, PASSWORD_BCRYPT);
+$stmt = $pdo->prepare("INSERT INTO utilisateurs (nom, prenom, email, mot_de_passe) VALUES (?, ?, ?, ?)");
+$stmt->execute([$nom, $prenom, $email, $hash]);
 
 echo json_encode(['success' => true, 'message' => 'Compte créé avec succès']);
