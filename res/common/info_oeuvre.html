@@ -6,9 +6,9 @@
   <title id="page-title">Musée FABI — Œuvre</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-  <link href="/res/style/style.css" rel="stylesheet">
-  <link href="/res/style/style-info.css" rel="stylesheet">
-  <link href="/res/style/style-notes.css" rel="stylesheet">
+  <link href="../style/style.css" rel="stylesheet">
+  <link href="../style/style-info.css" rel="stylesheet">
+  <link href="../style/style-notes.css" rel="stylesheet">
 </head>
 <body>
 
@@ -23,15 +23,15 @@
   <div class="logo"><h1>Musée FABI</h1></div>
   <nav>
     <ul>
-      <li><a href="./common/catalogue.html">Catalogue</a></li>
-      <li><a href="./common/contact.html">Contact</a></li>
+      <li><a href="./catalogue.html">Catalogue</a></li>
+      <li><a href="./contact.html">Contact</a></li>
       <li>
-        <a href="./common/connexion.html">
-          <button style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196, 168, 130, 0.55); color:rgba(14, 11, 9, 0.75); border: none; border-radius: 8px; padding: 10px 20px; font-size: 15px; font-weight: 500; cursor: pointer;">
+        <a href="./client.html" class="header-client-link">
+          <button class="header-client-btn" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196, 168, 130, 0.55); color:rgba(14, 11, 9, 0.75); border: none; border-radius: 8px; padding: 10px 20px; font-size: 15px; font-weight: 500; cursor: pointer;">
             <i class="ti ti-login" style="font-size: 18px;" aria-hidden="true"></i>
             Connexion
           </button>
-        </a>  
+        </a>
       </li>
     </ul>
   </nav>
@@ -91,7 +91,7 @@
     <!-- Pied de page -->
     <div class="ed-footer-name">MUSÉE FABI</div>
 
-    <a href="/res/common/catalogue.html" class="info-back-btn">← Retour au catalogue</a>
+    <a href="./catalogue.html" class="info-back-btn">← Retour au catalogue</a>
   </div>
 
 
@@ -143,7 +143,7 @@
       <span id="ba-museum"></span>
     </div>
 
-    <a href="/res/common/catalogue.html" class="info-back-btn ba-back">← Retour au catalogue</a>
+    <a href="./catalogue.html" class="info-back-btn ba-back">← Retour au catalogue</a>
   </div>
 
   <!-- ════════════════════════════════════════
@@ -151,6 +151,9 @@
   ════════════════════════════════════════ -->
   <div id="notes-section" hidden>
     <div id="notes-widget-main" class="notes-widget-section"></div>
+    <div class="comments-section" style="padding-top:0;">
+      <div id="comments-widget-main"></div>
+    </div>
   </div>
 
   <!-- État de chargement -->
@@ -188,10 +191,10 @@
       <div class="footer-col">
         <h4 class="footer-title">Navigation</h4>
         <ul class="footer-list">
-          <li><a href="../common/catalogue.html">Catalogue</a></li>
-          <li><a href="../common/contact.html">Contact</a></li>
-          <li><a href="../common/mentions.html">Mentions Légales</a></li>
-          <li><a href="../common/privacy.html">Politique de Confidentialité</a></li>
+          <li><a href="./catalogue.html">Catalogue</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="./mentions.html">Mentions Légales</a></li>
+          <li><a href="./privacy.html">Politique de Confidentialité</a></li>
         </ul>
       </div>
     </div>
@@ -206,6 +209,8 @@
     </div>
   </div>
 </footer>
-  <script src="/res/script/script-info.js"></script>
+  <script src="../script/config.js"></script>
+<script src="../script/script-info.js"></script>
+<script src="../script/header.js"></script>
 </body>
 </html>

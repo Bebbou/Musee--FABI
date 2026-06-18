@@ -13,7 +13,7 @@ if (empty($_SESSION['user_id'])) {
 
 require 'db.php';
 
-$stmt = $pdo->prepare("SELECT id, nom, prenom, email, created_at FROM users WHERE id = ?");
+$stmt = $pdo->prepare("SELECT id, nom, prenom, email, date_inscription FROM utilisateurs WHERE id = ?");
 $stmt->execute([$_SESSION['user_id']]);
 $user = $stmt->fetch();
 
@@ -24,4 +24,13 @@ if (!$user) {
     exit;
 }
 
-echo json_encode(['success' => true, 'user' => $user]);
+echo json_encode([
+    'success' => true,
+    'user'    => [
+        'id'         => $user['id'],
+        'nom'        => $user['nom'],
+        'prenom'     => $user['prenom'],
+        'email'      => $user['email'],
+        'created_at' => $user['date_inscription'],
+    ]
+]);

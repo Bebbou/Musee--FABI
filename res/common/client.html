@@ -7,11 +7,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <link href="../style/style.css" rel="stylesheet">
+<script src="../script/config.js"></script>
 </head>
 <body>
 <header id="main-header">
   <div class="logo">
-    <a href="./index.html" style="text-decoration:none;">
+    <a href="../index.html" style="text-decoration:none;">
       <img src="../assets/img/logo/logoFABI_White.svg" alt="Logo Musée FABI"
            style="height:100px;vertical-align:middle;border-radius:20px;">
     </a>
@@ -19,116 +20,160 @@
   <div class="logo"><h1>Musée FABI</h1></div>
   <nav>
     <ul>
-      <li><a href="./common/catalogue.html">Catalogue</a></li>
-      <li><a href="./common/contact.html">Contact</a></li>
+      <li><a href="./catalogue.html">Catalogue</a></li>
+      <li><a href="./contact.html">Contact</a></li>
       <li>
-        <a href="./common/connexion.html">
-          <button style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196, 168, 130, 0.55); color:rgba(14, 11, 9, 0.75); border: none; border-radius: 8px; padding: 10px 20px; font-size: 15px; font-weight: 500; cursor: pointer;">
+        <a href="./client.html" class="header-client-link">
+          <button class="header-client-btn" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196, 168, 130, 0.55); color:rgba(14, 11, 9, 0.75); border: none; border-radius: 8px; padding: 10px 20px; font-size: 15px; font-weight: 500; cursor: pointer;">
             <i class="ti ti-login" style="font-size: 18px;" aria-hidden="true"></i>
             Connexion
           </button>
-        </a>  
+        </a>
       </li>
     </ul>
   </nav>
 </header>
 
-<div class="client-page">
+<main class="auth-main">
+  <div class="auth-card" id="auth-card">
 
-  <!-- ── VUE AUTH ── -->
-  <div class="client-wrap" id="view-auth">
-
-    <p class="client-eyebrow">Musée FABI · Membres</p>
-    <h1 class="client-title">Espace client</h1>
-    <div class="client-rule"></div>
-
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="connexion">Connexion</button>
-      <button class="tab-btn"        data-tab="inscription">Inscription</button>
+    <!-- Onglets -->
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Connexion</button>
+      <button class="auth-tab" id="tab-register" onclick="switchTab('register')">Inscription</button>
     </div>
 
-    <!-- Connexion -->
-    <div class="tab-panel active" id="panel-connexion">
-      <div class="form-group">
+    <!-- Formulaire connexion -->
+    <form id="form-login" class="auth-form" onsubmit="submitLogin(event)">
+      <div class="auth-field">
         <label for="login-email">Email</label>
-        <input type="email" id="login-email" placeholder="votre@email.com">
+        <input type="email" id="login-email" required placeholder="votre@email.com">
       </div>
-      <div class="form-group">
+      <div class="auth-field">
         <label for="login-password">Mot de passe</label>
-        <input type="password" id="login-password" placeholder="••••••••">
+        <input type="password" id="login-password" required placeholder="••••••••">
       </div>
-      <button class="btn-submit" id="btn-login">Se connecter</button>
-      <div class="form-message" id="msg-login"></div>
-    </div>
+      <p class="auth-msg" id="msg-login"></p>
+      <button type="submit" class="auth-submit">Se connecter</button>
+    </form>
 
-    <!-- Inscription -->
-    <div class="tab-panel" id="panel-inscription">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="reg-nom">Nom</label>
-          <input type="text" id="reg-nom" placeholder="Dupont">
-        </div>
-        <div class="form-group">
-          <label for="reg-prenom">Prénom</label>
-          <input type="text" id="reg-prenom" placeholder="Marie">
-        </div>
+    <!-- Formulaire inscription -->
+    <form id="form-register" class="auth-form" style="display:none" onsubmit="submitRegister(event)">
+      <div class="auth-field">
+        <label for="reg-prenom">Prénom</label>
+        <input type="text" id="reg-prenom" required placeholder="Jean">
       </div>
-      <div class="form-group">
+      <div class="auth-field">
+        <label for="reg-nom">Nom</label>
+        <input type="text" id="reg-nom" required placeholder="Dupont">
+      </div>
+      <div class="auth-field">
         <label for="reg-email">Email</label>
-        <input type="email" id="reg-email" placeholder="votre@email.com">
+        <input type="email" id="reg-email" required placeholder="votre@email.com">
       </div>
-      <div class="form-group">
+      <div class="auth-field">
         <label for="reg-password">Mot de passe</label>
-        <input type="password" id="reg-password" placeholder="Min. 6 caractères">
+        <input type="password" id="reg-password" required placeholder="••••••••">
       </div>
-      <button class="btn-submit" id="btn-register">Créer mon compte</button>
-      <div class="form-message" id="msg-register"></div>
+      <p class="auth-msg" id="msg-register"></p>
+      <button type="submit" class="auth-submit">Créer mon compte</button>
+    </form>
+
+    <!-- Dashboard (affiché si connecté) -->
+    <div id="user-dashboard" style="display:none">
+      <p class="auth-welcome" id="auth-welcome"></p>
+      <button class="auth-logout" onclick="submitLogout()">Se déconnecter</button>
     </div>
 
-    <a href="../index.html" class="back-link">Retour à l'accueil</a>
-
   </div>
+</main>
 
-  <!-- ── VUE DASHBOARD ── -->
-  <div class="client-wrap" id="view-dashboard" style="display:none;">
+<style>
+.auth-main { display:flex; justify-content:center; align-items:center; min-height:60vh; padding:2rem; }
+.auth-card { background:rgba(255,255,255,0.05); border:1px solid rgba(196,168,130,0.3); border-radius:16px; padding:2.5rem; width:100%; max-width:420px; }
+.auth-tabs { display:flex; gap:0; margin-bottom:2rem; border-bottom:1px solid rgba(196,168,130,0.2); }
+.auth-tab { flex:1; background:none; border:none; padding:0.75rem; font-size:15px; cursor:pointer; color:rgba(255,255,255,0.45); font-family:inherit; transition:color .2s; }
+.auth-tab.active { color:rgba(196,168,130,1); border-bottom:2px solid rgba(196,168,130,1); }
+.auth-form { display:flex; flex-direction:column; gap:1.2rem; }
+.auth-field { display:flex; flex-direction:column; gap:.4rem; }
+.auth-field label { font-size:13px; color:rgba(255,255,255,0.6); letter-spacing:.05em; text-transform:uppercase; }
+.auth-field input { background:rgba(255,255,255,0.07); border:1px solid rgba(196,168,130,0.25); border-radius:8px; padding:.75rem 1rem; color:#fff; font-size:15px; font-family:inherit; outline:none; transition:border-color .2s; }
+.auth-field input:focus { border-color:rgba(196,168,130,0.7); }
+.auth-submit { background:rgba(196,168,130,0.85); color:#1a1510; border:none; border-radius:8px; padding:.85rem; font-size:15px; font-weight:600; cursor:pointer; font-family:inherit; margin-top:.5rem; transition:background .2s; }
+.auth-submit:hover { background:rgba(196,168,130,1); }
+.auth-msg { font-size:13px; min-height:1.2em; text-align:center; }
+.auth-msg.err { color:#e88; }
+.auth-msg.ok  { color:#8e8; }
+.auth-welcome { font-size:16px; color:rgba(196,168,130,0.9); text-align:center; margin-bottom:1.5rem; }
+.auth-logout { width:100%; background:transparent; border:1px solid rgba(196,168,130,0.4); color:rgba(196,168,130,0.8); border-radius:8px; padding:.75rem; font-size:14px; cursor:pointer; font-family:inherit; transition:all .2s; }
+.auth-logout:hover { background:rgba(196,168,130,0.1); border-color:rgba(196,168,130,0.8); }
+</style>
 
-    <p class="client-eyebrow">Musée FABI · Membres</p>
+<script>
+function switchTab(tab) {
+  document.getElementById('form-login').style.display    = tab === 'login'    ? '' : 'none';
+  document.getElementById('form-register').style.display = tab === 'register' ? '' : 'none';
+  document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+  document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+}
 
-    <div class="dashboard-avatar" id="dash-avatar"></div>
-    <h1 class="client-title" id="dash-name"></h1>
-    <p class="dashboard-welcome">Bienvenue dans votre espace personnel</p>
+async function submitLogin(e) {
+  e.preventDefault();
+  const msg = document.getElementById('msg-login');
+  msg.textContent = ''; msg.className = 'auth-msg';
+  const body = { email: document.getElementById('login-email').value, mot_de_passe: document.getElementById('login-password').value };
+  try {
+    const r = await fetch(API + '/login.php', { method:'POST', credentials:'include', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+    const d = await r.json();
+    if (d.success) { showDashboard(d.user); }
+    else { msg.textContent = d.message || 'Identifiants incorrects.'; msg.className = 'auth-msg err'; }
+  } catch(_) { msg.textContent = 'Serveur inaccessible.'; msg.className = 'auth-msg err'; }
+}
 
-    <div class="client-rule"></div>
+async function submitRegister(e) {
+  e.preventDefault();
+  const msg = document.getElementById('msg-register');
+  msg.textContent = ''; msg.className = 'auth-msg';
+  const body = { prenom: document.getElementById('reg-prenom').value, nom: document.getElementById('reg-nom').value, email: document.getElementById('reg-email').value, mot_de_passe: document.getElementById('reg-password').value };
+  try {
+    const r = await fetch(API + '/register.php', { method:'POST', credentials:'include', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+    const d = await r.json();
+    if (d.success) { showDashboard(d.user); }
+    else { msg.textContent = d.message || 'Erreur lors de l\'inscription.'; msg.className = 'auth-msg err'; }
+  } catch(_) { msg.textContent = 'Serveur inaccessible.'; msg.className = 'auth-msg err'; }
+}
 
-    <div class="dashboard-info">
-      <div class="info-row">
-        <span class="info-label">Email</span>
-        <span class="info-value" id="dash-email"></span>
-      </div>
-      <div class="info-row">
-        <span class="info-label">Membre depuis</span>
-        <span class="info-value" id="dash-since"></span>
-      </div>
-      <div class="info-row">
-        <span class="info-label">Statut</span>
-        <span class="info-value info-badge">Membre actif</span>
-      </div>
-    </div>
+async function submitLogout() {
+  await fetch(API + '/logout.php', { method:'POST', credentials:'include' });
+  document.getElementById('user-dashboard').style.display = 'none';
+  document.getElementById('form-login').style.display = '';
+  document.getElementById('auth-tabs') && (document.querySelector('.auth-tabs').style.display = '');
+  switchTab('login');
+  document.querySelector('.header-client-btn').innerHTML = '<i class="ti ti-login" style="font-size:18px;"></i> Connexion';
+}
 
-    <button class="btn-logout" id="btn-logout">Se déconnecter</button>
-    <a href="../index.html" class="back-link">Retour à l'accueil</a>
+function showDashboard(user) {
+  document.getElementById('form-login').style.display    = 'none';
+  document.getElementById('form-register').style.display = 'none';
+  document.querySelector('.auth-tabs').style.display     = 'none';
+  document.getElementById('user-dashboard').style.display = '';
+  document.getElementById('auth-welcome').textContent = `Bonjour, ${user.prenom} ${user.nom} !`;
+}
 
-  </div>
+// Vérifie si déjà connecté au chargement
+(async function() {
+  try {
+    const r = await fetch(API + '/session.php', { credentials:'include' });
+    const d = await r.json();
+    if (d.logged_in) showDashboard(d.user);
+  } catch(_) {}
+})();
+</script>
 
-</div>
 <footer id="main-footer">
   <div class="footer-content">
-    <!-- Ligne de séparation haute -->
     <div class="footer-separator"></div>
-    
-    <!-- Contenu principal -->
     <div class="footer-main">
-      <!-- Colonne 1: Info Pratiques -->
       <div class="footer-col">
         <h4 class="footer-title">Informations</h4>
         <ul class="footer-list">
@@ -137,8 +182,6 @@
           <li><span class="footer-label">E-mail</span><span><a href="mailto:contact@museedufabi.fr">contact@museedufabi.fr</a></span></li>
         </ul>
       </div>
-
-      <!-- Colonne 2: Horaires -->
       <div class="footer-col">
         <h4 class="footer-title">Horaires</h4>
         <ul class="footer-list">
@@ -147,30 +190,23 @@
           <li><span class="footer-label">Accès</span><span>Voir la billetterie (METTRE LE LIEN LINO)</span></li>
         </ul>
       </div>
-
-      <!-- Colonne 3: Navigation -->
       <div class="footer-col">
         <h4 class="footer-title">Navigation</h4>
         <ul class="footer-list">
-          <li><a href="../common/catalogue.html">Catalogue</a></li>
-          <li><a href="../common/contact.html">Contact</a></li>
-          <li><a href="../common/mentions.html">Mentions Légales</a></li>
-          <li><a href="../common/privacy.html">Politique de Confidentialité</a></li>
+          <li><a href="./catalogue.html">Catalogue</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="./mentions.html">Mentions Légales</a></li>
+          <li><a href="./privacy.html">Politique de Confidentialité</a></li>
         </ul>
       </div>
     </div>
-
-    <!-- Ligne de séparation basse -->
     <div class="footer-separator"></div>
-
-    <!-- Copyright -->
     <div class="footer-copyright">
       <p>&copy; 2026 Musée FABI. Tous droits réservés.</p>
       <p class="footer-credit">Conçu par Lilian et Lino en compagnie d'un petit jaune :3</p>
     </div>
   </div>
 </footer>
-<script src="../script/client.js"></script>
 <script src="../script/header.js"></script>
 </body>
 </html>

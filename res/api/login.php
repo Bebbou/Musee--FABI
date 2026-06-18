@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: http://localhost');
+header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Credentials: true');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $data  = json_decode(file_get_contents('php://input'), true);
 $email = trim($data['email']    ?? '');
-$mdp   = $data['password'] ?? '';
+$mdp   = $data['mot_de_passe'] ?? '';
 
 if (!$email || !$mdp) {
     echo json_encode(['success' => false, 'message' => 'Email et mot de passe requis']);
@@ -29,7 +29,7 @@ $stmt = $pdo->prepare("SELECT * FROM utilisateurs WHERE email = ?");
 $stmt->execute([$email]);
 $user = $stmt->fetch();
 
-if (!$user || !password_verify($mdp, $user['password'])) {
+if (!$user || $mdp !== $user['mot_de_passe']) {
     echo json_encode(['success' => false, 'message' => 'Email ou mot de passe incorrect']);
     exit;
 }
@@ -50,6 +50,6 @@ echo json_encode([
         'prenom'     => $user['prenom'],
         'email'      => $user['email'],
         'role'       => $user['role'],
-        'created_at' => $user['created_at'],
+        'created_at' => $user['date_inscription'],
     ]
 ]);

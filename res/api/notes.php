@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: http://localhost');
+header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Credentials: true');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("
         INSERT INTO notes (oeuvre_id, utilisateur_id, note)
         VALUES (?, ?, ?)
-        ON CONFLICT(oeuvre_id, utilisateur_id) DO UPDATE SET note = excluded.note, date_note = CURRENT_TIMESTAMP
+        ON DUPLICATE KEY UPDATE note = VALUES(note), date_note = CURRENT_TIMESTAMP
     ");
     $stmt->execute([$oeuvre_id, $_SESSION['user_id'], $note]);
 
