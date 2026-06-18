@@ -1,0 +1,412 @@
+{
+  "sculptures": [
+    {
+      "id": 1,
+      "nom_sculpture": "Vénus de Milo",
+      "auteur": "Probablement Alexandros d'Antioche",
+      "date": "vers 130–100 av. J.-C.",
+      "musee_actuel": "Musée du Louvre - Paris",
+      "materiau": "Marbre",
+      "hauteur": "2,04 m",
+      "poids": "environ 900 kg",
+      "mouvement_artistique": "Art hellénistique",
+      "particularite": "Ses bras manquants ont contribué à sa renommée mondiale.",
+      "descriptif": "Découverte en 1820 sur l'île grecque de Milos, la Vénus de Milo représente probablement la déesse Aphrodite. Chef-d'œuvre de la sculpture hellénistique, elle est célébrée pour l'idéal de beauté féminine qu'elle incarne, malgré — ou grâce à — ses bras manquants qui alimentent depuis deux siècles les hypothèses des historiens de l'art.",
+      "modele_3d": {
+        "disponible": true,
+        "chemin": "res/assets/3d/model_sculpture/Venus_de_milos.glb"
+      }
+    },
+    {
+      "id": 2,
+      "nom_sculpture": "Victoire de Samothrace",
+      "auteur": "Artiste inconnu",
+      "date": "vers 190 av. J.-C.",
+      "musee_actuel": "Musée du Louvre - Paris",
+      "materiau": "Marbre",
+      "hauteur": "5,57 m (avec le socle en forme de proue)",
+      "poids": "plusieurs tonnes",
+      "mouvement_artistique": "Art hellénistique",
+      "particularite": "Donne une impression saisissante de mouvement malgré l'absence de tête et de bras.",
+      "descriptif": "Érigée pour célébrer une victoire navale grecque, probablement celle de Rhodes sur Antiochos III, la Victoire de Samothrace représente la déesse Niké se posant sur la proue d'un navire. Ses ailes déployées et ses drapés agités par le vent en font l'un des exemples les plus spectaculaires du dynamisme dans la sculpture antique.",
+      "modele_3d": {
+        "disponible": true,
+        "chemin": "res/assets/3d/model_sculpture/Victoire_de_samothrace.glb"
+      }
+    },
+    {
+      "id": 3,
+      "nom_sculpture": "Le Penseur",
+      "auteur": "Auguste Rodin",
+      "date": "conçu en 1880, premiers bronzes au début du XXᵉ siècle",
+      "musee_actuel": "Musée Rodin - Paris",
+      "materiau": "Bronze",
+      "hauteur": "environ 1,89 m (grand modèle)",
+      "poids": "environ 600 à 700 kg selon les fontes",
+      "mouvement_artistique": "Impressionnisme / Symbolisme",
+      "particularite": "Initialement conçu pour faire partie de La Porte de l'Enfer avant de devenir une œuvre autonome.",
+      "descriptif": "Initialement pensé comme une représentation de Dante méditant devant les portes de l'Enfer, Le Penseur est devenu le symbole universel de la réflexion et de la philosophie. Rodin a travaillé la composition sur plusieurs années à partir de 1880, créant une figure dont la posture tendue traduit un effort intellectuel intense. De nombreuses fontes ont été réalisées ; l'exemplaire du Musée Rodin est l'un des plus connus.",
+      "modele_3d": {
+        "disponible": true,
+        "chemin": "res/assets/3d/model_sculpture/le_penseur_rodin.glb"
+      }
+    },
+    {
+      "id": 4,
+      "nom_sculpture": "David",
+      "auteur": "Michel-Ange",
+      "date": "1501–1504",
+      "musee_actuel": "Galleria dell'Accademia - Florence",
+      "materiau": "Marbre de Carrare",
+      "hauteur": "5,17 m",
+      "poids": "environ 6 tonnes",
+      "mouvement_artistique": "Renaissance italienne",
+      "particularite": "Célèbre pour son réalisme anatomique exceptionnel et sa représentation du héros juste avant le combat.",
+      "descriptif": "Commandé par la République de Florence, le David de Michel-Ange représente le héros biblique juste avant son affrontement avec Goliath. Réalisé dans un bloc de marbre considéré comme ingérable par d'autres sculpteurs, il est devenu un symbole de la perfection du corps humain et de l'idéal humaniste de la Renaissance. Sa tension musculaire et son regard concentré en font l'une des œuvres les plus étudiées de l'histoire de l'art.",
+      "modele_3d": {
+        "disponible": true,
+        "chemin": "res/assets/3d/model_sculpture/david_michelangelo.glb"
+      }
+    },
+    {
+      "id": 5,
+      "nom_sculpture": "La Pietà",
+      "auteur": "Michel-Ange",
+      "date": "1498–1499",
+      "musee_actuel": "Basilique Saint-Pierre - Vatican",
+      "materiau": "Marbre",
+      "hauteur": "1,74 m",
+      "poids": "plusieurs tonnes",
+      "mouvement_artistique": "Renaissance italienne",
+      "particularite": "Seule œuvre signée par Michel-Ange, réalisée alors qu'il avait une vingtaine d'années.",
+      "descriptif": "Commandée par le cardinal français Jean de Bilhères, la Pietà représente la Vierge Marie tenant dans ses bras le corps du Christ après la crucifixion. Réalisée par Michel-Ange alors qu'il n'avait qu'une vingtaine d'années, l'œuvre stupéfia ses contemporains par sa maîtrise technique. Il s'agit de la seule sculpture que l'artiste ait jamais signée, son nom étant gravé sur la bandoulière de la Vierge.",
+      "modele_3d": {
+        "disponible": false,
+        "chemin": null
+      }
+    },
+    {
+      "id": 6,
+      "nom_sculpture": "Psyché ranimée par le baiser de l'Amour",
+      "auteur": "Antonio Canova",
+      "date": "1787–1793",
+      "musee_actuel": "Musée du Louvre - Paris",
+      "materiau": "Marbre blanc",
+      "hauteur": "environ 1,55 m",
+      "poids": "non documenté avec précision",
+      "mouvement_artistique": "Néoclassicisme",
+      "particularite": "Composition très dynamique et délicate, sommet du néoclassicisme.",
+      "descriptif": "Inspirée de la mythologie gréco-romaine, cette sculpture représente Cupidon réveillant Psyché d'un baiser après qu'elle s'est évanouie en ouvrant la boîte d'Hadès. Commandée en 1787 par le colonel John Campbell, l'œuvre fut achevée en 1793. Canova y atteint un équilibre remarquable entre sensualité et légèreté, transformant le marbre en matière presque immatérielle.",
+      "modele_3d": {
+        "disponible": true,
+        "chemin": "res/assets/3d/model_sculpture/psyche_revived_by_cupid.glb"
+      }
+    },
+    {
+      "id": 7,
+      "nom_sculpture": "Le Scribe accroupi",
+      "auteur": "Artiste inconnu",
+      "date": "vers 2600–2350 av. J.-C.",
+      "musee_actuel": "Musée du Louvre - Paris",
+      "materiau": "Calcaire peint, yeux incrustés de cristal de roche et cuivre",
+      "hauteur": "53,7 cm",
+      "poids": "quelques dizaines de kilogrammes",
+      "mouvement_artistique": "Art égyptien antique (Ancien Empire)",
+      "particularite": "Regard extrêmement réaliste grâce aux incrustations des yeux en cristal de roche.",
+      "descriptif": "Statue funéraire égyptienne de l'Ancien Empire, le Scribe accroupi représente un fonctionnaire en position de travail, prêt à écrire. Son regard d'une intensité saisissante, obtenu grâce à des yeux incrustés de cristal de roche, de calcite et de cuivre, lui confère une présence presque vivante. C'est l'une des sculptures égyptiennes antiques les plus admirées pour son réalisme et son expression.",
+      "modele_3d": {
+        "disponible": false,
+        "chemin": null
+      }
+    },
+    {
+      "id": 8,
+      "nom_sculpture": "Apollon du Belvédère",
+      "auteur": "D'après un original grec attribué à Léocharès",
+      "date": "copie romaine du IIᵉ siècle ap. J.-C.",
+      "musee_actuel": "Musées du Vatican - Rome",
+      "materiau": "Marbre",
+      "hauteur": "2,24 m",
+      "poids": "estimé à plus d'une tonne",
+      "mouvement_artistique": "Art grec classique / Art romain",
+      "particularite": "Longtemps considéré comme l'idéal absolu de la beauté classique en Europe.",
+      "descriptif": "Copie romaine d'un original grec en bronze aujourd'hui disparu, attribué au sculpteur Léocharès, l'Apollon du Belvédère représente le dieu solaire dans une posture de majesté sereine. Redécouvert à la fin du XVᵉ siècle, il devint rapidement la référence absolue de la beauté idéale pour les artistes et théoriciens de la Renaissance et du néoclassicisme. Winckelmann le décrivit comme le plus haut idéal de l'art antique.",
+      "modele_3d": {
+        "disponible": true,
+        "chemin": "res/assets/3d/model_sculpture/apollon_du_belvedere.glb"
+      }
+    },
+    {
+      "id": 9,
+      "nom_sculpture": "Discobole",
+      "auteur": "Myron (original) — copies romaines anonymes",
+      "date": "original vers 460–450 av. J.-C.",
+      "musee_actuel": "Plusieurs copies exposées dans différents musées",
+      "materiau": "Marbre (copies romaines) — Bronze (original perdu)",
+      "hauteur": "environ 1,55 m",
+      "poids": "variable selon la copie",
+      "mouvement_artistique": "Art grec classique (période sévère)",
+      "particularite": "Célèbre pour son équilibre parfait et sa représentation du mouvement au sommet de son élan.",
+      "descriptif": "Créé par le sculpteur grec Myron vers 450 av. J.-C., le Discobole représente un athlète au moment précis où il s'apprête à lancer son disque. L'original en bronze est perdu, mais plusieurs copies romaines en marbre en conservent l'esprit. L'œuvre est pionnière dans la représentation du mouvement et de l'anatomie en tension, et reste l'un des symboles de l'idéal sportif et esthétique grec.",
+      "modele_3d": {
+        "disponible": true,
+        "chemin": "res/assets/3d/model_sculpture/discobolus.glb"
+      }
+    },
+    {
+      "id": 10,
+      "nom_sculpture": "L'Esclave mourant",
+      "auteur": "Michel-Ange",
+      "date": "1513–1516",
+      "musee_actuel": "Musée du Louvre - Paris",
+      "materiau": "Marbre",
+      "hauteur": "2,29 m",
+      "poids": "plusieurs tonnes",
+      "mouvement_artistique": "Renaissance italienne (Maniérisme naissant)",
+      "particularite": "Expression ambiguë entre souffrance et sérénité, l'une des œuvres les plus admirées de la Renaissance.",
+      "descriptif": "Réalisé pour le projet grandiose du tombeau du pape Jules II, finalement remanié plusieurs fois, l'Esclave mourant de Michel-Ange fascine par l'ambiguïté de son expression : le visage semble osciller entre la douleur et un abandon presque serein. Cette tension entre le corps contraint et l'âme qui se libère est au cœur du style de Michel-Ange. L'œuvre entra dans les collections françaises au XVIᵉ siècle et est conservée au Louvre depuis la Révolution.",
+      "modele_3d": {
+        "disponible": false,
+        "chemin": null
+      }
+    },
+    {
+      "id": 11,
+      "nom_sculpture": "Buste de Néfertiti",
+      "auteur": "Thoutmôsis",
+      "date": "vers 1345 av. J.-C.",
+      "musee_actuel": "Neues Museum - Berlin",
+      "materiau": "Calcaire et stuc peint",
+      "hauteur": "48 cm",
+      "poids": "non documenté",
+      "mouvement_artistique": "Art égyptien antique (période amarnienne)",
+      "particularite": "Célèbre pour son réalisme et son exceptionnel état de conservation.",
+      "descriptif": "Le buste de Néfertiti représente l'épouse du pharaon Akhenaton, qui régna au XIVᵉ siècle av. J.-C. Réalisé dans l'atelier du sculpteur Thoutmôsis, il servait probablement de modèle pour d'autres portraits royaux. Redécouvert en 1912 lors de fouilles archéologiques à Amarna, il est devenu l'un des symboles les plus célèbres de l'art égyptien grâce à son incroyable finesse et à son état de conservation exceptionnel.",
+      "modele_3d": {
+        "disponible": true,
+        "chemin": "res/assets/3d/model_sculpture/buste_nefertiti.glb"
+      }
+    },
+    {
+      "id": 12,
+      "nom_sculpture": "Louve capitoline",
+      "auteur": "Artiste inconnu",
+      "date": "probablement entre le Vᵉ et le XIIIᵉ siècle",
+      "musee_actuel": "Musées du Capitole - Rome",
+      "materiau": "Bronze",
+      "hauteur": "environ 75 cm",
+      "poids": "non documenté",
+      "mouvement_artistique": "Art romain antique / Art médiéval (débattu)",
+      "particularite": "Représente la louve allaitant Romulus et Rémus, symbole fondateur de Rome.",
+      "descriptif": "Selon la légende romaine, la louve recueillit et allaita les jumeaux Romulus et Rémus après leur abandon sur les rives du Tibre. Les deux frères auraient ensuite fondé la ville de Rome. La sculpture est devenue un emblème de la capitale italienne et symbolise la naissance mythique de la civilisation romaine.",
+      "modele_3d": {
+        "disponible": false,
+        "chemin": null
+      }
+    },
+    {
+      "id": 13,
+      "nom_sculpture": "Laocoon et ses fils",
+      "auteur": "Attribué à trois sculpteurs de Rhodes",
+      "date": "Iᵉʳ siècle av. J.-C. ou Iᵉʳ siècle ap. J.-C.",
+      "musee_actuel": "Musées du Vatican - Rome",
+      "materiau": "Marbre",
+      "hauteur": "environ 2,4 m",
+      "poids": "plusieurs tonnes",
+      "mouvement_artistique": "Art hellénistique",
+      "particularite": "Chef-d'œuvre illustrant le drame et le mouvement de l'art hellénistique.",
+      "descriptif": "Cette sculpture illustre un épisode de la guerre de Troie : le prêtre troyen Laocoon avertit ses compatriotes de ne pas faire entrer le cheval de bois dans la ville. Pour le faire taire, les dieux envoient deux serpents géants qui étranglent Laocoon et ses deux fils. Découverte à Rome en 1506, l'œuvre impressionna profondément les artistes de la Renaissance, notamment Michel-Ange.",
+      "modele_3d": {
+        "disponible": false,
+        "chemin": null
+      }
+    },
+    {
+      "id": 14,
+      "nom_sculpture": "Le Gaulois mourant",
+      "auteur": "Artiste inconnu (copie romaine)",
+      "date": "copie romaine du IIᵉ siècle",
+      "musee_actuel": "Musées du Capitole - Rome",
+      "materiau": "Marbre",
+      "hauteur": "environ 1,80 m (longueur)",
+      "poids": "plusieurs tonnes",
+      "mouvement_artistique": "Art hellénistique / Art romain",
+      "particularite": "Représente un guerrier vaincu avec une grande dignité, symbole universel de noblesse face à la défaite.",
+      "descriptif": "Cette statue représente un guerrier celte blessé à mort après une bataille contre les Grecs. Plutôt que de montrer un ennemi humilié, le sculpteur le dépeint avec noblesse et courage dans ses derniers instants. L'œuvre est devenue un symbole universel de la dignité face à la défaite.",
+      "modele_3d": {
+        "disponible": true,
+        "chemin": "res/assets/3d/model_sculpture/le_gaulois_mourant.glb"
+      }
+    },
+    {
+      "id": 15,
+      "nom_sculpture": "Hermès portant Dionysos enfant",
+      "auteur": "Attribué à Praxitèle",
+      "date": "vers 340 av. J.-C.",
+      "musee_actuel": "Musée archéologique d'Olympie - Olympie",
+      "materiau": "Marbre",
+      "hauteur": "environ 2,13 m",
+      "poids": "plusieurs tonnes",
+      "mouvement_artistique": "Art grec classique (période tardive)",
+      "particularite": "L'une des sculptures grecques les mieux conservées.",
+      "descriptif": "Dans la mythologie grecque, Hermès reçoit la mission de protéger le jeune Dionysos après la mort de sa mère. La sculpture montre le dieu messager portant l'enfant tout en le divertissant avec une grappe de raisin. Son élégance et son naturel en font l'une des œuvres les plus admirées de la sculpture grecque classique.",
+      "modele_3d": {
+        "disponible": false,
+        "chemin": null
+      }
+    },
+    {
+      "id": 16,
+      "nom_sculpture": "Vénus Médicis",
+      "auteur": "Artiste inconnu",
+      "date": "Iᵉʳ siècle av. J.-C.",
+      "musee_actuel": "Galerie des Offices - Florence",
+      "materiau": "Marbre",
+      "hauteur": "environ 1,53 m",
+      "poids": "plus d'une tonne",
+      "mouvement_artistique": "Art grec classique / Art romain",
+      "particularite": "Considérée comme un modèle idéal de beauté féminine, très admirée à la Renaissance.",
+      "descriptif": "Cette statue représente Aphrodite (Vénus chez les Romains) au moment où elle tente pudiquement de cacher sa nudité après être sortie de la mer. Très admirée à la Renaissance, elle inspira de nombreux artistes européens et contribua à diffuser l'idéal de beauté antique à travers toute l'Europe.",
+      "modele_3d": {
+        "disponible": true,
+        "chemin": "res/assets/3d/model_sculpture/venus_medicis.glb"
+      }
+    },
+    {
+      "id": 17,
+      "nom_sculpture": "Hermaphrodite endormi",
+      "auteur": "Artiste inconnu",
+      "date": "IIᵉ siècle ap. J.-C.",
+      "musee_actuel": "Musée du Louvre - Paris",
+      "materiau": "Marbre",
+      "hauteur": "environ 1,70 m (longueur)",
+      "poids": "plusieurs tonnes",
+      "mouvement_artistique": "Art romain impérial",
+      "particularite": "Connu pour son illusion visuelle surprenante selon l'angle d'observation.",
+      "descriptif": "Inspirée de la mythologie grecque, cette sculpture représente Hermaphrodite, enfant d'Hermès et d'Aphrodite, dont le corps réunit des caractéristiques masculines et féminines. Vue de dos, elle semble représenter une femme endormie ; en s'approchant, le visiteur découvre une anatomie inattendue, créant un effet de surprise voulu par l'artiste.",
+      "modele_3d": {
+        "disponible": false,
+        "chemin": null
+      }
+    },
+    {
+      "id": 18,
+      "nom_sculpture": "Le Boxeur au repos",
+      "auteur": "Artiste inconnu",
+      "date": "IVᵉ siècle av. J.-C.",
+      "musee_actuel": "Musée national romain - Rome",
+      "materiau": "Bronze",
+      "hauteur": "environ 1,28 m",
+      "poids": "non documenté",
+      "mouvement_artistique": "Art grec hellénistique",
+      "particularite": "Rare bronze antique conservé presque intact, d'un réalisme saisissant.",
+      "descriptif": "Cette sculpture en bronze montre un boxeur assis après un combat éprouvant. Son visage porte les marques des coups, avec des cicatrices et des oreilles déformées typiques des athlètes de l'époque. L'œuvre est remarquable pour son réalisme et son humanité, loin des représentations idéalisées des héros antiques.",
+      "modele_3d": {
+        "disponible": false,
+        "chemin": null
+      }
+    },
+    {
+      "id": 19,
+      "nom_sculpture": "Aphrodite de Cnide",
+      "auteur": "Praxitèle",
+      "date": "original vers 360 av. J.-C.",
+      "musee_actuel": "Musées du Vatican - Rome (copie célèbre)",
+      "materiau": "Marbre (copies romaines)",
+      "hauteur": "non documentée avec précision",
+      "poids": "non documenté",
+      "mouvement_artistique": "Art grec classique (période tardive)",
+      "particularite": "Première grande statue grecque représentant une déesse entièrement nue.",
+      "descriptif": "Créée par Praxitèle au IVᵉ siècle av. J.-C., cette statue fut la première représentation monumentale d'une déesse grecque entièrement nue. Elle montre Aphrodite juste avant son bain, dans une posture à la fois naturelle et pudique. L'original ayant disparu, seules des copies romaines permettent aujourd'hui d'en admirer les formes.",
+      "modele_3d": {
+        "disponible": false,
+        "chemin": null
+      }
+    },
+    {
+      "id": 20,
+      "nom_sculpture": "Niké de Paionios",
+      "auteur": "Paionios de Mendè",
+      "date": "vers 420 av. J.-C.",
+      "musee_actuel": "Musée archéologique d'Olympie - Olympie",
+      "materiau": "Marbre",
+      "hauteur": "environ 2 m (statue seule)",
+      "poids": "plusieurs tonnes",
+      "mouvement_artistique": "Art grec classique",
+      "particularite": "Effet de mouvement remarquable représentant la déesse descendant du ciel.",
+      "descriptif": "Cette statue représente Niké, la déesse grecque de la Victoire, descendant du ciel pour annoncer un triomphe militaire. Érigée à Olympie au Vᵉ siècle av. J.-C., elle était perchée sur une haute colonne afin de donner l'impression qu'elle volait au-dessus des visiteurs. Les plis de son vêtement et la position de son corps créent un effet de mouvement particulièrement spectaculaire.",
+      "modele_3d": {
+        "disponible": false,
+        "chemin": null
+      }
+    },
+    {
+      "id": 21,
+      "nom_sculpture": "Buste de Jules César",
+      "auteur": "Artiste inconnu (sculpture romaine)",
+      "date": "vers 44–30 av. J.-C.",
+      "musee_actuel": "Musée archéologique de Turin - Turin",
+      "materiau": "Marbre",
+      "hauteur": "environ 50 cm",
+      "poids": "quelques dizaines de kilogrammes",
+      "mouvement_artistique": "Art romain (portrait réaliste)",
+      "particularite": "L'un des portraits les plus ressemblants du dictateur romain, réalisé peu après son assassinat.",
+      "descriptif": "Ce buste représente Caius Julius Caesar (100–44 av. J.-C.), général, homme d'État et écrivain romain qui joua un rôle décisif dans la transformation de la République romaine en Empire. Il est réalisé dans la tradition du portrait romain réaliste, avec des traits marqués et une expression de détermination. De nombreux bustes furent réalisés de son vivant et après son assassinat aux Ides de Mars, perpétuant l'image du dictateur.",
+      "modele_3d": {
+        "disponible": true,
+        "chemin": "res/assets/3d/model_sculpture/buste_jules_cesar.glb"
+      }
+    },
+    {
+      "id": 22,
+      "nom_sculpture": "Les Bourgeois de Calais",
+      "auteur": "Auguste Rodin",
+      "date": "1889",
+      "musee_actuel": "Musée Rodin - Paris (exemplaire principal)",
+      "materiau": "Bronze",
+      "hauteur": "environ 2,10 m (groupe)",
+      "poids": "plusieurs tonnes",
+      "mouvement_artistique": "Impressionnisme / Symbolisme",
+      "particularite": "Plusieurs fontes existent, exposées dans de nombreuses villes à travers le monde.",
+      "descriptif": "Cette œuvre monumentale commémore un épisode de la guerre de Cent Ans : en 1347, six bourgeois de Calais se sacrifièrent pour sauver leur ville assiégée par le roi d'Angleterre Édouard III. Rodin rompt avec la tradition héroïque en représentant les six hommes à égalité, accablés et résignés plutôt que triomphants. La composition, sans socle surélevé, place les personnages au niveau du spectateur pour accentuer l'émotion.",
+      "modele_3d": {
+        "disponible": true,
+        "chemin": "res/assets/3d/model_sculpture/les_bourgeois_de_calais.glb"
+      }
+    },
+    {
+      "id": 23,
+      "nom_sculpture": "Lion assis",
+      "auteur": "Artiste inconnu",
+      "date": "époque non déterminée",
+      "musee_actuel": "Collection diverse",
+      "materiau": "Pierre ou marbre",
+      "hauteur": "variable",
+      "poids": "non documenté",
+      "mouvement_artistique": "Art antique (Grèce / Rome / Égypte)",
+      "particularite": "Symbole de puissance et de royauté présent dans de nombreuses civilisations antiques.",
+      "descriptif": "La représentation du lion assis est l'une des formes sculpturales les plus répandues dans l'histoire de l'art, des sphinx égyptiens aux lions gardiens des temples grecs et romains. Symbole universel de force, de majesté et de protection, ces sculptures ornaient les entrées des palais, des temples et des tombeaux pour en marquer la grandeur et en assurer la garde.",
+      "modele_3d": {
+        "disponible": true,
+        "chemin": "res/assets/3d/model_sculpture/lion_assis.glb"
+      }
+    },
+    {
+      "id": 24,
+      "nom_sculpture": "L'Âge d'airain",
+      "auteur": "Auguste Rodin",
+      "date": "1876–1877",
+      "musee_actuel": "Musée Rodin - Paris",
+      "materiau": "Bronze",
+      "hauteur": "environ 1,80 m",
+      "poids": "environ 300 kg",
+      "mouvement_artistique": "Impressionnisme / Réalisme",
+      "particularite": "Si réaliste que Rodin fut accusé d'avoir moulé directement sur un modèle vivant.",
+      "descriptif": "L'Âge d'airain est la première grande sculpture de Rodin, réalisée entre 1876 et 1877. Elle représente un homme nu debout, dans une posture d'éveil et d'émergence. Son réalisme anatomique exceptionnel provoqua un scandale : Rodin fut accusé d'avoir utilisé un surmoulage sur nature, ce qu'il réfuta en produisant des photographies de son modèle, le soldat belge Auguste Neyt. L'œuvre symbolise le réveil de l'humanité et l'émergence de la conscience.",
+      "modele_3d": {
+        "disponible": true,
+        "chemin": "res/assets/3d/model_sculpture/lage_dairain_rodin.glb"
+      }
+    }
+  ]
+}
