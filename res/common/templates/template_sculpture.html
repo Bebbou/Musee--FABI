@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vénus de Milo — Musée FABI</title>
+  <title id="sc-page-title">Sculpture — Musée FABI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
@@ -43,9 +43,10 @@
 
     <!-- model-viewer -->
     <model-viewer
+      id="sc-model"
       class="sculpt-model"
-      src="/res/assets/3d/model_sculpture/Venus_de_milos.glb"
-      alt="Vénus de Milo, sculpture en marbre, ~ 130 av. J.-C."
+      src=""
+      alt=""
       camera-controls
       auto-rotate
       auto-rotate-delay="1000"
@@ -67,9 +68,9 @@
     </model-viewer>
 
     <!-- Étiquette tournante / badge -->
-    <div class="sculpt-badge">
-      <span class="sculpt-badge-year">~ 130</span>
-      <span class="sculpt-badge-bc">av. J.-C.</span>
+    <div class="sculpt-badge" id="sc-badge">
+      <span class="sculpt-badge-year" id="sc-badge-year"></span>
+      <span class="sculpt-badge-bc" id="sc-badge-bc"></span>
     </div>
 
     <!-- Ligne verticale gauche (décorative) -->
@@ -78,7 +79,7 @@
     <!-- Numéro d'inventaire -->
     <div class="sculpt-inv">
       <span class="sculpt-inv-label">Inventaire</span>
-      <span class="sculpt-inv-num">Ma 399</span>
+      <span class="sculpt-inv-num" id="sc-inv-num">—</span>
     </div>
 
     <!-- Hint interaction -->
@@ -96,15 +97,14 @@
     <div class="sculpt-info-header">
       <p class="sculpt-eyebrow">
         <span class="sculpt-eyebrow-dot"></span>
-        Sculpture · Grèce antique
+        <span id="sc-eyebrow">Sculpture</span>
         <span class="sculpt-eyebrow-dot"></span>
       </p>
 
       <!-- Grand titre -->
       <div class="sculpt-title-block">
         <h1 class="sculpt-title">
-          <span class="sculpt-title-drop">V</span>énus<br>
-          <em>de Milo</em>
+          <span class="sculpt-title-drop" id="sc-drop-letter"></span><span id="sc-drop-rest"></span>
         </h1>
         <div class="sculpt-title-line"></div>
       </div>
@@ -114,7 +114,7 @@
         <div class="sculpt-artist-icon"><i class="ti ti-user-star"></i></div>
         <div>
           <span class="sculpt-artist-label">Artiste</span>
-          <p class="sculpt-artist-name">Alexandros d'Antioche <em>(attribué)</em></p>
+          <p class="sculpt-artist-name" id="sc-artist-name">—</p>
         </div>
       </div>
     </div>
@@ -126,58 +126,52 @@
       <div class="sculpt-meta-item">
         <i class="ti ti-calendar-event"></i>
         <span class="sculpt-meta-label">Période</span>
-        <span class="sculpt-meta-value">130 – 100 av. J.-C.</span>
+        <span class="sculpt-meta-value" id="sc-meta-date">—</span>
       </div>
       <div class="sculpt-meta-item">
         <i class="ti ti-components"></i>
         <span class="sculpt-meta-label">Matériau</span>
-        <span class="sculpt-meta-value">Marbre de Paros</span>
+        <span class="sculpt-meta-value" id="sc-meta-materiau">—</span>
       </div>
       <div class="sculpt-meta-item">
         <i class="ti ti-ruler-measure"></i>
         <span class="sculpt-meta-label">Dimensions</span>
-        <span class="sculpt-meta-value">H. 204 cm</span>
+        <span class="sculpt-meta-value" id="sc-meta-hauteur">—</span>
       </div>
       <div class="sculpt-meta-item">
         <i class="ti ti-building-museum"></i>
         <span class="sculpt-meta-label">Conservation</span>
-        <span class="sculpt-meta-value">Musée du Louvre, Paris</span>
+        <span class="sculpt-meta-value" id="sc-meta-musee">—</span>
       </div>
     </div>
 
     <div class="sculpt-info-divider"></div>
 
-    <!-- 3 blocs texte (comme la référence) -->
+    <!-- 3 blocs texte -->
     <div class="sculpt-blocks">
 
       <div class="sculpt-block">
         <div class="sculpt-block-head">
           <div class="sculpt-block-num">01</div>
-          <h2 class="sculpt-block-title">Découverte</h2>
+          <h2 class="sculpt-block-title" id="sc-block1-title">Contexte</h2>
         </div>
-        <p class="sculpt-block-text">
-          Découverte en 1820 sur l'île de Mélos (Milos) par un paysan grec, la statue est rapidement acquise par la France et offerte au roi Louis XVIII avant d'intégrer les collections du Louvre.
-        </p>
+        <p class="sculpt-block-text" id="sc-block1-text"></p>
       </div>
 
       <div class="sculpt-block">
         <div class="sculpt-block-head">
           <div class="sculpt-block-num">02</div>
-          <h2 class="sculpt-block-title">Iconographie</h2>
+          <h2 class="sculpt-block-title" id="sc-block2-title">Description</h2>
         </div>
-        <p class="sculpt-block-text">
-          Représentant très probablement Aphrodite, déesse de l'amour et de la beauté, la sculpture témoigne du naturalisme hellénistique : le mouvement du drapé, la torsion du buste et l'expression sereine du visage en font un chef-d'œuvre absolu.
-        </p>
+        <p class="sculpt-block-text" id="sc-block2-text"></p>
       </div>
 
       <div class="sculpt-block">
         <div class="sculpt-block-head">
           <div class="sculpt-block-num">03</div>
-          <h2 class="sculpt-block-title">Mystère des bras</h2>
+          <h2 class="sculpt-block-title" id="sc-block3-title">Particularité</h2>
         </div>
-        <p class="sculpt-block-text">
-          Les bras originaux, perdus lors de la découverte, n'ont jamais été retrouvés. Cette lacune, loin d'amoindrir l'œuvre, contribue à sa fascination universelle et a généré d'innombrables spéculations parmi les historiens de l'art.
-        </p>
+        <p class="sculpt-block-text" id="sc-block3-text"></p>
       </div>
 
     </div>
@@ -203,14 +197,15 @@
 <div class="sculpt-bottom-strip">
   <div class="sculpt-strip-left">
     <span class="sculpt-strip-label">Style</span>
-    <span class="sculpt-strip-value">Hellénistique tardif</span>
+    <span class="sculpt-strip-value" id="sc-strip-style">—</span>
   </div>
-  <div class="sculpt-strip-title">VÉNUS DE MILO</div>
+  <div class="sculpt-strip-title" id="sc-strip-title">SCULPTURE</div>
   <div class="sculpt-strip-right">
-    <span class="sculpt-strip-label">Salle</span>
-    <span class="sculpt-strip-value">Galerie des Antiques · Niv. 0</span>
+    <span class="sculpt-strip-label">Conservation</span>
+    <span class="sculpt-strip-value" id="sc-strip-musee">—</span>
   </div>
 </div>
 
+<script src="/res/script/script-sculpture.js"></script>
 </body>
 </html>
