@@ -6,6 +6,12 @@
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "7788", "--directory", "."],
       "port": 7788
+    },
+    {
+      "name": "musee-php",
+      "runtimeExecutable": "php",
+      "runtimeArgs": ["-S", "127.0.0.1:8000", "-t", "res/"],
+      "port": 8000
     }
   ]
 }

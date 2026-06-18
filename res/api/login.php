@@ -28,25 +28,25 @@ $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
 $stmt->execute([$email]);
 $user = $stmt->fetch();
 
-// Vérifier le mot de passe en clair
-if (!$user || $user['password'] !== $mdp) {
+if (!$user || !password_verify($mdp, $user['password'])) {
     echo json_encode(['success' => false, 'message' => 'Email ou mot de passe incorrect']);
     exit;
 }
 
 // Stocker l'utilisateur en session
-$_SESSION['user_id'] = $user['id'];
-$_SESSION['user_nom'] = $user['nom'];
+$_SESSION['user_id']     = $user['id'];
+$_SESSION['user_nom']    = $user['nom'];
 $_SESSION['user_prenom'] = $user['prenom'];
-$_SESSION['user_email'] = $user['email'];
+$_SESSION['user_email']  = $user['email'];
 
 echo json_encode([
     'success' => true,
     'message' => 'Connexion réussie',
     'user'    => [
-        'id'     => $user['id'],
-        'nom'    => $user['nom'],
-        'prenom' => $user['prenom'],
-        'email'  => $user['email'],
+        'id'               => $user['id'],
+        'nom'              => $user['nom'],
+        'prenom'           => $user['prenom'],
+        'email'            => $user['email'],
+        'created_at'       => $user['created_at'],
     ]
 ]);

@@ -10,22 +10,20 @@
 </head>
 <body>
 
-<!-- HEADER -->
 <header id="main-header">
   <div class="logo">
-    <a href="../common/index.html" style="text-decoration:none;">
-      <img src="../logoFABI_White.svg" alt="Logo Musée FABI"
-           style="height:100px;vertical-align:middle;border-radius:20px;">
+    <a href="../index.html" style="text-decoration:none;">
+      <img src="../assets/img/logo/logoFABI_White.svg" alt="Logo Musée FABI">
     </a>
   </div>
   <div class="logo"><h1>Musée FABI</h1></div>
   <nav>
     <ul>
-      <li><a href="../common/catalogue.html">Catalogue</a></li>
-      <li><a href="../common/contact.html">Contact</a></li>
+      <li><a href="./catalogue.html">Catalogue</a></li>
+      <li><a href="./contact.html">Contact</a></li>
     </ul>
   </nav>
-  <a href="../common/client.html" class="header-client-btn active-page">
+  <a href="./client.html" class="header-client-btn active-page">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
          stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
       <circle cx="12" cy="8" r="4"/>
@@ -35,21 +33,21 @@
   </a>
 </header>
 
-<!-- PAGE -->
 <div class="client-page">
-  <div class="client-wrap">
+
+  <!-- ── VUE AUTH ── -->
+  <div class="client-wrap" id="view-auth">
 
     <p class="client-eyebrow">Musée FABI · Membres</p>
     <h1 class="client-title">Espace client</h1>
     <div class="client-rule"></div>
 
-    <!-- ONGLETS -->
     <div class="tabs">
       <button class="tab-btn active" data-tab="connexion">Connexion</button>
       <button class="tab-btn"        data-tab="inscription">Inscription</button>
     </div>
 
-    <!-- CONNEXION -->
+    <!-- Connexion -->
     <div class="tab-panel active" id="panel-connexion">
       <div class="form-group">
         <label for="login-email">Email</label>
@@ -63,7 +61,7 @@
       <div class="form-message" id="msg-login"></div>
     </div>
 
-    <!-- INSCRIPTION -->
+    <!-- Inscription -->
     <div class="tab-panel" id="panel-inscription">
       <div class="form-row">
         <div class="form-group">
@@ -87,11 +85,44 @@
       <div class="form-message" id="msg-register"></div>
     </div>
 
-    <a href="../common/index.html" class="back-link">Retour à l'accueil</a>
+    <a href="../index.html" class="back-link">Retour à l'accueil</a>
 
   </div>
+
+  <!-- ── VUE DASHBOARD ── -->
+  <div class="client-wrap" id="view-dashboard" style="display:none;">
+
+    <p class="client-eyebrow">Musée FABI · Membres</p>
+
+    <div class="dashboard-avatar" id="dash-avatar"></div>
+    <h1 class="client-title" id="dash-name"></h1>
+    <p class="dashboard-welcome">Bienvenue dans votre espace personnel</p>
+
+    <div class="client-rule"></div>
+
+    <div class="dashboard-info">
+      <div class="info-row">
+        <span class="info-label">Email</span>
+        <span class="info-value" id="dash-email"></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Membre depuis</span>
+        <span class="info-value" id="dash-since"></span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Statut</span>
+        <span class="info-value info-badge">Membre actif</span>
+      </div>
+    </div>
+
+    <button class="btn-logout" id="btn-logout">Se déconnecter</button>
+    <a href="../index.html" class="back-link">Retour à l'accueil</a>
+
+  </div>
+
 </div>
 
 <script src="../script/client.js"></script>
+<script src="../script/header.js"></script>
 </body>
 </html>

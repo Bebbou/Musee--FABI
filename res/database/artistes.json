@@ -1,0 +1,480 @@
+{
+  "artistes": [
+    {
+      "id": 1,
+      "nom": "Andy Warhol",
+      "nationalite": "Américain",
+      "naissance": "1928",
+      "deces": "1987",
+      "mouvement": "Pop Art",
+      "descriptif": "Andy Warhol est la figure centrale du Pop Art américain. Ancien directeur artistique publicitaire devenu peintre, il transforme les icônes de la culture de masse — boîtes de soupe, stars de cinéma, billets de dollars — en œuvres sérigraphiées reproduites à l'infini. Son atelier new-yorkais, la Factory, devient un laboratoire créatif mêlant peinture, cinéma expérimental et musique. Par son effacement de la frontière entre art et commerce, il redéfinit durablement le statut de l'objet artistique et la notion d'auteur.",
+      "image_url": "../assets/img/artistes/1.webp",
+      "oeuvres_ids": [
+        39,
+        40,
+        41
+      ]
+    },
+    {
+      "id": 2,
+      "nom": "Arnold Böcklin",
+      "nationalite": "Suisse",
+      "naissance": "1827",
+      "deces": "1901",
+      "mouvement": "Symbolisme",
+      "descriptif": "Arnold Böcklin est l'un des peintres symbolistes les plus influents du XIXe siècle. Formé à Düsseldorf puis installé longuement en Italie, il développe un univers de mythologie nordique et méditerranéenne mêlée, peuplé de créatures fantastiques, de paysages oniriques et de figures allégoriques. Son œuvre, à la frontière du réalisme et du fantastique, a profondément marqué le Jugendstil allemand, le surréalisme naissant et la culture visuelle fin-de-siècle européenne.",
+      "image_url": "../assets/img/artistes/2.webp",
+      "oeuvres_ids": [
+        25
+      ]
+    },
+    {
+      "id": 3,
+      "nom": "Carlos Schwabe",
+      "nationalite": "Suisse-Allemand",
+      "naissance": "1866",
+      "deces": "1926",
+      "mouvement": "Symbolisme, Art nouveau",
+      "descriptif": "Carlos Schwabe est un peintre et illustrateur suisse d'origine allemande, figure majeure du symbolisme fin-de-siècle. Établi à Paris, il se distingue par ses illustrations pour les Fleurs du mal de Baudelaire et ses toiles à l'iconographie mélancolique et spirituelle, mêlant influences de l'Art nouveau et du préraphaélisme. Son goût pour les sujets funèbres, l'angélologie et la beauté idéalisée en fait l'un des représentants les plus singuliers du symbolisme européen.",
+      "image_url": "../assets/img/artistes/3.webp",
+      "oeuvres_ids": [
+        24
+      ]
+    },
+    {
+      "id": 4,
+      "nom": "Caspar David Friedrich",
+      "nationalite": "Allemand",
+      "naissance": "1774",
+      "deces": "1840",
+      "mouvement": "Romantisme",
+      "descriptif": "Caspar David Friedrich est le plus grand représentant du romantisme allemand en peinture. Ses paysages — forêts brumeuses, ruines gothiques, couchers de soleil sur la mer — ne sont jamais de simples descriptions de la nature mais des méditations sur l'infini, la solitude et la condition humaine face au sublime. Sa figure récurrente de dos, contemplant l'immensité, invite le spectateur à une expérience intérieure que le peintre liait à une forme de spiritualité panthéiste.",
+      "image_url": "../assets/img/artistes/4.webp",
+      "oeuvres_ids": [
+        23
+      ]
+    },
+    {
+      "id": 5,
+      "nom": "Claude Monet",
+      "nationalite": "Français",
+      "naissance": "1840",
+      "deces": "1926",
+      "mouvement": "Impressionnisme",
+      "descriptif": "Claude Monet est le père de l'impressionnisme et l'un des peintres les plus influents de l'histoire de l'art occidental. Obsédé par la lumière changeante et les effets atmosphériques, il invente une peinture de la sensation fugitive, travaillant en plein air et multipliant les séries sur un même motif — meules, cathédrale de Rouen, nymphéas. Son jardin de Giverny, qu'il conçoit comme une œuvre totale, lui inspire les grandes décorations de nénuphars conservées à l'Orangerie de Paris.",
+      "image_url": "../assets/img/artistes/5.webp",
+      "oeuvres_ids": [
+        9,
+        51,
+        53
+      ]
+    },
+    {
+      "id": 6,
+      "nom": "Diego Velázquez",
+      "nationalite": "Espagnol",
+      "naissance": "1599",
+      "deces": "1660",
+      "mouvement": "Baroque",
+      "descriptif": "Diego Velázquez est le plus grand peintre de l'âge d'or espagnol et l'un des maîtres absolus de la peinture occidentale. Peintre officiel du roi Philippe IV, il domine la cour de Madrid pendant trois décennies et révolutionne le portrait royal, le tableau de genre et la composition. Sa touche libre, sa maîtrise de l'atmosphère et sa capacité à capturer la psychologie des personnages préfigurent l'impressionnisme et influenceront Manet, Sargent et Picasso.",
+      "image_url": "../assets/img/artistes/6.webp",
+      "oeuvres_ids": [
+        6
+      ]
+    },
+    {
+      "id": 7,
+      "nom": "Édouard Manet",
+      "nationalite": "Français",
+      "naissance": "1832",
+      "deces": "1883",
+      "mouvement": "Réalisme, Proto-impressionnisme",
+      "descriptif": "Édouard Manet est la figure charnière entre la peinture académique et la modernité impressionniste. Sans jamais exposer avec le groupe impressionniste, il en inspire les membres par ses sujets contemporains, son refus du récit académique et sa touche large et directe. Ses toiles scandaleuses — Olympia, Le Déjeuner sur l'herbe — bouleversent les conventions du nu et du sujet historique, en imposant la réalité présente comme seul sujet légitime de la peinture moderne.",
+      "image_url": "../assets/img/artistes/7.webp",
+      "oeuvres_ids": [
+        8
+      ]
+    },
+    {
+      "id": 8,
+      "nom": "Edvard Munch",
+      "nationalite": "Norvégien",
+      "naissance": "1863",
+      "deces": "1944",
+      "mouvement": "Expressionnisme, Symbolisme",
+      "descriptif": "Edvard Munch est le père fondateur de l'expressionnisme européen. Marqué par des deuils précoces et une santé mentale fragile, il développe une œuvre qui fait de l'angoisse, de la jalousie, de la mort et du désir les sujets centraux de la peinture. Ses toiles aux couleurs violentes et aux formes déformées exercent une influence directe sur les expressionnistes allemands du Brücke et du Blaue Reiter. Le Cri, image universelle de la détresse moderne, reste son œuvre la plus connue.",
+      "image_url": "../assets/img/artistes/8.webp",
+      "oeuvres_ids": [
+        3
+      ]
+    },
+    {
+      "id": 9,
+      "nom": "Edward Hopper",
+      "nationalite": "Américain",
+      "naissance": "1882",
+      "deces": "1967",
+      "mouvement": "Réalisme américain",
+      "descriptif": "Edward Hopper est le peintre emblématique de la solitude américaine moderne. Ses scènes de cafés déserts, de chambres d'hôtel, de stations-service isolées et de façades urbaines nocturnes capturent avec une intensité silencieuse l'aliénation de l'individu dans la société de masse. Sa lumière tranchante, empruntée à Vermeer et à Hogarth, transforme les intérieurs banals en espaces chargés d'une tension psychologique retenue. Son influence sur le cinéma américain — de Hitchcock aux néo-noirs — est considérable.",
+      "image_url": "../assets/img/artistes/9.webp",
+      "oeuvres_ids": [
+        21
+      ]
+    },
+    {
+      "id": 10,
+      "nom": "Eugène Delacroix",
+      "nationalite": "Français",
+      "naissance": "1798",
+      "deces": "1863",
+      "mouvement": "Romantisme",
+      "descriptif": "Eugène Delacroix est le chef de file du romantisme français et l'adversaire pictural d'Ingres dans le grand débat entre couleur et dessin qui structure la peinture du XIXe siècle. Nourri par les maîtres vénitiens, Rubens et ses voyages au Maroc, il développe une peinture vibrante, dramatique et coloriste. Son journal intime et ses écrits théoriques font de lui un penseur majeur de l'esthétique romantique, admiré par Baudelaire qui en fait le peintre de la modernité.",
+      "image_url": "../assets/img/artistes/10.webp",
+      "oeuvres_ids": [
+        7
+      ]
+    },
+    {
+      "id": 11,
+      "nom": "Francisco de Goya",
+      "nationalite": "Espagnol",
+      "naissance": "1746",
+      "deces": "1828",
+      "mouvement": "Romantisme, Précurseur de l'expressionnisme",
+      "descriptif": "Francisco de Goya est l'un des peintres les plus complexes et les plus modernes de toute l'histoire de l'art occidental. D'abord peintre de cour brillant et officiel, il bascule après sa surdité et les guerres napoléoniennes vers une œuvre sombre et visionnaire — les Désastres de la guerre, les Peintures noires — qui anticipe l'expressionnisme et le surréalisme. Témoin des violences de son temps, il en fait une peinture sans concession ni héroïsme.",
+      "image_url": "../assets/img/artistes/11.webp",
+      "oeuvres_ids": [
+        37,
+        55
+      ]
+    },
+    {
+      "id": 12,
+      "nom": "Franz Marc",
+      "nationalite": "Allemand",
+      "naissance": "1880",
+      "deces": "1916",
+      "mouvement": "Expressionnisme, Der Blaue Reiter",
+      "descriptif": "Franz Marc est l'un des fondateurs du Blaue Reiter (Le Cavalier bleu), mouvement expressionniste allemand co-créé avec Wassily Kandinsky en 1911. Sa peinture, caractérisée par des animaux aux couleurs symboliques dans des paysages éclatés par le prisme cubiste, cherche à exprimer la pureté spirituelle de la nature contre la corruption du monde humain. Mort au front de Verdun à trente-six ans, il laisse une œuvre brève mais fondamentale dans l'histoire de l'expressionnisme européen.",
+      "image_url": "../assets/img/artistes/12.webp",
+      "oeuvres_ids": [
+        52
+      ]
+    },
+    {
+      "id": 13,
+      "nom": "Giovanni Paolo Panini",
+      "nationalite": "Italien",
+      "naissance": "1691",
+      "deces": "1765",
+      "mouvement": "Baroque tardif, Vedutisme",
+      "descriptif": "Giovanni Paolo Panini est le maître incontesté du capriccio architectural et de la peinture de ruines antiques au XVIIIe siècle. Installé à Rome, il devient le peintre attitré des voyageurs du Grand Tour européen en leur fournissant des vues idéalisées de la Rome antique et baroque. Ses vastes compositions intérieures — galeries imaginaires remplies de statues et de tableaux célèbres — anticipent les musées encyclopédiques et témoignent de la fascination des Lumières pour la mémoire de l'Antiquité.",
+      "image_url": "../assets/img/artistes/13.webp",
+      "oeuvres_ids": [
+        22
+      ]
+    },
+    {
+      "id": 14,
+      "nom": "Grant Wood",
+      "nationalite": "Américain",
+      "naissance": "1891",
+      "deces": "1942",
+      "mouvement": "Régionalisme américain",
+      "descriptif": "Grant Wood est la figure centrale du régionalisme américain, mouvement des années 1930 qui célèbre les paysages et la culture rurale du Midwest américain en réaction au cosmopolitisme des avant-gardes européennes. Formé en Europe, notamment en Allemagne, il adopte à son retour une technique minutieuse inspirée des maîtres flamands. American Gothic, son œuvre la plus connue, est devenu l'une des images les plus reproductibles de la culture américaine, oscillant entre hommage, parodie et commentaire social.",
+      "image_url": "../assets/img/artistes/14.webp",
+      "oeuvres_ids": [
+        12
+      ]
+    },
+    {
+      "id": 15,
+      "nom": "Gustav Klimt",
+      "nationalite": "Autrichien",
+      "naissance": "1862",
+      "deces": "1918",
+      "mouvement": "Symbolisme, Sécession viennoise, Art nouveau",
+      "descriptif": "Gustav Klimt est le fondateur et la figure tutélaire de la Sécession viennoise, mouvement de rupture avec l'académisme autrichien fondé en 1897. Sa peinture, caractérisée par l'usage décoratif de l'or et des métaux précieux, l'ornementation byzantine et la représentation frontale du désir érotique, constitue l'un des sommets de l'Art nouveau européen. Ses grandes allégories — La Frise Beethoven, Le Baiser, Judith — synthétisent philosophie nietzschéenne, symbolisme et raffinement décoratif.",
+      "image_url": "../assets/img/artistes/15.webp",
+      "oeuvres_ids": [
+        13
+      ]
+    },
+    {
+      "id": 16,
+      "nom": "Gustave Caillebotte",
+      "nationalite": "Français",
+      "naissance": "1848",
+      "deces": "1894",
+      "mouvement": "Impressionnisme",
+      "descriptif": "Gustave Caillebotte est l'un des membres les plus originaux du groupe impressionniste, longtemps sous-estimé parce que riche mécène des autres membres du groupe. Sa peinture se distingue par une perspective plongeante et des cadrages photographiques qui lui sont propres, associant rigueur réaliste et sensibilité impressionniste. Ses scènes parisiennes — rues sous la pluie, raboteurs de parquet, balcons haussmanniens — offrent l'un des documents les plus précis et les plus beaux de la transformation de Paris au XIXe siècle.",
+      "image_url": "../assets/img/artistes/16.webp",
+      "oeuvres_ids": [
+        48
+      ]
+    },
+    {
+      "id": 17,
+      "nom": "Jack Vettriano",
+      "nationalite": "Écossais",
+      "naissance": "1951",
+      "deces": null,
+      "mouvement": "Réalisme contemporain",
+      "descriptif": "Jack Vettriano est un peintre écossais autodidacte, né Jack Hoggan, dont la notoriété populaire est inversement proportionnelle à la reconnaissance critique. Ses scènes élégantes de couples dans des décors rétro des années 1940-1950, baignées d'une lumière mélancolique et d'une atmosphère de film noir, ont conquis un public immense au Royaume-Uni. The Singing Butler, son tableau le plus célèbre, est l'une des images les plus reproduites de la peinture britannique contemporaine, malgré le mépris persistant d'une partie du monde de l'art officiel.",
+      "image_url": "../assets/img/artistes/17.webp",
+      "oeuvres_ids": [
+        50
+      ]
+    },
+    {
+      "id": 18,
+      "nom": "Jacques-Louis David",
+      "nationalite": "Français",
+      "naissance": "1748",
+      "deces": "1825",
+      "mouvement": "Néoclassicisme",
+      "descriptif": "Jacques-Louis David est le peintre officiel de la Révolution française et du Premier Empire, et le maître incontesté du néoclassicisme. Formé à Rome où il redécouvre l'Antiquité grecque et romaine, il en fait le répertoire formel et moral d'une peinture politique engagée. Sa collaboration avec Robespierre puis Napoléon fait de lui le premier artiste à assumer pleinement un rôle de propagandiste d'État. Sa longue carrière traverse toutes les convulsions de l'histoire française et forge l'image visuelle de la République et de l'Empire.",
+      "image_url": "../assets/img/artistes/18.webp",
+      "oeuvres_ids": [
+        18,
+        19
+      ]
+    },
+    {
+      "id": 19,
+      "nom": "Jan van Eyck",
+      "nationalite": "Flamand",
+      "naissance": "vers 1390",
+      "deces": "1441",
+      "mouvement": "Primitifs flamands",
+      "descriptif": "Jan van Eyck est l'un des plus grands peintres de toute l'histoire de l'art occidental et le maître de la peinture flamande du XVe siècle. Longtemps crédité de l'invention de la peinture à l'huile — dont il est en tout cas le perfectionniste absolu — il révolutionne la représentation du monde visible par un rendu des matières, des reflets et de la lumière d'une précision inégalée. Peintre de cour de Philippe le Bon, duc de Bourgogne, il représente l'apogée de la civilisation flamande médiévale.",
+      "image_url": "../assets/img/artistes/19.webp",
+      "oeuvres_ids": [
+        17
+      ]
+    },
+    {
+      "id": 20,
+      "nom": "Jérôme Bosch",
+      "nationalite": "Néerlandais",
+      "naissance": "vers 1450",
+      "deces": "1516",
+      "mouvement": "Primitifs flamands, Art fantastique",
+      "descriptif": "Jérôme Bosch — Hieronymus Bosch de son vrai nom — est l'un des artistes les plus énigmatiques de toute l'histoire de l'art. Peintre de la ville de Bois-le-Duc, il développe un univers fantastique et moralisateur peuplé de créatures hybrides, de visions infernales et de scènes d'une étrangeté radicale, sans équivalent dans la peinture de son temps. Ses triptyques — le Jardin des délices, le Chariot de foin, la Tentation de saint Antoine — fascinent autant aujourd'hui qu'au XVIe siècle, résistant à toute interprétation définitive.",
+      "image_url": "../assets/img/artistes/20.webp",
+      "oeuvres_ids": [
+        20
+      ]
+    },
+    {
+      "id": 21,
+      "nom": "Johan Barthold Jongkind",
+      "nationalite": "Néerlandais-Français",
+      "naissance": "1819",
+      "deces": "1891",
+      "mouvement": "Précurseur de l'impressionnisme",
+      "descriptif": "Johan Barthold Jongkind est un peintre et aquarelliste néerlando-français considéré comme l'un des précurseurs directs de l'impressionnisme. Installé en France, il développe une technique de plein air fondée sur la rapidité d'exécution, la sensibilité aux effets de lumière et une palette claire qui annoncent la révolution impressionniste. Monet, qui le rencontre à Honfleur dans les années 1860, le reconnaît comme l'un de ses maîtres déterminants. Son œuvre graphique, notamment ses eaux-fortes, est particulièrement estimée.",
+      "image_url": "../assets/img/artistes/21.webp",
+      "oeuvres_ids": [
+        27
+      ]
+    },
+    {
+      "id": 22,
+      "nom": "Johannes Vermeer",
+      "nationalite": "Néerlandais",
+      "naissance": "1632",
+      "deces": "1675",
+      "mouvement": "Siècle d'or néerlandais",
+      "descriptif": "Johannes Vermeer est l'un des plus grands maîtres de la peinture hollandaise du XVIIe siècle, dont l'œuvre réduite — une quarantaine de tableaux — atteint une perfection technique et une profondeur silencieuse inégalées. Ses intérieurs baignés de lumière latérale, ses personnages saisis dans des gestes ordinaires — lire une lettre, verser du lait, jouer d'un instrument — constituent des instants de grâce immobile. La précision optique de sa peinture a conduit certains chercheurs à avancer qu'il utilisait une chambre obscure.",
+      "image_url": "../assets/img/artistes/22.webp",
+      "oeuvres_ids": [
+        4,
+        16
+      ]
+    },
+    {
+      "id": 23,
+      "nom": "Joseph Mallord William Turner",
+      "nationalite": "Britannique",
+      "naissance": "1775",
+      "deces": "1851",
+      "mouvement": "Romantisme, Précurseur de l'impressionnisme",
+      "descriptif": "J.M.W. Turner est le plus grand peintre britannique de l'histoire et l'un des révolutionnaires absolus de la peinture de paysage. Parti d'une maîtrise classique héritée de Claude Lorrain, il pousse progressivement la lumière et la couleur vers une dissolution des formes qui préfigure directement l'impressionnisme et l'abstraction. Ses tempêtes marines, ses paysages alpestres et ses embrasements de lumière font de lui le peintre du sublime romantique par excellence. Monet, de passage à Londres, sera directement marqué par ses œuvres.",
+      "image_url": "../assets/img/artistes/23.webp",
+      "oeuvres_ids": [
+        26
+      ]
+    },
+    {
+      "id": 24,
+      "nom": "Katsushika Hokusai",
+      "nationalite": "Japonais",
+      "naissance": "1760",
+      "deces": "1849",
+      "mouvement": "Ukiyo-e",
+      "descriptif": "Katsushika Hokusai est le maître de l'estampe japonaise ukiyo-e et l'artiste japonais le plus universellement connu en Occident. Auteur d'une œuvre colossale — plus de trente mille estampes, dessins et peintures — il ne cesse de se réinventer tout au long de sa très longue carrière. Ses Trente-six vues du mont Fuji, et en particulier La Grande Vague de Kanagawa, ont exercé une fascination déterminante sur les artistes européens du japonisme, influençant directement Monet, Van Gogh, Degas et l'Art nouveau.",
+      "image_url": "../assets/img/artistes/24.webp",
+      "oeuvres_ids": [
+        11
+      ]
+    },
+    {
+      "id": 25,
+      "nom": "Léonard de Vinci",
+      "nationalite": "Italien",
+      "naissance": "1452",
+      "deces": "1519",
+      "mouvement": "Haute Renaissance",
+      "descriptif": "Léonard de Vinci est l'archétype de l'homme de la Renaissance — peintre, sculpteur, architecte, ingénieur, anatomiste, musicien et philosophe. Sa peinture, en un nombre d'œuvres intentionnellement limité, atteint un sommet de perfection technique avec l'invention du sfumato, cette technique de transitions imperceptibles entre lumière et ombre qui donne à ses figures une présence et une profondeur psychologique sans précédent. La Joconde et La Cène sont ses deux œuvres les plus célèbres et les plus étudiées de l'histoire de l'art.",
+      "image_url": "../assets/img/artistes/25.webp",
+      "oeuvres_ids": [
+        1
+      ]
+    },
+    {
+      "id": 26,
+      "nom": "Michel-Ange",
+      "nationalite": "Italien",
+      "naissance": "1475",
+      "deces": "1564",
+      "mouvement": "Haute Renaissance, Maniérisme",
+      "descriptif": "Michel-Ange di Lodovico Buonarroti Simoni est l'une des figures les plus extraordinaires de toute l'histoire de l'art occidental — sculpteur, peintre, architecte et poète d'une puissance créatrice sans égale. Ses sculptures — le David, la Pietà, Moïse — et ses fresques de la chapelle Sixtine définissent les canons de la représentation du corps humain dans la grande tradition occidentale. Sa vie entière, de Florence à Rome, est placée sous le signe de la rivalité et de la grandeur, au service des plus grands mécènes de son temps.",
+      "image_url": "../assets/img/artistes/26.webp",
+      "oeuvres_ids": [
+        14
+      ]
+    },
+    {
+      "id": 27,
+      "nom": "Pablo Picasso",
+      "nationalite": "Espagnol",
+      "naissance": "1881",
+      "deces": "1973",
+      "mouvement": "Cubisme, Surréalisme",
+      "descriptif": "Pablo Picasso est le peintre le plus influent du XXe siècle et l'une des personnalités artistiques les plus prolifiques de l'histoire. Co-fondateur du cubisme avec Georges Braque, il révolutionne la représentation en fragmentant les formes et en montrant simultanément plusieurs points de vue. Son œuvre traverse de multiples périodes — bleue, rose, cubiste, néoclassique, surréaliste — sans jamais s'enfermer dans un style. Artiste politique engagé, il laisse dans Guernica le manifeste anti-guerre le plus puissant du XXe siècle.",
+      "image_url": "../assets/img/artistes/27.webp",
+      "oeuvres_ids": [
+        30,
+        31,
+        34,
+        42
+      ]
+    },
+    {
+      "id": 28,
+      "nom": "Pierre-Auguste Renoir",
+      "nationalite": "Français",
+      "naissance": "1841",
+      "deces": "1919",
+      "mouvement": "Impressionnisme",
+      "descriptif": "Pierre-Auguste Renoir est l'un des principaux membres du groupe impressionniste et le peintre de la joie de vivre par excellence. Ses tableaux — scènes de plein air, bal populaire, baigneurs, portraits de femmes et d'enfants — célèbrent la lumière, la chaleur humaine et les plaisirs simples de la société française de la Troisième République. Dans la dernière partie de sa vie, touché par un rhumatisme déformant, il poursuit sa peinture en attachant les pinceaux à ses mains, refusant toute capitulation devant la douleur.",
+      "image_url": "../assets/img/artistes/28.webp",
+      "oeuvres_ids": [
+        47,
+        49
+      ]
+    },
+    {
+      "id": 29,
+      "nom": "Rembrandt van Rijn",
+      "nationalite": "Néerlandais",
+      "naissance": "1606",
+      "deces": "1669",
+      "mouvement": "Siècle d'or néerlandais, Baroque",
+      "descriptif": "Rembrandt van Rijn est universellement considéré comme le plus grand peintre du Siècle d'or néerlandais et l'un des maîtres absolus de la peinture occidentale. Graveur, dessinateur et peintre d'une fécondité prodigieuse, il révolutionne le portrait, la scène historique et le paysage par son usage dramatique du clair-obscur, hérité du caravagisme mais poussé bien plus loin. Sa série d'autoportraits — plus de quatre-vingt peintures, dessins et gravures — constitue l'une des plus grandes introspections visuelles de l'histoire de l'art.",
+      "image_url": "../assets/img/artistes/29.webp",
+      "oeuvres_ids": [
+        54
+      ]
+    },
+    {
+      "id": 30,
+      "nom": "René Magritte",
+      "nationalite": "Belge",
+      "naissance": "1898",
+      "deces": "1967",
+      "mouvement": "Surréalisme",
+      "descriptif": "René Magritte est le plus grand représentant du surréalisme belge et l'un des peintres les plus philosophiquement profonds du XXe siècle. À la différence des surréalistes français, son travail n'explore pas le rêve ou l'inconscient freudien mais le langage et les rapports entre les mots, les images et les choses. Ses toiles — la trahison des images, les amants, le fils de l'homme — posent des questions radicales sur la représentation, l'identité et la réalité, peintes dans un style délibérément banal qui renforce l'étrangeté du contenu.",
+      "image_url": "../assets/img/artistes/30.webp",
+      "oeuvres_ids": [
+        29,
+        35,
+        36,
+        38
+      ]
+    },
+    {
+      "id": 31,
+      "nom": "Salvador Dalí",
+      "nationalite": "Espagnol",
+      "naissance": "1904",
+      "deces": "1989",
+      "mouvement": "Surréalisme",
+      "descriptif": "Salvador Dalí est la figure la plus flamboyante et la plus médiatisée du surréalisme. Exclu du groupe par André Breton pour ses provocations politiques, il poursuit une carrière solitaire dans laquelle il développe sa méthode paranoïaque-critique — projection d'images hallucinées dans des paysages peints avec une précision photographique. Personnage public extravagant autant qu'artiste sérieux, il s'impose comme l'un des peintres les plus reconnaissables du XXe siècle, fasciné par la science, la psychanalyse, la religion et la mort.",
+      "image_url": "../assets/img/artistes/31.webp",
+      "oeuvres_ids": [
+        32,
+        33
+      ]
+    },
+    {
+      "id": 32,
+      "nom": "Sandro Botticelli",
+      "nationalite": "Italien",
+      "naissance": "1445",
+      "deces": "1510",
+      "mouvement": "Première Renaissance florentine",
+      "descriptif": "Sandro Botticelli est le peintre le plus représentatif de la Renaissance florentine médicéenne, dont il incarne la synthèse entre culture humaniste, néoplatonisme et raffinement formel. Ses grandes toiles mythologiques — La Naissance de Vénus, Le Printemps — commandées par Laurent de Médicis, définissent l'iconographie de la beauté idéale de la Renaissance. Sur le tard, touché par les prédications de Savonarole, il se tourne vers une peinture religieuse plus austère. Son œuvre, longtemps oubliée, est redécouverte et portée aux nues par les préraphaélites au XIXe siècle.",
+      "image_url": "../assets/img/artistes/32.webp",
+      "oeuvres_ids": [
+        5
+      ]
+    },
+    {
+      "id": 33,
+      "nom": "Théodore Géricault",
+      "nationalite": "Français",
+      "naissance": "1791",
+      "deces": "1824",
+      "mouvement": "Romantisme",
+      "descriptif": "Théodore Géricault est la figure fondatrice du romantisme français en peinture, mort à trente-deux ans dans un accident de cheval, laissant une œuvre brève mais révolutionnaire. Son Radeau de la Méduse, par son réalisme brutal, son sujet d'actualité politique et sa composition anti-héroïque, brise avec l'idéalisme néoclassique de David et annonce la sensibilité romantique. Ses portraits de fous, réalisés en collaboration avec le médecin Esquirol, constituent l'un des premiers exemples d'une peinture clinique du visage humain.",
+      "image_url": "../assets/img/artistes/33.webp",
+      "oeuvres_ids": [
+        15
+      ]
+    },
+    {
+      "id": 34,
+      "nom": "Vincent van Gogh",
+      "nationalite": "Néerlandais",
+      "naissance": "1853",
+      "deces": "1890",
+      "mouvement": "Post-impressionnisme",
+      "descriptif": "Vincent van Gogh est l'un des peintres les plus célèbres et les plus aimés de l'histoire de l'art, dont la vie tragique et l'œuvre flamboyante sont indissociables dans l'imaginaire collectif. Autodidacte entré en peinture tardivement, il développe en une décennie une œuvre d'une intensité émotionnelle et d'une originalité technique exceptionnelles, caractérisée par sa touche tourbillonnante et sa palette de couleurs saturées. Mort à trente-sept ans, il ne vend qu'un seul tableau de son vivant mais laisse plus de neuf cents toiles qui définissent le post-impressionnisme.",
+      "image_url": "../assets/img/artistes/34.webp",
+      "oeuvres_ids": [
+        2,
+        10,
+        43,
+        44,
+        45,
+        46
+      ]
+    },
+    {
+      "id": 35,
+      "nom": "Winslow Homer",
+      "nationalite": "Américain",
+      "naissance": "1836",
+      "deces": "1910",
+      "mouvement": "Réalisme américain",
+      "descriptif": "Winslow Homer est l'un des plus grands peintres américains du XIXe siècle, maître de la peinture de la nature sauvage et de la mer. D'abord illustrateur de presse pendant la guerre de Sécession, il se tourne ensuite vers des sujets de plein air — pêcheurs, marins, chasse, vie rurale — traités avec une rigueur et une économie de moyens qui font de lui un précurseur du réalisme américain moderne. Sa maîtrise de l'aquarelle est considérée comme l'une des plus grandes de toute l'histoire de cette technique.",
+      "image_url": "../assets/img/artistes/35.webp",
+      "oeuvres_ids": [
+        28
+      ]
+    }
+  ],
+  "total": 35
+}

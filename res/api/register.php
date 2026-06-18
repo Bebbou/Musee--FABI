@@ -45,8 +45,9 @@ if ($stmt->fetch()) {
     exit;
 }
 
-// Insérer l'utilisateur
+// Insérer l'utilisateur avec mot de passe hashé
+$hash = password_hash($mdp, PASSWORD_BCRYPT);
 $stmt = $pdo->prepare("INSERT INTO users (nom, prenom, email, password) VALUES (?, ?, ?, ?)");
-$stmt->execute([$nom, $prenom, $email, $mdp]);
+$stmt->execute([$nom, $prenom, $email, $hash]);
 
 echo json_encode(['success' => true, 'message' => 'Compte créé avec succès']);
