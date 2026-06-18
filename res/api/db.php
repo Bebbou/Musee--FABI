@@ -52,8 +52,7 @@ try {
     $pdo->exec("CREATE OR REPLACE VIEW vue_notes AS
         SELECT
             o.id                                        AS oeuvre_id,
-            o.nom                                       AS oeuvre_nom,
-            o.auteur                                    AS oeuvre_auteur,
+            o.titre                                     AS oeuvre_nom,
             CONCAT(u.prenom, ' ', u.nom)               AS utilisateur,
             n.note,
             ROUND(AVG(n.note) OVER (PARTITION BY n.oeuvre_id) * 2) / 2 AS moyenne_globale,

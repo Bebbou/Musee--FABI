@@ -19,7 +19,7 @@ $data   = json_decode(file_get_contents('php://input'), true);
 $nom    = trim($data['nom']    ?? '');
 $prenom = trim($data['prenom'] ?? '');
 $email  = trim($data['email']  ?? '');
-$mdp    = $data['password']    ?? '';
+$mdp    = $data['mot_de_passe'] ?? '';
 
 if (!$nom || !$prenom || !$email || !$mdp) {
     echo json_encode(['success' => false, 'message' => 'Tous les champs sont obligatoires']);
@@ -44,7 +44,15 @@ if ($stmt->fetch()) {
 }
 
 // Insérer l'utilisateur avec mot de passe hashé
+session_start();
 $stmt = $pdo->prepare("INSERT INTO utilisateurs (nom, prenom, email, mot_de_passe) VALUES (?, ?, ?, ?)");
 $stmt->execute([$nom, $prenom, $email, $mdp]);
 
-echo json_encode(['success' => true, 'message' => 'Compte créé avec succès']);
+$id = $pdo->lastInsertId();
+$_SESSION['user_id'] = $id;
+
+echo json_encode([
+    'success' => true,
+    'message' => 'Compte créé avec succès',
+    'user'    => ['id' => $id, 'nom' => $nom, 'prenom' => $prenom, 'email' => $email]
+]);

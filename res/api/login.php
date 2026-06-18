@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $data  = json_decode(file_get_contents('php://input'), true);
 $email = trim($data['email']    ?? '');
-$mdp   = $data['password'] ?? '';
+$mdp   = $data['mot_de_passe'] ?? '';
 
 if (!$email || !$mdp) {
     echo json_encode(['success' => false, 'message' => 'Email et mot de passe requis']);
