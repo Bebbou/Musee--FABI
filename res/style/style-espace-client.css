@@ -121,7 +121,7 @@
   height: 100px;
   background: radial-gradient(ellipse at top, rgba(255,200,100,0.15) 0%, transparent 70%);
 }
-
+ 
 /* Cadre du tableau */
 .painting-frame {
   position: relative;
