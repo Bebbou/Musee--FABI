@@ -3,64 +3,181 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Catalogue</title>
+<meta name="description" content="Catalogue du Musée FABI — explorez notre collection permanente d'œuvres et d'artistes.">
+<title>Catalogue — Musée FABI</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=EB+Garamond:wght@400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="../style/style.css">
 <link rel="stylesheet" href="../style/stylecata.css">
 </head>
 <body>
 
-<!-- fond fixe : remplace --hero-art dans style.css par url('ton-ophelie.jpg') -->
-<div class="ct-bg" aria-hidden="true"></div>
+<!-- Lien d'évitement (accessibilité clavier) -->
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-<header class="ct-header">
-  <div class="ct-brand">MUSÉE&nbsp;·&nbsp;COLLECTION</div>
-  <nav class="ct-nav">
-    <a href="#ct-artistes">Artistes</a>
-    <a href="#ct-oeuvres">Œuvres</a>
-    <a href="#">Expositions</a>
-    <a href="#">À propos</a>
+<!-- ══ HEADER ══ -->
+<header id="main-header" role="banner">
+  <div class="logo">
+    <a href="../index.html" aria-label="Accueil — Musée FABI">
+      <img src="../assets/img/logo/logoFABI_White.svg" alt="Logo Musée FABI"
+           style="height:100px;vertical-align:middle;border-radius:20px;">
+    </a>
+  </div>
+  <!-- span au lieu de h1 : le vrai h1 de la page est "Catalogue" -->
+  <div class="logo" aria-hidden="true"><span class="header-site-name">Musée FABI</span></div>
+  <nav aria-label="Navigation principale">
+    <ul>
+      <li><a href="./catalogue.html" aria-current="page">Catalogue</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+    </ul>
   </nav>
 </header>
 
-<!-- HERO : filtre noir troué + titre, en parallaxe -->
-<section class="ct-hero">
-  <div class="ct-frame" id="ct-frame">
-    <div class="ct-cutout"></div>
-    <h1 class="ct-title">Catalogue</h1>
+<!-- ══ CONTENU PRINCIPAL ══ -->
+<main id="main-content">
+
+  <!-- fond fixe décoratif -->
+  <div class="ct-bg" aria-hidden="true"></div>
+
+  <!-- HERO -->
+  <section class="ct-hero" aria-label="En-tête du catalogue">
+    <div class="ct-frame" id="ct-frame" aria-hidden="true">
+      <div class="ct-cutout"></div>
+    </div>
+    <h1 class="ct-title">
+      <span class="ct-title-init" aria-hidden="true">C</span><span class="sr-only">C</span>ATALO<span class="ct-title-init" aria-hidden="true">G</span><span class="sr-only">G</span>UE
+    </h1>
+  </section>
+
+  <!-- BANDE DES ŒUVRES VEDETTES -->
+  <div class="ct-strip-header">
+    <p class="ct-strip-eyebrow">Coup de cœur du public</p>
+    <h2 class="ct-strip-title">Les œuvres les plus aimées</h2>
   </div>
-</section>
+  <section class="ct-strip" id="ct-strip" aria-label="Sélection des œuvres vedettes"></section>
 
-<!-- bande de tableaux (remplie par script.js) -->
-<section class="ct-strip" id="ct-strip"></section>
+  <!-- BARRE DE RECHERCHE -->
+  <div class="ct-search-bar" role="search">
+    <div class="ct-search-wrap">
+      <svg class="ct-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" focusable="false">
+        <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/>
+      </svg>
+      <label for="ct-search" class="sr-only">Rechercher dans le catalogue</label>
+      <input id="ct-search" type="search"
+             placeholder="Rechercher un artiste, une œuvre, un mouvement…"
+             autocomplete="off"
+             aria-describedby="ct-search-count">
+      <span class="ct-search-count"
+            id="ct-search-count"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"></span>
+    </div>
+  </div>
 
-<!-- catégorie ARTISTES (rétractable) -->
-<section class="ct-cat" id="ct-artistes">
-  <button class="ct-cat-head" aria-expanded="true">
-    <h2 class="ct-cat-title">Artistes</h2>
-    <span class="ct-cat-line"></span>
-    <span class="ct-cat-tri">▼</span>
-  </button>
-  <div class="ct-mosaic" id="ct-mosaic-artistes"></div>
-</section>
+  <!-- ARTISTES -->
+  <section class="ct-cat" id="ct-artistes" aria-labelledby="title-artistes">
+    <div class="ct-cat-top">
+      <button class="ct-cat-head"
+              aria-expanded="true"
+              aria-controls="ct-mosaic-artistes"
+              id="btn-artistes">
+        <span class="ct-cat-title" id="title-artistes">Artistes</span>
+        <span class="ct-cat-line" aria-hidden="true"></span>
+        <span class="ct-cat-tri" aria-hidden="true">▼</span>
+      </button>
+      <div class="ct-sort" data-target="artistes" role="group" aria-label="Trier les artistes">
+        <button class="ct-sort-btn active" data-sort="popularite" aria-pressed="true">Popularité</button>
+        <button class="ct-sort-btn" data-sort="nom-az" aria-pressed="false">Nom A→Z</button>
+        <button class="ct-sort-btn" data-sort="nom-za" aria-pressed="false">Nom Z→A</button>
+        <button class="ct-sort-btn" data-sort="date" aria-pressed="false">Date</button>
+      </div>
+    </div>
+    <div class="ct-mosaic" id="ct-mosaic-artistes" role="list" aria-label="Liste des artistes"></div>
+  </section>
 
-<!-- catégorie ŒUVRES (rétractable) -->
-<section class="ct-cat" id="ct-oeuvres">
-  <button class="ct-cat-head" aria-expanded="true">
-    <h2 class="ct-cat-title">Œuvres</h2>
-    <span class="ct-cat-line"></span>
-    <span class="ct-cat-tri">▼</span>
-  </button>
-  <div class="ct-mosaic" id="ct-mosaic-oeuvres"></div>
-</section>
+  <!-- ŒUVRES -->
+  <section class="ct-cat" id="ct-oeuvres" aria-labelledby="title-oeuvres">
+    <div class="ct-cat-top">
+      <button class="ct-cat-head"
+              aria-expanded="true"
+              aria-controls="ct-mosaic-oeuvres"
+              id="btn-oeuvres">
+        <span class="ct-cat-title" id="title-oeuvres">Œuvres</span>
+        <span class="ct-cat-line" aria-hidden="true"></span>
+        <span class="ct-cat-tri" aria-hidden="true">▼</span>
+      </button>
+      <div class="ct-sort" data-target="oeuvres" role="group" aria-label="Trier les œuvres">
+        <button class="ct-sort-btn active" data-sort="nom-az" aria-pressed="true">Nom A→Z</button>
+        <button class="ct-sort-btn" data-sort="nom-za" aria-pressed="false">Nom Z→A</button>
+        <button class="ct-sort-btn" data-sort="artiste-az" aria-pressed="false">Artiste A→Z</button>
+        <button class="ct-sort-btn" data-sort="artiste-za" aria-pressed="false">Artiste Z→A</button>
+        <button class="ct-sort-btn" data-sort="date" aria-pressed="false">Date</button>
+        <button class="ct-sort-btn" data-sort="mouvement" aria-pressed="false">Mouvement</button>
+      </div>
+    </div>
+    <div class="ct-mosaic" id="ct-mosaic-oeuvres" role="list" aria-label="Liste des œuvres"></div>
+  </section>
 
-<footer class="ct-footer">
-  Collection permanente — entrée libre · Catalogue mis à jour chaque saison.
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer id="main-footer" role="contentinfo">
+  <div class="footer-content">
+    <hr class="footer-separator" aria-hidden="true">
+
+    <div class="footer-main">
+      <div class="footer-col">
+        <h3 class="footer-title">Informations</h3>
+        <ul class="footer-list">
+          <li><span class="footer-label">Adresse</span><span>25 Quai de Rive Neuve, 13007 Marseille</span></li>
+          <li><span class="footer-label">Téléphone</span><span>+33 6 37 61 15 56</span></li>
+          <li><span class="footer-label">E-mail</span><span><a href="mailto:paco.giovannetti@gmail.com">paco.giovannetti@gmail.com</a></span></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-title">Horaires</h3>
+        <ul class="footer-list">
+          <li><span class="footer-label">Mardi – Dimanche</span><span>10h – 18h</span></li>
+          <li><span class="footer-label">Lundi</span><span>Fermé</span></li>
+          <li><span class="footer-label">Accès</span><span>Voir la billetterie</span></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-title">Navigation</h3>
+        <ul class="footer-list">
+          <li><a href="./catalogue.html">Catalogue</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="./mentions.html">Mentions légales</a></li>
+          <li><a href="./privacy.html">Politique de confidentialité</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-title">Suivez-nous</h3>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Suivez-nous sur Instagram">Instagram</a>
+          <a href="#" class="social-link" aria-label="Suivez-nous sur Facebook">Facebook</a>
+          <a href="#" class="social-link" aria-label="Suivez-nous sur Twitter">Twitter</a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="footer-separator" aria-hidden="true">
+
+    <div class="footer-copyright">
+      <p><small>&copy; 2026 Musée FABI. Tous droits réservés.</small></p>
+      <p class="footer-credit"><small>Conçu par Lilian et Lino :3</small></p>
+    </div>
+  </div>
 </footer>
 
 <script src="../script/scriptcata.js"></script>
+<script src="../script/header.js"></script>
 </body>
 </html>
