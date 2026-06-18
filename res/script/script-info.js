@@ -1,17 +1,13 @@
-/* script-info.js — charge l'œuvre et peuple les layouts
-   
-   📝 POUR MODIFIER LES TAILLES DE TEXTE : allez dans style-info.css
-      Recherchez "MODIFIER CETTE TAILLE" pour trouver tous les font-size à ajuster
-   
-   ✏️  POUR MODIFIER LE CONTENU : c'est dans populateEditorial() et populateBaroque()
-      Les textes proviennent de collection_musee.json (base de données)
-*/
+/* script-info.js — charge l'œuvre, peuple les layouts, gère les notes */
+
+const API = '/res/api';
 
 (async function () {
   const params  = new URLSearchParams(location.search);
   const idParam = parseInt(params.get('id'), 10);
   const loading = document.getElementById('info-loading');
 
+  /* ── 1. Charger la collection ── */
   let oeuvres, artistes;
   try {
     const [resO, resA] = await Promise.all([
@@ -45,12 +41,206 @@
   } else {
     populateBaroque(oeuvre, artiste);
   }
+
+
+  /* ── 2. Portrait Wikipedia (arrière-plan) ── */
+  fetchAuthorPortrait(oeuvre.auteur).then(portrait => {
+    if (!portrait) return;
+    if (useEditorial) {
+      const bg = document.getElementById('ed-author-bg');
+      if (bg) bg.style.backgroundImage = `url('${portrait}')`;
+    } else {
+      const portraitEl = document.getElementById('ba-author-portrait');
+      const imgEl      = document.getElementById('ba-author-img');
+      const labelEl    = document.getElementById('ba-author-label');
+      if (portraitEl && imgEl) {
+        imgEl.src = portrait;
+        imgEl.alt = oeuvre.auteur;
+        if (labelEl) labelEl.textContent = oeuvre.auteur;
+        portraitEl.style.display = 'block';
+        const h = portraitEl.offsetHeight || 150;
+        const circleZone = document.getElementById('ba-circle-zone');
+        if (circleZone) {
+          circleZone.style.top = `calc(68px + 1rem + ${h}px + 2.5rem)`;
+        }
+      }
+    }
+  });
+
+  /* ── 3. Système de notes ── */
+  const notesSection = document.getElementById('notes-section');
+  if (notesSection) notesSection.hidden = false;
+  await initNotesWidget('notes-widget-main', oeuvre.id, !useEditorial);
 })();
 
-/* ── Helpers ── */
+
+/* ══════════════════════════════════════
+   WIDGET NOTES
+══════════════════════════════════════ */
+
+async function initNotesWidget(containerId, oeuvreId, isDark) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  let session = { logged_in: false };
+  try {
+    const r = await fetch(`${API}/session.php`, { credentials: 'include' });
+    session  = await r.json();
+  } catch (_) {}
+
+  let noteData = { avg: null, count: 0, user_note: null };
+  try {
+    const r = await fetch(`${API}/notes.php?oeuvre_id=${oeuvreId}`, { credentials: 'include' });
+    noteData  = await r.json();
+  } catch (_) {}
+
+  renderNotesWidget(container, oeuvreId, session, noteData, isDark);
+}
+
+function renderNotesWidget(container, oeuvreId, session, noteData, isDark) {
+  container.className = `notes-widget ${isDark ? 'notes-widget--dark' : 'notes-widget--light'}`;
+  const { avg, count, user_note } = noteData;
+  const loggedIn = session.logged_in;
+
+  container.innerHTML = `
+    <div class="notes-title">ÉVALUATION</div>
+    <div class="notes-row">
+      <div class="stars stars-display" id="stars-avg-${oeuvreId}">
+        ${buildStarsHTML(avg ?? 0)}
+      </div>
+      <div>
+        <div class="notes-avg-display">${avg !== null ? avg.toFixed(1) : '—'}</div>
+        <div class="notes-count-display">${count} avis</div>
+      </div>
+    </div>
+    ${loggedIn ? `
+      <div class="notes-title" style="margin-top:8px;">VOTRE NOTE</div>
+      <div class="stars stars-interactive" id="stars-input-${oeuvreId}">
+        ${buildStarsInteractiveHTML()}
+      </div>
+      <p class="notes-user-note" id="user-note-label-${oeuvreId}">
+        ${user_note !== null ? `Votre note : ${formatStarLabel(user_note)}` : 'Cliquez pour noter'}
+      </p>
+    ` : `
+      <p class="notes-status">
+        <a href="/res/common/client.html">Connectez-vous</a> pour laisser une note.
+      </p>
+    `}
+  `;
+
+  applyStarFill(container.querySelector(`#stars-avg-${oeuvreId}`), avg ?? 0);
+
+  if (!loggedIn) return;
+
+  const starsInput = container.querySelector(`#stars-input-${oeuvreId}`);
+  const userLabel  = container.querySelector(`#user-note-label-${oeuvreId}`);
+
+  applyStarFill(starsInput, user_note ?? 0);
+
+  let currentUserNote = user_note;
+
+  starsInput.querySelectorAll('.star-half-hit').forEach(hit => {
+    const score = parseFloat(hit.dataset.score);
+
+    hit.addEventListener('mouseenter', () => {
+      applyStarFill(starsInput, score);
+      userLabel.textContent = `→ ${formatStarLabel(score)}`;
+    });
+
+    hit.addEventListener('mouseleave', () => {
+      applyStarFill(starsInput, currentUserNote ?? 0);
+      userLabel.textContent = currentUserNote !== null
+        ? `Votre note : ${formatStarLabel(currentUserNote)}`
+        : 'Cliquez pour noter';
+    });
+
+    hit.addEventListener('click', async () => {
+      const star = hit.closest('.star');
+      star.classList.remove('pop');
+      void star.offsetWidth;
+      star.classList.add('pop');
+
+      try {
+        const r = await fetch(`${API}/notes.php`, {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ oeuvre_id: oeuvreId, note: score }),
+        });
+        const data = await r.json();
+        if (data.success) {
+          currentUserNote = data.user_note;
+          applyStarFill(starsInput, currentUserNote);
+          userLabel.textContent = `Votre note : ${formatStarLabel(currentUserNote)}`;
+
+          const avgDisplay = container.querySelector(`#stars-avg-${oeuvreId}`);
+          if (avgDisplay) applyStarFill(avgDisplay, data.avg ?? 0);
+          const avgNum = container.querySelector('.notes-avg-display');
+          if (avgNum) avgNum.textContent = data.avg !== null ? data.avg.toFixed(1) : '—';
+          const countEl = container.querySelector('.notes-count-display');
+          if (countEl) countEl.textContent = `${data.count} avis`;
+        }
+      } catch (_) {}
+    });
+  });
+}
+
+function buildStarsHTML() {
+  return Array.from({ length: 5 }, (_, i) => `
+    <span class="star" data-index="${i + 1}">
+      <span class="star-fill"></span>
+    </span>`).join('');
+}
+
+function buildStarsInteractiveHTML() {
+  return Array.from({ length: 5 }, (_, i) => `
+    <span class="star" data-index="${i + 1}">
+      <span class="star-fill"></span>
+      <span class="star-half-hit star-half-hit--left"  data-score="${i + 0.5}"></span>
+      <span class="star-half-hit star-half-hit--right" data-score="${i + 1}"></span>
+    </span>`).join('');
+}
+
+function applyStarFill(container, value) {
+  if (!container) return;
+  container.querySelectorAll('.star').forEach((star, i) => {
+    const fill = star.querySelector('.star-fill');
+    if (!fill) return;
+    const diff = value - i;
+    if (diff >= 1)      fill.style.width = '100%';
+    else if (diff > 0)  fill.style.width = '50%';
+    else                fill.style.width = '0%';
+  });
+}
+
+function formatStarLabel(note) {
+  const full = Math.floor(note);
+  const half = note % 1 >= 0.5;
+  return '★'.repeat(full) + (half ? '½' : '') + ` (${note}/5)`;
+}
+
+
+/* ══════════════════════════════════════
+   WIKIPEDIA PORTRAIT
+══════════════════════════════════════ */
+function fetchAuthorPortrait(authorName) {
+  const name = authorName.trim().replace(/ /g, '_');
+  const url  = `https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(name)}&prop=pageimages&format=json&pithumbsize=400&origin=*`;
+  return fetch(url)
+    .then(r => r.json())
+    .then(data => {
+      const pages = data.query?.pages || {};
+      return Object.values(pages)[0]?.thumbnail?.source || null;
+    })
+    .catch(() => null);
+}
+
+
+/* ══════════════════════════════════════
+   HELPERS
+══════════════════════════════════════ */
 function wikiImg(url, width = 1200) {
   if (!url) return '';
-  /* Utilise l'URL originale telle quelle — Wikimedia la redirige vers le fichier */
   const base = url.split('?')[0];
   return `${base}?width=${width}`;
 }
@@ -66,15 +256,18 @@ function yearFrom(date) {
 
 function splitText(text, n) {
   const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
-  const per       = Math.ceil(sentences.length / n);
-  return Array.from({ length: n }, (_, i) =>
-    sentences.slice(i * per, (i + 1) * per).join(' ').trim()
-  );
+  const total = sentences.length;
+  return Array.from({ length: n }, (_, i) => {
+    const start = Math.floor(i * total / n);
+    const end   = Math.floor((i + 1) * total / n);
+    return sentences.slice(start, end).join(' ').trim();
+  });
 }
 
-/* ══════════════════════════
+
+/* ══════════════════════════════════════
    LAYOUT 1 — ÉDITORIAL
-══════════════════════════ */
+══════════════════════════════════════ */
 function populateEditorial(o, artiste) {
   const layout = document.getElementById('layout-editorial');
   layout.hidden = false;
@@ -117,9 +310,10 @@ function populateEditorial(o, artiste) {
   }
 }
 
-/* ══════════════════════════
+
+/* ══════════════════════════════════════
    LAYOUT 2 — BAROQUE
-══════════════════════════ */
+══════════════════════════════════════ */
 function populateBaroque(o, artiste) {
   const layout = document.getElementById('layout-baroque');
   layout.hidden = false;
@@ -148,19 +342,12 @@ function populateBaroque(o, artiste) {
   badgeImg.alt = o.nom_tableau;
   badgeImg.style.objectPosition = '80% 80%';
 
-  /* Titre + artiste */
   document.getElementById('ba-style-label').textContent = o.nom_tableau;
   document.getElementById('ba-artist').textContent      = `${o.auteur}  ·  ${o.date}`;
+  document.getElementById('ba-big-title').textContent   = o.auteur.split(' ').pop().toUpperCase();
+  document.getElementById('ba-date').textContent        = o.date;
+  document.getElementById('ba-museum').textContent      = o.musee_actuel;
 
-  /* Texte fantôme = nom de famille */
-  document.getElementById('ba-big-title').textContent =
-    o.auteur.split(' ').pop().toUpperCase();
-
-  /* Méta */
-  document.getElementById('ba-date').textContent   = o.date;
-  document.getElementById('ba-museum').textContent = o.musee_actuel;
-
-  /* 3 blocs */
   const thirds      = splitText(o.descriptif, 3);
   const blockLabels = ['Contexte historique', "L'œuvre", 'Héritage & influence'];
   [0, 1, 2].forEach(i => {

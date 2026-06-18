@@ -3,42 +3,91 @@
 /* ─── CONFIG ─────────────────────────────────── */
 const CT_PLACEHOLDER  = '../assets/img/guerrier.png';
 const CT_BAND_SPEEDS  = [0.08, -0.05, 0.12, -0.03];
-const CT_BAND_OFFSETS = [0, -60, 40, -90]; // px
+const CT_BAND_OFFSETS = [0, -60, 40, -90];
 
 /* ─── ÉTAT GLOBAL ─────────────────────────────── */
-let ALL_OEUVRES   = [];   // brut depuis JSON
-let ALL_ARTISTES  = [];   // dédupliqués + enrichis
+let ALL_OEUVRES   = [];
+let ALL_ARTISTES  = [];
 
 let sortArtistes  = 'popularite';
 let sortOeuvres   = 'nom-az';
 let searchQuery   = '';
 
-/* ─── HELPERS ─────────────────────────────────── */
-function ctBg() { return `url('${CT_PLACEHOLDER}')`; }
+/* Cache des portraits Wikipedia */
+const portraitCache = new Map();
 
+/* ─── HELPERS ─────────────────────────────────── */
 function parseDate(str) {
   if (!str) return Infinity;
   const m = String(str).match(/\d{3,4}/);
   return m ? parseInt(m[0]) : Infinity;
 }
 
-/* ─── BANDE STRIP (5 premières œuvres) ──────── */
+/* Résout le chemin image d'une œuvre (local ou externe) */
+function oeuvreImgSrc(o) {
+  if (!o.image_url) return CT_PLACEHOLDER;
+  if (o.image_url.startsWith('http')) return o.image_url;
+  return o.image_url; /* chemin relatif depuis catalogue.html */
+}
+
+/* ─── WIKIPEDIA PORTRAIT ──────────────────────── */
+async function fetchWikiPortrait(auteur) {
+  if (portraitCache.has(auteur)) return portraitCache.get(auteur);
+
+  const name = auteur.trim().replace(/ /g, '_');
+  const url  = `https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(name)}&prop=pageimages&format=json&pithumbsize=300&origin=*`;
+  try {
+    const r    = await fetch(url);
+    const data = await r.json();
+    const pages = data.query?.pages || {};
+    const src   = Object.values(pages)[0]?.thumbnail?.source || null;
+    portraitCache.set(auteur, src);
+    return src;
+  } catch {
+    portraitCache.set(auteur, null);
+    return null;
+  }
+}
+
+/* ─── OBSERVER pour chargement paresseux des portraits ── */
+const portraitObserver = new IntersectionObserver((entries) => {
+  entries.forEach(async entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const auteur = el.dataset.auteur;
+    if (!auteur || el.dataset.loaded) return;
+    el.dataset.loaded = '1';
+    portraitObserver.unobserve(el);
+
+    const src = await fetchWikiPortrait(auteur);
+    if (src) {
+      el.style.backgroundImage = `url('${src}')`;
+      el.classList.add('ct-art--loaded');
+    }
+  });
+}, { rootMargin: '200px' });
+
+/* ─── BANDE STRIP (5 premières œuvres vedettes) ── */
 function ctRenderStrip(oeuvres) {
   const strip = document.getElementById('ct-strip');
   if (!strip) return;
-  strip.innerHTML = oeuvres.slice(0, 5).map(o => `
-    <article class="ct-plate">
-      <div class="ct-art" style="background-image:${ctBg()};background-size:cover;background-position:center;"></div>
+  strip.innerHTML = oeuvres.slice(0, 5).map(o => {
+    const img = oeuvreImgSrc(o);
+    return `
+    <a class="ct-plate" href="../common/info_oeuvre.html?id=${o.id}" aria-label="Voir ${o.nom_tableau}">
+      <div class="ct-art ct-art--loaded"
+           style="background-image:url('${img}');background-size:cover;background-position:center;"></div>
       <div class="ct-veil"></div>
       <div class="ct-cap">
         <h3>${o.nom_tableau}</h3>
         <p>${o.auteur} · ${o.date}</p>
       </div>
-    </article>`).join('');
+    </a>`;
+  }).join('');
 }
 
 /* ─── RENDU BANDES PARALLAXES ────────────────── */
-function ctRenderBands(containerId, items, labelKey, subKey) {
+function ctRenderBands(containerId, items, labelKey, subKey, isOeuvre = false) {
   const container = document.getElementById(containerId);
   if (!container) return;
   const N = 4;
@@ -51,17 +100,45 @@ function ctRenderBands(containerId, items, labelKey, subKey) {
   container.innerHTML = cols.map((col, ci) => `
     <div class="ct-band" data-speed="${speed(ci)}"
          style="transform:translateY(${offset(ci)}px);">
-      ${col.map(item => `
-        <figure class="ct-face">
-          <div class="ct-art" style="background-image:${ctBg()};background-size:cover;background-position:center;aspect-ratio:${ci % 2 === 0 ? '3/4' : '2/3'};"></div>
-          <figcaption class="ct-name">
-            <span class="ct-name-main">${item[labelKey]}</span>
-            ${subKey && item[subKey] ? `<span class="ct-name-sub">${item[subKey]}</span>` : ''}
-          </figcaption>
-        </figure>`).join('')}
+      ${col.map(item => {
+        const ratio = ci % 2 === 0 ? '3/4' : '2/3';
+
+        if (isOeuvre) {
+          /* ── Carte ŒUVRE : image locale + lien ── */
+          const img = oeuvreImgSrc(item);
+          return `
+          <a class="ct-face" href="../common/info_oeuvre.html?id=${item.id}"
+             aria-label="Voir ${item[labelKey]}">
+            <div class="ct-art ct-art--loaded"
+                 style="background-image:url('${img}');background-size:cover;background-position:center;aspect-ratio:${ratio};"></div>
+            <figcaption class="ct-name">
+              <span class="ct-name-main">${item[labelKey]}</span>
+              ${subKey && item[subKey] ? `<span class="ct-name-sub">${item[subKey]}</span>` : ''}
+            </figcaption>
+          </a>`;
+        } else {
+          /* ── Carte ARTISTE : portrait Wikipedia lazy ── */
+          return `
+          <figure class="ct-face">
+            <div class="ct-art"
+                 data-auteur="${item[labelKey]}"
+                 style="background-image:url('${CT_PLACEHOLDER}');background-size:cover;background-position:center top;aspect-ratio:${ratio};"></div>
+            <figcaption class="ct-name">
+              <span class="ct-name-main">${item[labelKey]}</span>
+              ${subKey && item[subKey] ? `<span class="ct-name-sub">${item[subKey]}</span>` : ''}
+            </figcaption>
+          </figure>`;
+        }
+      }).join('')}
     </div>`).join('');
 
-  // re-lier le parallaxe sur les nouvelles bandes
+  /* Observer les cartes artiste */
+  if (!isOeuvre) {
+    container.querySelectorAll('.ct-art[data-auteur]').forEach(el => {
+      portraitObserver.observe(el);
+    });
+  }
+
   ctRefreshBands();
 }
 
@@ -113,15 +190,13 @@ function ctUpdate() {
   const oeuvres  = getSortedOeuvres();
   const searching = searchQuery.length > 0;
 
-  ctRenderBands('ct-mosaic-artistes', artistes, 'auteur', null);
-  ctRenderBands('ct-mosaic-oeuvres',  oeuvres,  'nom_tableau', 'auteur');
+  ctRenderBands('ct-mosaic-artistes', artistes, 'auteur', null, false);
+  ctRenderBands('ct-mosaic-oeuvres',  oeuvres,  'nom_tableau', 'auteur', true);
 
-  // mode grille alignée quand recherche active
   document.querySelectorAll('.ct-mosaic').forEach(m => {
     m.classList.toggle('ct-mosaic--search', searching);
   });
 
-  // compteur de résultats si recherche active
   const countEl = document.getElementById('ct-search-count');
   if (countEl) {
     if (searching) {
@@ -135,12 +210,11 @@ function ctUpdate() {
 }
 
 /* ─── PARALLAXE ──────────────────────────────── */
-function ctRefreshBands() { /* no-op — bandes recréées à chaque update */ }
+function ctRefreshBands() { /* no-op */ }
 
 function ctInitParallax() {
   if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
 
-  /* --- parallaxe du hero sur le scroll PAGE --- */
   const frame = document.getElementById('ct-frame');
   let pageTick = false;
   window.addEventListener('scroll', () => {
@@ -153,7 +227,6 @@ function ctInitParallax() {
   }, { passive: true });
 }
 
-/* --- parallaxe des bandes sur le scroll INTERNE de chaque mosaïque --- */
 function ctBindMosaicParallax(mosaicEl) {
   if (!mosaicEl) return;
   if (window.matchMedia('(prefers-reduced-motion:reduce)').matches) return;
@@ -184,11 +257,10 @@ function ctInitCollapse() {
       cat.classList.toggle('ct-collapsed');
       btn.setAttribute('aria-expanded', String(wasCollapsed));
 
-      // si on vient d'ouvrir → scroll vers le haut de la section
       if (wasCollapsed) {
         setTimeout(() => {
           cat.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 50); // léger délai pour laisser la hauteur s'animer
+        }, 50);
       }
     });
   });
@@ -234,7 +306,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const data = await res.json();
     ALL_OEUVRES = data.oeuvres ?? [];
 
-    // construire la liste artistes avec popularité (nb d'œuvres) + date min
     const map = new Map();
     ALL_OEUVRES.forEach(o => {
       if (!map.has(o.auteur)) {
