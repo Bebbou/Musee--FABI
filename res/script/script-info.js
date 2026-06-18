@@ -1,6 +1,5 @@
 /* script-info.js — charge l'œuvre, peuple les layouts, gère les notes */
-
-const API = '/res/api';
+/* API est défini dans config.js chargé avant ce script */
 
 (async function () {
   const params  = new URLSearchParams(location.search);
@@ -11,8 +10,8 @@ const API = '/res/api';
   let oeuvres, artistes;
   try {
     const [resO, resA] = await Promise.all([
-      fetch('/res/database/collection_musee.json'),
-      fetch('/res/database/artistes.json'),
+      fetch(BASE + '/res/database/collection_musee.json'),
+      fetch(BASE + '/res/database/artistes.json'),
     ]);
     oeuvres  = (await resO.json()).oeuvres;
     artistes = (await resA.json()).artistes;
@@ -132,7 +131,7 @@ function renderNotesWidget(container, oeuvreId, session, noteData, vueData, isDa
       <span class="notes-toast" id="notes-toast-${oeuvreId}">✓ Note enregistrée !</span>
     ` : `
       <p class="notes-status">
-        <a href="/res/common/client.html">Connectez-vous</a> pour laisser une note.
+        <a href="${BASE}/res/common/client.html">Connectez-vous</a> pour laisser une note.
       </p>
     `}
     <div class="avis-table-wrap" id="avis-table-wrap-${oeuvreId}">
@@ -298,7 +297,7 @@ function renderCommentsWidget(container, oeuvreId, isDark, session, comments) {
       </div>
     ` : `
       <p class="comments-login-prompt">
-        <a href="/res/common/client.html">Connectez-vous</a> pour laisser un commentaire.
+        <a href="${BASE}/res/common/client.html">Connectez-vous</a> pour laisser un commentaire.
       </p>
     `}
     <div class="comments-list" id="comments-list-${oeuvreId}">

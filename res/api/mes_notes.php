@@ -22,7 +22,7 @@ $sortMap = [
     'note'    => 'n.note',
     'date'    => 'n.date_note',
     'moyenne' => 'moyenne_globale',
-    'nom'     => 'o.nom',
+    'nom'     => 'o.titre',
 ];
 
 $sortKey = $_GET['sort']  ?? 'date';
@@ -32,8 +32,7 @@ $sortCol = $sortMap[$sortKey] ?? 'n.date_note';
 $stmt = $pdo->prepare("
     SELECT
         o.id                                        AS oeuvre_id,
-        o.nom                                       AS oeuvre_nom,
-        o.auteur                                    AS oeuvre_auteur,
+        o.titre                                     AS oeuvre_nom,
         n.note                                      AS ma_note,
         n.date_note,
         ROUND(AVG(all_n.note) * 2, 0) / 2          AS moyenne_globale,
@@ -42,7 +41,7 @@ $stmt = $pdo->prepare("
     JOIN oeuvres o      ON o.id = n.oeuvre_id
     LEFT JOIN notes all_n ON all_n.oeuvre_id = n.oeuvre_id
     WHERE n.utilisateur_id = ?
-    GROUP BY n.id, o.id, o.nom, o.auteur, n.note, n.date_note
+    GROUP BY n.id, o.id, o.titre, n.note, n.date_note
     ORDER BY $sortCol $order
 ");
 $stmt->execute([$_SESSION['user_id']]);

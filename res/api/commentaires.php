@@ -22,8 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         SELECT c.id, c.contenu, c.date_commentaire,
                u.prenom, u.nom
         FROM commentaires c
-        JOIN utilisateurs u ON u.id = c.utilisateur_id
-        WHERE c.oeuvre_id = ?
+        JOIN utilisateurs u ON u.id = c.utilisateurs_id
+        WHERE c.oeuvres_id = ?
         ORDER BY c.date_commentaire DESC
     ");
     $stmt->execute([$oeuvre_id]);
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     $stmt = $pdo->prepare("
-        INSERT INTO commentaires (oeuvre_id, utilisateur_id, contenu)
+        INSERT INTO commentaires (oeuvres_id, utilisateurs_id, contenu)
         VALUES (?, ?, ?)
     ");
     $stmt->execute([$oeuvre_id, $_SESSION['user_id'], $contenu]);
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt2 = $pdo->prepare("
         SELECT c.id, c.contenu, c.date_commentaire, u.prenom, u.nom
         FROM commentaires c
-        JOIN utilisateurs u ON u.id = c.utilisateur_id
+        JOIN utilisateurs u ON u.id = c.utilisateurs_id
         WHERE c.id = ?
     ");
     $stmt2->execute([$pdo->lastInsertId()]);

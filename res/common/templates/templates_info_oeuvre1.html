@@ -9,15 +9,15 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap"
     rel="stylesheet">
-  <link href="/res/style/style.css" rel="stylesheet">
-  <link href="/res/style/style-notes.css" rel="stylesheet">
+  <link href="../../style/style.css" rel="stylesheet">
+  <link href="../../style/style-notes.css" rel="stylesheet">
 </head>
 
 <body>
   <header id="main-header">
     <div class="logo">
-      <a href="/res/common/index.html" style="text-decoration:none;">
-        <img src="/res/assets/img/logo/logoFABI_White.svg" alt="Logo Musée FABI"
+      <a href="../../index.html" style="text-decoration:none;">
+        <img src="../../assets/img/logo/logoFABI_White.svg" alt="Logo Musée FABI"
           style="height:100px;vertical-align:middle;border-radius:20px;">
       </a>
     </div>
@@ -26,10 +26,10 @@
     </div>
     <nav>
       <ul>
-        <li><a href="/res/common/catalogue.html">Catalogue</a></li>
-        <li><a href="/res/common/contact.html">Contact</a></li>
+        <li><a href="../catalogue.html">Catalogue</a></li>
+        <li><a href="../contact.html">Contact</a></li>
         <li>
-          <a href="/res/common/client.html" class="header-client-link">
+          <a href="../client.html" class="header-client-link">
             <button class="header-client-btn" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196, 168, 130, 0.55); color:rgba(14, 11, 9, 0.75); border: none; border-radius: 8px; padding: 10px 20px; font-size: 15px; font-weight: 500; cursor: pointer;">
               <i class="ti ti-login" style="font-size: 18px;" aria-hidden="true"></i>
               Connexion
@@ -113,9 +113,10 @@
     <div style="padding-top:0;"><div id="comments-widget-main"></div></div>
   </div>
 
-<script src="/res/script/header.js"></script>
+<script src="../../script/config.js"></script>
+<script src="../../script/header.js"></script>
 <script>
-const _API = '/res/api';
+
 
 (async function () {
   const params   = new URLSearchParams(location.search);
@@ -127,9 +128,9 @@ const _API = '/res/api';
 
   try {
     const [rS, rN, rC] = await Promise.all([
-      fetch(`${_API}/session.php`, { credentials: 'include' }),
-      fetch(`${_API}/notes.php?oeuvre_id=${oeuvreId}`, { credentials: 'include' }),
-      fetch(`${_API}/commentaires.php?oeuvre_id=${oeuvreId}`, { credentials: 'include' }),
+      fetch(`${API}/session.php`, { credentials: 'include' }),
+      fetch(`${API}/notes.php?oeuvre_id=${oeuvreId}`, { credentials: 'include' }),
+      fetch(`${API}/commentaires.php?oeuvre_id=${oeuvreId}`, { credentials: 'include' }),
     ]);
     session  = await rS.json();
     noteData = await rN.json();
@@ -166,7 +167,7 @@ function renderNotes(container, oeuvreId, session, noteData) {
       <span class="notes-toast" id="t-toast"></span>
     ` : `
       <p class="notes-status">
-        <a href="/res/common/client.html">Connectez-vous</a> pour laisser une note.
+        <a href="../client.html">Connectez-vous</a> pour laisser une note.
       </p>
     `}
   `;
@@ -188,7 +189,7 @@ function renderNotes(container, oeuvreId, session, noteData) {
       const star = hit.closest('.star');
       star.classList.remove('pop'); void star.offsetWidth; star.classList.add('pop');
       try {
-        const r    = await fetch(`${_API}/notes.php`, { method:'POST', credentials:'include', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ oeuvre_id: oeuvreId, note: score }) });
+        const r    = await fetch(`${API}/notes.php`, { method:'POST', credentials:'include', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ oeuvre_id: oeuvreId, note: score }) });
         const data = await r.json();
         if (data.success) {
           current = data.user_note;
@@ -218,7 +219,7 @@ function renderComments(container, oeuvreId, session, comments) {
         <button class="comment-submit" id="t-comment-btn">Publier</button>
         <span class="comment-msg" id="t-comment-msg"></span>
       </div>
-    ` : `<p class="comments-login-prompt"><a href="/res/common/client.html">Connectez-vous</a> pour commenter.</p>`}
+    ` : `<p class="comments-login-prompt"><a href="../client.html">Connectez-vous</a> pour commenter.</p>`}
     <div class="comments-list" id="t-comments-list">${renderList(comments)}</div>
   `;
 
@@ -233,7 +234,7 @@ function renderComments(container, oeuvreId, session, comments) {
     if (!contenu) { setMsg(msg, 'Écrivez quelque chose avant de publier.', false); return; }
     btn.disabled = true;
     try {
-      const r    = await fetch(`${_API}/commentaires.php`, { method:'POST', credentials:'include', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ oeuvre_id: oeuvreId, contenu }) });
+      const r    = await fetch(`${API}/commentaires.php`, { method:'POST', credentials:'include', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ oeuvre_id: oeuvreId, contenu }) });
       const data = await r.json();
       if (data.success) {
         textarea.value = '';

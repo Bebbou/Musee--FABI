@@ -1,9 +1,10 @@
 /* ── HEADER.JS — partagé sur toutes les pages ── */
+/* BASE et API sont définis dans config.js */
 
 (async function () {
   let session = { logged_in: false };
   try {
-    const r = await fetch('/res/api/session.php', { credentials: 'include' });
+    const r = await fetch(API + '/session.php', { credentials: 'include' });
     session  = await r.json();
   } catch (_) {}
 
@@ -11,9 +12,10 @@
   const btn  = document.querySelector('.header-client-btn');
   if (!link || !btn) return;
 
+  link.href = BASE + '/res/common/client.html';
+
   if (session.logged_in) {
     const u = session.user;
-    link.href = '/res/common/client.html';
     btn.innerHTML = `
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
            stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
@@ -22,7 +24,6 @@
       </svg>
       ${u.prenom} ${u.nom}`;
   } else {
-    link.href = '/res/common/client.html';
     btn.innerHTML = `
       <i class="ti ti-login" style="font-size:18px;" aria-hidden="true"></i>
       Connexion`;

@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <link href="../style/style.css" rel="stylesheet">
+<script src="../script/config.js"></script>
 </head>
 <body>
 <header id="main-header">
@@ -32,6 +33,142 @@
     </ul>
   </nav>
 </header>
+
+<main class="auth-main">
+  <div class="auth-card" id="auth-card">
+
+    <!-- Onglets -->
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Connexion</button>
+      <button class="auth-tab" id="tab-register" onclick="switchTab('register')">Inscription</button>
+    </div>
+
+    <!-- Formulaire connexion -->
+    <form id="form-login" class="auth-form" onsubmit="submitLogin(event)">
+      <div class="auth-field">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" required placeholder="votre@email.com">
+      </div>
+      <div class="auth-field">
+        <label for="login-password">Mot de passe</label>
+        <input type="password" id="login-password" required placeholder="••••••••">
+      </div>
+      <p class="auth-msg" id="msg-login"></p>
+      <button type="submit" class="auth-submit">Se connecter</button>
+    </form>
+
+    <!-- Formulaire inscription -->
+    <form id="form-register" class="auth-form" style="display:none" onsubmit="submitRegister(event)">
+      <div class="auth-field">
+        <label for="reg-prenom">Prénom</label>
+        <input type="text" id="reg-prenom" required placeholder="Jean">
+      </div>
+      <div class="auth-field">
+        <label for="reg-nom">Nom</label>
+        <input type="text" id="reg-nom" required placeholder="Dupont">
+      </div>
+      <div class="auth-field">
+        <label for="reg-email">Email</label>
+        <input type="email" id="reg-email" required placeholder="votre@email.com">
+      </div>
+      <div class="auth-field">
+        <label for="reg-password">Mot de passe</label>
+        <input type="password" id="reg-password" required placeholder="••••••••">
+      </div>
+      <p class="auth-msg" id="msg-register"></p>
+      <button type="submit" class="auth-submit">Créer mon compte</button>
+    </form>
+
+    <!-- Dashboard (affiché si connecté) -->
+    <div id="user-dashboard" style="display:none">
+      <p class="auth-welcome" id="auth-welcome"></p>
+      <button class="auth-logout" onclick="submitLogout()">Se déconnecter</button>
+    </div>
+
+  </div>
+</main>
+
+<style>
+.auth-main { display:flex; justify-content:center; align-items:center; min-height:60vh; padding:2rem; }
+.auth-card { background:rgba(255,255,255,0.05); border:1px solid rgba(196,168,130,0.3); border-radius:16px; padding:2.5rem; width:100%; max-width:420px; }
+.auth-tabs { display:flex; gap:0; margin-bottom:2rem; border-bottom:1px solid rgba(196,168,130,0.2); }
+.auth-tab { flex:1; background:none; border:none; padding:0.75rem; font-size:15px; cursor:pointer; color:rgba(255,255,255,0.45); font-family:inherit; transition:color .2s; }
+.auth-tab.active { color:rgba(196,168,130,1); border-bottom:2px solid rgba(196,168,130,1); }
+.auth-form { display:flex; flex-direction:column; gap:1.2rem; }
+.auth-field { display:flex; flex-direction:column; gap:.4rem; }
+.auth-field label { font-size:13px; color:rgba(255,255,255,0.6); letter-spacing:.05em; text-transform:uppercase; }
+.auth-field input { background:rgba(255,255,255,0.07); border:1px solid rgba(196,168,130,0.25); border-radius:8px; padding:.75rem 1rem; color:#fff; font-size:15px; font-family:inherit; outline:none; transition:border-color .2s; }
+.auth-field input:focus { border-color:rgba(196,168,130,0.7); }
+.auth-submit { background:rgba(196,168,130,0.85); color:#1a1510; border:none; border-radius:8px; padding:.85rem; font-size:15px; font-weight:600; cursor:pointer; font-family:inherit; margin-top:.5rem; transition:background .2s; }
+.auth-submit:hover { background:rgba(196,168,130,1); }
+.auth-msg { font-size:13px; min-height:1.2em; text-align:center; }
+.auth-msg.err { color:#e88; }
+.auth-msg.ok  { color:#8e8; }
+.auth-welcome { font-size:16px; color:rgba(196,168,130,0.9); text-align:center; margin-bottom:1.5rem; }
+.auth-logout { width:100%; background:transparent; border:1px solid rgba(196,168,130,0.4); color:rgba(196,168,130,0.8); border-radius:8px; padding:.75rem; font-size:14px; cursor:pointer; font-family:inherit; transition:all .2s; }
+.auth-logout:hover { background:rgba(196,168,130,0.1); border-color:rgba(196,168,130,0.8); }
+</style>
+
+<script>
+function switchTab(tab) {
+  document.getElementById('form-login').style.display    = tab === 'login'    ? '' : 'none';
+  document.getElementById('form-register').style.display = tab === 'register' ? '' : 'none';
+  document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+  document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+}
+
+async function submitLogin(e) {
+  e.preventDefault();
+  const msg = document.getElementById('msg-login');
+  msg.textContent = ''; msg.className = 'auth-msg';
+  const body = { email: document.getElementById('login-email').value, mot_de_passe: document.getElementById('login-password').value };
+  try {
+    const r = await fetch(API + '/login.php', { method:'POST', credentials:'include', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+    const d = await r.json();
+    if (d.success) { showDashboard(d.user); }
+    else { msg.textContent = d.message || 'Identifiants incorrects.'; msg.className = 'auth-msg err'; }
+  } catch(_) { msg.textContent = 'Serveur inaccessible.'; msg.className = 'auth-msg err'; }
+}
+
+async function submitRegister(e) {
+  e.preventDefault();
+  const msg = document.getElementById('msg-register');
+  msg.textContent = ''; msg.className = 'auth-msg';
+  const body = { prenom: document.getElementById('reg-prenom').value, nom: document.getElementById('reg-nom').value, email: document.getElementById('reg-email').value, mot_de_passe: document.getElementById('reg-password').value };
+  try {
+    const r = await fetch(API + '/register.php', { method:'POST', credentials:'include', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+    const d = await r.json();
+    if (d.success) { showDashboard(d.user); }
+    else { msg.textContent = d.message || 'Erreur lors de l\'inscription.'; msg.className = 'auth-msg err'; }
+  } catch(_) { msg.textContent = 'Serveur inaccessible.'; msg.className = 'auth-msg err'; }
+}
+
+async function submitLogout() {
+  await fetch(API + '/logout.php', { method:'POST', credentials:'include' });
+  document.getElementById('user-dashboard').style.display = 'none';
+  document.getElementById('form-login').style.display = '';
+  document.getElementById('auth-tabs') && (document.querySelector('.auth-tabs').style.display = '');
+  switchTab('login');
+  document.querySelector('.header-client-btn').innerHTML = '<i class="ti ti-login" style="font-size:18px;"></i> Connexion';
+}
+
+function showDashboard(user) {
+  document.getElementById('form-login').style.display    = 'none';
+  document.getElementById('form-register').style.display = 'none';
+  document.querySelector('.auth-tabs').style.display     = 'none';
+  document.getElementById('user-dashboard').style.display = '';
+  document.getElementById('auth-welcome').textContent = `Bonjour, ${user.prenom} ${user.nom} !`;
+}
+
+// Vérifie si déjà connecté au chargement
+(async function() {
+  try {
+    const r = await fetch(API + '/session.php', { credentials:'include' });
+    const d = await r.json();
+    if (d.logged_in) showDashboard(d.user);
+  } catch(_) {}
+})();
+</script>
 
 <footer id="main-footer">
   <div class="footer-content">

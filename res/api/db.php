@@ -1,21 +1,14 @@
 <?php
 try {
     $pdo = new PDO(
-        'mysql:host=web-mmi2.iutbeziers.fr;dbname=lilian.cornet_musee_fabi;charset=utf8',
+        'mysql:host=localhost;dbname=lilian.cornet_musee_fabi;charset=utf8',
         'lilian.cornet',
         'Voldemortlyl05!'
     );
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-    $pdo->exec("
-        CREATE TABLE IF NOT EXISTS oeuvres (
-            id      INT          NOT NULL,
-            nom     VARCHAR(255) NOT NULL,
-            auteur  VARCHAR(255) NOT NULL,
-            PRIMARY KEY (id)
-        )
-    ");
+    // Table oeuvres déjà créée sur le serveur MySQL avec la colonne `titre`
 
     $pdo->exec("
         CREATE TABLE IF NOT EXISTS utilisateurs (

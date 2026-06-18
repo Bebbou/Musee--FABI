@@ -30,7 +30,7 @@ $stats = $stmt->fetch();
 // Détail des notes avec utilisateur
 $stmt2 = $pdo->prepare("
     SELECT
-        u.prenom || ' ' || u.nom AS utilisateur,
+        CONCAT(u.prenom, ' ', u.nom) AS utilisateur,
         n.note,
         n.date_note
     FROM notes n
