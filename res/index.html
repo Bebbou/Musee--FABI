@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Musée FABI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="./style/style.css" rel="stylesheet">
+</head>
+<body>
+
+<header id="main-header">
+  <div class="logo">
+    <a href="./common/index.html" style="text-decoration:none;">
+      <img src="./res/assets/img/logo/logoFABI_White.svg" alt="Logo Musée FABI"
+           style="height:100px;vertical-align:middle;border-radius:20px;">
+    </a>
+  </div>
+  <div class="logo"><h1>Musée FABI</h1></div>
+  <nav>
+    <ul>
+      <li><a href="./common/catalogue.html">Catalogue</a></li>
+      <li><a href="./common/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <a href="./common/client.html" class="header-client-btn">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <circle cx="12" cy="8" r="4"/>
+      <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+    </svg>
+    Espace client
+  </a>
+</header>
+
+<!-- SCÈNE FIXE -->
+<div class="hero-scene">
+  <div class="hero-scene-bg" id="hero-bg"></div>
+  <div class="hero-scene-dim"></div>
+  <div class="hero-scene-fade"></div>
+  <div class="hero-scene-vignette"></div>
+  <div class="hero-scene-tint"></div>
+  <div class="hero-scene-grain"></div>
+  <div id="moon"></div>
+  <div class="p-layer" id="layer-far"></div>
+  <div class="p-layer" id="layer-angels"></div>
+  <div class="p-layer" id="layer-near"></div>
+</div>
+
+<!-- HERO SCROLL -->
+<div class="hero">
+  <div class="hero-content-wrap">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Exposition permanente · 2025</p>
+      <h1 class="hero-title">BONJOUR</h1>
+      <div class="hero-rule"></div>
+      <p class="hero-subtitle">
+        <span class="initiale">L</span>e <strong><u>Musée&nbsp;FABI</u></strong>
+        vous ouvrent leurs portes Lorem ipsum, dolor sit amet consectetur
+        adipisicing elit. Aliquam hic, neque odit iure, in eum odio aliquid
+        dolorem commodi reiciendis excepturi, vel omnis.
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Ouverture</span>
+          <span class="hero-meta-value">Mar — Dim</span>
+        </div>
+        <div class="hero-meta-sep"></div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Horaires</span>
+          <span class="hero-meta-value">10h — 19h</span>
+        </div>
+        <div class="hero-meta-sep"></div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Accès</span>
+          <span class="hero-meta-value">Gratuit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="scroll-hint">
+  <div class="hero-scroll-line"></div>
+  <span class="hero-scroll-label">Découvrir</span>
+</div>
+
+<div class="page-content">
+  <div class="section-divider">
+    <span class="section-divider-label">Collections</span>
+  </div>
+  <section class="collection-section">
+    <div class="collection-header">
+      <h2 class="collection-title">Collection</h2>
+      <small>Sélection permanente · Aile mythologique</small>
+    </div>
+    <div class="collection-grid">
+      <div class="collection-card">
+        <span class="collection-card-num">01</span>
+        <img src="./res/assets/img/placeholder.png" alt="Peintures"/>
+        <span class="collection-card-label">Peintures</span>
+        <span class="collection-card-tag">Voir</span>
+      </div>
+      <div class="collection-card">
+        <span class="collection-card-num">02</span>
+        <img src="./res/assets/img/placeholder.png" alt="Sculptures"/>
+        <span class="collection-card-label">Sculptures</span>
+        <span class="collection-card-tag">Voir</span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="./script/script.js"></script>
+<script src="./script/header.js"></script>
+</body>
+</html>
