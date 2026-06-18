@@ -1,0 +1,454 @@
+/* ══════════════════════════════════════════════════
+   STYLE-INFO.CSS — Pages de détail d'œuvre
+   Deux layouts : éditorial (clair) & baroque (sombre)
+══════════════════════════════════════════════════ */
+
+/* ── Chargement ── */
+#info-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  color: var(--taupe);
+  letter-spacing: .2em;
+}
+
+.info-layout { display: none; }
+.info-layout.active { display: block; }
+
+/* ── Bouton retour commun ── */
+.info-back-btn {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 300;
+  font-family: var(--sans);
+  font-size: .6rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--beige-lt);
+  text-decoration: none;
+  background: rgba(14,11,9,.7);
+  border: .5px solid rgba(196,168,130,.25);
+  padding: .55rem 1.1rem;
+  backdrop-filter: blur(10px);
+  transition: background .25s, color .25s;
+}
+.info-back-btn:hover {
+  background: var(--terra);
+  color: #fff;
+}
+
+
+/* ══════════════════════════════════════════════════
+   LAYOUT 1 — ÉDITORIAL
+   Fond marbre crème, lettre ornée, photos empilées
+══════════════════════════════════════════════════ */
+#layout-editorial {
+  position: relative;
+  min-height: 100vh;
+  background: var(--cream);
+  padding-top: 68px; /* hauteur header */
+  overflow: hidden;
+}
+
+/* Texture marbre légère via pseudo-élément */
+#layout-editorial::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      108deg,
+      transparent,
+      transparent 60px,
+      rgba(122,106,86,.04) 60px,
+      rgba(122,106,86,.04) 61px
+    ),
+    repeating-linear-gradient(
+      -40deg,
+      transparent,
+      transparent 90px,
+      rgba(196,168,130,.05) 90px,
+      rgba(196,168,130,.05) 91px
+    );
+  pointer-events: none;
+}
+
+/* Cadre rouge gauche (bords) */
+.ed-frame-top {
+  position: absolute;
+  top: 68px; left: 3.5rem;
+  width: 1px; height: 42%;
+  background: var(--terra);
+  opacity: .8;
+}
+.ed-frame-bottom {
+  position: absolute;
+  bottom: 0; left: 3.5rem;
+  width: 1px; height: 22%;
+  background: var(--terra);
+  opacity: .8;
+}
+
+/* Localisation (musée) en haut centré */
+.ed-location {
+  position: absolute;
+  top: calc(68px + 1.8rem);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+}
+.ed-location span {
+  font-family: var(--sans);
+  /* MODIFIER CETTE TAILLE POUR CHANGER LA LOCALISATION (musée) */
+  font-size: .75rem; /* Augmenté de .55rem */
+  font-weight: 500;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+.ed-location-line {
+  width: 1px;
+  height: 2rem;
+  background: var(--black);
+  opacity: .35;
+}
+
+/* Année verticale (droite) */
+.ed-year-vert {
+  position: absolute;
+  top: calc(68px + 8rem);
+  right: 2.8rem;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-family: var(--sans);
+  /* MODIFIER CETTE TAILLE POUR CHANGER L'ANNÉE (droite) */
+  font-size: .75rem; /* Augmenté de .55rem */
+  font-weight: 500;
+  letter-spacing: .3em;
+  color: var(--black);
+}
+
+/* Zone lettre ornée + suite du titre */
+.ed-drop-cap-zone {
+  position: absolute;
+  top: calc(68px + 5rem);
+  left: 4.5rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  z-index: 2;
+}
+.ed-drop-letter {
+  font-family: var(--serif);
+  font-size: clamp(9rem, 22vw, 17rem);
+  font-weight: 300;
+  line-height: .85;
+  color: var(--terra);
+  user-select: none;
+}
+.ed-drop-rest {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--black);
+  margin-bottom: .8rem;
+  margin-left: .15em;
+  letter-spacing: .05em;
+}
+
+/* Grille de 3 photos (droite) */
+.ed-photo-grid {
+  position: absolute;
+  top: calc(68px + 3rem);
+  right: 5.5rem;
+  width: clamp(240px, 34%, 420px);
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+.ed-photo-cell { width: 100%; overflow: hidden; }
+.ed-photo-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .35rem;
+  height: clamp(120px, 16vw, 190px);
+}
+.ed-photo-mid { height: clamp(110px, 14vw, 170px); }
+.ed-photo-bot { height: clamp(110px, 14vw, 170px); }
+.ed-photo-cell img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: sepia(.08) contrast(1.05);
+}
+
+/* Texte descriptif 2 colonnes */
+.ed-text-zone {
+  position: absolute;
+  top: calc(68px + 28rem);
+  left: 4.5rem;
+  right: 5.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  border-top: .5px solid rgba(14,11,9,.2);
+  padding-top: 1.4rem;
+  max-width: calc(100% - 10rem);
+}
+.ed-text-col {
+  font-family: var(--sans);
+  /* MODIFIER CETTE TAILLE POUR CHANGER LE TEXTE DESCRIPTIF (colonnes) */
+  font-size: 0.95rem; /* Augmenté de .75rem */
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--black);
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Pied de page "MUSÉE FABI" */
+.ed-footer-name {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--sans);
+  /* MODIFIER CETTE TAILLE POUR CHANGER LE PIED DE PAGE */
+  font-size: 0.65rem; /* Augmenté de .55rem */
+  font-weight: 500;
+  letter-spacing: .4em;
+  text-transform: uppercase;
+  color: var(--black);
+  opacity: .5;
+}
+
+
+/* ══════════════════════════════════════════════════
+   LAYOUT 2 — BAROQUE
+   Fond sombre, grande peinture, cercles, sections
+══════════════════════════════════════════════════ */
+#layout-baroque {
+  position: relative;
+  min-height: 100vh;
+  background: #10110f;
+  padding-top: 68px;
+  overflow: hidden;
+}
+
+/* Vignette de fond */
+#layout-baroque::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,.6) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Grande peinture principale (gauche) */
+.ba-main-img-wrap {
+  position: absolute;
+  top: calc(68px + 2rem);
+  left: 3rem;
+  width: clamp(260px, 50%, 640px);
+  height: clamp(300px, 70vh, 700px);
+  border-radius: 1.2rem;
+  overflow: hidden;
+  z-index: 1;
+  box-shadow: 0 8px 40px rgba(0,0,0,.7);
+}
+.ba-main-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: contrast(1.05) saturate(.92);
+}
+
+/* Zone cercle + anneau (haut droite) */
+.ba-circle-zone {
+  position: absolute;
+  top: calc(68px + 1.5rem);
+  right: 3rem;
+  width: clamp(120px, 16%, 190px);
+  z-index: 2;
+}
+.ba-circle-ring {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1.5px solid rgba(196,168,130,.3);
+}
+.ba-circle-img {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px rgba(196,168,130,.2);
+}
+.ba-circle-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.ba-badge-small {
+  position: absolute;
+  top: -1rem; left: -1.2rem;
+  width: 3rem; height: 3rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid rgba(196,168,130,.25);
+  background: #1a1b18;
+}
+.ba-badge-small img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: .7;
+}
+
+/* Carte titre / artiste (bas gauche) */
+.ba-title-card {
+  position: absolute;
+  bottom: calc(2rem + 60px);
+  left: 3rem;
+  width: clamp(200px, 44%, 520px);
+  background: linear-gradient(135deg, rgba(196,168,130,.12), rgba(196,168,130,.04));
+  border: .5px solid rgba(196,168,130,.2);
+  border-radius: .5rem;
+  padding: 1.2rem 1.6rem;
+  z-index: 2;
+}
+.ba-style-label {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 300;
+  color: #e8ddd0;
+  letter-spacing: .05em;
+  margin-bottom: .4rem;
+}
+.ba-title-ornament {
+  width: 2.5rem; height: 1px;
+  background: var(--terra);
+  margin: .5rem 0;
+}
+.ba-artist {
+  font-family: var(--sans);
+  /* MODIFIER CETTE TAILLE POUR CHANGER L'ARTISTE ET DATE */
+  font-size: .75rem; /* Augmenté de .65rem */
+  font-weight: 400;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #c4a882;
+}
+
+/* Grand texte de style en arrière-plan */
+.ba-big-title {
+  position: absolute;
+  bottom: 0;
+  left: -1rem;
+  font-family: var(--serif);
+  font-size: clamp(5rem, 14vw, 11rem);
+  font-weight: 600;
+  font-style: italic;
+  color: rgba(196,168,130,.07);
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+
+/* Blocs info (droite) */
+.ba-info-blocks {
+  position: absolute;
+  top: 60px;
+  left: 55%;
+  transform: translateX(-50%);
+  width: clamp(220px, 34%, 380px);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  z-index: 2;
+}
+.ba-info-block {
+  padding: 1.4rem 1.2rem;
+  border-bottom: .5px solid rgba(196,168,130,.12);
+}
+.ba-info-block:first-child {
+  border-top: .5px solid rgba(196,168,130,.12);
+}
+.ba-info-block h2 {
+  font-family: var(--sans);
+  /* MODIFIER CETTE TAILLE POUR CHANGER LES TITRES DES BLOCS INFO */
+  font-size: 0.85rem; /* Augmenté de .68rem */
+  font-weight: 600;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: .9rem;
+}
+.ba-info-block p {
+  font-family: var(--sans);
+  /* MODIFIER CETTE TAILLE POUR CHANGER LE TEXTE DES BLOCS INFO */
+  font-size: 1.15rem; /* Augmenté de .95rem */
+  font-weight: 300;
+  line-height: 1.85;
+  color: #d4c8b8;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Méta info (date · musée) */
+.ba-meta {
+  position: absolute;
+  top: calc(68px + 3rem);
+  right: 3rem;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  z-index: 2;
+}
+.ba-meta span {
+  font-family: var(--sans);
+  /* MODIFIER CETTE TAILLE POUR CHANGER LA MÉTA (date, musée) */
+  font-size: 0.7rem; /* Augmenté de .55rem */
+  font-weight: 400;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--beige);
+  opacity: .55;
+}
+.ba-meta-sep { opacity: .3 !important; }
+
+.ba-back { color: var(--beige-lt); }
+
+/* ── Responsive minimal ── */
+@media (max-width: 768px) {
+  .ed-photo-grid,
+  .ed-year-vert,
+  .ed-frame-top,
+  .ed-frame-bottom { display: none; }
+
+  .ed-drop-cap-zone { left: 1.5rem; top: calc(68px + 3rem); }
+  .ed-text-zone {
+    grid-template-columns: 1fr;
+    left: 1.5rem; right: 1.5rem;
+    bottom: 4rem;
+  }
+
+  .ba-circle-zone { display: none; }
+  .ba-main-img-wrap { width: calc(100% - 4rem); height: 45vw; }
+  .ba-info-blocks { width: calc(100% - 4rem); left: 50%; transform: translateX(-50%); top: calc(68px + 50vw + 2rem); }
+  .ba-meta { top: calc(68px + 1rem); }
+  .ba-title-card { width: calc(100% - 4rem); }
+}
