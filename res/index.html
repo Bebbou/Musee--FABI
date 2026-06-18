@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 <link href="./style/style.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
 </head>
 <body>
 
@@ -22,6 +24,14 @@
     <ul>
       <li><a href="./common/catalogue.html">Catalogue</a></li>
       <li><a href="./common/contact.html">Contact</a></li>
+      <li>
+        <a href="./common/connexion.html">
+          <button style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196, 168, 130, 0.55); color:rgba(14, 11, 9, 0.75); border: none; border-radius: 8px; padding: 10px 20px; font-size: 15px; font-weight: 500; cursor: pointer;">
+            <i class="ti ti-login" style="font-size: 18px;" aria-hidden="true"></i>
+            Connexion
+          </button>
+        </a>  
+      </li>
     </ul>
   </nav>
 </header>
@@ -95,21 +105,21 @@
     <article class="fiche" data-index="0"
              data-eyebrow="Collection" data-title="L'Ange Rouge">
       <div class="fiche-float">
-        <img src="./assets/img/ange_rouge.png" alt="L'Ange Rouge">
+        <img src="./assets/img/Collection/LePrintempsDeLaCulture.png" alt="L'Ange Rouge">
       </div>
     </article>
 
     <article class="fiche" data-index="1"
              data-eyebrow="Nouveauté" data-title="Claude Monet">
       <div class="fiche-float">
-        <img src="./assets/img/Claud Monet.png" alt="Claude Monet">
+        <img src="./assets/img/Nouveaute/Claude Monet.png" alt="Claude Monet">
       </div>
     </article>
 
     <article class="fiche" data-index="2"
              data-eyebrow="Événement" data-title="Le Guerrier">
       <div class="fiche-float">
-        <img src="./assets/img/guerrier.png" alt="Le Guerrier">
+        <img src="./assets/img/Evenement/Poster_EXpoEXpresso.png" alt="Le Guerrier">
       </div>
     </article>
 
@@ -127,9 +137,6 @@
   </div>
 
   <!-- COLLECTION -->
-  <div class="section-divider">
-    <span class="section-divider-label">Collections</span>
-  </div>
   <section class="collection-section">
     <div class="collection-header">
       <h2 class="collection-title">Collection</h2>
@@ -148,6 +155,15 @@
         <span class="collection-card-label">Sculptures</span>
         <span class="collection-card-tag">Voir</span>
       </div>
+      <div class="collection-card">
+        <span class="collection-card-num">03</span>
+        <img src="./assets/img/ange_rouge.png" alt="Sculptures"/>
+        <span class="collection-card-label">Sculptures</span>
+        <span class="collection-card-tag">Voir</span>
+      </div>
+    </div>
+    <div class="collection-btn-wrapper">
+      <a href="./common/catalogue.html" class="collection-btn">Voir le catalogue</a>
     </div>
   </section>
 </div>
@@ -165,8 +181,8 @@
         <h4 class="footer-title">Informations</h4>
         <ul class="footer-list">
           <li><span class="footer-label">Adresse</span><span>25 Quai de Rive Neuve, 13007 Marseille</span></li>
-          <li><span class="footer-label">Téléphone</span><span>+33 6 37 61 15 56</span></li>
-          <li><span class="footer-label">E-mail</span><span><a href="mailto:paco.giovannetti@gmail.com">paco.giovannetti@gmail.com</a></span></li>
+          <li><span class="footer-label">Téléphone</span><span>+33 04 91 25 13 07</span></li>
+          <li><span class="footer-label">E-mail</span><span><a href="mailto:contact@museedufabi.fr">contact@museedufabi.fr</a></span></li>
         </ul>
       </div>
 
@@ -190,16 +206,6 @@
           <li><a href="./common/privacy.html">Politique de Confidentialité</a></li>
         </ul>
       </div>
-
-      <!-- Colonne 4: Réseaux -->
-      <div class="footer-col">
-        <h4 class="footer-title">Suivez-nous</h4>
-        <div class="footer-socials">
-          <a href="#" class="social-link" aria-label="Instagram">Instagram</a>
-          <a href="#" class="social-link" aria-label="Facebook">Facebook</a>
-          <a href="#" class="social-link" aria-label="Twitter">Twitter</a>
-        </div>
-      </div>
     </div>
 
     <!-- Ligne de séparation basse -->
@@ -208,7 +214,7 @@
     <!-- Copyright -->
     <div class="footer-copyright">
       <p>&copy; 2026 Musée FABI. Tous droits réservés.</p>
-      <p class="footer-credit">Conçu par Lilian et Lino :3</p>
+      <p class="footer-credit">Conçu par Lilian et Lino en compagnie d'un petit jaune :3</p>
     </div>
   </div>
 </footer>

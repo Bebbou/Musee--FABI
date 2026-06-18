@@ -1,21 +1,50 @@
-/* ── Onglets ── */
-const tabBtns   = document.querySelectorAll('.tab-btn');
-const tabPanels = document.querySelectorAll('.tab-panel');
+/* ── CLIENT.JS ── */
 
-tabBtns.forEach(btn => {
+const viewAuth      = document.getElementById('view-auth');
+const viewDashboard = document.getElementById('view-dashboard');
+
+/* ── Basculer vers le dashboard ── */
+function showDashboard(user) {
+  const initiales = (user.prenom[0] + user.nom[0]).toUpperCase();
+  document.getElementById('dash-avatar').textContent = initiales;
+  document.getElementById('dash-name').textContent   = user.prenom + ' ' + user.nom;
+  document.getElementById('dash-email').textContent  = user.email;
+
+  const date = new Date((user.created_at ?? '').replace(' ', 'T'));
+  document.getElementById('dash-since').textContent  =
+    date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+
+  viewAuth.style.display      = 'none';
+  viewDashboard.style.display = 'block';
+}
+
+/* ── Basculer vers l'auth ── */
+function showAuth() {
+  viewDashboard.style.display = 'none';
+  viewAuth.style.display      = 'block';
+}
+
+/* ── Vérification session au chargement ── */
+fetch('../api/me.php', { credentials: 'include' })
+  .then(r => r.json())
+  .then(data => { if (data.success) showDashboard(data.user); })
+  .catch(() => {});
+
+/* ── Onglets ── */
+document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    tabBtns.forEach(b => b.classList.remove('active'));
-    tabPanels.forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
     btn.classList.add('active');
     document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
   });
 });
 
-/* ── Helpers ── */
+/* ── Helper message ── */
 function showMsg(id, text, ok) {
   const el = document.getElementById(id);
   el.textContent = text;
-  el.className = 'form-message ' + (ok ? 'success' : 'error');
+  el.className   = 'form-message ' + (ok ? 'success' : 'error');
 }
 
 /* ── Connexion ── */
@@ -31,16 +60,18 @@ document.getElementById('btn-login').addEventListener('click', async () => {
   try {
     const res  = await fetch('../api/login.php', {
       method: 'POST',
+      credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
     });
     const data = await res.json();
     showMsg('msg-login', data.message, data.success);
     if (data.success) {
-      setTimeout(() => window.location.href = '../common/index.html', 1200);
+      localStorage.setItem('fabi_user', JSON.stringify(data.user));
+      setTimeout(() => showDashboard(data.user), 800);
     }
   } catch {
-    showMsg('msg-login', 'Serveur inaccessible. Assurez-vous que PHP tourne (MAMP/XAMPP).', false);
+    showMsg('msg-login', 'Serveur inaccessible — lancez PHP : php -S 127.0.0.1:8000 -t res/', false);
   }
 });
 
@@ -59,17 +90,23 @@ document.getElementById('btn-register').addEventListener('click', async () => {
   try {
     const res  = await fetch('../api/register.php', {
       method: 'POST',
+      credentials: 'include',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ nom, prenom, email, password })
     });
     const data = await res.json();
     showMsg('msg-register', data.message, data.success);
     if (data.success) {
-      setTimeout(() => {
-        document.querySelector('[data-tab="connexion"]').click();
-      }, 1500);
+      setTimeout(() => document.querySelector('[data-tab="connexion"]').click(), 1500);
     }
   } catch {
-    showMsg('msg-register', 'Serveur inaccessible. Assurez-vous que PHP tourne (MAMP/XAMPP).', false);
+    showMsg('msg-register', 'Serveur inaccessible — lancez PHP : php -S 127.0.0.1:8000 -t res/', false);
   }
+});
+
+/* ── Déconnexion ── */
+document.getElementById('btn-logout').addEventListener('click', async () => {
+  await fetch('../api/logout.php', { credentials: 'include' });
+  localStorage.removeItem('fabi_user');
+  showAuth();
 });

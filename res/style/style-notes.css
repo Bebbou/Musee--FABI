@@ -1,0 +1,169 @@
+/* ══════════════════════════════════════
+   WIDGET NOTES — 5 étoiles avec demi-étoiles
+══════════════════════════════════════ */
+
+/* ── Section notes — hors layouts, flux normal ── */
+#notes-section {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+/* Le body a un fond sombre par défaut — on override pour la section éditoriale */
+body:has(#layout-editorial.active) {
+  background: #f5efe3;
+}
+body:has(#layout-editorial.active) #notes-section {
+  background: #f5efe3;
+}
+body:has(#layout-baroque.active) #notes-section {
+  background: #0f0d09;
+}
+
+.notes-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 20px 24px;
+  border-radius: 8px;
+  user-select: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Variante claire (layout éditorial) */
+.notes-widget--light {
+  background: #ede5d4;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  color: #2a1a00;
+}
+
+/* Variante sombre (layout baroque) */
+.notes-widget--dark {
+  background: rgba(14, 11, 9, 0.85);
+  border: 1px solid rgba(200, 160, 48, 0.3);
+  color: #e8d5a3;
+}
+
+/* ── Titre du widget ── */
+.notes-title {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-bottom: 2px;
+}
+
+/* ── Rangée étoiles + moyenne ── */
+.notes-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ── Conteneur des 5 étoiles ── */
+.stars {
+  display: flex;
+  gap: 3px;
+}
+
+/* ── Une étoile individuelle ── */
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 28px;
+  line-height: 1;
+  cursor: default;
+  color: #ccc;
+}
+
+.notes-widget--baroque .star {
+  color: rgba(200, 160, 48, 0.25);
+}
+
+/* Fond de l'étoile (vide) */
+.star::before {
+  content: '★';
+}
+
+/* Remplissage (par-dessus) */
+.star .star-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #c8a030;
+  width: 0%;
+  transition: width 0.15s ease;
+}
+
+.star .star-fill::before {
+  content: '★';
+}
+
+/* ── Zones de hit invisibles (½ gauche / ½ droite) ── */
+.stars-interactive .star {
+  cursor: pointer;
+}
+
+.star-half-hit {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 50%;
+  z-index: 2;
+}
+
+.star-half-hit--left  { left: 0; }
+.star-half-hit--right { right: 0; }
+
+/* État hover sur étoile interactive */
+.stars-interactive .star:hover .star-fill,
+.stars-interactive .star.hovered .star-fill {
+  transition: none;
+}
+
+/* ── Moyenne affichée ── */
+.notes-avg-display {
+  font-size: 22px;
+  font-weight: 600;
+  color: #c8a030;
+  line-height: 1;
+}
+
+.notes-count-display {
+  font-size: 11px;
+  opacity: 0.55;
+  margin-top: 2px;
+}
+
+/* ── Message statut (connecté / non connecté / ta note) ── */
+.notes-status {
+  font-size: 12px;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.notes-status a {
+  color: #c8a030;
+  text-decoration: underline;
+}
+
+.notes-user-note {
+  font-size: 11px;
+  color: #c8a030;
+  letter-spacing: 1px;
+}
+
+/* ── Animation au clic ── */
+@keyframes starPop {
+  0%   { transform: scale(1);    }
+  40%  { transform: scale(1.35); }
+  100% { transform: scale(1);    }
+}
+
+.star.pop {
+  animation: starPop 0.3s ease;
+}
