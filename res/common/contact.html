@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Musée FABI</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="../style/contact.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="ct-header">
+    <div class="ct-brand"><a href="../index.html">Musée&nbsp;·&nbsp;FABI</a></div>
+    <nav class="ct-nav">
+      <a href="../index.html">Accueil</a>
+      <a href="./catalogue.html">Catalogue</a>
+      <a href="./contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ════════ HERO ════════ -->
+  <section class="co-hero">
+    <div class="co-hero-sky"></div>
+    <div class="co-hero-glow"></div>
+    <div class="co-grain"></div>
+    <div class="co-cloud co-cloud--3"><img src="../assets/img/nuage_3.png" alt=""></div>
+    <div class="co-cloud co-cloud--4"><img src="../assets/img/nuage_4.png" alt=""></div>
+    <div class="co-cloud co-cloud--1"><img src="../assets/img/nuage_1.png" alt=""></div>
+    <div class="co-cloud co-cloud--2"><img src="../assets/img/nuage_2.png" alt=""></div>
+    <div class="co-cloud co-cloud--5"><img src="../assets/img/nuage_5.png" alt=""></div>
+    <div class="co-angel co-angel--top"><img src="../assets/img/ange_cupidon.png" alt=""></div>
+    <div class="co-angel co-angel--left"><img src="../assets/img/ange_rouge.png" alt=""></div>
+    <div class="co-angel co-angel--right"><img src="../assets/img/ange_blanc.png" alt=""></div>
+    <div class="co-hero-content">
+      <p class="co-hero-eyebrow">Musée FABI · Marseille</p>
+      <span class="co-hero-ornament">C</span>
+      <h1 class="co-hero-title">Contact</h1>
+      <div class="co-hero-rule"></div>
+      <p class="co-hero-subtitle">Nous sommes à votre écoute<br>pour toute demande d'information</p>
+    </div>
+    <div class="co-scroll-hint">
+      <div class="co-scroll-line"></div>
+      <span class="co-scroll-label">Descendre</span>
+    </div>
+  </section>
+
+  <!-- ════════ SECTION PARALLAX BAROQUE ════════ -->
+  <section class="co-parallax" id="parallax-section">
+
+    <!-- fond : fresque de plafond -->
+    <div class="co-parallax-fresque" id="p-fresque"></div>
+    <div class="co-parallax-dim"></div>
+
+
+
+    <!-- texte central -->
+    <div class="co-parallax-text">
+      <div class="co-parallax-rule"></div>
+      <p class="co-parallax-quote">
+        L'art est la seule façon de fuir<br>
+        sans quitter <em>la pièce</em>
+      </p>
+      <div class="co-parallax-rule"></div>
+      <span class="co-parallax-label">Collection permanente · Musée FABI</span>
+    </div>
+
+  </section>
+
+  <!-- ════════ SECTION PRINCIPALE ════════ -->
+  <main class="co-main">
+    <div class="co-ornament-sep">· · ✦ · ·</div>
+
+    <div class="co-body">
+      <div class="co-form-angel co-form-angel--l"><img src="../assets/img/ange_blanc.png" alt=""></div>
+      <div class="co-form-angel co-form-angel--r"><img src="../assets/img/ange_cupidon.png" alt=""></div>
+
+      <!-- INFOS -->
+      <div class="co-infos">
+        <p class="co-section-label">Informations pratiques</p>
+        <div class="co-info-block">
+          <p class="co-info-title">Adresse</p>
+          <p class="co-info-line">25 Quai de Rive Neuve<br>13007 Marseille</p>
+        </div>
+        <div class="co-divider"></div>
+        <div class="co-info-block">
+          <p class="co-info-title">Téléphone</p>
+          <p class="co-info-line"><a href="tel:+33637611556">+33 6 37 61 15 56</a></p>
+        </div>
+        <div class="co-divider"></div>
+        <div class="co-info-block">
+          <p class="co-info-title">E-mail</p>
+          <p class="co-info-line"><a href="mailto:paco.giovannetti@gmail.com">paco.giovannetti@gmail.com</a></p>
+        </div>
+        <div class="co-divider"></div>
+        <div class="co-info-block">
+          <p class="co-info-title">Horaires d'ouverture</p>
+          <div class="co-hours">
+            <span class="co-hours-day">Mardi — Dimanche</span>
+            <span class="co-hours-time">10h — 18h</span>
+            <span class="co-hours-day">Lundi</span>
+            <span class="co-hours-time">Fermé</span>
+          </div>
+        </div>
+        <div class="co-info-img">
+          <img src="../assets/img/ange_rouge.png" alt="Ange">
+        </div>
+      </div>
+
+      <!-- FORMULAIRE -->
+      <div class="co-form-wrap">
+        <p class="co-section-label">Nous écrire</p>
+        <form class="co-form" id="co-form" onsubmit="handleSubmit(event)">
+
+<div class="co-field">
+            <label class="co-label" for="co-name">Nom complet</label>
+            <input class="co-input" id="co-name" name="name" type="text" placeholder="Votre nom" required>
+          </div>
+          <div class="co-field">
+            <label class="co-label" for="co-email">Adresse e-mail</label>
+            <input class="co-input" id="co-email" name="email" type="email" placeholder="votre@email.com" required>
+          </div>
+          <div class="co-field">
+            <label class="co-label" for="co-subject">Sujet</label>
+            <div class="co-select-wrap">
+              <select class="co-select" id="co-subject" name="subject">
+                <option value="" disabled selected>Choisir un sujet</option>
+                <option value="Visite &amp; billetterie">Visite &amp; billetterie</option>
+                <option value="Collection &amp; œuvres">Collection &amp; œuvres</option>
+                <option value="Presse &amp; partenariats">Presse &amp; partenariats</option>
+                <option value="Autre demande">Autre demande</option>
+              </select>
+            </div>
+          </div>
+          <div class="co-field">
+            <label class="co-label" for="co-message">Message</label>
+            <textarea class="co-textarea" id="co-message" name="message" placeholder="Votre message…" required></textarea>
+          </div>
+
+          <button class="co-btn" type="submit" id="co-submit">
+            <span id="co-btn-label">Envoyer</span>
+          </button>
+
+          <p class="co-success" id="co-success">
+            Votre message a bien été envoyé — nous vous répondrons dans les plus brefs délais.
+          </p>
+          <p class="co-error" id="co-error">
+            Une erreur est survenue. Merci de réessayer ou d'écrire directement à paco.giovannetti@gmail.com
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <!-- BANDE BAROQUE FINALE -->
+    <div class="co-baroque-band">
+      <div class="co-band-bg"></div>
+      <div class="co-band-halo"></div>
+      <div class="co-baroque-stage">
+
+        
+        <!-- carte centrale -->
+        <div class="co-band-card">
+          <p class="co-band-card-label">Nous rendre visite</p>
+          <span class="co-band-card-title">Trouver<br>le Musée</span>
+          <div class="co-band-card-infos">
+            <span>25 Quai de Rive Neuve</span>
+            <span>13007 Marseille — France</span>
+            <span>Mardi — Dimanche · 10h — 18h</span>
+          </div>
+          <div class="co-band-card-rule"></div>
+          <a class="co-band-cta" href="#">
+            <span>Voir sur la carte</span>
+            <span>→</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="co-footer">
+    <span>&copy; 2026 Musée FABI — Tous droits réservés</span>
+    <nav class="co-footer-nav">
+      <a href="./catalogue.html">Catalogue</a>
+      <a href="./contact.html">Contact</a>
+    </nav>
+  </footer>
+
+  <script>
+    /* ══ PARALLAX ══ */
+    (function () {
+      const section = document.getElementById('parallax-section');
+      const fresque = document.getElementById('p-fresque');
+      const voluteL = document.querySelector('.co-parallax-volute-l');
+      const voluteR = document.querySelector('.co-parallax-volute-r');
+
+      let ticking = false;
+
+      function update() {
+        const rect = section.getBoundingClientRect();
+        const vh = window.innerHeight;
+        const progress = 1 - (rect.bottom / (vh + rect.height));
+        const p = Math.max(-0.5, Math.min(1.5, progress));
+
+        if (fresque) fresque.style.transform = `translateY(${p * 80}px)`;
+
+        const vy = p * -60;
+        if (voluteL) voluteL.style.transform = `translateY(calc(-50% + ${vy}px))`;
+        if (voluteR) voluteR.style.transform = `translateY(calc(-50% + ${vy}px)) scaleX(-1)`;
+
+
+
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function () {
+        if (!ticking) { requestAnimationFrame(update); ticking = true; }
+      }, { passive: true });
+
+      update(); // init
+    })();
+
+    /* ══ FORMULAIRE — Formspree ══
+       Remplace TON_ID_FORMSPREE par l'ID obtenu sur formspree.io
+       Ex : https://formspree.io/f/xpzvwkrg  →  ID = xpzvwkrg          */
+    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xbdevryz';
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+
+      const form    = document.getElementById('co-form');
+      const btn     = document.getElementById('co-submit');
+      const label   = document.getElementById('co-btn-label');
+      const success = document.getElementById('co-success');
+      const error   = document.getElementById('co-error');
+
+      // état chargement
+      btn.disabled  = true;
+      label.textContent = 'Envoi…';
+      success.style.display = 'none';
+      error.style.display   = 'none';
+
+      const data = new FormData(form);
+
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method:  'POST',
+          body:    data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          // succès
+          form.reset();
+          btn.style.display   = 'none';
+          success.style.display = 'block';
+          // réinitialisation après 8s
+          setTimeout(() => {
+            btn.style.display   = '';
+            success.style.display = 'none';
+          }, 8000);
+        } else {
+          // erreur serveur
+          error.style.display = 'block';
+          btn.disabled  = false;
+          label.textContent = 'Envoyer';
+        }
+      } catch {
+        // erreur réseau
+        error.style.display = 'block';
+        btn.disabled  = false;
+        label.textContent = 'Envoyer';
+      }
+    }
+  </script>
+</body>
+
+</html>
