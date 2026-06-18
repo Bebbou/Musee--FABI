@@ -1,4 +1,23 @@
 :root {
+  --terra:    #C1440E;
+  --terra-dk: #8B2E08;
+  --blue:     #1E3F6B;
+  --blue-mid: #2C5F8A;
+  --beige:    #C4A882;
+  --beige-lt: #E8DDD0;
+  --taupe:    #7A6A56;
+  --cream:    #F4EDDE;
+  --black:    #0E0B09;
+  --serif:    'Cormorant Garamond', Georgia, serif;
+  --sans:     'Montserrat', sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--cream);color:var(--black);overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--black);}
+::-webkit-scrollbar-thumb{background:var(--terra);}
+::selection{background:rgba(193,68,14,.25);color:var(--beige-lt);}
   --terra: #c1440e;
   --terra-dk: #8b2e08;
   --blue: #1e3f6b;
