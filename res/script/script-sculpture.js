@@ -6,10 +6,12 @@
 
   let sculptures;
   try {
-    const res = await fetch('/res/database/bdd_sculpture.json');
+    /* Essaie d'abord la BDD MySQL via PHP, sinon le JSON statique */
+    let res = await fetch('/res/api/sculptures_bdd.php');
+    if (!res.ok) res = await fetch('/res/database/bdd_sculpture.json');
     sculptures = (await res.json()).sculptures;
   } catch (e) {
-    console.error('Impossible de charger bdd_sculpture.json', e);
+    console.error('Impossible de charger les sculptures', e);
     return;
   }
 

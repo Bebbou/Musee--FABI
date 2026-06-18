@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS `sculptures` (
   `descriptif` TEXT DEFAULT NULL,
   `modele_3d_disponible` TINYINT(1) NOT NULL DEFAULT 0,
   `modele_3d_chemin` VARCHAR(255) DEFAULT NULL,
+  `image_url` VARCHAR(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 

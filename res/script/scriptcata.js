@@ -385,14 +385,24 @@ function ctInitSearch() {
 }
 
 /* ─── INIT ───────────────────────────────────── */
+/* ─── CHARGEMENT : BDD MySQL en priorité, JSON en fallback ── */
+async function fetchWithFallback(apiUrl, jsonUrl) {
+  try {
+    const res = await fetch(apiUrl);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.json();
+  } catch (_) {
+    const res = await fetch(jsonUrl);
+    return await res.json();
+  }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const [resO, resS] = await Promise.all([
-      fetch('../database/collection_musee.json'),
-      fetch('../database/bdd_sculpture.json'),
+    const [dataO, dataS] = await Promise.all([
+      fetchWithFallback('../api/oeuvres_bdd.php',    '../database/collection_musee.json'),
+      fetchWithFallback('../api/sculptures_bdd.php', '../database/bdd_sculpture.json'),
     ]);
-    const dataO = await resO.json();
-    const dataS = await resS.json();
 
     ALL_OEUVRES    = dataO.oeuvres    ?? [];
     ALL_SCULPTURES = dataS.sculptures ?? [];
