@@ -238,10 +238,19 @@
    Fond sombre, grande peinture, cercles, sections
 ══════════════════════════════════════════════════ */
 #layout-baroque {
-  position: relative;
-  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 52% 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "img   meta"
+    "img   blocks"
+    "card  blocks";
+  column-gap: 2.5rem;
+  row-gap: 1.5rem;
+  padding: calc(68px + 2rem) 3rem 4rem;
   background: #10110f;
-  padding-top: 68px;
+  min-height: 100vh;
+  position: relative;
   overflow: hidden;
 }
 
@@ -255,17 +264,16 @@
   z-index: 0;
 }
 
-/* Grande peinture principale (gauche) */
+/* Grande peinture principale (colonne gauche, lignes 1-2) */
 .ba-main-img-wrap {
-  position: absolute;
-  top: calc(68px + 2rem);
-  left: 3rem;
-  width: clamp(260px, 50%, 640px);
-  height: clamp(300px, 70vh, 700px);
+  grid-area: img;
+  width: 100%;
+  height: clamp(300px, 60vh, 680px);
   border-radius: 1.2rem;
   overflow: hidden;
   z-index: 1;
   box-shadow: 0 8px 40px rgba(0,0,0,.7);
+  align-self: start;
 }
 .ba-main-img-wrap img {
   width: 100%; height: 100%;
@@ -273,13 +281,15 @@
   filter: contrast(1.05) saturate(.92);
 }
 
-/* Zone cercle + anneau (haut droite) */
+/* Zone cercle + anneau (décoratif, dans la zone meta à droite) */
 .ba-circle-zone {
-  position: absolute;
-  top: calc(68px + 1.5rem);
-  right: 3rem;
-  width: clamp(120px, 16%, 190px);
-  z-index: 2;
+  grid-area: meta;
+  position: relative;
+  width: clamp(80px, 8vw, 120px);
+  justify-self: end;
+  align-self: center;
+  z-index: 3;
+  flex-shrink: 0;
 }
 .ba-circle-ring {
   position: absolute;
@@ -316,21 +326,74 @@
   opacity: .7;
 }
 
-/* Carte titre / artiste (bas gauche) */
+/* Méta info (date · musée) — colonne droite, ligne 1 */
+.ba-meta {
+  grid-area: meta;
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  padding-top: .5rem;
+  z-index: 2;
+}
+.ba-meta span {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--beige);
+  opacity: .55;
+}
+.ba-meta-sep { opacity: .3 !important; }
+
+/* Blocs info (colonne droite, lignes 1-3) */
+.ba-info-blocks {
+  grid-area: blocks;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  z-index: 2;
+  align-self: start;
+}
+.ba-info-block {
+  padding: 1.4rem 1.2rem;
+  border-bottom: .5px solid rgba(196,168,130,.12);
+}
+.ba-info-block:first-child {
+  border-top: .5px solid rgba(196,168,130,.12);
+}
+.ba-info-block h2 {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: .9rem;
+}
+.ba-info-block p {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.85;
+  color: #d4c8b8;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Carte titre / artiste — colonne gauche, ligne 3 */
 .ba-title-card {
-  position: absolute;
-  bottom: calc(2rem + 60px);
-  left: 3rem;
-  width: clamp(200px, 44%, 520px);
+  grid-area: card;
   background: linear-gradient(135deg, rgba(196,168,130,.12), rgba(196,168,130,.04));
   border: .5px solid rgba(196,168,130,.2);
   border-radius: .5rem;
   padding: 1.2rem 1.6rem;
   z-index: 2;
+  align-self: end;
 }
 .ba-style-label {
   font-family: var(--serif);
-  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
   font-weight: 300;
   color: #e8ddd0;
   letter-spacing: .05em;
@@ -343,15 +406,14 @@
 }
 .ba-artist {
   font-family: var(--sans);
-  /* MODIFIER CETTE TAILLE POUR CHANGER L'ARTISTE ET DATE */
-  font-size: .75rem; /* Augmenté de .65rem */
+  font-size: .75rem;
   font-weight: 400;
   letter-spacing: .2em;
   text-transform: uppercase;
   color: #c4a882;
 }
 
-/* Grand texte de style en arrière-plan */
+/* Grand texte décoratif en arrière-plan */
 .ba-big-title {
   position: absolute;
   bottom: 0;
@@ -368,71 +430,9 @@
   user-select: none;
 }
 
-/* Blocs info (droite) */
-.ba-info-blocks {
-  position: absolute;
-  top: 60px;
-  left: 55%;
-  transform: translateX(-50%);
-  width: clamp(220px, 34%, 380px);
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  z-index: 2;
-}
-.ba-info-block {
-  padding: 1.4rem 1.2rem;
-  border-bottom: .5px solid rgba(196,168,130,.12);
-}
-.ba-info-block:first-child {
-  border-top: .5px solid rgba(196,168,130,.12);
-}
-.ba-info-block h2 {
-  font-family: var(--sans);
-  /* MODIFIER CETTE TAILLE POUR CHANGER LES TITRES DES BLOCS INFO */
-  font-size: 0.85rem; /* Augmenté de .68rem */
-  font-weight: 600;
-  letter-spacing: .25em;
-  text-transform: uppercase;
-  color: var(--terra);
-  margin-bottom: .9rem;
-}
-.ba-info-block p {
-  font-family: var(--sans);
-  /* MODIFIER CETTE TAILLE POUR CHANGER LE TEXTE DES BLOCS INFO */
-  font-size: 1.15rem; /* Augmenté de .95rem */
-  font-weight: 300;
-  line-height: 1.85;
-  color: #d4c8b8;
-  text-align: justify;
-  hyphens: auto;
-}
-
-/* Méta info (date · musée) */
-.ba-meta {
-  position: absolute;
-  top: calc(68px + 3rem);
-  right: 3rem;
-  display: flex;
-  align-items: center;
-  gap: .8rem;
-  z-index: 2;
-}
-.ba-meta span {
-  font-family: var(--sans);
-  /* MODIFIER CETTE TAILLE POUR CHANGER LA MÉTA (date, musée) */
-  font-size: 0.7rem; /* Augmenté de .55rem */
-  font-weight: 400;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--beige);
-  opacity: .55;
-}
-.ba-meta-sep { opacity: .3 !important; }
-
 .ba-back { color: var(--beige-lt); }
 
-/* ── Responsive minimal ── */
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .ed-photo-grid,
   .ed-year-vert,
@@ -446,9 +446,20 @@
     bottom: 4rem;
   }
 
+  #layout-baroque {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "img"
+      "meta"
+      "blocks"
+      "card";
+    padding: calc(68px + 1rem) 1.5rem 4rem;
+  }
+
   .ba-circle-zone { display: none; }
-  .ba-main-img-wrap { width: calc(100% - 4rem); height: 45vw; }
-  .ba-info-blocks { width: calc(100% - 4rem); left: 50%; transform: translateX(-50%); top: calc(68px + 50vw + 2rem); }
-  .ba-meta { top: calc(68px + 1rem); }
-  .ba-title-card { width: calc(100% - 4rem); }
+  .ba-main-img-wrap { height: 50vw; }
+  .ba-meta { padding-left: 0; }
+  .ba-info-blocks { width: 100%; }
+  .ba-title-card { width: 100%; }
 }

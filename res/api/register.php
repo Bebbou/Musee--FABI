@@ -1,27 +1,26 @@
 <?php
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Origin: http://localhost');
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(204); exit; }
 
 require 'db.php';
 
-// On n'accepte que les requêtes POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['success' => false, 'message' => 'Méthode non autorisée']);
     exit;
 }
 
-// Récupérer les données envoyées en JSON depuis le formulaire
-$data = json_decode(file_get_contents('php://input'), true);
-
+$data   = json_decode(file_get_contents('php://input'), true);
 $nom    = trim($data['nom']    ?? '');
 $prenom = trim($data['prenom'] ?? '');
 $email  = trim($data['email']  ?? '');
 $mdp    = $data['password']    ?? '';
 
-// Validation basique
 if (!$nom || !$prenom || !$email || !$mdp) {
     echo json_encode(['success' => false, 'message' => 'Tous les champs sont obligatoires']);
     exit;
@@ -37,16 +36,14 @@ if (strlen($mdp) < 6) {
     exit;
 }
 
-// Vérifier si l'email existe déjà
-$stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
+$stmt = $pdo->prepare("SELECT id FROM utilisateurs WHERE email = ?");
 $stmt->execute([$email]);
 if ($stmt->fetch()) {
     echo json_encode(['success' => false, 'message' => 'Cet email est déjà utilisé']);
     exit;
 }
 
-// Insérer l'utilisateur
-$stmt = $pdo->prepare("INSERT INTO users (nom, prenom, email, password) VALUES (?, ?, ?, ?)");
+$stmt = $pdo->prepare("INSERT INTO utilisateurs (nom, prenom, email, mot_de_passe) VALUES (?, ?, ?, ?)");
 $stmt->execute([$nom, $prenom, $email, $mdp]);
 
 echo json_encode(['success' => true, 'message' => 'Compte créé avec succès']);

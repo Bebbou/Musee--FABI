@@ -1,11 +1,13 @@
 <?php
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Origin: http://localhost');
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
-session_start(); // Démarre la session PHP pour mémoriser l'utilisateur connecté
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(204); exit; }
 
+session_start();
 require 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -23,22 +25,20 @@ if (!$email || !$mdp) {
     exit;
 }
 
-// Chercher l'utilisateur par email
-$stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+$stmt = $pdo->prepare("SELECT * FROM utilisateurs WHERE email = ?");
 $stmt->execute([$email]);
 $user = $stmt->fetch();
 
-// Vérifier le mot de passe en clair
-if (!$user || $user['password'] !== $mdp) {
+if (!$user || $user['mot_de_passe'] !== $mdp) {
     echo json_encode(['success' => false, 'message' => 'Email ou mot de passe incorrect']);
     exit;
 }
 
-// Stocker l'utilisateur en session
-$_SESSION['user_id'] = $user['id'];
-$_SESSION['user_nom'] = $user['nom'];
+$_SESSION['user_id']     = $user['id'];
+$_SESSION['user_nom']    = $user['nom'];
 $_SESSION['user_prenom'] = $user['prenom'];
-$_SESSION['user_email'] = $user['email'];
+$_SESSION['user_email']  = $user['email'];
+$_SESSION['user_role']   = $user['role'];
 
 echo json_encode([
     'success' => true,
@@ -48,5 +48,6 @@ echo json_encode([
         'nom'    => $user['nom'],
         'prenom' => $user['prenom'],
         'email'  => $user['email'],
+        'role'   => $user['role'],
     ]
 ]);
