@@ -13,19 +13,35 @@
     rel="stylesheet">
 
   <link rel="stylesheet" href="../style/contact.css">
+  <link href="/res/style/style.css" rel="stylesheet">
 </head>
 
 <body>
 
   <!-- HEADER -->
-  <header class="ct-header">
-    <div class="ct-brand"><a href="../index.html">Musée&nbsp;·&nbsp;FABI</a></div>
-    <nav class="ct-nav">
-      <a href="../index.html">Accueil</a>
-      <a href="./catalogue.html">Catalogue</a>
-      <a href="./contact.html" class="active">Contact</a>
-    </nav>
-  </header>
+<header id="main-header">
+  <div class="logo">
+    <a href="./index.html" style="text-decoration:none;">
+      <img src="../assets/img/logo/logoFABI_White.svg" alt="Logo Musée FABI"
+           style="height:100px;vertical-align:middle;border-radius:20px;">
+    </a>
+  </div>
+  <div class="logo"><h1>Musée FABI</h1></div>
+  <nav>
+    <ul>
+      <li><a href="./common/catalogue.html">Catalogue</a></li>
+      <li><a href="./common/contact.html">Contact</a></li>
+      <li>
+        <a href="./common/connexion.html">
+          <button style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196, 168, 130, 0.55); color:rgba(14, 11, 9, 0.75); border: none; border-radius: 8px; padding: 10px 20px; font-size: 15px; font-weight: 500; cursor: pointer;">
+            <i class="ti ti-login" style="font-size: 18px;" aria-hidden="true"></i>
+            Connexion
+          </button>
+        </a>  
+      </li>
+    </ul>
+  </nav>
+</header>
 
   <!-- ════════ HERO ════════ -->
   <section class="co-hero">
@@ -187,14 +203,55 @@
   </main>
 
   <!-- FOOTER -->
-  <footer class="co-footer">
-    <span>&copy; 2026 Musée FABI — Tous droits réservés</span>
-    <nav class="co-footer-nav">
-      <a href="./catalogue.html">Catalogue</a>
-      <a href="./contact.html">Contact</a>
-    </nav>
-  </footer>
+<footer id="main-footer">
+  <div class="footer-content">
+    <!-- Ligne de séparation haute -->
+    <div class="footer-separator"></div>
+    
+    <!-- Contenu principal -->
+    <div class="footer-main">
+      <!-- Colonne 1: Info Pratiques -->
+      <div class="footer-col">
+        <h4 class="footer-title">Informations</h4>
+        <ul class="footer-list">
+          <li><span class="footer-label">Adresse</span><span>25 Quai de Rive Neuve, 13007 Marseille</span></li>
+          <li><span class="footer-label">Téléphone</span><span>+33 04 91 25 13 07</span></li>
+          <li><span class="footer-label">E-mail</span><span><a href="mailto:contact@museedufabi.fr">contact@museedufabi.fr</a></span></li>
+        </ul>
+      </div>
 
+      <!-- Colonne 2: Horaires -->
+      <div class="footer-col">
+        <h4 class="footer-title">Horaires</h4>
+        <ul class="footer-list">
+          <li><span class="footer-label">Mardi - Dimanche</span><span>10h - 18h</span></li>
+          <li><span class="footer-label">Lundi</span><span>Fermé</span></li>
+          <li><span class="footer-label">Accès</span><span>Voir la billetterie (METTRE LE LIEN LINO)</span></li>
+        </ul>
+      </div>
+
+      <!-- Colonne 3: Navigation -->
+      <div class="footer-col">
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-list">
+          <li><a href="../common/catalogue.html">Catalogue</a></li>
+          <li><a href="../common/contact.html">Contact</a></li>
+          <li><a href="../common/mentions.html">Mentions Légales</a></li>
+          <li><a href="../common/privacy.html">Politique de Confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Ligne de séparation basse -->
+    <div class="footer-separator"></div>
+
+    <!-- Copyright -->
+    <div class="footer-copyright">
+      <p>&copy; 2026 Musée FABI. Tous droits réservés.</p>
+      <p class="footer-credit">Conçu par Lilian et Lino en compagnie d'un petit jaune :3</p>
+    </div>
+  </div>
+</footer>
   <script>
     /* ══ PARALLAX ══ */
     (function () {

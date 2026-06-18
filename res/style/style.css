@@ -18,18 +18,6 @@ body{font-family:var(--sans);background:var(--cream);color:var(--black);overflow
 ::-webkit-scrollbar-track{background:var(--black);}
 ::-webkit-scrollbar-thumb{background:var(--terra);}
 ::selection{background:rgba(193,68,14,.25);color:var(--beige-lt);}
-  --terra: #c1440e;
-  --terra-dk: #8b2e08;
-  --blue: #1e3f6b;
-  --blue-mid: #2c5f8a;
-  --beige: #c4a882;
-  --beige-lt: #e8ddd0;
-  --taupe: #7a6a56;
-  --cream: #f5f0e8;
-  --black: #0e0b09;
-  --serif: "Cormorant Garamond", Georgia, serif;
-  --sans: "Montserrat", sans-serif;
-}
 *,
 *::before,
 *::after {
