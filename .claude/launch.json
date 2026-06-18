@@ -10,8 +10,8 @@
     {
       "name": "musee-php",
       "runtimeExecutable": "php",
-      "runtimeArgs": ["-S", "127.0.0.1:8000", "-t", "res/"],
-      "port": 8000
+      "runtimeArgs": ["-S", "localhost:8080", "-t", "."],
+      "port": 8080
     }
   ]
 }
