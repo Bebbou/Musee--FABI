@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
   <link href="../style/style.css" rel="stylesheet">
   <link href="../style/style-espace-client.css" rel="stylesheet">
+  <link href="../style/style-reservation.css" rel="stylesheet">
 </head>
 <body>
 
@@ -138,109 +139,415 @@
 
 </section>
 
-<!-- ══ SECTION TARIFS ══ -->
-<section class="tarif-section">
+<!-- ══ SECTION FAVORIS ══ -->
+<section class="fav-section" id="mes-oeuvres">
 
-  <div class="tarif-header">
-    <p class="tarif-eyebrow">Billetterie</p>
-    <h2 class="tarif-title">Nos Tarifs</h2>
-    <div class="tarif-rule"></div>
-    <p class="tarif-subtitle">Accès aux collections permanentes et expositions temporaires</p>
+  <div class="fav-header">
+    <p class="fav-eyebrow">Collection personnelle</p>
+    <h2 class="fav-title">Mes œuvres notées</h2>
+    <div class="fav-rule"></div>
+    <p class="fav-subtitle">Retrouvez toutes les œuvres que vous avez évaluées</p>
   </div>
 
-  <div class="tarif-grid">
-
-    <div class="tarif-card">
-      <div class="tarif-card-top">
-        <span class="tarif-icon"><i class="ti ti-heart"></i></span>
-        <h3 class="tarif-name">Gratuit</h3>
-        <div class="tarif-price">
-          <span class="tarif-amount">0 €</span>
-        </div>
-      </div>
-      <ul class="tarif-features">
-        <li><i class="ti ti-check"></i> Moins de 6 ans</li>
-        <li><i class="ti ti-check"></i> Personne en situation de handicap</li>
-        <li><i class="ti ti-check"></i> Accompagnateur de personne handicapée</li>
-      </ul>
+  <!-- Barre de recherche + tri -->
+  <div class="fav-controls">
+    <div class="fav-search-wrap">
+      <i class="ti ti-search"></i>
+      <input type="text" id="fav-search" placeholder="Rechercher une œuvre ou un artiste…" autocomplete="off">
     </div>
-    <div class="tarif-card">
-      <div class="tarif-card-top">
-        <span class="tarif-icon"><i class="ti ti-ticket"></i></span>
-        <h3 class="tarif-name">Enfant</h3>
-        <div class="tarif-price">
-          <span class="tarif-amount">6 €</span>
-          <span class="tarif-unit">/ personne</span>
-        </div>
-      </div>
-      <ul class="tarif-features">
-        <li><i class="ti ti-check"></i>6 - 17 ans</li>
-        <li><i class="ti ti-check"></i> Accès collections permanentes</li>
-        <li><i class="ti ti-check"></i> Expositions temporaires incluses</i></li>
-        <li><i class="ti ti-check"></i> Audioguide disponible</li>
-      </ul>
-      <a href="./contact.html" class="tarif-btn tarif-btn-outline">Réserver</a>
+    <div class="fav-sort-wrap">
+      <span class="fav-sort-label">Trier par</span>
+      <button class="fav-sort-btn active" data-sort="date">Date</button>
+      <button class="fav-sort-btn" data-sort="note-desc">Note ↓</button>
+      <button class="fav-sort-btn" data-sort="note-asc">Note ↑</button>
+      <button class="fav-sort-btn" data-sort="alpha">A–Z</button>
     </div>
-    <div class="tarif-card featured">
-      <div class="tarif-badge">Le plus choisi</div>
-      <div class="tarif-card-top">
-        <span class="tarif-icon"><i class="ti ti-school"></i></span>
-        <h3 class="tarif-name">Tarif Étudiant</h3>
-        <div class="tarif-price">
-          <span class="tarif-amount">8 €</span>
-          <span class="tarif-unit">/ personne</span>
-        </div>
-      </div>
-      <ul class="tarif-features">
-        <li><i class="ti ti-check"></i> Étudiants (carte obligatoire)</li>
-        <li><i class="ti ti-check"></i> 18 – 25 ans</li>
-        <li><i class="ti ti-check"></i> Groupes scolaires</li>
-        <li><i class="ti ti-check"></i> Seniors (+ 65 ans)</li>
-      </ul>
-      <a href="./contact.html" class="tarif-btn">Réserver</a>
-    </div>
-    <div class="tarif-card">
-      <div class="tarif-card-top">
-        <span class="tarif-icon"><i class="ti ti-ticket"></i></span>
-        <h3 class="tarif-name">Plein tarif</h3>
-        <div class="tarif-price">
-          <span class="tarif-amount">12 €</span>
-          <span class="tarif-unit">/ personne</span>
-        </div>
-      </div>
-      <ul class="tarif-features">
-        <li><i class="ti ti-check"></i> Adultes</li>
-        <li><i class="ti ti-check"></i> Accès collections permanentes</li>
-        <li><i class="ti ti-check"></i> Expositions temporaires incluses</i></li>
-        <li><i class="ti ti-check"></i> Audioguide disponible</li>
-      </ul>
-      <a href="./contact.html" class="tarif-btn tarif-btn-outline">Réserver</a>
-    </div>
-    <div class="tarif-card">
-      <div class="tarif-card-top">
-        <span class="tarif-icon"><i class="ti ti-ticket"></i></span>
-        <h3 class="tarif-name">Sénior</h3>
-        <div class="tarif-price">
-          <span class="tarif-amount">9 €</span>
-          <span class="tarif-unit">/ personne</span>
-        </div>
-      </div>
-      <ul class="tarif-features">
-        <li><i class="ti ti-check"></i> Sénior</li>
-        <li><i class="ti ti-check"></i> Accès collections permanentes</li>
-        <li><i class="ti ti-check"></i> Expositions temporaires incluses</i></li>
-        <li><i class="ti ti-check"></i> Audioguide disponible</li>
-      </ul>
-      <a href="./contact.html" class="tarif-btn tarif-btn-outline">Réserver</a>
-    </div>
-
   </div>
 
-  <p class="tarif-note">
-    <i class="ti ti-info-circle"></i>
-    Les billets sont valables toute la journée. Les collections permanentes sont accessibles du mardi au dimanche, de 10h à 18h.
+  <!-- Grille des œuvres -->
+  <div class="fav-grid" id="fav-grid">
+    <div class="fav-loading" id="fav-loading">
+      <span class="fav-loading-dot"></span>
+      <span class="fav-loading-dot"></span>
+      <span class="fav-loading-dot"></span>
+    </div>
+  </div>
+
+  <p class="fav-empty" id="fav-empty" style="display:none">
+    <i class="ti ti-star-off"></i>
+    Vous n'avez pas encore noté d'œuvres.<br>
+    <a href="./catalogue.html">Parcourir le catalogue</a>
   </p>
 
+</section>
+
+<!-- ══ SECTION RÉSERVATION ══ -->
+<section class="resa-section" id="reservation">
+  <div class="resa-fade-top"></div>
+  <div class="resa-fade-bottom"></div>
+  <div class="resa-blur-backdrop"></div>
+
+  <div class="resa-header">
+    <p class="resa-eyebrow">Billetterie en ligne</p>
+    <h2 class="resa-title">Réserver une visite</h2>
+    <div class="resa-rule"></div>
+    <p class="resa-subtitle">Planifiez votre venue au Musée FABI en quelques étapes</p>
+  </div>
+
+  <!-- Barre de progression -->
+  <div class="resa-stepper" id="resa-stepper">
+    <div class="resa-step-item active" data-step="1">
+      <div class="step-bubble">1</div>
+      <span class="step-label">Visiteurs</span>
+    </div>
+    <div class="resa-step-line"></div>
+    <div class="resa-step-item" data-step="2">
+      <div class="step-bubble">2</div>
+      <span class="step-label">Type</span>
+    </div>
+    <div class="resa-step-line"></div>
+    <div class="resa-step-item" data-step="3">
+      <div class="step-bubble">3</div>
+      <span class="step-label">Options</span>
+    </div>
+    <div class="resa-step-line"></div>
+    <div class="resa-step-item" data-step="4">
+      <div class="step-bubble">4</div>
+      <span class="step-label">Date</span>
+    </div>
+    <div class="resa-step-line"></div>
+    <div class="resa-step-item" data-step="5">
+      <div class="step-bubble">5</div>
+      <span class="step-label">Récap</span>
+    </div>
+  </div>
+
+  <!-- Carte principale du formulaire -->
+  <div class="resa-card">
+
+    <!-- ── ÉTAPE 1 : VISITEURS ── -->
+    <div class="resa-panel active" id="resa-panel-1">
+      <h3 class="resa-panel-title">Composition du groupe</h3>
+      <p class="resa-panel-sub">Sélectionnez le nombre de visiteurs par catégorie</p>
+
+      <div class="resa-visitors">
+
+        <div class="visitor-row">
+          <div class="visitor-info">
+            <span class="visitor-cat">Plein tarif</span>
+            <span class="visitor-desc">Adultes</span>
+          </div>
+          <div class="visitor-price">12 €</div>
+          <div class="visitor-counter">
+            <button class="counter-btn minus" data-cat="plein">−</button>
+            <span class="counter-val" id="cnt-plein">0</span>
+            <button class="counter-btn plus" data-cat="plein">+</button>
+          </div>
+        </div>
+
+        <div class="visitor-row">
+          <div class="visitor-info">
+            <span class="visitor-cat">Étudiant</span>
+            <span class="visitor-desc">18–25 ans · carte étudiante obligatoire</span>
+          </div>
+          <div class="visitor-price">8 €</div>
+          <div class="visitor-counter">
+            <button class="counter-btn minus" data-cat="etudiant">−</button>
+            <span class="counter-val" id="cnt-etudiant">0</span>
+            <button class="counter-btn plus" data-cat="etudiant">+</button>
+          </div>
+        </div>
+
+        <div class="visitor-row">
+          <div class="visitor-info">
+            <span class="visitor-cat">Sénior</span>
+            <span class="visitor-desc">+ 65 ans</span>
+          </div>
+          <div class="visitor-price">9 €</div>
+          <div class="visitor-counter">
+            <button class="counter-btn minus" data-cat="senior">−</button>
+            <span class="counter-val" id="cnt-senior">0</span>
+            <button class="counter-btn plus" data-cat="senior">+</button>
+          </div>
+        </div>
+
+        <div class="visitor-row">
+          <div class="visitor-info">
+            <span class="visitor-cat">Enfant</span>
+            <span class="visitor-desc">6–17 ans</span>
+          </div>
+          <div class="visitor-price">6 €</div>
+          <div class="visitor-counter">
+            <button class="counter-btn minus" data-cat="enfant">−</button>
+            <span class="counter-val" id="cnt-enfant">0</span>
+            <button class="counter-btn plus" data-cat="enfant">+</button>
+          </div>
+        </div>
+
+        <div class="visitor-row">
+          <div class="visitor-info">
+            <span class="visitor-cat">Gratuit</span>
+            <span class="visitor-desc">− 6 ans · handicap · accompagnateur</span>
+          </div>
+          <div class="visitor-price">0 €</div>
+          <div class="visitor-counter">
+            <button class="counter-btn minus" data-cat="gratuit">−</button>
+            <span class="counter-val" id="cnt-gratuit">0</span>
+            <button class="counter-btn plus" data-cat="gratuit">+</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="resa-live-bar">
+        <span class="live-total-label">Total visiteurs : <strong id="live-total-visitors">0</strong></span>
+        <span class="live-price-label">Estimation : <strong id="live-price-base">0 €</strong></span>
+      </div>
+
+      <div class="resa-nav">
+        <span></span>
+        <button class="resa-btn-next" id="step1-next">Continuer <i class="ti ti-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- ── ÉTAPE 2 : TYPE DE VISITE ── -->
+    <div class="resa-panel" id="resa-panel-2">
+      <h3 class="resa-panel-title">Type de visite</h3>
+      <p class="resa-panel-sub">Choisissez la formule qui vous convient</p>
+
+      <div class="visit-type-grid">
+
+        <label class="visit-type-card" data-type="libre">
+          <input type="radio" name="visit-type" value="libre">
+          <div class="vtc-icon"><i class="ti ti-walk"></i></div>
+          <div class="vtc-body">
+            <span class="vtc-name">Visite libre</span>
+            <span class="vtc-desc">Explorez le musée à votre rythme, sans guide</span>
+            <span class="vtc-extra">Tarif de base</span>
+          </div>
+          <div class="vtc-check"><i class="ti ti-circle-check-filled"></i></div>
+        </label>
+
+        <label class="visit-type-card" data-type="guidee">
+          <input type="radio" name="visit-type" value="guidee">
+          <div class="vtc-icon"><i class="ti ti-users"></i></div>
+          <div class="vtc-body">
+            <span class="vtc-name">Visite guidée</span>
+            <span class="vtc-desc">Un guide partage son expertise avec plusieurs groupes. Durée : 3 à 4 h</span>
+            <span class="vtc-extra">+ 3 € / personne</span>
+          </div>
+          <div class="vtc-check"><i class="ti ti-circle-check-filled"></i></div>
+        </label>
+
+        <label class="visit-type-card" data-type="privee">
+          <input type="radio" name="visit-type" value="privee">
+          <div class="vtc-icon"><i class="ti ti-user-star"></i></div>
+          <div class="vtc-body">
+            <span class="vtc-name">Visite guidée privée</span>
+            <span class="vtc-desc">Un guide exclusif dédié uniquement à votre groupe. Durée : 3 à 4 h</span>
+            <span class="vtc-extra">+ 10 € / personne</span>
+          </div>
+          <div class="vtc-check"><i class="ti ti-circle-check-filled"></i></div>
+        </label>
+
+      </div>
+
+      <div class="resa-nav">
+        <button class="resa-btn-back" id="step2-back"><i class="ti ti-arrow-left"></i> Retour</button>
+        <button class="resa-btn-next" id="step2-next">Continuer <i class="ti ti-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- ── ÉTAPE 3 : OPTIONS ── -->
+    <div class="resa-panel" id="resa-panel-3">
+      <h3 class="resa-panel-title">Options de visite</h3>
+      <p class="resa-panel-sub" id="step3-sub">Personnalisez votre expérience</p>
+
+      <!-- Options guidée/privée -->
+      <div id="guided-options">
+
+        <div class="option-block">
+          <label class="option-label">Langue du guide</label>
+          <div class="lang-grid">
+            <label class="lang-chip">
+              <input type="radio" name="lang" value="fr" checked>
+              <span>Français</span>
+            </label>
+            <label class="lang-chip">
+              <input type="radio" name="lang" value="en">
+              <span>English</span>
+            </label>
+            <label class="lang-chip">
+              <input type="radio" name="lang" value="es">
+              <span>Español</span>
+            </label>
+            <label class="lang-chip">
+              <input type="radio" name="lang" value="it">
+              <span>Italiano</span>
+            </label>
+            <label class="lang-chip">
+              <input type="radio" name="lang" value="de">
+              <span>Deutsch</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="option-block">
+          <label class="option-label">Œuvres incontournables <span class="option-hint">(2 au maximum)</span></label>
+          <p class="option-sub">Signalez au guide les œuvres que vous souhaitez absolument voir</p>
+          <div class="artwork-search-wrap">
+            <div class="artwork-search-field">
+              <i class="ti ti-search"></i>
+              <input type="text" id="artwork-search" placeholder="Rechercher une œuvre ou un artiste…" autocomplete="off">
+            </div>
+            <div class="artwork-dropdown" id="artwork-dropdown"></div>
+          </div>
+          <div class="selected-artworks" id="selected-artworks">
+            <p class="no-artwork-msg">Aucune œuvre sélectionnée</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Créneau horaire (guidée et privée) -->
+      <div id="creneau-block" class="option-block" style="display:none">
+        <label class="option-label">Créneau horaire</label>
+        <p class="option-sub">La visite guidée dure environ 3 à 4 heures</p>
+        <div class="creneau-grid">
+          <label class="creneau-card">
+            <input type="radio" name="creneau" value="matin" checked>
+            <div class="cc-body">
+              <i class="ti ti-sunrise"></i>
+              <span class="cc-name">Matin</span>
+              <span class="cc-hours">10 h 00 – 14 h 00</span>
+            </div>
+          </label>
+          <label class="creneau-card">
+            <input type="radio" name="creneau" value="aprem">
+            <div class="cc-body">
+              <i class="ti ti-sun"></i>
+              <span class="cc-name">Après-midi</span>
+              <span class="cc-hours">14 h 00 – 18 h 00</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <div class="resa-nav">
+        <button class="resa-btn-back" id="step3-back"><i class="ti ti-arrow-left"></i> Retour</button>
+        <button class="resa-btn-next" id="step3-next">Continuer <i class="ti ti-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- ── ÉTAPE 4 : DATE ── -->
+    <div class="resa-panel" id="resa-panel-4">
+      <h3 class="resa-panel-title">Choisir une date</h3>
+      <p class="resa-panel-sub">Le musée est ouvert du mardi au dimanche, de 10 h à 18 h</p>
+
+      <div class="calendar-wrap">
+        <!-- Navigation mois/année -->
+        <div class="cal-nav">
+          <button class="cal-nav-btn" id="cal-prev"><i class="ti ti-chevron-left"></i></button>
+          <div class="cal-month-year">
+            <select id="cal-month-sel"></select>
+            <select id="cal-year-sel"></select>
+          </div>
+          <button class="cal-nav-btn" id="cal-next"><i class="ti ti-chevron-right"></i></button>
+        </div>
+        <!-- Jours de la semaine -->
+        <div class="cal-weekdays">
+          <span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span>
+        </div>
+        <!-- Grille des jours -->
+        <div class="cal-grid" id="cal-grid"></div>
+
+        <p class="cal-selected-label">Date sélectionnée : <strong id="cal-selected-display">—</strong></p>
+      </div>
+
+      <div class="resa-nav">
+        <button class="resa-btn-back" id="step4-back"><i class="ti ti-arrow-left"></i> Retour</button>
+        <button class="resa-btn-next" id="step4-next">Voir le récapitulatif <i class="ti ti-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <!-- ── ÉTAPE 5 : RÉCAPITULATIF ── -->
+    <div class="resa-panel" id="resa-panel-5">
+      <h3 class="resa-panel-title">Récapitulatif</h3>
+      <p class="resa-panel-sub">Vérifiez votre réservation avant de confirmer</p>
+
+      <div class="recap-block">
+        <div class="recap-row">
+          <span class="recap-label"><i class="ti ti-user"></i> Réservation pour</span>
+          <span class="recap-val" id="recap-name">—</span>
+        </div>
+        <div class="recap-divider"></div>
+        <div class="recap-row">
+          <span class="recap-label"><i class="ti ti-calendar"></i> Date</span>
+          <span class="recap-val" id="recap-date">—</span>
+        </div>
+        <div id="recap-creneau-row" class="recap-row">
+          <span class="recap-label"><i class="ti ti-clock"></i> Créneau</span>
+          <span class="recap-val" id="recap-creneau">—</span>
+        </div>
+        <div class="recap-row">
+          <span class="recap-label"><i class="ti ti-map"></i> Type de visite</span>
+          <span class="recap-val" id="recap-type">—</span>
+        </div>
+        <div id="recap-lang-row" class="recap-row">
+          <span class="recap-label"><i class="ti ti-language"></i> Langue</span>
+          <span class="recap-val" id="recap-lang">—</span>
+        </div>
+        <div id="recap-artworks-row" class="recap-row">
+          <span class="recap-label"><i class="ti ti-palette"></i> Œuvres souhaitées</span>
+          <span class="recap-val" id="recap-artworks">—</span>
+        </div>
+        <div class="recap-divider"></div>
+        <div class="recap-visitors-detail" id="recap-visitors-detail"></div>
+        <div class="recap-divider"></div>
+        <div class="recap-row recap-total-row">
+          <span class="recap-total-label">Total estimé</span>
+          <span class="recap-total-price" id="recap-total-price">0 €</span>
+        </div>
+        <p class="recap-note"><i class="ti ti-info-circle"></i> Le paiement s'effectue à l'accueil le jour de votre visite. Cette réservation est gratuite et sans engagement.</p>
+      </div>
+
+      <div class="resa-nav">
+        <button class="resa-btn-back" id="step5-back"><i class="ti ti-arrow-left"></i> Modifier</button>
+        <button class="resa-btn-confirm" id="btn-confirm">
+          <i class="ti ti-check"></i> Confirmer la réservation
+        </button>
+      </div>
+    </div>
+
+    <!-- ── CONFIRMATION ── -->
+    <div class="resa-panel" id="resa-panel-confirm">
+      <div class="confirm-body">
+        <div class="confirm-icon"><i class="ti ti-circle-check"></i></div>
+        <h3 class="confirm-title">Réservation confirmée !</h3>
+        <p class="confirm-msg">
+          Votre récapitulatif a été envoyé par email.<br>
+          <strong>Présentez-le à l'entrée du musée</strong> pour accéder à votre visite.
+        </p>
+
+        <div class="confirm-ref">
+          Référence : <strong id="confirm-ref-num">—</strong>
+        </div>
+
+        <!-- QR code -->
+        <div class="confirm-qr-wrap">
+          <img id="confirm-qr-img" src="" alt="QR Code" width="160" height="160">
+          <p class="confirm-qr-label"><i class="ti ti-scan"></i> À scanner à l'entrée du musée</p>
+        </div>
+
+        <div id="confirm-email-status" class="confirm-email-status"></div>
+
+        <button class="resa-btn-next" id="btn-new-resa" style="margin-top:1.5rem">
+          <i class="ti ti-plus"></i> Nouvelle réservation
+        </button>
+      </div>
+    </div>
+
+  </div><!-- /resa-card -->
 </section>
 
 <!-- ══ FOOTER ══ -->
@@ -281,8 +588,11 @@
   </div>
 </footer>
 
+<script src="../script/config.js"></script>
 <script src="../script/header.js"></script>
 <script src="../script/espace-client.js"></script>
+<script src="../script/favoris.js"></script>
+<script src="../script/reservation.js"></script>
 </body>
 </html>
   
