@@ -45,11 +45,11 @@ echo json_encode([
     'success' => true,
     'message' => 'Connexion réussie',
     'user'    => [
-        'id'         => $user['id'],
-        'nom'        => $user['nom'],
-        'prenom'     => $user['prenom'],
-        'email'      => $user['email'],
-        'role'       => $user['role'],
-        'created_at' => $user['date_inscription'],
+        'id'            => $user['id'],
+        'nom'           => $user['nom'],
+        'prenom'        => $user['prenom'],
+        'email'         => $user['email'],
+        'role'          => $user['role'],
+        'created_at'    => $user['date_inscription'],
     ]
 ]);
