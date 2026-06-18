@@ -371,8 +371,8 @@
 /* Blocs info (droite) */
 .ba-info-blocks {
   position: absolute;
-  top: calc(68px + 28rem);
-  left: 50%;
+  top: 60px;
+  left: 55%;
   transform: translateX(-50%);
   width: clamp(220px, 34%, 380px);
   display: flex;
