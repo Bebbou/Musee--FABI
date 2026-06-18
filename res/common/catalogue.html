@@ -129,6 +129,29 @@
     <div class="ct-mosaic" id="ct-mosaic-oeuvres" role="list" aria-label="Liste des œuvres"></div>
   </section>
 
+  <!-- SCULPTURES -->
+  <section class="ct-cat" id="ct-sculptures" aria-labelledby="title-sculptures">
+    <div class="ct-cat-top">
+      <button class="ct-cat-head"
+              aria-expanded="true"
+              aria-controls="ct-mosaic-sculptures"
+              id="btn-sculptures">
+        <span class="ct-cat-title" id="title-sculptures">Sculptures</span>
+        <span class="ct-cat-line" aria-hidden="true"></span>
+        <span class="ct-cat-tri" aria-hidden="true">▼</span>
+      </button>
+      <div class="ct-sort" data-target="sculptures" role="group" aria-label="Trier les sculptures">
+        <button class="ct-sort-btn active" data-sort="nom-az" aria-pressed="true">Nom A→Z</button>
+        <button class="ct-sort-btn" data-sort="nom-za" aria-pressed="false">Nom Z→A</button>
+        <button class="ct-sort-btn" data-sort="artiste-az" aria-pressed="false">Artiste A→Z</button>
+        <button class="ct-sort-btn" data-sort="artiste-za" aria-pressed="false">Artiste Z→A</button>
+        <button class="ct-sort-btn" data-sort="date" aria-pressed="false">Date</button>
+        <button class="ct-sort-btn" data-sort="mouvement" aria-pressed="false">Mouvement</button>
+      </div>
+    </div>
+    <div class="ct-mosaic" id="ct-mosaic-sculptures" role="list" aria-label="Liste des sculptures"></div>
+  </section>
+
 </main>
 
 <!-- ══ FOOTER ══ -->

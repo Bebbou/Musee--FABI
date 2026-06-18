@@ -6,12 +6,14 @@ const CT_BAND_SPEEDS  = [0.08, -0.05, 0.12, -0.03];
 const CT_BAND_OFFSETS = [0, -60, 40, -90];
 
 /* ─── ÉTAT GLOBAL ─────────────────────────────── */
-let ALL_OEUVRES   = [];
-let ALL_ARTISTES  = [];
+let ALL_OEUVRES     = [];
+let ALL_ARTISTES    = [];
+let ALL_SCULPTURES  = [];
 
-let sortArtistes  = 'popularite';
-let sortOeuvres   = 'nom-az';
-let searchQuery   = '';
+let sortArtistes   = 'popularite';
+let sortOeuvres    = 'nom-az';
+let sortSculptures = 'nom-az';
+let searchQuery    = '';
 
 /* Cache des portraits Wikipedia */
 const portraitCache = new Map();
@@ -184,14 +186,40 @@ function getSortedOeuvres() {
   return list;
 }
 
+/* ─── TRI : SCULPTURES ───────────────────────── */
+function getSortedSculptures() {
+  let list = ALL_SCULPTURES.filter(s => {
+    if (!searchQuery) return true;
+    const q = searchQuery.toLowerCase();
+    return (
+      s.nom_sculpture.toLowerCase().includes(q) ||
+      s.auteur.toLowerCase().includes(q) ||
+      (s.mouvement_artistique || '').toLowerCase().includes(q)
+    );
+  });
+
+  switch (sortSculptures) {
+    case 'nom-za':      list.sort((a,b) => b.nom_sculpture.localeCompare(a.nom_sculpture, 'fr')); break;
+    case 'artiste-az':  list.sort((a,b) => a.auteur.localeCompare(b.auteur, 'fr')); break;
+    case 'artiste-za':  list.sort((a,b) => b.auteur.localeCompare(a.auteur, 'fr')); break;
+    case 'date':        list.sort((a,b) => parseDate(a.date) - parseDate(b.date)); break;
+    case 'mouvement':   list.sort((a,b) => (a.mouvement_artistique||'').localeCompare(b.mouvement_artistique||'', 'fr')); break;
+    case 'nom-az':
+    default:            list.sort((a,b) => a.nom_sculpture.localeCompare(b.nom_sculpture, 'fr')); break;
+  }
+  return list;
+}
+
 /* ─── MISE À JOUR AFFICHAGE ──────────────────── */
 function ctUpdate() {
-  const artistes = getSortedArtistes();
-  const oeuvres  = getSortedOeuvres();
-  const searching = searchQuery.length > 0;
+  const artistes   = getSortedArtistes();
+  const oeuvres    = getSortedOeuvres();
+  const sculptures = getSortedSculptures();
+  const searching  = searchQuery.length > 0;
 
-  ctRenderBands('ct-mosaic-artistes', artistes, 'auteur', null, false);
-  ctRenderBands('ct-mosaic-oeuvres',  oeuvres,  'nom_tableau', 'auteur', true);
+  ctRenderBands('ct-mosaic-artistes',   artistes,   'auteur',        null,    false);
+  ctRenderBands('ct-mosaic-oeuvres',    oeuvres,    'nom_tableau',   'auteur', true);
+  ctRenderSculptures('ct-mosaic-sculptures', sculptures);
 
   document.querySelectorAll('.ct-mosaic').forEach(m => {
     m.classList.toggle('ct-mosaic--search', searching);
@@ -200,7 +228,7 @@ function ctUpdate() {
   const countEl = document.getElementById('ct-search-count');
   if (countEl) {
     if (searching) {
-      const total = artistes.length + oeuvres.length;
+      const total = artistes.length + oeuvres.length + sculptures.length;
       countEl.textContent = `${total} résultat${total > 1 ? 's' : ''}`;
       countEl.style.opacity = '1';
     } else {
@@ -208,6 +236,62 @@ function ctUpdate() {
     }
   }
 }
+
+/* ─── RENDU SCULPTURES ───────────────────────── */
+function ctRenderSculptures(containerId, sculptures) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  const N = 4;
+  const cols = Array.from({ length: N }, () => []);
+  sculptures.forEach((s, i) => cols[i % N].push(s));
+
+  const speed  = ci => searchQuery ? 0 : CT_BAND_SPEEDS[ci];
+  const offset = ci => searchQuery ? 0 : CT_BAND_OFFSETS[ci];
+
+  container.innerHTML = cols.map((col, ci) => `
+    <div class="ct-band" data-speed="${speed(ci)}"
+         style="transform:translateY(${offset(ci)}px);">
+      ${col.map(s => {
+        const ratio = ci % 2 === 0 ? '3/4' : '2/3';
+        return `
+        <a class="ct-face" href="../common/templates/template_sculpture.html?id=${s.id}"
+           aria-label="Voir ${s.nom_sculpture}">
+          <div class="ct-art ${s.image_url ? 'ct-art--loaded' : 'ct-sculpture-art'}"
+               ${!s.image_url ? `data-sculpture="${encodeURIComponent(s.nom_sculpture)}"` : ''}
+               style="background-image:url('${s.image_url ? '../' + s.image_url.replace(/^res\//, '') : CT_PLACEHOLDER}');background-size:cover;background-position:center top;aspect-ratio:${ratio};"></div>
+          <figcaption class="ct-name">
+            <span class="ct-name-main">${s.nom_sculpture}</span>
+            <span class="ct-name-sub">${s.auteur}</span>
+          </figcaption>
+        </a>`;
+      }).join('')}
+    </div>`).join('');
+
+  /* Observer pour chargement paresseux des images Wikipedia */
+  container.querySelectorAll('.ct-art[data-sculpture]').forEach(el => {
+    sculptureImgObserver.observe(el);
+  });
+
+  ctRefreshBands();
+}
+
+/* Observer Wikipedia pour les sculptures */
+const sculptureImgObserver = new IntersectionObserver((entries) => {
+  entries.forEach(async entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    const name = decodeURIComponent(el.dataset.sculpture || '');
+    if (!name || el.dataset.loaded) return;
+    el.dataset.loaded = '1';
+    sculptureImgObserver.unobserve(el);
+
+    const src = await fetchWikiPortrait(name);
+    if (src) {
+      el.style.backgroundImage = `url('${src}')`;
+      el.classList.add('ct-art--loaded');
+    }
+  });
+}, { rootMargin: '200px' });
 
 /* ─── PARALLAXE ──────────────────────────────── */
 function ctRefreshBands() { /* no-op */ }
@@ -277,8 +361,9 @@ function ctInitSort() {
         });
         btn.classList.add('active');
         btn.setAttribute('aria-pressed', 'true');
-        if (bar.dataset.target === 'artistes') sortArtistes = btn.dataset.sort;
-        else                                   sortOeuvres  = btn.dataset.sort;
+        if (bar.dataset.target === 'artistes')    sortArtistes   = btn.dataset.sort;
+        else if (bar.dataset.target === 'oeuvres') sortOeuvres   = btn.dataset.sort;
+        else                                       sortSculptures = btn.dataset.sort;
         ctUpdate();
       });
     });
@@ -302,9 +387,15 @@ function ctInitSearch() {
 /* ─── INIT ───────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const res  = await fetch('../database/collection_musee.json');
-    const data = await res.json();
-    ALL_OEUVRES = data.oeuvres ?? [];
+    const [resO, resS] = await Promise.all([
+      fetch('../database/collection_musee.json'),
+      fetch('../database/bdd_sculpture.json'),
+    ]);
+    const dataO = await resO.json();
+    const dataS = await resS.json();
+
+    ALL_OEUVRES    = dataO.oeuvres    ?? [];
+    ALL_SCULPTURES = dataS.sculptures ?? [];
 
     const map = new Map();
     ALL_OEUVRES.forEach(o => {
@@ -330,4 +421,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   ctInitParallax();
   ctBindMosaicParallax(document.getElementById('ct-mosaic-artistes'));
   ctBindMosaicParallax(document.getElementById('ct-mosaic-oeuvres'));
+  ctBindMosaicParallax(document.getElementById('ct-mosaic-sculptures'));
 });
