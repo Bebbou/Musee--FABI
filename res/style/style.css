@@ -962,10 +962,10 @@ nav ul li a:hover::after {
 }
 .collection-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 3rem;
-  max-width: 800px;
+  max-width: 1140px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1731,12 +1731,35 @@ body {
   }
 }
 /* ══ FOOTER ══ */
+/* ── Séparateur nuages collection → footer ── */
+.clouds-divider {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  background: linear-gradient(
+    to bottom,
+    var(--cream) 0%,
+    rgba(14,11,9,.92) 100%
+  );
+  z-index: 22;
+  pointer-events: none;
+}
+.cd-c {
+  position: absolute;
+  pointer-events: none;
+  animation: cd-drift ease-in-out infinite alternate;
+}
+@keyframes cd-drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(4vw); }
+}
+
 #main-footer {
   position: relative;
   background: rgba(14, 11, 9, 0.85);
   backdrop-filter: blur(16px);
   border-top: 1px solid rgba(196, 168, 130, 0.15);
-  margin-top: 6rem;
+  margin-top: 0;
   padding: 4rem 2.5rem;
 }
 
