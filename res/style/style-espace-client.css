@@ -1,0 +1,595 @@
+/* ══ ESPACE CLIENT — STYLE ══ */
+
+/* ── SECTION COULOIR ── */
+.corridor-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 68px;
+}
+
+/* Fond sombre du couloir */
+.corridor-bg {
+  position: absolute;
+  inset: 0;
+  background: #0a0704;
+}
+
+/* Lignes de perspective du couloir */
+.corridor-lines {
+  position: absolute;
+  inset: 0;
+  background:
+    /* point de fuite lumineux au centre */
+    radial-gradient(ellipse 30% 40% at 50% 50%, rgba(196,168,130,0.07) 0%, transparent 100%),
+    /* halo mur gauche */
+    radial-gradient(ellipse 55% 90% at 8% 50%, rgba(139,46,8,0.12) 0%, transparent 70%),
+    /* halo mur droit */
+    radial-gradient(ellipse 55% 90% at 92% 50%, rgba(139,46,8,0.12) 0%, transparent 70%);
+}
+
+/* Lignes géométriques du couloir (SVG inline) */
+.corridor-lines::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cg stroke='rgba(196,168,130,0.08)' stroke-width='1' fill='none'%3E%3C!-- Mur gauche --%3E%3Cline x1='0' y1='0' x2='600' y2='260' /%3E%3Cline x1='0' y1='800' x2='600' y2='540' /%3E%3Cline x1='0' y1='0' x2='0' y2='800' /%3E%3Cline x1='120' y1='0' x2='600' y2='260' /%3E%3Cline x1='120' y1='800' x2='600' y2='540' /%3E%3C!-- Mur droit --%3E%3Cline x1='1200' y1='0' x2='600' y2='260' /%3E%3Cline x1='1200' y1='800' x2='600' y2='540' /%3E%3Cline x1='1080' y1='0' x2='600' y2='260' /%3E%3Cline x1='1080' y1='800' x2='600' y2='540' /%3E%3C!-- Plafond et sol (lignes horizontales de profondeur) --%3E%3Cline x1='0' y1='260' x2='1200' y2='260' stroke-opacity='0.05'/%3E%3Cline x1='0' y1='540' x2='1200' y2='540' stroke-opacity='0.05'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100% 100%;
+}
+
+/* Plafond */
+.corridor-ceiling {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 32%;
+  background: linear-gradient(180deg, #050302 0%, transparent 100%);
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+}
+
+/* Sol */
+.corridor-floor {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 32%;
+  background: linear-gradient(0deg, #050302 0%, transparent 100%);
+  clip-path: polygon(15% 0, 85% 0, 100% 100%, 0 100%);
+}
+
+/* Vignette de bords */
+.corridor-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 90% at 50% 50%, transparent 40%, rgba(0,0,0,0.7) 100%);
+}
+
+/* ── TABLEAUX ── */
+.corridor-paintings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.painting-slot {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: auto;
+}
+
+/* Mur gauche — tableau lointain */
+.painting-slot.left.far {
+  left: 3%;
+  transform: translateY(-54%) perspective(700px) rotateY(28deg);
+}
+/* Mur gauche — tableau proche */
+.painting-slot.left.near {
+  left: 16%;
+  transform: translateY(-52%) perspective(700px) rotateY(18deg);
+}
+/* Mur droit — tableau proche */
+.painting-slot.right.near {
+  right: 16%;
+  transform: translateY(-52%) perspective(700px) rotateY(-18deg);
+}
+/* Mur droit — tableau lointain */
+.painting-slot.right.far {
+  right: 3%;
+  transform: translateY(-54%) perspective(700px) rotateY(-28deg);
+}
+
+/* Spotlight au-dessus du tableau */
+.painting-spotlight {
+  width: 4px;
+  height: 48px;
+  background: linear-gradient(180deg, rgba(255,220,160,0.0) 0%, rgba(255,200,120,0.35) 100%);
+  margin-bottom: -8px;
+  position: relative;
+}
+.painting-spotlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 100px;
+  background: radial-gradient(ellipse at top, rgba(255,200,100,0.15) 0%, transparent 70%);
+}
+ 
+/* Cadre du tableau */
+.painting-frame {
+  position: relative;
+  width: 160px;
+  border: 6px solid #6b4e2a;
+  box-shadow:
+    inset 0 0 0 2px rgba(196,168,130,0.3),
+    0 0 0 1px rgba(0,0,0,0.8),
+    0 8px 32px rgba(0,0,0,0.6);
+  background: #0e0b09;
+}
+.painting-slot.left.far  .painting-frame { width: 130px; }
+.painting-slot.left.near .painting-frame { width: 150px; }
+.painting-slot.right.near .painting-frame { width: 150px; }
+.painting-slot.right.far  .painting-frame { width: 130px; }
+
+/* Faux bois du cadre */
+.painting-frame::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 6px solid transparent;
+  border-image: linear-gradient(135deg, #8b6431 0%, #5a3e1b 30%, #c4a054 50%, #5a3e1b 70%, #8b6431 100%) 1;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.painting-img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  filter: brightness(0.85) saturate(0.9);
+  transition: filter 0.4s;
+}
+.painting-slot:hover .painting-img {
+  filter: brightness(1) saturate(1.05);
+}
+
+/* Étiquette du tableau */
+.painting-label {
+  margin-top: 8px;
+  text-align: center;
+}
+.painting-title {
+  font-family: var(--serif);
+  font-size: 0.65rem;
+  font-style: italic;
+  color: rgba(196,168,130,0.5);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160px;
+  display: block;
+}
+
+/* ── CARTE COMPTE ── */
+.account-card {
+  position: relative;
+  z-index: 10;
+  width: min(400px, 88vw);
+}
+
+.account-card-inner {
+  background: rgba(14, 11, 9, 0.82);
+  border: 1px solid rgba(196,168,130,0.18);
+  border-radius: 4px;
+  padding: 2rem 2.2rem 1.8rem;
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 0 0 1px rgba(196,168,130,0.06),
+    0 24px 64px rgba(0,0,0,0.7),
+    inset 0 1px 0 rgba(196,168,130,0.08);
+  text-align: center;
+}
+
+.card-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.55rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 1.2rem;
+}
+
+.card-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--terra-dk), var(--terra));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--cream);
+  border: 2px solid rgba(196,168,130,0.2);
+  letter-spacing: 0.05em;
+}
+
+.card-name {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--beige-lt);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.2rem;
+}
+
+.card-pseudo {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  color: var(--taupe);
+  letter-spacing: 0.12em;
+  margin-bottom: 0;
+}
+
+.card-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(196,168,130,0.2), transparent);
+  margin: 1.2rem 0;
+}
+
+.card-info-list {
+  list-style: none;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.card-info-row {
+  display: grid;
+  grid-template-columns: 1.4rem auto 1fr;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.card-info-icon {
+  color: var(--terra);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.card-info-label {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  white-space: nowrap;
+}
+
+.card-info-value {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--beige-lt);
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-badge {
+  display: inline-block;
+  background: rgba(193,68,14,0.15);
+  border: 1px solid rgba(193,68,14,0.3);
+  color: var(--terra) !important;
+  font-family: var(--sans) !important;
+  font-size: 0.55rem !important;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.card-btn-secondary,
+.card-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.25s;
+  border: none;
+}
+
+.card-btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(196,168,130,0.25);
+  color: var(--taupe);
+}
+.card-btn-secondary:hover {
+  border-color: rgba(196,168,130,0.5);
+  color: var(--beige-lt);
+}
+
+.card-btn-primary {
+  background: var(--terra);
+  color: var(--cream);
+}
+.card-btn-primary:hover {
+  background: var(--terra-dk);
+}
+
+/* Bouton logout dans le header */
+.btn-header-logout {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid rgba(196,168,130,0.25);
+  color: rgba(196,168,130,0.55);
+  border-radius: 2px;
+  padding: 6px 14px;
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.btn-header-logout:hover {
+  background: rgba(193,68,14,0.12);
+  border-color: rgba(193,68,14,0.4);
+  color: var(--terra);
+}
+
+/* ── SECTION TARIFS ── */
+.tarif-section {
+  background: var(--cream);
+  padding: 6rem 2rem 5rem;
+}
+
+.tarif-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.tarif-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.55rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--terra);
+  margin-bottom: 0.75rem;
+}
+
+.tarif-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  color: var(--black);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.8rem;
+}
+
+.tarif-rule {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--terra), var(--blue));
+  margin: 0.8rem auto;
+}
+
+.tarif-subtitle {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  color: var(--taupe);
+  letter-spacing: 0.08em;
+}
+
+.tarif-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto 2.5rem;
+}
+
+.tarif-card {
+  background: white;
+  border: 1px solid rgba(122,106,86,0.15);
+  border-radius: 4px;
+  padding: 2rem 1.8rem;
+  position: relative;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.tarif-card:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
+}
+
+.tarif-card.featured {
+  border-color: var(--terra);
+  box-shadow: 0 0 0 1px rgba(193,68,14,0.15), 0 8px 32px rgba(193,68,14,0.08);
+}
+
+.tarif-badge {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--terra);
+  color: var(--cream);
+  font-family: var(--sans);
+  font-size: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  padding: 3px 12px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.tarif-card-top {
+  text-align: center;
+  margin-bottom: 1.6rem;
+}
+
+.tarif-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(193,68,14,0.08);
+  color: var(--terra);
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.tarif-name {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--black);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.tarif-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+}
+
+.tarif-amount {
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: var(--black);
+  line-height: 1;
+}
+
+.tarif-unit {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  color: var(--taupe);
+  letter-spacing: 0.1em;
+}
+
+.tarif-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.tarif-features li {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  color: var(--taupe);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.03em;
+}
+
+.tarif-features li .ti-check {
+  color: var(--terra);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.tarif-btn {
+  display: block;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  background: var(--terra);
+  color: var(--cream);
+  transition: background 0.25s;
+}
+.tarif-btn:hover {
+  background: var(--terra-dk);
+}
+
+.tarif-btn-outline {
+  background: transparent;
+  border: 1px solid var(--terra);
+  color: var(--terra);
+}
+.tarif-btn-outline:hover {
+  background: var(--terra);
+  color: var(--cream);
+}
+
+.tarif-note {
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  color: var(--taupe);
+  max-width: 620px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+}
+.tarif-note .ti-info-circle {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--blue-mid);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .painting-slot.left.far,
+  .painting-slot.right.far {
+    display: none;
+  }
+  .painting-slot.left.near { left: 4%; }
+  .painting-slot.right.near { right: 4%; }
+  .account-card { width: min(360px, 82vw); }
+}
+
+@media (max-width: 600px) {
+  .corridor-paintings { display: none; }
+  .corridor-section { background: #0a0704; }
+  .account-card { width: 92vw; }
+  .tarif-grid { grid-template-columns: 1fr; }
+}

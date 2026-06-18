@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace Client — Musée FABI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <link href="../style/style.css" rel="stylesheet">
+  <link href="../style/style-espace-client.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header id="main-header">
+  <div class="logo">
+    <a href="../index.html" style="text-decoration:none;">
+      <img src="../assets/img/logo/logoFABI_White.svg" alt="Logo Musée FABI">
+    </a>
+  </div>
+  <div class="logo"><h1>Musée FABI</h1></div>
+  <nav>
+    <ul>
+      <li><a href="./catalogue.html">Catalogue</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+      <li>
+        <button class="btn-header-logout" id="btn-header-logout">
+          <i class="ti ti-logout" aria-hidden="true"></i>
+          Déconnexion
+        </button>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ══ SECTION COULOIR ══ -->
+<section class="corridor-section">
+
+  <!-- Fond du couloir -->
+  <div class="corridor-bg">
+    <div class="corridor-lines"></div>
+    <div class="corridor-floor"></div>
+    <div class="corridor-ceiling"></div>
+    <div class="corridor-vignette"></div>
+  </div>
+
+  <!-- Tableaux sur les murs -->
+  <div class="corridor-paintings">
+
+    <!-- Mur gauche -->
+    <div class="painting-slot left far" id="painting-0">
+      <div class="painting-spotlight"></div>
+      <div class="painting-frame">
+        <img class="painting-img" src="../assets/img/peintures/5.webp" alt="Œuvre">
+        <div class="painting-label">
+          <span class="painting-title" id="title-0">Œuvre sans titre</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="painting-slot left near" id="painting-1">
+      <div class="painting-spotlight"></div>
+      <div class="painting-frame">
+        <img class="painting-img" src="../assets/img/peintures/12.webp" alt="Œuvre">
+        <div class="painting-label">
+          <span class="painting-title" id="title-1">Œuvre sans titre</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mur droit -->
+    <div class="painting-slot right near" id="painting-2">
+      <div class="painting-spotlight"></div>
+      <div class="painting-frame">
+        <img class="painting-img" src="../assets/img/peintures/22.webp" alt="Œuvre">
+        <div class="painting-label">
+          <span class="painting-title" id="title-2">Œuvre sans titre</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="painting-slot right far" id="painting-3">
+      <div class="painting-spotlight"></div>
+      <div class="painting-frame">
+        <img class="painting-img" src="../assets/img/peintures/31.webp" alt="Œuvre">
+        <div class="painting-label">
+          <span class="painting-title" id="title-3">Œuvre sans titre</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ CARTE COMPTE ══ -->
+  <div class="account-card">
+    <div class="account-card-inner">
+
+      <p class="card-eyebrow">Musée FABI · Membres</p>
+
+      <div class="card-avatar" id="dash-avatar">A</div>
+      <h2 class="card-name" id="dash-name">Prénom Nom</h2>
+      <p class="card-pseudo" id="dash-pseudo">@pseudo</p>
+
+      <div class="card-divider"></div>
+
+      <ul class="card-info-list">
+        <li class="card-info-row">
+          <span class="card-info-icon"><i class="ti ti-mail"></i></span>
+          <span class="card-info-label">Email</span>
+          <span class="card-info-value" id="dash-email">—</span>
+        </li>
+        <li class="card-info-row">
+          <span class="card-info-icon"><i class="ti ti-calendar"></i></span>
+          <span class="card-info-label">Membre depuis</span>
+          <span class="card-info-value" id="dash-since">—</span>
+        </li>
+        <li class="card-info-row">
+          <span class="card-info-icon"><i class="ti ti-shield-check"></i></span>
+          <span class="card-info-label">Statut</span>
+          <span class="card-info-value card-badge">Membre actif</span>
+        </li>
+      </ul>
+
+      <div class="card-divider"></div>
+
+      <div class="card-actions">
+        <a href="../index.html" class="card-btn-secondary">
+          <i class="ti ti-home"></i> Accueil
+        </a>
+        <button class="card-btn-primary" id="btn-logout">
+          <i class="ti ti-logout"></i> Déconnexion
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- ══ SECTION TARIFS ══ -->
+<section class="tarif-section">
+
+  <div class="tarif-header">
+    <p class="tarif-eyebrow">Billetterie</p>
+    <h2 class="tarif-title">Nos Tarifs</h2>
+    <div class="tarif-rule"></div>
+    <p class="tarif-subtitle">Accès aux collections permanentes et expositions temporaires</p>
+  </div>
+
+  <div class="tarif-grid">
+
+    <div class="tarif-card">
+      <div class="tarif-card-top">
+        <span class="tarif-icon"><i class="ti ti-heart"></i></span>
+        <h3 class="tarif-name">Gratuit</h3>
+        <div class="tarif-price">
+          <span class="tarif-amount">0 €</span>
+        </div>
+      </div>
+      <ul class="tarif-features">
+        <li><i class="ti ti-check"></i> Moins de 6 ans</li>
+        <li><i class="ti ti-check"></i> Personne en situation de handicap</li>
+        <li><i class="ti ti-check"></i> Accompagnateur de personne handicapée</li>
+      </ul>
+    </div>
+    <div class="tarif-card">
+      <div class="tarif-card-top">
+        <span class="tarif-icon"><i class="ti ti-ticket"></i></span>
+        <h3 class="tarif-name">Enfant</h3>
+        <div class="tarif-price">
+          <span class="tarif-amount">6 €</span>
+          <span class="tarif-unit">/ personne</span>
+        </div>
+      </div>
+      <ul class="tarif-features">
+        <li><i class="ti ti-check"></i>6 - 17 ans</li>
+        <li><i class="ti ti-check"></i> Accès collections permanentes</li>
+        <li><i class="ti ti-check"></i> Expositions temporaires incluses</i></li>
+        <li><i class="ti ti-check"></i> Audioguide disponible</li>
+      </ul>
+      <a href="./contact.html" class="tarif-btn tarif-btn-outline">Réserver</a>
+    </div>
+    <div class="tarif-card featured">
+      <div class="tarif-badge">Le plus choisi</div>
+      <div class="tarif-card-top">
+        <span class="tarif-icon"><i class="ti ti-school"></i></span>
+        <h3 class="tarif-name">Tarif Étudiant</h3>
+        <div class="tarif-price">
+          <span class="tarif-amount">8 €</span>
+          <span class="tarif-unit">/ personne</span>
+        </div>
+      </div>
+      <ul class="tarif-features">
+        <li><i class="ti ti-check"></i> Étudiants (carte obligatoire)</li>
+        <li><i class="ti ti-check"></i> 18 – 25 ans</li>
+        <li><i class="ti ti-check"></i> Groupes scolaires</li>
+        <li><i class="ti ti-check"></i> Seniors (+ 65 ans)</li>
+      </ul>
+      <a href="./contact.html" class="tarif-btn">Réserver</a>
+    </div>
+    <div class="tarif-card">
+      <div class="tarif-card-top">
+        <span class="tarif-icon"><i class="ti ti-ticket"></i></span>
+        <h3 class="tarif-name">Plein tarif</h3>
+        <div class="tarif-price">
+          <span class="tarif-amount">12 €</span>
+          <span class="tarif-unit">/ personne</span>
+        </div>
+      </div>
+      <ul class="tarif-features">
+        <li><i class="ti ti-check"></i> Adultes</li>
+        <li><i class="ti ti-check"></i> Accès collections permanentes</li>
+        <li><i class="ti ti-check"></i> Expositions temporaires incluses</i></li>
+        <li><i class="ti ti-check"></i> Audioguide disponible</li>
+      </ul>
+      <a href="./contact.html" class="tarif-btn tarif-btn-outline">Réserver</a>
+    </div>
+    <div class="tarif-card">
+      <div class="tarif-card-top">
+        <span class="tarif-icon"><i class="ti ti-ticket"></i></span>
+        <h3 class="tarif-name">Sénior</h3>
+        <div class="tarif-price">
+          <span class="tarif-amount">9 €</span>
+          <span class="tarif-unit">/ personne</span>
+        </div>
+      </div>
+      <ul class="tarif-features">
+        <li><i class="ti ti-check"></i> Sénior</li>
+        <li><i class="ti ti-check"></i> Accès collections permanentes</li>
+        <li><i class="ti ti-check"></i> Expositions temporaires incluses</i></li>
+        <li><i class="ti ti-check"></i> Audioguide disponible</li>
+      </ul>
+      <a href="./contact.html" class="tarif-btn tarif-btn-outline">Réserver</a>
+    </div>
+
+  </div>
+
+  <p class="tarif-note">
+    <i class="ti ti-info-circle"></i>
+    Les billets sont valables toute la journée. Les collections permanentes sont accessibles du mardi au dimanche, de 10h à 18h.
+  </p>
+
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer id="main-footer">
+  <div class="footer-content">
+    <div class="footer-separator"></div>
+    <div class="footer-main">
+      <div class="footer-col">
+        <h4 class="footer-title">Informations</h4>
+        <ul class="footer-list">
+          <li><span class="footer-label">Adresse</span><span>25 Quai de Rive Neuve, 13007 Marseille</span></li>
+          <li><span class="footer-label">Téléphone</span><span>+33 04 91 25 13 07</span></li>
+          <li><span class="footer-label">E-mail</span><span><a href="mailto:contact@museedufabi.fr">contact@museedufabi.fr</a></span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Horaires</h4>
+        <ul class="footer-list">
+          <li><span class="footer-label">Mardi - Dimanche</span><span>10h - 18h</span></li>
+          <li><span class="footer-label">Lundi</span><span>Fermé</span></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-list">
+          <li><a href="../common/catalogue.html">Catalogue</a></li>
+          <li><a href="../common/contact.html">Contact</a></li>
+          <li><a href="../common/mentions.html">Mentions Légales</a></li>
+          <li><a href="../common/privacy.html">Politique de Confidentialité</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-separator"></div>
+    <div class="footer-copyright">
+      <p>&copy; 2026 Musée FABI. Tous droits réservés.</p>
+      <p class="footer-credit">Conçu par Lilian et Lino en compagnie d'un petit jaune :3</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../script/header.js"></script>
+<script src="../script/espace-client.js"></script>
+</body>
+</html>
+  
