@@ -11,7 +11,7 @@
 <body>
 <header id="main-header">
   <div class="logo">
-    <a href="./index.html" style="text-decoration:none;">
+    <a href="../index.html" style="text-decoration:none;">
       <img src="../assets/img/logo/logoFABI_White.svg" alt="Logo Musée FABI"
            style="height:100px;vertical-align:middle;border-radius:20px;">
     </a>
@@ -19,116 +19,24 @@
   <div class="logo"><h1>Musée FABI</h1></div>
   <nav>
     <ul>
-      <li><a href="./common/catalogue.html">Catalogue</a></li>
-      <li><a href="./common/contact.html">Contact</a></li>
+      <li><a href="./catalogue.html">Catalogue</a></li>
+      <li><a href="./contact.html">Contact</a></li>
       <li>
-        <a href="./common/connexion.html">
-          <button style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196, 168, 130, 0.55); color:rgba(14, 11, 9, 0.75); border: none; border-radius: 8px; padding: 10px 20px; font-size: 15px; font-weight: 500; cursor: pointer;">
+        <a href="./client.html" class="header-client-link">
+          <button class="header-client-btn" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196, 168, 130, 0.55); color:rgba(14, 11, 9, 0.75); border: none; border-radius: 8px; padding: 10px 20px; font-size: 15px; font-weight: 500; cursor: pointer;">
             <i class="ti ti-login" style="font-size: 18px;" aria-hidden="true"></i>
             Connexion
           </button>
-        </a>  
+        </a>
       </li>
     </ul>
   </nav>
 </header>
 
-<div class="client-page">
-
-  <!-- ── VUE AUTH ── -->
-  <div class="client-wrap" id="view-auth">
-
-    <p class="client-eyebrow">Musée FABI · Membres</p>
-    <h1 class="client-title">Espace client</h1>
-    <div class="client-rule"></div>
-
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="connexion">Connexion</button>
-      <button class="tab-btn"        data-tab="inscription">Inscription</button>
-    </div>
-
-    <!-- Connexion -->
-    <div class="tab-panel active" id="panel-connexion">
-      <div class="form-group">
-        <label for="login-email">Email</label>
-        <input type="email" id="login-email" placeholder="votre@email.com">
-      </div>
-      <div class="form-group">
-        <label for="login-password">Mot de passe</label>
-        <input type="password" id="login-password" placeholder="••••••••">
-      </div>
-      <button class="btn-submit" id="btn-login">Se connecter</button>
-      <div class="form-message" id="msg-login"></div>
-    </div>
-
-    <!-- Inscription -->
-    <div class="tab-panel" id="panel-inscription">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="reg-nom">Nom</label>
-          <input type="text" id="reg-nom" placeholder="Dupont">
-        </div>
-        <div class="form-group">
-          <label for="reg-prenom">Prénom</label>
-          <input type="text" id="reg-prenom" placeholder="Marie">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="reg-email">Email</label>
-        <input type="email" id="reg-email" placeholder="votre@email.com">
-      </div>
-      <div class="form-group">
-        <label for="reg-password">Mot de passe</label>
-        <input type="password" id="reg-password" placeholder="Min. 6 caractères">
-      </div>
-      <button class="btn-submit" id="btn-register">Créer mon compte</button>
-      <div class="form-message" id="msg-register"></div>
-    </div>
-
-    <a href="../index.html" class="back-link">Retour à l'accueil</a>
-
-  </div>
-
-  <!-- ── VUE DASHBOARD ── -->
-  <div class="client-wrap" id="view-dashboard" style="display:none;">
-
-    <p class="client-eyebrow">Musée FABI · Membres</p>
-
-    <div class="dashboard-avatar" id="dash-avatar"></div>
-    <h1 class="client-title" id="dash-name"></h1>
-    <p class="dashboard-welcome">Bienvenue dans votre espace personnel</p>
-
-    <div class="client-rule"></div>
-
-    <div class="dashboard-info">
-      <div class="info-row">
-        <span class="info-label">Email</span>
-        <span class="info-value" id="dash-email"></span>
-      </div>
-      <div class="info-row">
-        <span class="info-label">Membre depuis</span>
-        <span class="info-value" id="dash-since"></span>
-      </div>
-      <div class="info-row">
-        <span class="info-label">Statut</span>
-        <span class="info-value info-badge">Membre actif</span>
-      </div>
-    </div>
-
-    <button class="btn-logout" id="btn-logout">Se déconnecter</button>
-    <a href="../index.html" class="back-link">Retour à l'accueil</a>
-
-  </div>
-
-</div>
 <footer id="main-footer">
   <div class="footer-content">
-    <!-- Ligne de séparation haute -->
     <div class="footer-separator"></div>
-    
-    <!-- Contenu principal -->
     <div class="footer-main">
-      <!-- Colonne 1: Info Pratiques -->
       <div class="footer-col">
         <h4 class="footer-title">Informations</h4>
         <ul class="footer-list">
@@ -137,8 +45,6 @@
           <li><span class="footer-label">E-mail</span><span><a href="mailto:contact@museedufabi.fr">contact@museedufabi.fr</a></span></li>
         </ul>
       </div>
-
-      <!-- Colonne 2: Horaires -->
       <div class="footer-col">
         <h4 class="footer-title">Horaires</h4>
         <ul class="footer-list">
@@ -147,30 +53,23 @@
           <li><span class="footer-label">Accès</span><span>Voir la billetterie (METTRE LE LIEN LINO)</span></li>
         </ul>
       </div>
-
-      <!-- Colonne 3: Navigation -->
       <div class="footer-col">
         <h4 class="footer-title">Navigation</h4>
         <ul class="footer-list">
-          <li><a href="../common/catalogue.html">Catalogue</a></li>
-          <li><a href="../common/contact.html">Contact</a></li>
-          <li><a href="../common/mentions.html">Mentions Légales</a></li>
-          <li><a href="../common/privacy.html">Politique de Confidentialité</a></li>
+          <li><a href="./catalogue.html">Catalogue</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li><a href="./mentions.html">Mentions Légales</a></li>
+          <li><a href="./privacy.html">Politique de Confidentialité</a></li>
         </ul>
       </div>
     </div>
-
-    <!-- Ligne de séparation basse -->
     <div class="footer-separator"></div>
-
-    <!-- Copyright -->
     <div class="footer-copyright">
       <p>&copy; 2026 Musée FABI. Tous droits réservés.</p>
       <p class="footer-credit">Conçu par Lilian et Lino en compagnie d'un petit jaune :3</p>
     </div>
   </div>
 </footer>
-<script src="../script/client.js"></script>
 <script src="../script/header.js"></script>
 </body>
 </html>

@@ -10,6 +10,7 @@
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap"
     rel="stylesheet">
   <link href="/res/style/style.css" rel="stylesheet">
+  <link href="/res/style/style-notes.css" rel="stylesheet">
 </head>
 
 <body>
@@ -27,6 +28,14 @@
       <ul>
         <li><a href="/res/common/catalogue.html">Catalogue</a></li>
         <li><a href="/res/common/contact.html">Contact</a></li>
+        <li>
+          <a href="/res/common/client.html" class="header-client-link">
+            <button class="header-client-btn" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196, 168, 130, 0.55); color:rgba(14, 11, 9, 0.75); border: none; border-radius: 8px; padding: 10px 20px; font-size: 15px; font-weight: 500; cursor: pointer;">
+              <i class="ti ti-login" style="font-size: 18px;" aria-hidden="true"></i>
+              Connexion
+            </button>
+          </a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -98,6 +107,180 @@
 
 </div>
 
+  <!-- WIDGET NOTES + COMMENTAIRES -->
+  <div id="notes-section" style="max-width:640px;margin:0 auto;padding:0 2rem 2rem;">
+    <div id="notes-widget-main"></div>
+    <div style="padding-top:0;"><div id="comments-widget-main"></div></div>
+  </div>
+
+<script src="/res/script/header.js"></script>
+<script>
+const _API = '/res/api';
+
+(async function () {
+  const params   = new URLSearchParams(location.search);
+  const oeuvreId = parseInt(params.get('id'), 10) || 1;
+
+  let session  = { logged_in: false };
+  let noteData = { avg: null, count: 0, user_note: null };
+  let comments = [];
+
+  try {
+    const [rS, rN, rC] = await Promise.all([
+      fetch(`${_API}/session.php`, { credentials: 'include' }),
+      fetch(`${_API}/notes.php?oeuvre_id=${oeuvreId}`, { credentials: 'include' }),
+      fetch(`${_API}/commentaires.php?oeuvre_id=${oeuvreId}`, { credentials: 'include' }),
+    ]);
+    session  = await rS.json();
+    noteData = await rN.json();
+    const cd = await rC.json();
+    comments = cd.commentaires || [];
+  } catch (_) {}
+
+  renderNotes(document.getElementById('notes-widget-main'), oeuvreId, session, noteData);
+  renderComments(document.getElementById('comments-widget-main'), oeuvreId, session, comments);
+})();
+
+/* ── Notes ── */
+function renderNotes(container, oeuvreId, session, noteData) {
+  if (!container) return;
+  container.className = 'notes-widget notes-widget--light';
+  const { avg, count, user_note } = noteData;
+  const loggedIn = session.logged_in;
+
+  container.innerHTML = `
+    <div class="notes-title">ÉVALUATION</div>
+    <div class="notes-row">
+      <div class="stars stars-display" id="t-stars-avg">${buildStars()}</div>
+      <div>
+        <div class="notes-avg-display">${avg !== null ? avg.toFixed(1) : '—'}</div>
+        <div class="notes-count-display">${count} avis</div>
+      </div>
+    </div>
+    ${loggedIn ? `
+      <div class="notes-title" style="margin-top:8px;">VOTRE NOTE</div>
+      <div class="stars stars-interactive" id="t-stars-input">${buildStarsInteractive()}</div>
+      <p class="notes-user-note" id="t-user-label">
+        ${user_note !== null ? 'Votre note : ' + starLabel(user_note) : 'Cliquez pour noter'}
+      </p>
+      <span class="notes-toast" id="t-toast"></span>
+    ` : `
+      <p class="notes-status">
+        <a href="/res/common/client.html">Connectez-vous</a> pour laisser une note.
+      </p>
+    `}
+  `;
+
+  applyFill(container.querySelector('#t-stars-avg'), avg ?? 0);
+  if (!loggedIn) return;
+
+  const starsInput = container.querySelector('#t-stars-input');
+  const label      = container.querySelector('#t-user-label');
+  const toast      = container.querySelector('#t-toast');
+  applyFill(starsInput, user_note ?? 0);
+  let current = user_note;
+
+  starsInput.querySelectorAll('.star-half-hit').forEach(hit => {
+    const score = parseFloat(hit.dataset.score);
+    hit.addEventListener('mouseenter', () => { applyFill(starsInput, score); label.textContent = `→ ${starLabel(score)}`; });
+    hit.addEventListener('mouseleave', () => { applyFill(starsInput, current ?? 0); label.textContent = current !== null ? `Votre note : ${starLabel(current)}` : 'Cliquez pour noter'; });
+    hit.addEventListener('click', async () => {
+      const star = hit.closest('.star');
+      star.classList.remove('pop'); void star.offsetWidth; star.classList.add('pop');
+      try {
+        const r    = await fetch(`${_API}/notes.php`, { method:'POST', credentials:'include', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ oeuvre_id: oeuvreId, note: score }) });
+        const data = await r.json();
+        if (data.success) {
+          current = data.user_note;
+          applyFill(starsInput, current);
+          label.textContent = `Votre note : ${starLabel(current)}`;
+          applyFill(container.querySelector('#t-stars-avg'), data.avg ?? 0);
+          container.querySelector('.notes-avg-display').textContent = data.avg !== null ? data.avg.toFixed(1) : '—';
+          container.querySelector('.notes-count-display').textContent = `${data.count} avis`;
+          if (toast) { toast.textContent = '✓ Note enregistrée !'; toast.classList.add('show'); setTimeout(() => toast.classList.remove('show'), 2500); }
+        }
+      } catch (_) {}
+    });
+  });
+}
+
+/* ── Commentaires ── */
+function renderComments(container, oeuvreId, session, comments) {
+  if (!container) return;
+  container.className = 'comments-widget comments-widget--light';
+  const loggedIn = session.logged_in;
+
+  container.innerHTML = `
+    <div class="comments-title">COMMENTAIRES</div>
+    ${loggedIn ? `
+      <div class="comment-form">
+        <textarea id="t-comment-input" placeholder="Partagez votre ressenti sur cette œuvre…" maxlength="1000"></textarea>
+        <button class="comment-submit" id="t-comment-btn">Publier</button>
+        <span class="comment-msg" id="t-comment-msg"></span>
+      </div>
+    ` : `<p class="comments-login-prompt"><a href="/res/common/client.html">Connectez-vous</a> pour commenter.</p>`}
+    <div class="comments-list" id="t-comments-list">${renderList(comments)}</div>
+  `;
+
+  if (!loggedIn) return;
+  const textarea = container.querySelector('#t-comment-input');
+  const btn      = container.querySelector('#t-comment-btn');
+  const msg      = container.querySelector('#t-comment-msg');
+  const list     = container.querySelector('#t-comments-list');
+
+  btn.addEventListener('click', async () => {
+    const contenu = textarea.value.trim();
+    if (!contenu) { setMsg(msg, 'Écrivez quelque chose avant de publier.', false); return; }
+    btn.disabled = true;
+    try {
+      const r    = await fetch(`${_API}/commentaires.php`, { method:'POST', credentials:'include', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ oeuvre_id: oeuvreId, contenu }) });
+      const data = await r.json();
+      if (data.success) {
+        textarea.value = '';
+        setMsg(msg, '✓ Commentaire publié !', true);
+        const el = document.createElement('div');
+        el.innerHTML = commentItem(data.commentaire);
+        list.prepend(el.firstElementChild);
+        list.querySelector('.comments-empty')?.remove();
+        setTimeout(() => { msg.textContent = ''; msg.className = 'comment-msg'; }, 3000);
+      } else { setMsg(msg, data.message || 'Erreur.', false); }
+    } catch (_) { setMsg(msg, 'Serveur inaccessible.', false); }
+    btn.disabled = false;
+  });
+}
+
+function renderList(comments) {
+  if (!comments.length) return '<p class="comments-empty">Aucun commentaire pour l\'instant. Soyez le premier !</p>';
+  return comments.map(commentItem).join('');
+}
+function commentItem(c) {
+  const date = new Date(c.date_commentaire.replace(' ', 'T'));
+  const dateStr = date.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' });
+  const safe = c.contenu.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  return `<div class="comment-item"><div class="comment-header"><span class="comment-author">${c.prenom} ${c.nom.charAt(0)}.</span><span class="comment-date">${dateStr}</span></div><p class="comment-body">${safe}</p></div>`;
+}
+function setMsg(el, text, ok) { el.textContent = text; el.className = 'comment-msg ' + (ok ? 'ok' : 'err'); }
+
+/* ── Helpers étoiles ── */
+function buildStars() {
+  return Array.from({length:5}, (_,i) => `<span class="star" data-index="${i+1}"><span class="star-fill"></span></span>`).join('');
+}
+function buildStarsInteractive() {
+  return Array.from({length:5}, (_,i) => `<span class="star" data-index="${i+1}"><span class="star-fill"></span><span class="star-half-hit star-half-hit--left" data-score="${i+0.5}"></span><span class="star-half-hit star-half-hit--right" data-score="${i+1}"></span></span>`).join('');
+}
+function applyFill(container, value) {
+  if (!container) return;
+  container.querySelectorAll('.star').forEach((star, i) => {
+    const fill = star.querySelector('.star-fill');
+    if (!fill) return;
+    const diff = value - i;
+    fill.style.width = diff >= 1 ? '100%' : diff > 0 ? '50%' : '0%';
+  });
+}
+function starLabel(note) {
+  return '★'.repeat(Math.floor(note)) + (note % 1 >= 0.5 ? '½' : '') + ` (${note}/5)`;
+}
+</script>
 </body>
 
 </html>

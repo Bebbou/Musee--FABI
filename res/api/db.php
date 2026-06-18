@@ -12,6 +12,14 @@ try {
     $pdo->exec("PRAGMA foreign_keys = ON");
 
     $pdo->exec("
+        CREATE TABLE IF NOT EXISTS oeuvres (
+            id      INTEGER PRIMARY KEY,
+            nom     TEXT    NOT NULL,
+            auteur  TEXT    NOT NULL
+        )
+    ");
+
+    $pdo->exec("
         CREATE TABLE IF NOT EXISTS utilisateurs (
             id               INTEGER PRIMARY KEY AUTOINCREMENT,
             nom              TEXT    NOT NULL,
@@ -27,11 +35,40 @@ try {
     $pdo->exec("
         CREATE TABLE IF NOT EXISTS notes (
             id              INTEGER PRIMARY KEY AUTOINCREMENT,
-            oeuvre_id       INTEGER NOT NULL REFERENCES oeuvres(id) ON DELETE CASCADE,
+            oeuvre_id       INTEGER NOT NULL,
             utilisateur_id  INTEGER NOT NULL REFERENCES utilisateurs(id) ON DELETE CASCADE,
             note            REAL    NOT NULL CHECK(note >= 0.5 AND note <= 5),
             date_note       DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
             UNIQUE(oeuvre_id, utilisateur_id)
+        )
+    ");
+
+    // Vue notes complète (recrée à chaque démarrage pour rester à jour)
+    $pdo->exec("DROP VIEW IF EXISTS vue_notes");
+    $pdo->exec("
+        CREATE VIEW vue_notes AS
+        SELECT
+            o.id            AS oeuvre_id,
+            o.nom           AS oeuvre_nom,
+            o.auteur        AS oeuvre_auteur,
+            u.prenom || ' ' || u.nom AS utilisateur,
+            n.note,
+            ROUND(AVG(n.note) OVER (PARTITION BY n.oeuvre_id) * 2) / 2 AS moyenne_globale,
+            COUNT(n.id)     OVER (PARTITION BY n.oeuvre_id) AS nb_avis,
+            n.date_note
+        FROM notes n
+        JOIN oeuvres      o ON o.id = n.oeuvre_id
+        JOIN utilisateurs u ON u.id = n.utilisateur_id
+        ORDER BY n.date_note DESC
+    ");
+
+    $pdo->exec("
+        CREATE TABLE IF NOT EXISTS commentaires (
+            id                  INTEGER PRIMARY KEY AUTOINCREMENT,
+            oeuvre_id           INTEGER NOT NULL,
+            utilisateur_id      INTEGER NOT NULL REFERENCES utilisateurs(id) ON DELETE CASCADE,
+            contenu             TEXT    NOT NULL,
+            date_commentaire    DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
         )
     ");
 

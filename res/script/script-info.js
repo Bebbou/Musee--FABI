@@ -67,20 +67,9 @@ const API = '/res/api';
     }
   });
 
-  /* ── 3. Système de notes ── */
+  /* ── 3. Notes + commentaires ── */
   const notesSection = document.getElementById('notes-section');
   if (notesSection) notesSection.hidden = false;
-  await initNotesWidget('notes-widget-main', oeuvre.id, !useEditorial);
-})();
-
-
-/* ══════════════════════════════════════
-   WIDGET NOTES
-══════════════════════════════════════ */
-
-async function initNotesWidget(containerId, oeuvreId, isDark) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
 
   let session = { logged_in: false };
   try {
@@ -88,19 +77,38 @@ async function initNotesWidget(containerId, oeuvreId, isDark) {
     session  = await r.json();
   } catch (_) {}
 
-  let noteData = { avg: null, count: 0, user_note: null };
+  await initNotesWidget('notes-widget-main', oeuvre.id, !useEditorial, session);
+  await initCommentsWidget('comments-widget-main', oeuvre.id, !useEditorial, session);
+})();
+
+
+/* ══════════════════════════════════════
+   WIDGET NOTES
+══════════════════════════════════════ */
+
+async function initNotesWidget(containerId, oeuvreId, isDark, session) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  let noteData  = { avg: null, count: 0, user_note: null };
+  let vueData   = { moyenne: null, nb_avis: 0, notes: [] };
   try {
-    const r = await fetch(`${API}/notes.php?oeuvre_id=${oeuvreId}`, { credentials: 'include' });
-    noteData  = await r.json();
+    const [rN, rV] = await Promise.all([
+      fetch(`${API}/notes.php?oeuvre_id=${oeuvreId}`, { credentials: 'include' }),
+      fetch(`${API}/vue_notes.php?oeuvre_id=${oeuvreId}`, { credentials: 'include' }),
+    ]);
+    noteData = await rN.json();
+    vueData  = await rV.json();
   } catch (_) {}
 
-  renderNotesWidget(container, oeuvreId, session, noteData, isDark);
+  renderNotesWidget(container, oeuvreId, session, noteData, vueData, isDark);
 }
 
-function renderNotesWidget(container, oeuvreId, session, noteData, isDark) {
+function renderNotesWidget(container, oeuvreId, session, noteData, vueData, isDark) {
   container.className = `notes-widget ${isDark ? 'notes-widget--dark' : 'notes-widget--light'}`;
   const { avg, count, user_note } = noteData;
   const loggedIn = session.logged_in;
+  const notes    = vueData?.notes ?? [];
 
   container.innerHTML = `
     <div class="notes-title">ÉVALUATION</div>
@@ -121,11 +129,15 @@ function renderNotesWidget(container, oeuvreId, session, noteData, isDark) {
       <p class="notes-user-note" id="user-note-label-${oeuvreId}">
         ${user_note !== null ? `Votre note : ${formatStarLabel(user_note)}` : 'Cliquez pour noter'}
       </p>
+      <span class="notes-toast" id="notes-toast-${oeuvreId}">✓ Note enregistrée !</span>
     ` : `
       <p class="notes-status">
         <a href="/res/common/client.html">Connectez-vous</a> pour laisser une note.
       </p>
     `}
+    <div class="avis-table-wrap" id="avis-table-wrap-${oeuvreId}">
+      ${buildAvisTable(notes)}
+    </div>
   `;
 
   applyStarFill(container.querySelector(`#stars-avg-${oeuvreId}`), avg ?? 0);
@@ -179,6 +191,20 @@ function renderNotesWidget(container, oeuvreId, session, noteData, isDark) {
           if (avgNum) avgNum.textContent = data.avg !== null ? data.avg.toFixed(1) : '—';
           const countEl = container.querySelector('.notes-count-display');
           if (countEl) countEl.textContent = `${data.count} avis`;
+
+          const toast = container.querySelector(`#notes-toast-${oeuvreId}`);
+          if (toast) {
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
+          }
+
+          // Rafraîchir le tableau des avis
+          try {
+            const rv  = await fetch(`${API}/vue_notes.php?oeuvre_id=${oeuvreId}`, { credentials: 'include' });
+            const vd  = await rv.json();
+            const wrap = container.querySelector(`#avis-table-wrap-${oeuvreId}`);
+            if (wrap) wrap.innerHTML = buildAvisTable(vd.notes ?? []);
+          } catch (_) {}
         }
       } catch (_) {}
     });
@@ -217,6 +243,130 @@ function formatStarLabel(note) {
   const full = Math.floor(note);
   const half = note % 1 >= 0.5;
   return '★'.repeat(full) + (half ? '½' : '') + ` (${note}/5)`;
+}
+
+function buildAvisTable(notes) {
+  if (!notes || !notes.length) return '<p class="avis-none">Aucun avis pour le moment.</p>';
+  const rows = notes.map(n => {
+    const date = new Date((n.date_note || '').replace(' ', 'T'));
+    const dateStr = date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' });
+    const stars = '★'.repeat(Math.floor(n.note)) + (n.note % 1 >= 0.5 ? '½' : '');
+    return `<tr>
+      <td>${n.utilisateur}</td>
+      <td><span class="avis-note-stars">${stars}</span> ${n.note}/5</td>
+      <td>${dateStr}</td>
+    </tr>`;
+  }).join('');
+  return `
+    <table class="avis-table">
+      <thead><tr><th>Utilisateur</th><th>Note</th><th>Date</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+
+/* ══════════════════════════════════════
+   WIDGET COMMENTAIRES
+══════════════════════════════════════ */
+
+async function initCommentsWidget(containerId, oeuvreId, isDark, session) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
+  let comments = [];
+  try {
+    const r = await fetch(`${API}/commentaires.php?oeuvre_id=${oeuvreId}`, { credentials: 'include' });
+    const data = await r.json();
+    comments = data.commentaires || [];
+  } catch (_) {}
+
+  renderCommentsWidget(container, oeuvreId, isDark, session, comments);
+}
+
+function renderCommentsWidget(container, oeuvreId, isDark, session, comments) {
+  const cls = isDark ? 'comments-widget--dark' : 'comments-widget--light';
+  container.className = `comments-widget ${cls}`;
+  const loggedIn = session.logged_in;
+
+  container.innerHTML = `
+    <div class="comments-title">COMMENTAIRES</div>
+    ${loggedIn ? `
+      <div class="comment-form">
+        <textarea id="comment-input-${oeuvreId}" placeholder="Partagez votre ressenti sur cette œuvre…" maxlength="1000"></textarea>
+        <button class="comment-submit" id="comment-btn-${oeuvreId}">Publier</button>
+        <span class="comment-msg" id="comment-msg-${oeuvreId}"></span>
+      </div>
+    ` : `
+      <p class="comments-login-prompt">
+        <a href="/res/common/client.html">Connectez-vous</a> pour laisser un commentaire.
+      </p>
+    `}
+    <div class="comments-list" id="comments-list-${oeuvreId}">
+      ${renderCommentsList(comments)}
+    </div>
+  `;
+
+  if (!loggedIn) return;
+
+  const textarea = container.querySelector(`#comment-input-${oeuvreId}`);
+  const btn      = container.querySelector(`#comment-btn-${oeuvreId}`);
+  const msg      = container.querySelector(`#comment-msg-${oeuvreId}`);
+  const list     = container.querySelector(`#comments-list-${oeuvreId}`);
+
+  btn.addEventListener('click', async () => {
+    const contenu = textarea.value.trim();
+    if (!contenu) { showCommentMsg(msg, 'Écrivez quelque chose avant de publier.', false); return; }
+
+    btn.disabled = true;
+    try {
+      const r    = await fetch(`${API}/commentaires.php`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ oeuvre_id: oeuvreId, contenu }),
+      });
+      const data = await r.json();
+      if (data.success) {
+        textarea.value = '';
+        showCommentMsg(msg, '✓ Commentaire publié !', true);
+        const newItem = document.createElement('div');
+        newItem.innerHTML = renderCommentItem(data.commentaire);
+        list.prepend(newItem.firstElementChild);
+        const empty = list.querySelector('.comments-empty');
+        if (empty) empty.remove();
+        setTimeout(() => { msg.textContent = ''; msg.className = 'comment-msg'; }, 3000);
+      } else {
+        showCommentMsg(msg, data.message || 'Erreur.', false);
+      }
+    } catch (_) {
+      showCommentMsg(msg, 'Serveur inaccessible.', false);
+    }
+    btn.disabled = false;
+  });
+}
+
+function renderCommentsList(comments) {
+  if (!comments.length) return '<p class="comments-empty">Aucun commentaire pour l\'instant. Soyez le premier !</p>';
+  return comments.map(renderCommentItem).join('');
+}
+
+function renderCommentItem(c) {
+  const date = new Date(c.date_commentaire.replace(' ', 'T'));
+  const dateStr = date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+  const safeContenu = c.contenu.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return `
+    <div class="comment-item">
+      <div class="comment-header">
+        <span class="comment-author">${c.prenom} ${c.nom.charAt(0)}.</span>
+        <span class="comment-date">${dateStr}</span>
+      </div>
+      <p class="comment-body">${safeContenu}</p>
+    </div>`;
+}
+
+function showCommentMsg(el, text, ok) {
+  el.textContent = text;
+  el.className   = 'comment-msg ' + (ok ? 'ok' : 'err');
 }
 
 

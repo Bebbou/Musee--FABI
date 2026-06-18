@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: http://localhost');
+header('Access-Control-Allow-Origin: http://localhost:5502');
 header('Access-Control-Allow-Credentials: true');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
@@ -44,8 +44,7 @@ if ($stmt->fetch()) {
 }
 
 // Insérer l'utilisateur avec mot de passe hashé
-$hash = password_hash($mdp, PASSWORD_BCRYPT);
-$stmt = $pdo->prepare("INSERT INTO utilisateurs (nom, prenom, email, password) VALUES (?, ?, ?, ?)");
-$stmt->execute([$nom, $prenom, $email, $hash]);
+$stmt = $pdo->prepare("INSERT INTO utilisateurs (nom, prenom, email, mot_de_passe) VALUES (?, ?, ?, ?)");
+$stmt->execute([$nom, $prenom, $email, $mdp]);
 
 echo json_encode(['success' => true, 'message' => 'Compte créé avec succès']);
