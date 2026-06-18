@@ -1,0 +1,516 @@
+/* ══ TEMPLATE SCULPTURE ══ */
+
+/* ── Reset page ── */
+.sculpt-page {
+  background: #080c18;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ── Header : garde la DA par défaut ── */
+.sculpt-page #main-header {
+  background: rgba(14, 11, 9, 0.82);
+  border-bottom-color: rgba(196, 168, 130, 0.12);
+}
+.sculpt-page #main-header::after {
+  background: linear-gradient(90deg, transparent, var(--blue-mid) 30%, var(--blue-mid) 70%, transparent);
+  opacity: 0.45;
+}
+
+/* ══ LAYOUT PRINCIPAL ══ */
+.sculpt-main {
+  display: grid;
+  grid-template-columns: 58% 42%;
+  min-height: 100vh;
+  padding-top: 68px;
+}
+
+/* ══ COLONNE GAUCHE — VIEWER ══ */
+.sculpt-viewer-col {
+  position: relative;
+  overflow: hidden;
+  background: #080c18;
+}
+
+/* Fond ambiance chaud avec touche bleue */
+.sculpt-viewer-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.sculpt-viewer-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    /* halo bleu central — lumière sur le marbre */
+    radial-gradient(ellipse 65% 60% at 50% 42%, rgba(30, 63, 107, 0.42) 0%, transparent 65%),
+    /* reflet bleu pâle bas gauche */
+    radial-gradient(ellipse 45% 35% at 10% 75%, rgba(44, 95, 138, 0.12) 0%, transparent 60%),
+    /* coin bleu-violet froid en haut droit */
+    radial-gradient(ellipse 40% 45% at 88% 12%, rgba(20, 35, 80, 0.2) 0%, transparent 60%),
+    #070a16;
+}
+
+/* Grille perspective décorative */
+.sculpt-viewer-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(196, 168, 130, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196, 168, 130, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 0%, transparent 100%);
+}
+
+/* model-viewer */
+.sculpt-model {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: calc(100vh - 68px);
+  --poster-color: transparent;
+  --progress-bar-color: transparent;
+}
+
+/* Barre de progression custom */
+.sculpt-model-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(196, 168, 130, 0.08);
+}
+.sculpt-model-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue-mid), var(--blue-mid));
+  width: 0%;
+  transition: width 0.3s;
+}
+
+/* Écran de chargement */
+.sculpt-model-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #070a16;
+}
+.sculpt-loading-text {
+  font-family: var(--sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(196, 168, 130, 0.35);
+}
+
+/* Badge année (coin bas gauche) */
+.sculpt-badge {
+  position: absolute;
+  z-index: 10;
+  bottom: 5rem;
+  left: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+}
+.sculpt-badge-year {
+  font-family: var(--serif);
+  font-size: 3rem;
+  font-weight: 600;
+  color: rgba(196, 168, 130, 0.12);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.sculpt-badge-bc {
+  font-family: var(--sans);
+  font-size: 0.55rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(196, 168, 130, 0.3);
+  margin-top: 0.2rem;
+}
+
+/* Ligne verticale gauche */
+.sculpt-line-left {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 2.5rem;
+  width: 1px;
+  height: 40%;
+  background: linear-gradient(180deg, transparent, rgba(196, 168, 130, 0.18), transparent);
+}
+
+/* Numéro d'inventaire (haut gauche) */
+.sculpt-inv {
+  position: absolute;
+  z-index: 10;
+  top: 2.5rem;
+  left: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.sculpt-inv-label {
+  font-family: var(--sans);
+  font-size: 0.5rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(196, 168, 130, 0.25);
+}
+.sculpt-inv-num {
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  color: rgba(196, 168, 130, 0.35);
+  letter-spacing: 0.1em;
+}
+
+/* Hint rotation (bas centre) */
+.sculpt-hint {
+  position: absolute;
+  z-index: 10;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--sans);
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(196, 168, 130, 0.35);
+  animation: sculpt-hint-fade 3s ease-in-out infinite;
+}
+.sculpt-hint .ti-rotate-360 { font-size: 0.9rem; }
+
+@keyframes sculpt-hint-fade {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.9; }
+}
+
+/* ══ COLONNE DROITE — INFO ══ */
+.sculpt-info-col {
+  position: relative;
+  background: linear-gradient(160deg, #130e0a 0%, #0e0b09 60%, #080c18 100%);
+  border-left: 1px solid rgba(196, 168, 130, 0.1);
+  padding: 3rem 2.8rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow-y: auto;
+  height: calc(100vh - 68px);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(196, 168, 130, 0.15) transparent;
+}
+
+/* ── Header info ── */
+.sculpt-info-header {
+  flex-shrink: 0;
+}
+
+.sculpt-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--sans);
+  font-size: 0.52rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--blue-mid);
+  margin-bottom: 1.4rem;
+}
+.sculpt-eyebrow-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--blue-mid);
+  opacity: 0.6;
+}
+
+/* Grand titre */
+.sculpt-title-block {
+  margin-bottom: 1.4rem;
+}
+.sculpt-title {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 4.5vw, 4.2rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--beige-lt);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.8rem;
+}
+.sculpt-title em {
+  font-style: italic;
+  color: rgba(196, 168, 130, 0.75);
+}
+.sculpt-title-drop {
+  font-family: var(--serif);
+  font-size: 1.3em;
+  color: var(--blue-mid);
+  font-weight: 600;
+}
+.sculpt-title-line {
+  width: 56px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue-mid), var(--blue-mid));
+  margin-top: 0.6rem;
+}
+
+/* Artiste */
+.sculpt-artist {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+.sculpt-artist-icon {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(193, 68, 14, 0.1);
+  border: 1px solid rgba(193, 68, 14, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-mid);
+  font-size: 0.9rem;
+}
+.sculpt-artist-label {
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--taupe);
+  margin-bottom: 3px;
+}
+.sculpt-artist-name {
+  font-family: var(--serif);
+  font-size: 1rem;
+  color: var(--beige-lt);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+.sculpt-artist-name em {
+  font-style: italic;
+  color: var(--taupe);
+  font-size: 0.85rem;
+}
+
+/* Séparateur */
+.sculpt-info-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(196, 168, 130, 0.15), transparent);
+  margin: 1.4rem 0;
+}
+
+/* ── Méta grid ── */
+.sculpt-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.sculpt-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0.9rem 1rem;
+  background: rgba(196, 168, 130, 0.04);
+  border: 1px solid rgba(196, 168, 130, 0.1);
+  border-radius: 3px;
+}
+.sculpt-meta-item > i {
+  font-size: 1rem;
+  color: var(--blue-mid);
+  margin-bottom: 2px;
+}
+.sculpt-meta-label {
+  font-family: var(--sans);
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--taupe);
+}
+.sculpt-meta-value {
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  color: var(--beige-lt);
+  letter-spacing: 0.03em;
+}
+
+/* ── Blocs texte ── */
+.sculpt-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.sculpt-block {
+  position: relative;
+  padding-left: 1.2rem;
+  border-left: 2px solid rgba(196, 168, 130, 0.15);
+  transition: border-color 0.3s;
+}
+.sculpt-block:hover {
+  border-left-color: var(--blue-mid);
+}
+
+.sculpt-block-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+.sculpt-block-num {
+  font-family: var(--sans);
+  font-size: 0.52rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--blue-mid);
+}
+.sculpt-block-title {
+  font-family: var(--sans);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--beige-lt);
+}
+.sculpt-block-text {
+  font-family: var(--serif);
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--taupe);
+  letter-spacing: 0.02em;
+}
+
+/* ── Pied info ── */
+.sculpt-info-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sculpt-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--sans);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--taupe);
+  border: 1px solid rgba(196, 168, 130, 0.15);
+  padding: 0.6rem 1.1rem;
+  border-radius: 2px;
+  transition: all 0.25s;
+}
+.sculpt-back-btn:hover {
+  background: rgba(193, 68, 14, 0.1);
+  color: var(--beige-lt);
+  border-color: rgba(193, 68, 14, 0.3);
+}
+
+.sculpt-museum-stamp {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.sculpt-stamp-line {
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  color: rgba(196, 168, 130, 0.25);
+  letter-spacing: 0.12em;
+}
+.sculpt-stamp-sub {
+  font-family: var(--sans);
+  font-size: 0.48rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(196, 168, 130, 0.2);
+}
+
+/* ══ BANDE DU BAS ══ */
+.sculpt-bottom-strip {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 52px;
+  background: rgba(14, 11, 9, 0.95);
+  border-top: 1px solid rgba(196, 168, 130, 0.08);
+  backdrop-filter: blur(16px);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 2.5rem;
+}
+
+.sculpt-strip-left,
+.sculpt-strip-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.sculpt-strip-right {
+  justify-content: flex-end;
+}
+.sculpt-strip-label {
+  font-family: var(--sans);
+  font-size: 0.5rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(196, 168, 130, 0.25);
+}
+.sculpt-strip-value {
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  color: rgba(196, 168, 130, 0.4);
+  letter-spacing: 0.05em;
+}
+.sculpt-strip-title {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: rgba(196, 168, 130, 0.1);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-align: center;
+  user-select: none;
+}
+
+/* ══ RESPONSIVE ══ */
+@media (max-width: 960px) {
+  .sculpt-main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 60vh auto;
+  }
+  .sculpt-viewer-col { height: 60vh; }
+  .sculpt-info-col {
+    height: auto;
+    overflow-y: visible;
+    padding: 2rem 1.8rem;
+  }
+  .sculpt-bottom-strip { display: none; }
+}
+
+@media (max-width: 600px) {
+  .sculpt-meta-grid { grid-template-columns: 1fr; }
+  .sculpt-title { font-size: 2.4rem; }
+}

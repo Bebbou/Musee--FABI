@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="sc-page-title">Sculpture — Musée FABI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <link href="/res/style/style.css" rel="stylesheet">
+  <link href="/res/style/style-sculpture.css" rel="stylesheet">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+</head>
+<body class="sculpt-page">
+
+<!-- ══ HEADER ══ -->
+<header id="main-header">
+  <div class="logo">
+    <a href="/res/index.html" style="text-decoration:none;">
+      <img src="/res/assets/img/logo/logoFABI_White.svg" alt="Logo Musée FABI">
+    </a>
+  </div>
+  <div class="logo"><h1>Musée FABI</h1></div>
+  <nav>
+    <ul>
+      <li><a href="/res/common/catalogue.html">Catalogue</a></li>
+      <li><a href="/res/common/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ══ LAYOUT PRINCIPAL ══ -->
+<main class="sculpt-main">
+
+  <!-- ─── COLONNE GAUCHE : viewer 3D ─── -->
+  <div class="sculpt-viewer-col">
+
+    <!-- Ambiance bleue derrière le viewer -->
+    <div class="sculpt-viewer-bg">
+      <div class="sculpt-viewer-glow"></div>
+      <div class="sculpt-viewer-grid"></div>
+    </div>
+
+    <!-- model-viewer -->
+    <model-viewer
+      id="sc-model"
+      class="sculpt-model"
+      src=""
+      alt=""
+      camera-controls
+      auto-rotate
+      auto-rotate-delay="1000"
+      rotation-per-second="8deg"
+      camera-orbit="0deg 80deg 105%"
+      min-camera-orbit="auto auto 70%"
+      max-camera-orbit="auto auto 130%"
+      shadow-intensity="1.2"
+      shadow-softness="0.8"
+      environment-image="neutral"
+      exposure="0.6"
+    >
+      <div class="sculpt-model-progress" slot="progress-bar">
+        <div class="sculpt-model-bar" id="sculpt-bar"></div>
+      </div>
+      <div class="sculpt-model-loading" id="sculpt-loading" slot="poster">
+        <span class="sculpt-loading-text">Chargement de la sculpture…</span>
+      </div>
+    </model-viewer>
+
+    <!-- Étiquette tournante / badge -->
+    <div class="sculpt-badge" id="sc-badge">
+      <span class="sculpt-badge-year" id="sc-badge-year"></span>
+      <span class="sculpt-badge-bc" id="sc-badge-bc"></span>
+    </div>
+
+    <!-- Ligne verticale gauche (décorative) -->
+    <div class="sculpt-line-left"></div>
+
+    <!-- Numéro d'inventaire -->
+    <div class="sculpt-inv">
+      <span class="sculpt-inv-label">Inventaire</span>
+      <span class="sculpt-inv-num" id="sc-inv-num">—</span>
+    </div>
+
+    <!-- Hint interaction -->
+    <div class="sculpt-hint">
+      <i class="ti ti-rotate-360"></i>
+      <span>Faites tourner la sculpture</span>
+    </div>
+
+  </div>
+
+  <!-- ─── COLONNE DROITE : informations ─── -->
+  <div class="sculpt-info-col">
+
+    <!-- En-tête info -->
+    <div class="sculpt-info-header">
+      <p class="sculpt-eyebrow">
+        <span class="sculpt-eyebrow-dot"></span>
+        <span id="sc-eyebrow">Sculpture</span>
+        <span class="sculpt-eyebrow-dot"></span>
+      </p>
+
+      <!-- Grand titre -->
+      <div class="sculpt-title-block">
+        <h1 class="sculpt-title">
+          <span class="sculpt-title-drop" id="sc-drop-letter"></span><span id="sc-drop-rest"></span>
+        </h1>
+        <div class="sculpt-title-line"></div>
+      </div>
+
+      <!-- Artiste -->
+      <div class="sculpt-artist">
+        <div class="sculpt-artist-icon"><i class="ti ti-user-star"></i></div>
+        <div>
+          <span class="sculpt-artist-label">Artiste</span>
+          <p class="sculpt-artist-name" id="sc-artist-name">—</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sculpt-info-divider"></div>
+
+    <!-- Bloc méta (fiches techniques) -->
+    <div class="sculpt-meta-grid">
+      <div class="sculpt-meta-item">
+        <i class="ti ti-calendar-event"></i>
+        <span class="sculpt-meta-label">Période</span>
+        <span class="sculpt-meta-value" id="sc-meta-date">—</span>
+      </div>
+      <div class="sculpt-meta-item">
+        <i class="ti ti-components"></i>
+        <span class="sculpt-meta-label">Matériau</span>
+        <span class="sculpt-meta-value" id="sc-meta-materiau">—</span>
+      </div>
+      <div class="sculpt-meta-item">
+        <i class="ti ti-ruler-measure"></i>
+        <span class="sculpt-meta-label">Dimensions</span>
+        <span class="sculpt-meta-value" id="sc-meta-hauteur">—</span>
+      </div>
+      <div class="sculpt-meta-item">
+        <i class="ti ti-building-museum"></i>
+        <span class="sculpt-meta-label">Conservation</span>
+        <span class="sculpt-meta-value" id="sc-meta-musee">—</span>
+      </div>
+    </div>
+
+    <div class="sculpt-info-divider"></div>
+
+    <!-- 3 blocs texte -->
+    <div class="sculpt-blocks">
+
+      <div class="sculpt-block">
+        <div class="sculpt-block-head">
+          <div class="sculpt-block-num">01</div>
+          <h2 class="sculpt-block-title" id="sc-block1-title">Contexte</h2>
+        </div>
+        <p class="sculpt-block-text" id="sc-block1-text"></p>
+      </div>
+
+      <div class="sculpt-block">
+        <div class="sculpt-block-head">
+          <div class="sculpt-block-num">02</div>
+          <h2 class="sculpt-block-title" id="sc-block2-title">Description</h2>
+        </div>
+        <p class="sculpt-block-text" id="sc-block2-text"></p>
+      </div>
+
+      <div class="sculpt-block">
+        <div class="sculpt-block-head">
+          <div class="sculpt-block-num">03</div>
+          <h2 class="sculpt-block-title" id="sc-block3-title">Particularité</h2>
+        </div>
+        <p class="sculpt-block-text" id="sc-block3-text"></p>
+      </div>
+
+    </div>
+
+    <div class="sculpt-info-divider"></div>
+
+    <!-- Pied de la colonne info -->
+    <div class="sculpt-info-footer">
+      <a href="/res/common/catalogue.html" class="sculpt-back-btn">
+        <i class="ti ti-arrow-left"></i> Retour au catalogue
+      </a>
+      <div class="sculpt-museum-stamp">
+        <span class="sculpt-stamp-line">Musée FABI</span>
+        <span class="sculpt-stamp-sub">Collection permanente</span>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ══ BANDE DU BAS ══ -->
+<div class="sculpt-bottom-strip">
+  <div class="sculpt-strip-left">
+    <span class="sculpt-strip-label">Style</span>
+    <span class="sculpt-strip-value" id="sc-strip-style">—</span>
+  </div>
+  <div class="sculpt-strip-title" id="sc-strip-title">SCULPTURE</div>
+  <div class="sculpt-strip-right">
+    <span class="sculpt-strip-label">Conservation</span>
+    <span class="sculpt-strip-value" id="sc-strip-musee">—</span>
+  </div>
+</div>
+
+<script src="/res/script/script-sculpture.js"></script>
+</body>
+</html>

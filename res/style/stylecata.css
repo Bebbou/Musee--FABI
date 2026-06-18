@@ -1773,8 +1773,7 @@ body {
   padding: 20px 0 40px;
   align-items: flex-start;
   margin: 0 60px;
-  background: rgba(14, 11, 9, 0.45);
-  backdrop-filter: blur(6px);
+  background: rgba(14, 11, 9, 0.55);
   border-radius: 4px;
   /* scrollbar fine assortie */
   scrollbar-width: thin;

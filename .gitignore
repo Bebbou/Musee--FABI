@@ -8,3 +8,6 @@
 
 # Logs
 *.log
+
+# Config MySQL — contient les identifiants, ne jamais commiter
+res/api/config_mysql.php
