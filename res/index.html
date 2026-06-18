@@ -12,8 +12,8 @@
 
 <header id="main-header">
   <div class="logo">
-    <a href="./common/index.html" style="text-decoration:none;">
-      <img src="./res/assets/img/logo/logoFABI_White.svg" alt="Logo Musée FABI"
+    <a href="./index.html" style="text-decoration:none;">
+      <img src="./assets/img/logo/logoFABI_White.svg" alt="Logo Musée FABI"
            style="height:100px;vertical-align:middle;border-radius:20px;">
     </a>
   </div>
@@ -24,14 +24,6 @@
       <li><a href="./common/contact.html">Contact</a></li>
     </ul>
   </nav>
-  <a href="./common/client.html" class="header-client-btn">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-         stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-      <circle cx="12" cy="8" r="4"/>
-      <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-    </svg>
-    Espace client
-  </a>
 </header>
 
 <!-- SCÈNE FIXE -->
@@ -52,8 +44,11 @@
 <div class="hero">
   <div class="hero-content-wrap">
     <div class="hero-content">
-      <p class="hero-eyebrow">Exposition permanente · 2025</p>
-      <h1 class="hero-title">BONJOUR</h1>
+      <p class="hero-eyebrow"><strong>Exposition permanente · 2025</strong></p>
+      <h1 class="hero-title">
+        <span class="hero-title-main">BIENVENUE</span>
+        <span class="hero-title-sub">AU MUSÉE FABI</span>
+      </h1>
       <div class="hero-rule"></div>
       <p class="hero-subtitle">
         <span class="initiale">L</span>e <strong><u>Musée&nbsp;FABI</u></strong>
@@ -69,12 +64,12 @@
         <div class="hero-meta-sep"></div>
         <div class="hero-meta-item">
           <span class="hero-meta-label">Horaires</span>
-          <span class="hero-meta-value">10h — 19h</span>
+          <span class="hero-meta-value">10h — 18h</span>
         </div>
         <div class="hero-meta-sep"></div>
         <div class="hero-meta-item">
           <span class="hero-meta-label">Accès</span>
-          <span class="hero-meta-value">Gratuit</span>
+          <span class="hero-meta-value">METTRE UN LIEN ICI</span>
         </div>
       </div>
     </div>
@@ -87,9 +82,51 @@
 </div>
 
 <div class="page-content">
-  <div class="section-divider">
-    <span class="section-divider-label">Collections</span>
+
+  <!-- CARROUSEL 3 POSTERS -->
+  <div class="aw-scene" id="artworks-parallax">
+
+    <!-- Titre flottant au-dessus du poster central -->
+    <div class="aw-poster-title" id="aw-poster-title">
+      <span class="aw-poster-eyebrow" id="aw-poster-eyebrow">Nouveauté</span>
+      <h3 class="aw-poster-name" id="aw-poster-name">Claude Monet</h3>
+    </div>
+
+    <article class="fiche" data-index="0"
+             data-eyebrow="Collection" data-title="L'Ange Rouge">
+      <div class="fiche-float">
+        <img src="./assets/img/Collection/LePrintempsDeLaCulture.png" alt="L'Ange Rouge">
+      </div>
+    </article>
+
+    <article class="fiche" data-index="1"
+             data-eyebrow="Nouveauté" data-title="Claude Monet">
+      <div class="fiche-float">
+        <img src="./assets/img/Nouveaute/Claude Monet.png" alt="Claude Monet">
+      </div>
+    </article>
+
+    <article class="fiche" data-index="2"
+             data-eyebrow="Événement" data-title="Le Guerrier">
+      <div class="fiche-float">
+        <img src="./assets/img/Evenement/Poster_EXpoEXpresso.png" alt="Le Guerrier">
+      </div>
+    </article>
+
+    <!-- Flèches -->
+    <button class="aw-arrow aw-arrow--left"  id="aw-next">&#8592;</button>
+    <button class="aw-arrow aw-arrow--right" id="aw-prev">&#8594;</button>
+
+    <!-- Indicateurs -->
+    <div class="aw-dots">
+      <span class="aw-dot"></span>
+      <span class="aw-dot"></span>
+      <span class="aw-dot"></span>
+    </div>
+
   </div>
+
+  <!-- COLLECTION -->
   <section class="collection-section">
     <div class="collection-header">
       <h2 class="collection-title">Collection</h2>
@@ -98,21 +135,148 @@
     <div class="collection-grid">
       <div class="collection-card">
         <span class="collection-card-num">01</span>
-        <img src="./res/assets/img/placeholder.png" alt="Peintures"/>
+        <img src="./assets/img/guerrier.png" alt="Peintures"/>
         <span class="collection-card-label">Peintures</span>
         <span class="collection-card-tag">Voir</span>
       </div>
       <div class="collection-card">
         <span class="collection-card-num">02</span>
-        <img src="./res/assets/img/placeholder.png" alt="Sculptures"/>
+        <img src="./assets/img/ange_rouge.png" alt="Sculptures"/>
+        <span class="collection-card-label">Sculptures</span>
+        <span class="collection-card-tag">Voir</span>
+      </div>
+      <div class="collection-card">
+        <span class="collection-card-num">03</span>
+        <img src="./assets/img/ange_rouge.png" alt="Sculptures"/>
         <span class="collection-card-label">Sculptures</span>
         <span class="collection-card-tag">Voir</span>
       </div>
     </div>
+    <div class="collection-btn-wrapper">
+      <a href="./common/catalogue.html" class="collection-btn">Voir le catalogue</a>
+    </div>
   </section>
 </div>
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+<!-- FOOTER -->
+<footer id="main-footer">
+  <div class="footer-content">
+    <!-- Ligne de séparation haute -->
+    <div class="footer-separator"></div>
+    
+    <!-- Contenu principal -->
+    <div class="footer-main">
+      <!-- Colonne 1: Info Pratiques -->
+      <div class="footer-col">
+        <h4 class="footer-title">Informations</h4>
+        <ul class="footer-list">
+          <li><span class="footer-label">Adresse</span><span>25 Quai de Rive Neuve, 13007 Marseille</span></li>
+          <li><span class="footer-label">Téléphone</span><span>+33 6 37 61 15 56</span></li>
+          <li><span class="footer-label">E-mail</span><span><a href="mailto:paco.giovannetti@gmail.com">paco.giovannetti@gmail.com</a></span></li>
+        </ul>
+      </div>
+
+      <!-- Colonne 2: Horaires -->
+      <div class="footer-col">
+        <h4 class="footer-title">Horaires</h4>
+        <ul class="footer-list">
+          <li><span class="footer-label">Mardi - Dimanche</span><span>10h - 18h</span></li>
+          <li><span class="footer-label">Lundi</span><span>Fermé</span></li>
+          <li><span class="footer-label">Accès</span><span>Voir la billetterie (METTRE LE LIEN LINO)</span></li>
+        </ul>
+      </div>
+
+      <!-- Colonne 3: Navigation -->
+      <div class="footer-col">
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-list">
+          <li><a href="./common/catalogue.html">Catalogue</a></li>
+          <li><a href="./common/contact.html">Contact</a></li>
+          <li><a href="./common/mentions.html">Mentions Légales</a></li>
+          <li><a href="./common/privacy.html">Politique de Confidentialité</a></li>
+        </ul>
+      </div>
+
+      <!-- Colonne 4: Réseaux -->
+      <div class="footer-col">
+        <h4 class="footer-title">Suivez-nous</h4>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Instagram">Instagram</a>
+          <a href="#" class="social-link" aria-label="Facebook">Facebook</a>
+          <a href="#" class="social-link" aria-label="Twitter">Twitter</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ligne de séparation basse -->
+    <div class="footer-separator"></div>
+
+    <!-- Copyright -->
+    <div class="footer-copyright">
+      <p>&copy; 2026 Musée FABI. Tous droits réservés.</p>
+      <p class="footer-credit">Conçu par Lilian et Lino :3</p>
+    </div>
+  </div>
+</footer>
 
 <script src="./script/script.js"></script>
-<script src="./script/header.js"></script>
+<script>
+
+// Carrousel 3 posters avec titre animé + lévitation
+(function(){
+  const fiches   = Array.from(document.querySelectorAll('.fiche'));
+  const dots     = Array.from(document.querySelectorAll('.aw-dot'));
+  const btnPrev  = document.getElementById('aw-prev');
+  const btnNext  = document.getElementById('aw-next');
+  const titleBox = document.getElementById('aw-poster-title');
+  const titleEyebrow = document.getElementById('aw-poster-eyebrow');
+  const titleName    = document.getElementById('aw-poster-name');
+  if(!fiches.length) return;
+
+  // order[0]=gauche  order[1]=centre  order[2]=droite
+  let order = [0, 1, 2];
+  const STATES = ['left','center','right'];
+
+  function updateTitle(centerIndex){
+    const f = fiches[centerIndex];
+    titleBox.classList.add('fading');
+    setTimeout(() => {
+      titleEyebrow.textContent = f.dataset.eyebrow || '';
+      titleName.textContent    = f.dataset.title   || '';
+      titleBox.classList.remove('fading');
+    }, 260);
+  }
+
+  function render(){
+    fiches.forEach((f, i) => {
+      f.dataset.state = STATES[order.indexOf(i)];
+    });
+    dots.forEach((d,i) => d.classList.toggle('active', i === order[1]));
+    updateTitle(order[1]);
+  }
+
+  function rotateRight(){
+    order = [order[2], order[0], order[1]];
+    render();
+  }
+  function rotateLeft(){
+    order = [order[1], order[2], order[0]];
+    render();
+  }
+
+  btnNext && btnNext.addEventListener('click', rotateRight);
+  btnPrev && btnPrev.addEventListener('click', rotateLeft);
+
+  fiches.forEach((f, i) => {
+    f.addEventListener('click', () => {
+      const pos = order.indexOf(i);
+      if(pos === 0) rotateLeft();
+      else if(pos === 2) rotateRight();
+    });
+  });
+
+  render();
+})();
+</script>
 </body>
 </html>
