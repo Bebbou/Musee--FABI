@@ -12,11 +12,14 @@
   const idParam = parseInt(params.get('id'), 10);
   const loading = document.getElementById('info-loading');
 
-  let oeuvres;
+  let oeuvres, artistes;
   try {
-    const res  = await fetch('/res/database/collection_musee.json');
-    const data = await res.json();
-    oeuvres = data.oeuvres;
+    const [resO, resA] = await Promise.all([
+      fetch('/res/database/collection_musee.json'),
+      fetch('/res/database/artistes.json'),
+    ]);
+    oeuvres  = (await resO.json()).oeuvres;
+    artistes = (await resA.json()).artistes;
   } catch (e) {
     loading.textContent = 'Impossible de charger la collection.';
     return;
@@ -30,54 +33,19 @@
     oeuvre = oeuvres[Math.floor(Math.random() * oeuvres.length)];
   }
 
+  const artiste = artistes.find(a => a.nom === oeuvre.auteur) || null;
+
   document.getElementById('page-title').textContent = `Musée FABI — ${oeuvre.nom_tableau}`;
   loading.style.display = 'none';
 
   const useEditorial = oeuvre.id % 2 !== 0;
 
   if (useEditorial) {
-    populateEditorial(oeuvre);
+    populateEditorial(oeuvre, artiste);
   } else {
-    populateBaroque(oeuvre);
+    populateBaroque(oeuvre, artiste);
   }
-
-  /* Portrait chargé en arrière-plan, sans bloquer l'affichage */
-  fetchAuthorPortrait(oeuvre.auteur).then(portrait => {
-    if (!portrait) return;
-    if (useEditorial) {
-      const bg = document.getElementById('ed-author-bg');
-      if (bg) bg.style.backgroundImage = `url('${portrait}')`;
-    } else {
-      const portraitEl = document.getElementById('ba-author-portrait');
-      const imgEl      = document.getElementById('ba-author-img');
-      const labelEl    = document.getElementById('ba-author-label');
-      if (portraitEl && imgEl) {
-        imgEl.src = portrait;
-        imgEl.alt = oeuvre.auteur;
-        if (labelEl) labelEl.textContent = oeuvre.auteur;
-        portraitEl.style.display = 'block';
-        const h = portraitEl.offsetHeight || 150;
-        const circleZone = document.getElementById('ba-circle-zone');
-        if (circleZone) {
-          circleZone.style.top = `calc(68px + 1rem + ${h}px + 2.5rem)`;
-        }
-      }
-    }
-  });
 })();
-
-/* ── Wikipedia portrait ── */
-function fetchAuthorPortrait(authorName) {
-  const name = authorName.trim().replace(/ /g, '_');
-  const url  = `https://en.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(name)}&prop=pageimages&format=json&pithumbsize=400&origin=*`;
-  return fetch(url)
-    .then(r => r.json())
-    .then(data => {
-      const pages = data.query?.pages || {};
-      return Object.values(pages)[0]?.thumbnail?.source || null;
-    })
-    .catch(() => null);
-}
 
 /* ── Helpers ── */
 function wikiImg(url, width = 1200) {
@@ -107,7 +75,7 @@ function splitText(text, n) {
 /* ══════════════════════════
    LAYOUT 1 — ÉDITORIAL
 ══════════════════════════ */
-function populateEditorial(o) {
+function populateEditorial(o, artiste) {
   const layout = document.getElementById('layout-editorial');
   layout.hidden = false;
   layout.classList.add('active');
@@ -135,32 +103,46 @@ function populateEditorial(o) {
   const halves = splitText(o.descriptif, 2);
   document.getElementById('ed-desc1').textContent = halves[0] || '';
   document.getElementById('ed-desc2').textContent = halves[1] || '';
+
+  /* Carte artiste */
+  if (artiste?.image_url) {
+    const card = document.getElementById('ed-artist-card');
+    card.hidden = false;
+    document.getElementById('ed-artist-img').src      = artiste.image_url;
+    document.getElementById('ed-artist-img').alt      = artiste.nom;
+    document.getElementById('ed-artist-name').textContent     = artiste.nom;
+    const deces = artiste.deces ? `–${artiste.deces}` : '';
+    document.getElementById('ed-artist-dates').textContent    = `${artiste.naissance}${deces}`;
+    document.getElementById('ed-artist-movement').textContent = artiste.mouvement;
+  }
 }
 
 /* ══════════════════════════
    LAYOUT 2 — BAROQUE
 ══════════════════════════ */
-function populateBaroque(o) {
+function populateBaroque(o, artiste) {
   const layout = document.getElementById('layout-baroque');
   layout.hidden = false;
   layout.classList.add('active');
-
-  /* Masquer portrait par défaut — il s'affiche si Wikipedia répond */
-  const _portrait = document.getElementById('ba-author-portrait');
-  const _label    = document.getElementById('ba-author-label');
-  if (_portrait) _portrait.style.display = 'none';
-  if (_label)    _label.style.display    = 'none';
 
   const imgUrl = wikiImg(o.image_url);
 
   document.getElementById('ba-main-img').src = imgUrl;
   document.getElementById('ba-main-img').alt = o.nom_tableau;
 
+  /* Cercle : portrait de l'artiste si disponible, sinon crop de l'œuvre */
   const circleImg = document.getElementById('ba-circle-img');
-  circleImg.src = imgUrl;
-  circleImg.alt = o.nom_tableau;
-  circleImg.style.objectPosition = '65% 12%';
+  if (artiste?.image_url) {
+    circleImg.src = artiste.image_url;
+    circleImg.alt = artiste.nom;
+    circleImg.style.objectPosition = 'top center';
+  } else {
+    circleImg.src = imgUrl;
+    circleImg.alt = o.nom_tableau;
+    circleImg.style.objectPosition = '65% 12%';
+  }
 
+  /* Badge petit : toujours un crop de l'œuvre */
   const badgeImg = document.getElementById('ba-badge-img');
   badgeImg.src = imgUrl;
   badgeImg.alt = o.nom_tableau;
