@@ -3,13 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentions Légales - Musée FABI</title>
+    <title>Mentions Légales — Musée FABI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/style-mentions.css">
 </head>
 <body>
 <header id="main-header">
   <div class="logo">
-    <a href="./index.html" style="text-decoration:none;">
+    <a href="../index.html" style="text-decoration:none;">
       <img src="../assets/img/logo/logoFABI_White.svg" alt="Logo Musée FABI"
            style="height:100px;vertical-align:middle;border-radius:20px;">
     </a>
@@ -17,15 +21,15 @@
   <div class="logo"><h1>Musée FABI</h1></div>
   <nav>
     <ul>
-      <li><a href="./common/catalogue.html">Catalogue</a></li>
-      <li><a href="./common/contact.html">Contact</a></li>
+      <li><a href="./catalogue.html">Catalogue</a></li>
+      <li><a href="./contact.html">Contact</a></li>
       <li>
-        <a href="./common/connexion.html">
-          <button style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196, 168, 130, 0.55); color:rgba(14, 11, 9, 0.75); border: none; border-radius: 8px; padding: 10px 20px; font-size: 15px; font-weight: 500; cursor: pointer;">
+        <a href="./client.html" class="header-client-link">
+          <button class="header-client-btn" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196, 168, 130, 0.55); color:rgba(14, 11, 9, 0.75); border: none; border-radius: 8px; padding: 10px 20px; font-size: 15px; font-weight: 500; cursor: pointer;">
             <i class="ti ti-login" style="font-size: 18px;" aria-hidden="true"></i>
             Connexion
           </button>
-        </a>  
+        </a>
       </li>
     </ul>
   </nav>
@@ -51,12 +55,12 @@
 
             <p>
                 <strong>Téléphone :</strong><br>
-                +33 6 37 61 15 56
+                +33 04 91 25 13 07
             </p>
 
             <p>
                 <strong>E-mail :</strong><br>
-                <a href="mailto:paco.giovannetti@gmail.com">paco.giovannetti@gmail.com</a>
+                <a href="mailto:contact@museedufabi.fr">contact@museedufabi.fr</a>
             </p>
             </section>
 
@@ -67,7 +71,7 @@
             </p>
             <p>
                 Pour toute question relative au contenu du site, vous pouvez nous contacter à l'adresse :
-                <a href="mailto:paco.giovannetti@gmail.com">paco.giovannetti@gmail.com</a>.
+                <a href="mailto:contact@museedufabi.fr">contact@museedufabi.fr</a>.
             </p>
             </section>
 
@@ -78,9 +82,9 @@
             </p>
 
             <p>
-                <strong>Bonjour</strong><br>
-                bonjour 14 rue bonjour<br>
-                01 02 03 04 05
+                <strong>IUT de Béziers</strong><br>
+                3 Place du 14 Juillet, 34500 Béziers<br>
+                <a href="https://web-mmi2.iutbeziers.fr">web-mmi2.iutbeziers.fr</a>
             </p>
             </section>
 
@@ -131,7 +135,7 @@
 
             <h3>Billetterie</h3>
             <p>
-                <a href="LIEN_LINO" target="_blank">
+                <a href="./espace-client.html">
                     Accéder à la billetterie
                 </a>
             </p>
@@ -146,10 +150,10 @@
             </p>
 
             <p>
-                Téléphone : +33 6 37 61 15 56<br>
+                Téléphone : +33 04 91 25 13 07<br>
                 E-mail :
-                <a href="mailto:paco.giovannetti@gmail.com">
-                    paco.giovannetti@gmail.com
+                <a href="mailto:contact@museedufabi.fr">
+                    contact@museedufabi.fr
                 </a>
             </p>
             </section>
@@ -192,7 +196,7 @@
         <ul class="footer-list">
           <li><span class="footer-label">Mardi - Dimanche</span><span>10h - 18h</span></li>
           <li><span class="footer-label">Lundi</span><span>Fermé</span></li>
-          <li><span class="footer-label">Accès</span><span>Voir la billetterie (METTRE LE LIEN LINO)</span></li>
+          <li><span class="footer-label">Accès</span><span><a href="./espace-client.html" style="color:inherit;">Billetterie en ligne</a></span></li>
         </ul>
       </div>
 
@@ -218,5 +222,7 @@
     </div>
   </div>
 </footer>
+<script src="../script/config.js"></script>
+<script src="../script/header.js"></script>
 </body>
 </html>
