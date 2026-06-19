@@ -24,10 +24,12 @@ if (isset($_SESSION['user_id'])) {
     echo json_encode([
         'logged_in' => true,
         'user' => [
-            'id'     => $_SESSION['user_id'],
-            'nom'    => $_SESSION['user_nom'],
-            'prenom' => $_SESSION['user_prenom'],
-            'role'   => $_SESSION['user_role'] ?? 'visiteur',
+            'id'         => $_SESSION['user_id'],
+            'nom'        => $_SESSION['user_nom'],
+            'prenom'     => $_SESSION['user_prenom'],
+            'email'      => $_SESSION['user_email'] ?? '',
+            'created_at' => $_SESSION['user_created_at'] ?? '',
+            'role'       => $_SESSION['user_role'] ?? 'visiteur',
         ]
     ]);
 } else {

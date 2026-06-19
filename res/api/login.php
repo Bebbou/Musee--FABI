@@ -35,11 +35,12 @@ if (!$user || $mdp !== $user['mot_de_passe']) {
 }
 
 // Stocker l'utilisateur en session
-$_SESSION['user_id']     = $user['id'];
-$_SESSION['user_nom']    = $user['nom'];
-$_SESSION['user_prenom'] = $user['prenom'];
-$_SESSION['user_email']  = $user['email'];
-$_SESSION['user_role']   = $user['role'];
+$_SESSION['user_id']         = $user['id'];
+$_SESSION['user_nom']        = $user['nom'];
+$_SESSION['user_prenom']     = $user['prenom'];
+$_SESSION['user_email']      = $user['email'];
+$_SESSION['user_role']       = $user['role'];
+$_SESSION['user_created_at'] = $user['date_inscription'];
 
 echo json_encode([
     'success' => true,

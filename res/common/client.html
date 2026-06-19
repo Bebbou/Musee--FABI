@@ -82,6 +82,7 @@
     <!-- Dashboard (affiché si connecté) -->
     <div id="user-dashboard" style="display:none">
       <p class="auth-welcome" id="auth-welcome"></p>
+      <a href="./espace-client.html" class="auth-submit" style="display:block; text-align:center; text-decoration:none; margin-bottom:0.75rem;">Accéder à mon compte</a>
       <button class="auth-logout" onclick="submitLogout()">Se déconnecter</button>
     </div>
 
@@ -154,7 +155,11 @@ async function submitLogout() {
 
 function showDashboard(user) {
   localStorage.setItem('fabi_user', JSON.stringify(user));
-  window.location.href = './espace-client.html';
+  document.getElementById('form-login').style.display    = 'none';
+  document.getElementById('form-register').style.display = 'none';
+  document.querySelector('.auth-tabs').style.display     = 'none';
+  document.getElementById('user-dashboard').style.display = '';
+  document.getElementById('auth-welcome').textContent = `Bonjour, ${user.prenom} ${user.nom} !`;
 }
 
 // Vérifie si déjà connecté au chargement → redirige directement
