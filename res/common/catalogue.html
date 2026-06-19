@@ -16,7 +16,7 @@
 <body>
 
 <!-- Lien d'évitement (accessibilité clavier) -->
-<a href="#main-content" class="skip-link">Aller au contenu principal</a>
+<a href="#main-content" class="skip-link" data-i18n="ct_skip">Aller au contenu principal</a>
 
 <!-- ══ HEADER ══ -->
 <header id="main-header">
@@ -29,13 +29,13 @@
   <div class="logo"><h1>Musée FABI</h1></div>
   <nav>
     <ul>
-      <li><a href="./catalogue.html">Catalogue</a></li>
-      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="./catalogue.html" data-i18n="nav_catalogue">Catalogue</a></li>
+      <li><a href="./contact.html" data-i18n="nav_contact">Contact</a></li>
       <li>
         <a href="./client.html" class="header-client-link">
           <button class="header-client-btn" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196, 168, 130, 0.55); color:rgba(14, 11, 9, 0.75); border: none; border-radius: 8px; padding: 10px 20px; font-size: 15px; font-weight: 500; cursor: pointer;">
             <i class="ti ti-login" style="font-size: 18px;" aria-hidden="true"></i>
-            Connexion
+            <span data-i18n="nav_connexion">Connexion</span>
           </button>
         </a>
       </li>
@@ -61,8 +61,8 @@
 
   <!-- BANDE DES ŒUVRES VEDETTES -->
   <div class="ct-strip-header">
-    <p class="ct-strip-eyebrow">Coup de cœur du public</p>
-    <h2 class="ct-strip-title">Les œuvres les plus aimées</h2>
+    <p class="ct-strip-eyebrow" data-i18n="ct_strip_eyebrow">Coup de cœur du public</p>
+    <h2 class="ct-strip-title" data-i18n="ct_strip_title">Les œuvres les plus aimées</h2>
   </div>
   <section class="ct-strip" id="ct-strip" aria-label="Sélection des œuvres vedettes"></section>
 
@@ -75,6 +75,7 @@
       <label for="ct-search" class="sr-only">Rechercher dans le catalogue</label>
       <input id="ct-search" type="search"
              placeholder="Rechercher un artiste, une œuvre, un mouvement…"
+             data-i18n-ph="ct_search_ph"
              autocomplete="off"
              aria-describedby="ct-search-count">
       <span class="ct-search-count"
@@ -92,15 +93,15 @@
               aria-expanded="true"
               aria-controls="ct-mosaic-artistes"
               id="btn-artistes">
-        <span class="ct-cat-title" id="title-artistes">Artistes</span>
+        <span class="ct-cat-title" id="title-artistes" data-i18n="ct_artistes">Artistes</span>
         <span class="ct-cat-line" aria-hidden="true"></span>
         <span class="ct-cat-tri" aria-hidden="true">▼</span>
       </button>
       <div class="ct-sort" data-target="artistes" role="group" aria-label="Trier les artistes">
-        <button class="ct-sort-btn active" data-sort="popularite" aria-pressed="true">Popularité</button>
-        <button class="ct-sort-btn" data-sort="nom-az" aria-pressed="false">Nom A→Z</button>
-        <button class="ct-sort-btn" data-sort="nom-za" aria-pressed="false">Nom Z→A</button>
-        <button class="ct-sort-btn" data-sort="date" aria-pressed="false">Date</button>
+        <button class="ct-sort-btn active" data-sort="popularite" aria-pressed="true" data-i18n="ct_sort_pop">Popularité</button>
+        <button class="ct-sort-btn" data-sort="nom-az" aria-pressed="false" data-i18n="ct_sort_az">Nom A→Z</button>
+        <button class="ct-sort-btn" data-sort="nom-za" aria-pressed="false" data-i18n="ct_sort_za">Nom Z→A</button>
+        <button class="ct-sort-btn" data-sort="date" aria-pressed="false" data-i18n="ct_sort_date">Date</button>
       </div>
     </div>
     <div class="ct-mosaic" id="ct-mosaic-artistes" role="list" aria-label="Liste des artistes"></div>
@@ -113,17 +114,17 @@
               aria-expanded="true"
               aria-controls="ct-mosaic-oeuvres"
               id="btn-oeuvres">
-        <span class="ct-cat-title" id="title-oeuvres">Œuvres</span>
+        <span class="ct-cat-title" id="title-oeuvres" data-i18n="ct_oeuvres">Œuvres</span>
         <span class="ct-cat-line" aria-hidden="true"></span>
         <span class="ct-cat-tri" aria-hidden="true">▼</span>
       </button>
       <div class="ct-sort" data-target="oeuvres" role="group" aria-label="Trier les œuvres">
-        <button class="ct-sort-btn active" data-sort="nom-az" aria-pressed="true">Nom A→Z</button>
-        <button class="ct-sort-btn" data-sort="nom-za" aria-pressed="false">Nom Z→A</button>
-        <button class="ct-sort-btn" data-sort="artiste-az" aria-pressed="false">Artiste A→Z</button>
-        <button class="ct-sort-btn" data-sort="artiste-za" aria-pressed="false">Artiste Z→A</button>
-        <button class="ct-sort-btn" data-sort="date" aria-pressed="false">Date</button>
-        <button class="ct-sort-btn" data-sort="mouvement" aria-pressed="false">Mouvement</button>
+        <button class="ct-sort-btn active" data-sort="nom-az" aria-pressed="true" data-i18n="ct_sort_az">Nom A→Z</button>
+        <button class="ct-sort-btn" data-sort="nom-za" aria-pressed="false" data-i18n="ct_sort_za">Nom Z→A</button>
+        <button class="ct-sort-btn" data-sort="artiste-az" aria-pressed="false" data-i18n="ct_sort_artiste_az">Artiste A→Z</button>
+        <button class="ct-sort-btn" data-sort="artiste-za" aria-pressed="false" data-i18n="ct_sort_artiste_za">Artiste Z→A</button>
+        <button class="ct-sort-btn" data-sort="date" aria-pressed="false" data-i18n="ct_sort_date">Date</button>
+        <button class="ct-sort-btn" data-sort="mouvement" aria-pressed="false" data-i18n="ct_sort_mouvement">Mouvement</button>
       </div>
     </div>
     <div class="ct-mosaic" id="ct-mosaic-oeuvres" role="list" aria-label="Liste des œuvres"></div>
@@ -136,17 +137,17 @@
               aria-expanded="true"
               aria-controls="ct-mosaic-sculptures"
               id="btn-sculptures">
-        <span class="ct-cat-title" id="title-sculptures">Sculptures</span>
+        <span class="ct-cat-title" id="title-sculptures" data-i18n="ct_sculptures">Sculptures</span>
         <span class="ct-cat-line" aria-hidden="true"></span>
         <span class="ct-cat-tri" aria-hidden="true">▼</span>
       </button>
       <div class="ct-sort" data-target="sculptures" role="group" aria-label="Trier les sculptures">
-        <button class="ct-sort-btn active" data-sort="nom-az" aria-pressed="true">Nom A→Z</button>
-        <button class="ct-sort-btn" data-sort="nom-za" aria-pressed="false">Nom Z→A</button>
-        <button class="ct-sort-btn" data-sort="artiste-az" aria-pressed="false">Artiste A→Z</button>
-        <button class="ct-sort-btn" data-sort="artiste-za" aria-pressed="false">Artiste Z→A</button>
-        <button class="ct-sort-btn" data-sort="date" aria-pressed="false">Date</button>
-        <button class="ct-sort-btn" data-sort="mouvement" aria-pressed="false">Mouvement</button>
+        <button class="ct-sort-btn active" data-sort="nom-az" aria-pressed="true" data-i18n="ct_sort_az">Nom A→Z</button>
+        <button class="ct-sort-btn" data-sort="nom-za" aria-pressed="false" data-i18n="ct_sort_za">Nom Z→A</button>
+        <button class="ct-sort-btn" data-sort="artiste-az" aria-pressed="false" data-i18n="ct_sort_artiste_az">Artiste A→Z</button>
+        <button class="ct-sort-btn" data-sort="artiste-za" aria-pressed="false" data-i18n="ct_sort_artiste_za">Artiste Z→A</button>
+        <button class="ct-sort-btn" data-sort="date" aria-pressed="false" data-i18n="ct_sort_date">Date</button>
+        <button class="ct-sort-btn" data-sort="mouvement" aria-pressed="false" data-i18n="ct_sort_mouvement">Mouvement</button>
       </div>
     </div>
     <div class="ct-mosaic" id="ct-mosaic-sculptures" role="list" aria-label="Liste des sculptures"></div>
@@ -164,32 +165,32 @@
     <div class="footer-main">
       <!-- Colonne 1: Info Pratiques -->
       <div class="footer-col">
-        <h4 class="footer-title">Informations</h4>
+        <h4 class="footer-title" data-i18n="footer_info_title">Informations</h4>
         <ul class="footer-list">
-          <li><span class="footer-label">Adresse</span><span>25 Quai de Rive Neuve, 13007 Marseille</span></li>
-          <li><span class="footer-label">Téléphone</span><span>+33 04 91 25 13 07</span></li>
-          <li><span class="footer-label">E-mail</span><span><a href="mailto:contact@museedufabi.fr">contact@museedufabi.fr</a></span></li>
+          <li><span class="footer-label" data-i18n="footer_addr_label">Adresse</span><span>25 Quai de Rive Neuve, 13007 Marseille</span></li>
+          <li><span class="footer-label" data-i18n="footer_phone_label">Téléphone</span><span>+33 04 91 25 13 07</span></li>
+          <li><span class="footer-label" data-i18n="footer_email_label">E-mail</span><span><a href="mailto:contact@museedufabi.fr">contact@museedufabi.fr</a></span></li>
         </ul>
       </div>
 
       <!-- Colonne 2: Horaires -->
       <div class="footer-col">
-        <h4 class="footer-title">Horaires</h4>
+        <h4 class="footer-title" data-i18n="footer_hours_title">Horaires</h4>
         <ul class="footer-list">
-          <li><span class="footer-label">Mardi - Dimanche</span><span>10h - 18h</span></li>
-          <li><span class="footer-label">Lundi</span><span>Fermé</span></li>
-          <li><span class="footer-label">Accès</span><span><a href="./client.html" style="color:inherit">Espace client</a></span></li>
+          <li><span class="footer-label" data-i18n="footer_hours_days">Mardi - Dimanche</span><span>10h - 18h</span></li>
+          <li><span class="footer-label" data-i18n="footer_monday">Lundi</span><span data-i18n="footer_closed">Fermé</span></li>
+          <li><span class="footer-label" data-i18n="footer_access">Accès</span><span><a href="./client.html" style="color:inherit" data-i18n="footer_espace_client">Espace client</a></span></li>
         </ul>
       </div>
 
       <!-- Colonne 3: Navigation -->
       <div class="footer-col">
-        <h4 class="footer-title">Navigation</h4>
+        <h4 class="footer-title" data-i18n="footer_nav_title">Navigation</h4>
         <ul class="footer-list">
-          <li><a href="./catalogue.html">Catalogue</a></li>
-          <li><a href="./contact.html">Contact</a></li>
-          <li><a href="./mentions.html">Mentions Légales</a></li>
-          <li><a href="./privacy.html">Politique de Confidentialité</a></li>
+          <li><a href="./catalogue.html" data-i18n="nav_catalogue">Catalogue</a></li>
+          <li><a href="./contact.html" data-i18n="footer_contact">Contact</a></li>
+          <li><a href="./mentions.html" data-i18n="footer_legal">Mentions Légales</a></li>
+          <li><a href="./privacy.html" data-i18n="footer_privacy">Politique de Confidentialité</a></li>
         </ul>
       </div>
     </div>
@@ -199,13 +200,14 @@
 
     <!-- Copyright -->
     <div class="footer-copyright">
-      <p>&copy; 2026 Musée FABI. Tous droits réservés.</p>
+      <p data-i18n="footer_copyright">&copy; 2026 Musée FABI. Tous droits réservés.</p>
       <p class="footer-credit">Conçu par Lilian et Lino en compagnie d'un petit jaune :3</p>
     </div>
   </div>
 </footer>
 <script src="../script/scriptcata.js"></script>
 <script src="../script/config.js"></script>
+<script src="../script/i18n.js"></script>
 <script src="../script/header.js"></script>
 </body>
 </html>

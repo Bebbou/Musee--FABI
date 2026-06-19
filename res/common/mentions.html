@@ -21,15 +21,15 @@
   <div class="logo"><h1>Musée FABI</h1></div>
   <nav>
     <ul>
-      <li><a href="./catalogue.html">Catalogue</a></li>
-      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="./catalogue.html" data-i18n="nav_catalogue">Catalogue</a></li>
+      <li><a href="./contact.html" data-i18n="nav_contact">Contact</a></li>
       <li>
-        <a href="./connexion.html">
+        <a href="./client.html">
           <button style="display: inline-flex; align-items: center; gap: 8px; background: rgba(196, 168, 130, 0.55); color:rgba(14, 11, 9, 0.75); border: none; border-radius: 8px; padding: 10px 20px; font-size: 15px; font-weight: 500; cursor: pointer;">
             <i class="ti ti-login" style="font-size: 18px;" aria-hidden="true"></i>
-            Connexion
+            <span data-i18n="nav_connexion">Connexion</span>
           </button>
-        </a>  
+        </a>
       </li>
     </ul>
   </nav>
@@ -168,7 +168,7 @@
 
                 <div class="mentions-divider"></div>
 
-                <a href="../index.html" class="back-link">Retour à l'accueil</a>
+                <a href="../index.html" class="back-link" data-i18n="mentions_back">Retour à l'accueil</a>
             </div>
         </div>
     </main>
@@ -182,32 +182,32 @@
     <div class="footer-main">
       <!-- Colonne 1: Info Pratiques -->
       <div class="footer-col">
-        <h4 class="footer-title">Informations</h4>
+        <h4 class="footer-title" data-i18n="footer_info_title">Informations</h4>
         <ul class="footer-list">
-          <li><span class="footer-label">Adresse</span><span>25 Quai de Rive Neuve, 13007 Marseille</span></li>
-          <li><span class="footer-label">Téléphone</span><span>+33 04 91 25 13 07</span></li>
-          <li><span class="footer-label">E-mail</span><span><a href="mailto:contact@museedufabi.fr">contact@museedufabi.fr</a></span></li>
+          <li><span class="footer-label" data-i18n="footer_addr_label">Adresse</span><span>25 Quai de Rive Neuve, 13007 Marseille</span></li>
+          <li><span class="footer-label" data-i18n="footer_phone_label">Téléphone</span><span>+33 04 91 25 13 07</span></li>
+          <li><span class="footer-label" data-i18n="footer_email_label">E-mail</span><span><a href="mailto:contact@museedufabi.fr">contact@museedufabi.fr</a></span></li>
         </ul>
       </div>
 
       <!-- Colonne 2: Horaires -->
       <div class="footer-col">
-        <h4 class="footer-title">Horaires</h4>
+        <h4 class="footer-title" data-i18n="footer_hours_title">Horaires</h4>
         <ul class="footer-list">
-          <li><span class="footer-label">Mardi - Dimanche</span><span>10h - 18h</span></li>
-          <li><span class="footer-label">Lundi</span><span>Fermé</span></li>
-          <li><span class="footer-label">Accès</span><span><a href="./client.html" style="color:inherit">Espace client</a></span></li>
+          <li><span class="footer-label" data-i18n="footer_hours_days">Mardi - Dimanche</span><span>10h - 18h</span></li>
+          <li><span class="footer-label" data-i18n="footer_monday">Lundi</span><span data-i18n="footer_closed">Fermé</span></li>
+          <li><span class="footer-label" data-i18n="footer_access">Accès</span><span><a href="./client.html" style="color:inherit" data-i18n="footer_espace_client">Espace client</a></span></li>
         </ul>
       </div>
 
       <!-- Colonne 3: Navigation -->
       <div class="footer-col">
-        <h4 class="footer-title">Navigation</h4>
+        <h4 class="footer-title" data-i18n="footer_nav_title">Navigation</h4>
         <ul class="footer-list">
-          <li><a href="./catalogue.html">Catalogue</a></li>
-          <li><a href="./contact.html">Contact</a></li>
-          <li><a href="./mentions.html">Mentions Légales</a></li>
-          <li><a href="./privacy.html">Politique de Confidentialité</a></li>
+          <li><a href="./catalogue.html" data-i18n="nav_catalogue">Catalogue</a></li>
+          <li><a href="./contact.html" data-i18n="footer_contact">Contact</a></li>
+          <li><a href="./mentions.html" data-i18n="footer_legal">Mentions Légales</a></li>
+          <li><a href="./privacy.html" data-i18n="footer_privacy">Politique de Confidentialité</a></li>
         </ul>
       </div>
     </div>
@@ -217,12 +217,13 @@
 
     <!-- Copyright -->
     <div class="footer-copyright">
-      <p>&copy; 2026 Musée FABI. Tous droits réservés.</p>
+      <p data-i18n="footer_copyright">&copy; 2026 Musée FABI. Tous droits réservés.</p>
       <p class="footer-credit">Conçu par Lilian et Lino en compagnie d'un petit jaune :3</p>
     </div>
   </div>
 </footer>
 <script src="../script/config.js"></script>
+<script src="../script/i18n.js"></script>
 <script src="../script/header.js"></script>
 </body>
 </html>

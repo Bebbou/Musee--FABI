@@ -23,12 +23,12 @@
   <div class="logo"><h1>Musée FABI</h1></div>
   <nav>
     <ul>
-      <li><a href="./catalogue.html">Catalogue</a></li>
-      <li><a href="./contact.html">Contact</a></li>
+      <li><a href="./catalogue.html" data-i18n="nav_catalogue">Catalogue</a></li>
+      <li><a href="./contact.html" data-i18n="nav_contact">Contact</a></li>
       <li>
         <button class="btn-header-logout" id="btn-header-logout">
           <i class="ti ti-logout" aria-hidden="true"></i>
-          Déconnexion
+          <span data-i18n="nav_logout">Déconnexion</span>
         </button>
       </li>
     </ul>
@@ -97,7 +97,7 @@
   <div class="account-card">
     <div class="account-card-inner">
 
-      <p class="card-eyebrow">Musée FABI · Membres</p>
+      <p class="card-eyebrow" data-i18n="ec_members">Musée FABI · Membres</p>
 
       <div class="card-avatar" id="dash-avatar">A</div>
       <h2 class="card-name" id="dash-name">Prénom Nom</h2>
@@ -113,13 +113,13 @@
         </li>
         <li class="card-info-row">
           <span class="card-info-icon"><i class="ti ti-calendar"></i></span>
-          <span class="card-info-label">Membre depuis</span>
+          <span class="card-info-label" data-i18n="ec_member_since">Membre depuis</span>
           <span class="card-info-value" id="dash-since">—</span>
         </li>
         <li class="card-info-row">
           <span class="card-info-icon"><i class="ti ti-shield-check"></i></span>
-          <span class="card-info-label">Statut</span>
-          <span class="card-info-value card-badge">Membre actif</span>
+          <span class="card-info-label" data-i18n="ec_status_label">Statut</span>
+          <span class="card-info-value card-badge" data-i18n="ec_active">Membre actif</span>
         </li>
       </ul>
 
@@ -127,10 +127,10 @@
 
       <div class="card-actions">
         <a href="../index.html" class="card-btn-secondary">
-          <i class="ti ti-home"></i> Accueil
+          <i class="ti ti-home"></i> <span data-i18n="ec_home">Accueil</span>
         </a>
         <button class="card-btn-primary" id="btn-logout">
-          <i class="ti ti-logout"></i> Déconnexion
+          <i class="ti ti-logout"></i> <span data-i18n="ec_logout">Déconnexion</span>
         </button>
       </div>
 
@@ -143,24 +143,24 @@
 <section class="fav-section" id="mes-oeuvres">
 
   <div class="fav-header">
-    <p class="fav-eyebrow">Collection personnelle</p>
-    <h2 class="fav-title">Mes œuvres notées</h2>
+    <p class="fav-eyebrow" data-i18n="fav_coll">Collection personnelle</p>
+    <h2 class="fav-title" data-i18n="fav_title">Mes œuvres notées</h2>
     <div class="fav-rule"></div>
-    <p class="fav-subtitle">Retrouvez toutes les œuvres que vous avez évaluées</p>
+    <p class="fav-subtitle" data-i18n="fav_subtitle">Retrouvez toutes les œuvres que vous avez évaluées</p>
   </div>
 
   <!-- Barre de recherche + tri -->
   <div class="fav-controls">
     <div class="fav-search-wrap">
       <i class="ti ti-search"></i>
-      <input type="text" id="fav-search" placeholder="Rechercher une œuvre ou un artiste…" autocomplete="off">
+      <input type="text" id="fav-search" placeholder="Rechercher une œuvre ou un artiste…" data-i18n-ph="fav_search_ph" autocomplete="off">
     </div>
     <div class="fav-sort-wrap">
-      <span class="fav-sort-label">Trier par</span>
-      <button class="fav-sort-btn active" data-sort="date">Date</button>
-      <button class="fav-sort-btn" data-sort="note-desc">Note ↓</button>
-      <button class="fav-sort-btn" data-sort="note-asc">Note ↑</button>
-      <button class="fav-sort-btn" data-sort="alpha">A–Z</button>
+      <span class="fav-sort-label" data-i18n="fav_sort_by">Trier par</span>
+      <button class="fav-sort-btn active" data-sort="date" data-i18n="fav_sort_date">Date</button>
+      <button class="fav-sort-btn" data-sort="note-desc" data-i18n="fav_sort_nd">Note ↓</button>
+      <button class="fav-sort-btn" data-sort="note-asc" data-i18n="fav_sort_na">Note ↑</button>
+      <button class="fav-sort-btn" data-sort="alpha" data-i18n="fav_sort_alpha">A–Z</button>
     </div>
   </div>
 
@@ -175,8 +175,8 @@
 
   <p class="fav-empty" id="fav-empty" style="display:none">
     <i class="ti ti-star-off"></i>
-    Vous n'avez pas encore noté d'œuvres.<br>
-    <a href="./catalogue.html">Parcourir le catalogue</a>
+    <span data-i18n="fav_empty">Vous n'avez pas encore noté d'œuvres.</span><br>
+    <a href="./catalogue.html" data-i18n="fav_browse">Parcourir le catalogue</a>
   </p>
 
 </section>
@@ -188,37 +188,37 @@
   <div class="resa-blur-backdrop"></div>
 
   <div class="resa-header">
-    <p class="resa-eyebrow">Billetterie en ligne</p>
-    <h2 class="resa-title">Réserver une visite</h2>
+    <p class="resa-eyebrow" data-i18n="resa_eyebrow">Billetterie en ligne</p>
+    <h2 class="resa-title" data-i18n="resa_title">Réserver une visite</h2>
     <div class="resa-rule"></div>
-    <p class="resa-subtitle">Planifiez votre venue au Musée FABI en quelques étapes</p>
+    <p class="resa-subtitle" data-i18n="resa_subtitle">Planifiez votre venue au Musée FABI en quelques étapes</p>
   </div>
 
   <!-- Barre de progression -->
   <div class="resa-stepper" id="resa-stepper">
     <div class="resa-step-item active" data-step="1">
       <div class="step-bubble">1</div>
-      <span class="step-label">Visiteurs</span>
+      <span class="step-label" data-i18n="resa_step1">Visiteurs</span>
     </div>
     <div class="resa-step-line"></div>
     <div class="resa-step-item" data-step="2">
       <div class="step-bubble">2</div>
-      <span class="step-label">Type</span>
+      <span class="step-label" data-i18n="resa_step2">Type</span>
     </div>
     <div class="resa-step-line"></div>
     <div class="resa-step-item" data-step="3">
       <div class="step-bubble">3</div>
-      <span class="step-label">Options</span>
+      <span class="step-label" data-i18n="resa_step3">Options</span>
     </div>
     <div class="resa-step-line"></div>
     <div class="resa-step-item" data-step="4">
       <div class="step-bubble">4</div>
-      <span class="step-label">Date</span>
+      <span class="step-label" data-i18n="resa_step4">Date</span>
     </div>
     <div class="resa-step-line"></div>
     <div class="resa-step-item" data-step="5">
       <div class="step-bubble">5</div>
-      <span class="step-label">Récap</span>
+      <span class="step-label" data-i18n="resa_step5">Récap</span>
     </div>
   </div>
 
@@ -227,15 +227,15 @@
 
     <!-- ── ÉTAPE 1 : VISITEURS ── -->
     <div class="resa-panel active" id="resa-panel-1">
-      <h3 class="resa-panel-title">Composition du groupe</h3>
-      <p class="resa-panel-sub">Sélectionnez le nombre de visiteurs par catégorie</p>
+      <h3 class="resa-panel-title" data-i18n="resa_p1_title">Composition du groupe</h3>
+      <p class="resa-panel-sub" data-i18n="resa_p1_sub">Sélectionnez le nombre de visiteurs par catégorie</p>
 
       <div class="resa-visitors">
 
         <div class="visitor-row">
           <div class="visitor-info">
-            <span class="visitor-cat">Plein tarif</span>
-            <span class="visitor-desc">Adultes</span>
+            <span class="visitor-cat" data-i18n="resa_plein">Plein tarif</span>
+            <span class="visitor-desc" data-i18n="resa_plein_desc">Adultes</span>
           </div>
           <div class="visitor-price">12 €</div>
           <div class="visitor-counter">
@@ -247,8 +247,8 @@
 
         <div class="visitor-row">
           <div class="visitor-info">
-            <span class="visitor-cat">Étudiant</span>
-            <span class="visitor-desc">18–25 ans · carte étudiante obligatoire</span>
+            <span class="visitor-cat" data-i18n="resa_etudiant">Étudiant</span>
+            <span class="visitor-desc" data-i18n="resa_etudiant_desc">18–25 ans · carte étudiante obligatoire</span>
           </div>
           <div class="visitor-price">8 €</div>
           <div class="visitor-counter">
@@ -260,8 +260,8 @@
 
         <div class="visitor-row">
           <div class="visitor-info">
-            <span class="visitor-cat">Sénior</span>
-            <span class="visitor-desc">+ 65 ans</span>
+            <span class="visitor-cat" data-i18n="resa_senior">Sénior</span>
+            <span class="visitor-desc" data-i18n="resa_senior_desc">+ 65 ans</span>
           </div>
           <div class="visitor-price">9 €</div>
           <div class="visitor-counter">
@@ -273,8 +273,8 @@
 
         <div class="visitor-row">
           <div class="visitor-info">
-            <span class="visitor-cat">Enfant</span>
-            <span class="visitor-desc">6–17 ans</span>
+            <span class="visitor-cat" data-i18n="resa_enfant">Enfant</span>
+            <span class="visitor-desc" data-i18n="resa_enfant_desc">6–17 ans</span>
           </div>
           <div class="visitor-price">6 €</div>
           <div class="visitor-counter">
@@ -286,8 +286,8 @@
 
         <div class="visitor-row">
           <div class="visitor-info">
-            <span class="visitor-cat">Gratuit</span>
-            <span class="visitor-desc">− 6 ans · handicap · accompagnateur</span>
+            <span class="visitor-cat" data-i18n="resa_gratuit">Gratuit</span>
+            <span class="visitor-desc" data-i18n="resa_gratuit_desc">− 6 ans · handicap · accompagnateur</span>
           </div>
           <div class="visitor-price">0 €</div>
           <div class="visitor-counter">
@@ -300,8 +300,8 @@
       </div>
 
       <div class="resa-live-bar">
-        <span class="live-total-label">Total visiteurs : <strong id="live-total-visitors">0</strong></span>
-        <span class="live-price-label">Estimation : <strong id="live-price-base">0 €</strong></span>
+        <span class="live-total-label"><span data-i18n="resa_total_vis">Total visiteurs :</span> <strong id="live-total-visitors">0</strong></span>
+        <span class="live-price-label"><span data-i18n="resa_estim">Estimation :</span> <strong id="live-price-base">0 €</strong></span>
       </div>
 
       <div class="resa-nav">
@@ -312,8 +312,8 @@
 
     <!-- ── ÉTAPE 2 : TYPE DE VISITE ── -->
     <div class="resa-panel" id="resa-panel-2">
-      <h3 class="resa-panel-title">Type de visite</h3>
-      <p class="resa-panel-sub">Choisissez la formule qui vous convient</p>
+      <h3 class="resa-panel-title" data-i18n="resa_p2_title">Type de visite</h3>
+      <p class="resa-panel-sub" data-i18n="resa_p2_sub">Choisissez la formule qui vous convient</p>
 
       <div class="visit-type-grid">
 
@@ -321,9 +321,9 @@
           <input type="radio" name="visit-type" value="libre">
           <div class="vtc-icon"><i class="ti ti-walk"></i></div>
           <div class="vtc-body">
-            <span class="vtc-name">Visite libre</span>
-            <span class="vtc-desc">Explorez le musée à votre rythme, sans guide</span>
-            <span class="vtc-extra">Tarif de base</span>
+            <span class="vtc-name" data-i18n="resa_libre">Visite libre</span>
+            <span class="vtc-desc" data-i18n="resa_libre_desc">Explorez le musée à votre rythme, sans guide</span>
+            <span class="vtc-extra" data-i18n="resa_libre_extra">Tarif de base</span>
           </div>
           <div class="vtc-check"><i class="ti ti-circle-check-filled"></i></div>
         </label>
@@ -332,9 +332,9 @@
           <input type="radio" name="visit-type" value="guidee">
           <div class="vtc-icon"><i class="ti ti-users"></i></div>
           <div class="vtc-body">
-            <span class="vtc-name">Visite guidée</span>
-            <span class="vtc-desc">Un guide partage son expertise avec plusieurs groupes. Durée : 3 à 4 h</span>
-            <span class="vtc-extra">+ 3 € / personne</span>
+            <span class="vtc-name" data-i18n="resa_guidee">Visite guidée</span>
+            <span class="vtc-desc" data-i18n="resa_guidee_desc">Un guide partage son expertise avec plusieurs groupes. Durée : 3 à 4 h</span>
+            <span class="vtc-extra" data-i18n="resa_guidee_extra">+ 3 € / personne</span>
           </div>
           <div class="vtc-check"><i class="ti ti-circle-check-filled"></i></div>
         </label>
@@ -343,9 +343,9 @@
           <input type="radio" name="visit-type" value="privee">
           <div class="vtc-icon"><i class="ti ti-user-star"></i></div>
           <div class="vtc-body">
-            <span class="vtc-name">Visite guidée privée</span>
-            <span class="vtc-desc">Un guide exclusif dédié uniquement à votre groupe. Durée : 3 à 4 h</span>
-            <span class="vtc-extra">+ 10 € / personne</span>
+            <span class="vtc-name" data-i18n="resa_privee">Visite guidée privée</span>
+            <span class="vtc-desc" data-i18n="resa_privee_desc">Un guide exclusif dédié uniquement à votre groupe. Durée : 3 à 4 h</span>
+            <span class="vtc-extra" data-i18n="resa_privee_extra">+ 10 € / personne</span>
           </div>
           <div class="vtc-check"><i class="ti ti-circle-check-filled"></i></div>
         </label>
@@ -360,14 +360,14 @@
 
     <!-- ── ÉTAPE 3 : OPTIONS ── -->
     <div class="resa-panel" id="resa-panel-3">
-      <h3 class="resa-panel-title">Options de visite</h3>
-      <p class="resa-panel-sub" id="step3-sub">Personnalisez votre expérience</p>
+      <h3 class="resa-panel-title" data-i18n="resa_p3_title">Options de visite</h3>
+      <p class="resa-panel-sub" id="step3-sub" data-i18n="resa_p3_sub">Personnalisez votre expérience</p>
 
       <!-- Options guidée/privée -->
       <div id="guided-options">
 
         <div class="option-block">
-          <label class="option-label">Langue du guide</label>
+          <label class="option-label" data-i18n="resa_lang_label">Langue du guide</label>
           <div class="lang-grid">
             <label class="lang-chip">
               <input type="radio" name="lang" value="fr" checked>
@@ -393,8 +393,8 @@
         </div>
 
         <div class="option-block">
-          <label class="option-label">Œuvres incontournables <span class="option-hint">(2 au maximum)</span></label>
-          <p class="option-sub">Signalez au guide les œuvres que vous souhaitez absolument voir</p>
+          <label class="option-label"><span data-i18n="resa_artworks_label">Œuvres incontournables</span> <span class="option-hint" data-i18n="resa_artworks_hint">(2 au maximum)</span></label>
+          <p class="option-sub" data-i18n="resa_artworks_sub">Signalez au guide les œuvres que vous souhaitez absolument voir</p>
           <div class="artwork-search-wrap">
             <div class="artwork-search-field">
               <i class="ti ti-search"></i>
@@ -441,8 +441,8 @@
 
     <!-- ── ÉTAPE 4 : DATE ── -->
     <div class="resa-panel" id="resa-panel-4">
-      <h3 class="resa-panel-title">Choisir une date</h3>
-      <p class="resa-panel-sub">Le musée est ouvert du mardi au dimanche, de 10 h à 18 h</p>
+      <h3 class="resa-panel-title" data-i18n="resa_p4_title">Choisir une date</h3>
+      <p class="resa-panel-sub" data-i18n="resa_p4_sub">Le musée est ouvert du mardi au dimanche, de 10 h à 18 h</p>
 
       <div class="calendar-wrap">
         <!-- Navigation mois/année -->
@@ -461,7 +461,7 @@
         <!-- Grille des jours -->
         <div class="cal-grid" id="cal-grid"></div>
 
-        <p class="cal-selected-label">Date sélectionnée : <strong id="cal-selected-display">—</strong></p>
+        <p class="cal-selected-label"><span data-i18n="resa_cal_sel">Date sélectionnée :</span> <strong id="cal-selected-display">—</strong></p>
       </div>
 
       <div class="resa-nav">
@@ -472,43 +472,43 @@
 
     <!-- ── ÉTAPE 5 : RÉCAPITULATIF ── -->
     <div class="resa-panel" id="resa-panel-5">
-      <h3 class="resa-panel-title">Récapitulatif</h3>
-      <p class="resa-panel-sub">Vérifiez votre réservation avant de confirmer</p>
+      <h3 class="resa-panel-title" data-i18n="resa_p5_title">Récapitulatif</h3>
+      <p class="resa-panel-sub" data-i18n="resa_p5_sub">Vérifiez votre réservation avant de confirmer</p>
 
       <div class="recap-block">
         <div class="recap-row">
-          <span class="recap-label"><i class="ti ti-user"></i> Réservation pour</span>
+          <span class="recap-label"><i class="ti ti-user"></i> <span data-i18n="recap_for">Réservation pour</span></span>
           <span class="recap-val" id="recap-name">—</span>
         </div>
         <div class="recap-divider"></div>
         <div class="recap-row">
-          <span class="recap-label"><i class="ti ti-calendar"></i> Date</span>
+          <span class="recap-label"><i class="ti ti-calendar"></i> <span data-i18n="recap_date">Date</span></span>
           <span class="recap-val" id="recap-date">—</span>
         </div>
         <div id="recap-creneau-row" class="recap-row">
-          <span class="recap-label"><i class="ti ti-clock"></i> Créneau</span>
+          <span class="recap-label"><i class="ti ti-clock"></i> <span data-i18n="recap_creneau">Créneau</span></span>
           <span class="recap-val" id="recap-creneau">—</span>
         </div>
         <div class="recap-row">
-          <span class="recap-label"><i class="ti ti-map"></i> Type de visite</span>
+          <span class="recap-label"><i class="ti ti-map"></i> <span data-i18n="recap_type">Type de visite</span></span>
           <span class="recap-val" id="recap-type">—</span>
         </div>
         <div id="recap-lang-row" class="recap-row">
-          <span class="recap-label"><i class="ti ti-language"></i> Langue</span>
+          <span class="recap-label"><i class="ti ti-language"></i> <span data-i18n="recap_lang">Langue</span></span>
           <span class="recap-val" id="recap-lang">—</span>
         </div>
         <div id="recap-artworks-row" class="recap-row">
-          <span class="recap-label"><i class="ti ti-palette"></i> Œuvres souhaitées</span>
+          <span class="recap-label"><i class="ti ti-palette"></i> <span data-i18n="recap_artworks">Œuvres souhaitées</span></span>
           <span class="recap-val" id="recap-artworks">—</span>
         </div>
         <div class="recap-divider"></div>
         <div class="recap-visitors-detail" id="recap-visitors-detail"></div>
         <div class="recap-divider"></div>
         <div class="recap-row recap-total-row">
-          <span class="recap-total-label">Total estimé</span>
+          <span class="recap-total-label" data-i18n="recap_total">Total estimé</span>
           <span class="recap-total-price" id="recap-total-price">0 €</span>
         </div>
-        <p class="recap-note"><i class="ti ti-info-circle"></i> Le paiement s'effectue à l'accueil le jour de votre visite. Cette réservation est gratuite et sans engagement.</p>
+        <p class="recap-note" data-i18n="recap_note"><i class="ti ti-info-circle"></i> Le paiement s'effectue à l'accueil le jour de votre visite. Cette réservation est gratuite et sans engagement.</p>
       </div>
 
       <div class="resa-nav">
@@ -523,8 +523,8 @@
     <div class="resa-panel" id="resa-panel-confirm">
       <div class="confirm-body">
         <div class="confirm-icon"><i class="ti ti-circle-check"></i></div>
-        <h3 class="confirm-title">Réservation confirmée !</h3>
-        <p class="confirm-msg">
+        <h3 class="confirm-title" data-i18n="confirm_title">Réservation confirmée !</h3>
+        <p class="confirm-msg" data-i18n="confirm_msg">
           Votre récapitulatif a été envoyé par email.<br>
           <strong>Présentez-le à l'entrée du musée</strong> pour accéder à votre visite.
         </p>
@@ -556,39 +556,40 @@
     <div class="footer-separator"></div>
     <div class="footer-main">
       <div class="footer-col">
-        <h4 class="footer-title">Informations</h4>
+        <h4 class="footer-title" data-i18n="footer_info_title">Informations</h4>
         <ul class="footer-list">
-          <li><span class="footer-label">Adresse</span><span>25 Quai de Rive Neuve, 13007 Marseille</span></li>
-          <li><span class="footer-label">Téléphone</span><span>+33 04 91 25 13 07</span></li>
-          <li><span class="footer-label">E-mail</span><span><a href="mailto:contact@museedufabi.fr">contact@museedufabi.fr</a></span></li>
+          <li><span class="footer-label" data-i18n="footer_addr_label">Adresse</span><span>25 Quai de Rive Neuve, 13007 Marseille</span></li>
+          <li><span class="footer-label" data-i18n="footer_phone_label">Téléphone</span><span>+33 04 91 25 13 07</span></li>
+          <li><span class="footer-label" data-i18n="footer_email_label">E-mail</span><span><a href="mailto:contact@museedufabi.fr">contact@museedufabi.fr</a></span></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4 class="footer-title">Horaires</h4>
+        <h4 class="footer-title" data-i18n="footer_hours_title">Horaires</h4>
         <ul class="footer-list">
-          <li><span class="footer-label">Mardi - Dimanche</span><span>10h - 18h</span></li>
-          <li><span class="footer-label">Lundi</span><span>Fermé</span></li>
+          <li><span class="footer-label" data-i18n="footer_hours_days">Mardi - Dimanche</span><span>10h - 18h</span></li>
+          <li><span class="footer-label" data-i18n="footer_monday">Lundi</span><span data-i18n="footer_closed">Fermé</span></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4 class="footer-title">Navigation</h4>
+        <h4 class="footer-title" data-i18n="footer_nav_title">Navigation</h4>
         <ul class="footer-list">
-          <li><a href="./catalogue.html">Catalogue</a></li>
-          <li><a href="./contact.html">Contact</a></li>
-          <li><a href="./mentions.html">Mentions Légales</a></li>
-          <li><a href="./privacy.html">Politique de Confidentialité</a></li>
+          <li><a href="./catalogue.html" data-i18n="nav_catalogue">Catalogue</a></li>
+          <li><a href="./contact.html" data-i18n="footer_contact">Contact</a></li>
+          <li><a href="./mentions.html" data-i18n="footer_legal">Mentions Légales</a></li>
+          <li><a href="./privacy.html" data-i18n="footer_privacy">Politique de Confidentialité</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-separator"></div>
     <div class="footer-copyright">
-      <p>&copy; 2026 Musée FABI. Tous droits réservés.</p>
+      <p data-i18n="footer_copyright">&copy; 2026 Musée FABI. Tous droits réservés.</p>
       <p class="footer-credit">Conçu par Lilian et Lino en compagnie d'un petit jaune :3</p>
     </div>
   </div>
 </footer>
 
 <script src="../script/config.js"></script>
+<script src="../script/i18n.js"></script>
 <script src="../script/header.js"></script>
 <script src="../script/espace-client.js"></script>
 <script src="../script/favoris.js"></script>
