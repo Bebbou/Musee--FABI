@@ -589,32 +589,74 @@ const ROOM_PAINTINGS = [
 ];
 
 function makeArtwork(painting) {
-  const W = 1.25, H = 0.95;
-  const mat = new THREE.MeshLambertMaterial({ color: 0x1a1410 });
-  const plane = new THREE.Mesh(new THREE.PlaneGeometry(W, H), mat);
+  // Boîte max dans laquelle on inscrit le tableau en conservant le ratio
+  const MAX_W = 1.5, MAX_H = 1.15, FT = 0.06;
+
+  const mat   = new THREE.MeshLambertMaterial({ color: 0x1a1410 });
+  const plane = new THREE.Mesh(new THREE.PlaneGeometry(MAX_W, MAX_H), mat);
+
+  const fg = new THREE.Group();
+  fg.add(plane);
+
+  // 4 baguettes de cadre (top, bottom, left, right) — repositionnées après chargement
+  const frames = [0,1,2,3].map(() => {
+    const f = new THREE.Mesh(new THREE.BoxGeometry(0.1,0.1,0.04), MAT.frame);
+    f.position.z = 0.018;
+    fg.add(f);
+    return f;
+  });
+
+  const plaqueMat = new THREE.MeshLambertMaterial({ color: 0xb89038 });
+  const plaque = new THREE.Mesh(new THREE.BoxGeometry(MAX_W * 0.55, 0.08, 0.018), plaqueMat);
+  plaque.position.z = 0.018;
+  fg.add(plaque);
+
+  function applySize(W, H) {
+    // Plan
+    plane.geometry.dispose();
+    plane.geometry = new THREE.PlaneGeometry(W, H);
+
+    // Baguettes : haut, bas, gauche, droite
+    const specs = [
+      [W + FT*2, FT,  0,           H/2 + FT/2],
+      [W + FT*2, FT,  0,          -H/2 - FT/2],
+      [FT, H + FT*2, -W/2 - FT/2,  0         ],
+      [FT, H + FT*2,  W/2 + FT/2,  0         ],
+    ];
+    specs.forEach(([bw, bh, px, py], i) => {
+      frames[i].geometry.dispose();
+      frames[i].geometry = new THREE.BoxGeometry(bw, bh, 0.04);
+      frames[i].position.set(px, py, 0.018);
+    });
+
+    // Plaque dorée sous le cadre
+    plaque.geometry.dispose();
+    plaque.geometry = new THREE.BoxGeometry(W * 0.55, 0.08, 0.018);
+    plaque.position.set(0, -H/2 - FT - 0.06, 0.018);
+  }
+
+  // Taille initiale placeholder
+  applySize(MAX_W, MAX_H * 0.8);
 
   new THREE.TextureLoader().load(
     `../img/peintures/${painting.id}.webp`,
     tex => {
       tex.generateMipmaps = false;
       tex.minFilter = THREE.LinearFilter;
+
+      // Calcul du ratio réel et ajustement dans la boîte max
+      const ratio = tex.image.width / tex.image.height;
+      let W, H;
+      if (ratio >= MAX_W / MAX_H) { W = MAX_W; H = MAX_W / ratio; }
+      else                         { H = MAX_H; W = MAX_H * ratio; }
+
+      applySize(W, H);
+
       mat.map = tex;
       mat.color.set(0xffffff);
       mat.needsUpdate = true;
     }
   );
-
-  const fg = new THREE.Group();
-  fg.add(plane);
-
-  [[0,H/2+0.035,W+0.12,0.065],[0,-H/2-0.035,W+0.12,0.065],
-   [-W/2-0.035,0,0.065,H+0.13],[W/2+0.035,0,0.065,H+0.13]].forEach(([x,y,bw,bh]) => {
-    const f = new THREE.Mesh(new THREE.BoxGeometry(bw,bh,0.04), MAT.frame);
-    f.position.set(x,y,0.018); fg.add(f);
-  });
-  const pl = new THREE.Mesh(new THREE.BoxGeometry(W*0.55,0.085,0.018),
-    new THREE.MeshLambertMaterial({ color: 0xb89038 }));
-  pl.position.set(0,-H/2-0.12,0.018); fg.add(pl);
 
   fg._label = { title: painting.title, author: painting.author };
   return fg;
