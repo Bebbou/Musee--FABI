@@ -50,6 +50,97 @@
       padding: 18px 36px; border-radius: 8px; font-size: 15px;
       letter-spacing: 1px; pointer-events: none; transition: opacity 0.3s;
     }
+
+    /* ── Pause overlay ── */
+    #pause-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 100;
+      background: rgba(10,7,3,0.82);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+    #pause-overlay.visible { display: flex; }
+    #pause-header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+      border-bottom: 1px solid rgba(200,170,100,0.2);
+      position: absolute;
+      top: 0;
+    }
+    #pause-logo {
+      display: flex; align-items: center; gap: 14px;
+      text-decoration: none;
+    }
+    #pause-logo span {
+      font-family: Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      color: #e8d5a3;
+      text-transform: uppercase;
+    }
+    #pause-nav { display: flex; align-items: center; gap: 6px; }
+    .pause-nav-link {
+      color: rgba(232,213,163,0.65);
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border-radius: 4px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .pause-nav-link:hover { color: #e8d5a3; background: rgba(200,170,100,0.1); }
+    .pause-nav-link.accent {
+      background: rgba(193,68,14,0.85);
+      color: #fff;
+      border-radius: 4px;
+    }
+    .pause-nav-link.accent:hover { background: rgba(193,68,14,1); }
+    #pause-body {
+      text-align: center;
+    }
+    #pause-body p {
+      font-family: Georgia, serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(232,213,163,0.45);
+      margin: 0 0 10px;
+    }
+    #pause-body h2 {
+      font-family: Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: #e8d5a3;
+      margin: 0 0 6px;
+    }
+    #pause-resume {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 32px;
+      background: rgba(200,170,100,0.12);
+      border: 1px solid rgba(200,170,100,0.3);
+      color: #e8d5a3;
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 11px 28px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    #pause-resume:hover { background: rgba(200,170,100,0.22); border-color: rgba(200,170,100,0.55); }
   </style>
 </head>
 <body>
@@ -59,6 +150,26 @@
 <canvas id="minimap" width="150" height="150"></canvas>
 <div id="info">ZQSD/WASD — déplacement<br>Shift — sprint<br>Clic — capturer</div>
 <div id="click-msg">Cliquer pour explorer le musée</div>
+
+<!-- Pause overlay (Échap / pointer lock libéré) -->
+<div id="pause-overlay" class="visible">
+  <header id="pause-header">
+    <a id="pause-logo" href="../../index.html">
+      <span>Musée FABI</span>
+    </a>
+    <nav id="pause-nav">
+      <a class="pause-nav-link" href="../../common/catalogue.html">Catalogue</a>
+      <a class="pause-nav-link" href="../../common/contact.html">Contact</a>
+      <a class="pause-nav-link" href="../../common/don.html">Faire un don</a>
+      <a class="pause-nav-link accent" href="../../common/client.html">Mon espace</a>
+    </nav>
+  </header>
+  <div id="pause-body">
+    <p>Visite virtuelle</p>
+    <h2>Musée FABI</h2>
+    <button id="pause-resume">▶&nbsp;&nbsp;Reprendre la visite</button>
+  </div>
+</div>
 
 <script type="importmap">
 { "imports": {
@@ -925,11 +1036,27 @@ registerLazy(
 // ─── Controls ─────────────────────────────────────────────────────────────────
 const euler = new THREE.Euler(0, 0, 0, 'YXZ');
 let locked = false;
-const clickMsg = document.getElementById('click-msg');
-renderer.domElement.addEventListener('click', () => renderer.domElement.requestPointerLock());
+const clickMsg    = document.getElementById('click-msg');
+const pauseOverlay = document.getElementById('pause-overlay');
+const pauseResume  = document.getElementById('pause-resume');
+
+function enterVisite() { renderer.domElement.requestPointerLock(); }
+function showPause()   { pauseOverlay.classList.add('visible');    clickMsg.style.opacity = '0'; }
+function hidePause()   { pauseOverlay.classList.remove('visible'); }
+
+renderer.domElement.addEventListener('click', () => {
+  if (!pauseOverlay.classList.contains('visible')) enterVisite();
+});
+pauseOverlay.addEventListener('click', e => {
+  if (e.target === pauseOverlay || e.target === document.getElementById('pause-body'))
+    enterVisite();
+});
+pauseResume.addEventListener('click', enterVisite);
+
 document.addEventListener('pointerlockchange', () => {
   locked = document.pointerLockElement === renderer.domElement;
-  clickMsg.style.opacity = locked ? '0' : '1';
+  if (locked) { hidePause(); }
+  else        { showPause(); }
 });
 document.addEventListener('mousemove', e => {
   if (!locked) return;
