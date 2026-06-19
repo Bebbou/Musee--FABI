@@ -139,7 +139,10 @@ async function submitRegister(e) {
   try {
     const r = await fetch(API + '/register.php', { method:'POST', credentials:'include', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
     const d = await r.json();
-    if (d.success) { showDashboard(d.user); }
+    if (d.success) {
+      msg.textContent = 'Compte créé ! Connectez-vous maintenant.'; msg.className = 'auth-msg ok';
+      setTimeout(() => switchTab('login'), 1500);
+    }
     else { msg.textContent = d.message || 'Erreur lors de l\'inscription.'; msg.className = 'auth-msg err'; }
   } catch(_) { msg.textContent = 'Serveur inaccessible.'; msg.className = 'auth-msg err'; }
 }

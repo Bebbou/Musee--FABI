@@ -194,24 +194,37 @@ Musée FABI · 25 Quai de Rive Neuve, 13007 Marseille
 Mardi – Dimanche · 10h – 18h
 TXT;
 
-/* ── Envoi ── */
-$subject = "=?UTF-8?B?" . base64_encode("Musée FABI — Réservation {$ref}") . "?=";
-$headers  = "From: Musée FABI <noreply@museedufabi.fr>\r\n";
-$headers .= "Reply-To: contact@museedufabi.fr\r\n";
-$headers .= "MIME-Version: 1.0\r\n";
-$boundary = md5(uniqid());
-$headers .= "Content-Type: multipart/alternative; boundary=\"{$boundary}\"\r\n";
+/* ── Envoi via PHPMailer + Gmail SMTP ── */
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-$body  = "--{$boundary}\r\n";
-$body .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$body .= "Content-Transfer-Encoding: base64\r\n\r\n";
-$body .= chunk_split(base64_encode($txt)) . "\r\n";
-$body .= "--{$boundary}\r\n";
-$body .= "Content-Type: text/html; charset=UTF-8\r\n";
-$body .= "Content-Transfer-Encoding: base64\r\n\r\n";
-$body .= chunk_split(base64_encode($html)) . "\r\n";
-$body .= "--{$boundary}--";
+require __DIR__ . '/PHPMailer/Exception.php';
+require __DIR__ . '/PHPMailer/PHPMailer.php';
+require __DIR__ . '/PHPMailer/SMTP.php';
 
-$sent = mail($email, $subject, $body, $headers);
+$mail = new PHPMailer(true);
+try {
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'museefabi@gmail.com';
+    $mail->Password   = 'nvlk zjxc qklw edvf';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = 587;
+    $mail->CharSet    = 'UTF-8';
 
-echo json_encode(['success' => $sent]);
+    $mail->setFrom('museefabi@gmail.com', 'Musée FABI');
+    $mail->addReplyTo('museefabi@gmail.com', 'Musée FABI');
+    $mail->addAddress($email, $nom);
+
+    $mail->Subject = "Musée FABI — Réservation {$ref}";
+    $mail->isHTML(true);
+    $mail->Body    = $html;
+    $mail->AltBody = $txt;
+
+    $mail->send();
+    echo json_encode(['success' => true]);
+} catch (Exception $e) {
+    echo json_encode(['success' => false, 'message' => $mail->ErrorInfo]);
+}
