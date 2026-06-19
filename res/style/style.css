@@ -979,6 +979,9 @@ nav ul li a:hover::after {
   margin-right: auto;
 }
 .collection-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
   position: relative;
   overflow: hidden;
   background: var(--black);
