@@ -1,5 +1,8 @@
 /* script-sculpture.js — charge la sculpture par ?id= et peuple le template */
 
+/* Base URL dynamique : '' en local, '/~user/Musee--FABI' sur webmmi */
+const base = location.pathname.replace(/\/res\/.*$/, '');
+
 (async function () {
   const params = new URLSearchParams(location.search);
   const idParam = parseInt(params.get('id'), 10);
@@ -7,8 +10,8 @@
   let sculptures;
   try {
     /* Essaie d'abord la BDD MySQL via PHP, sinon le JSON statique */
-    let res = await fetch('/res/api/sculptures_bdd.php');
-    if (!res.ok) res = await fetch('/res/database/bdd_sculpture.json');
+    let res = await fetch(base + '/res/api/sculptures_bdd.php');
+    if (!res.ok) res = await fetch(base + '/res/database/bdd_sculpture.json');
     sculptures = (await res.json()).sculptures;
   } catch (e) {
     console.error('Impossible de charger les sculptures', e);
@@ -34,7 +37,7 @@ function populate(s) {
   /* Viewer 3D */
   const model = document.getElementById('sc-model');
   if (s.modele_3d?.disponible && s.modele_3d.chemin) {
-    model.setAttribute('src', '/' + s.modele_3d.chemin);
+    model.setAttribute('src', base + '/' + s.modele_3d.chemin);
     model.setAttribute('alt', `${s.nom_sculpture}, ${s.materiau}, ${s.date}`);
   } else {
     /* Pas de modèle : on cache le viewer et on affiche un message */
