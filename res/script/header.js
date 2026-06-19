@@ -12,7 +12,9 @@
   const btn  = document.querySelector('.header-client-btn');
   if (!link || !btn) return;
 
-  link.href = BASE + '/res/common/client.html';
+  link.href = session.logged_in
+    ? BASE + '/res/common/espace-client.html'
+    : BASE + '/res/common/client.html';
 
   if (session.logged_in) {
     const u = session.user;

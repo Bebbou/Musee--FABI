@@ -153,14 +153,11 @@ async function submitLogout() {
 }
 
 function showDashboard(user) {
-  document.getElementById('form-login').style.display    = 'none';
-  document.getElementById('form-register').style.display = 'none';
-  document.querySelector('.auth-tabs').style.display     = 'none';
-  document.getElementById('user-dashboard').style.display = '';
-  document.getElementById('auth-welcome').textContent = `Bonjour, ${user.prenom} ${user.nom} !`;
+  localStorage.setItem('fabi_user', JSON.stringify(user));
+  window.location.href = './espace-client.html';
 }
 
-// Vérifie si déjà connecté au chargement
+// Vérifie si déjà connecté au chargement → redirige directement
 (async function() {
   try {
     const r = await fetch(API + '/session.php', { credentials:'include' });

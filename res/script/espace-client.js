@@ -32,34 +32,12 @@ function loadPaintings() {
   });
 }
 
-/* Charger les infos utilisateur depuis localStorage (rempli par client.js à la connexion) */
-function loadUserInfo() {
-  let user = null;
-  try {
-    const raw = localStorage.getItem('fabi_user');
-    if (raw) user = JSON.parse(raw);
-  } catch { /* rien */ }
-
-  if (!user) {
-    /* Données de démo si pas connecté */
-    user = {
-      prenom: 'Visiteur',
-      nom: 'Anonyme',
-      email: 'visiteur@museedufabi.fr',
-      pseudo: '@visiteur',
-      created_at: new Date().toISOString(),
-    };
-  }
-
-  /* Avatar — initiales */
+/* Remplir les éléments DOM avec les infos utilisateur */
+function fillUserInfo(user) {
   const initiales = ((user.prenom?.[0] ?? '') + (user.nom?.[0] ?? '')).toUpperCase();
   document.getElementById('dash-avatar').textContent = initiales || '?';
+  document.getElementById('dash-name').textContent = (user.prenom + ' ' + user.nom).trim() || '—';
 
-  /* Nom */
-  document.getElementById('dash-name').textContent =
-    (user.prenom + ' ' + user.nom).trim() || '—';
-
-  /* Pseudo */
   const pseudoEl = document.getElementById('dash-pseudo');
   if (user.pseudo) {
     pseudoEl.textContent = user.pseudo.startsWith('@') ? user.pseudo : '@' + user.pseudo;
@@ -67,15 +45,36 @@ function loadUserInfo() {
     pseudoEl.style.display = 'none';
   }
 
-  /* Email */
   document.getElementById('dash-email').textContent = user.email || '—';
 
-  /* Date création */
-  if (user.created_at) {
-    const d = new Date(user.created_at.replace(' ', 'T'));
+  const raw = user.created_at || user.date_inscription || '';
+  if (raw) {
+    const d = new Date(raw.replace(' ', 'T'));
     document.getElementById('dash-since').textContent =
       d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
   }
+}
+
+/* Charger les infos utilisateur — session API en priorité, localStorage en fallback */
+async function loadUserInfo() {
+  try {
+    const r = await fetch('../api/session.php', { credentials: 'include' });
+    const d = await r.json();
+    if (d.logged_in && d.user) {
+      localStorage.setItem('fabi_user', JSON.stringify(d.user));
+      fillUserInfo(d.user);
+      return;
+    }
+  } catch { /* serveur absent */ }
+
+  /* Fallback localStorage */
+  try {
+    const raw = localStorage.getItem('fabi_user');
+    if (raw) { fillUserInfo(JSON.parse(raw)); return; }
+  } catch { /* rien */ }
+
+  /* Pas connecté → retour à la page de connexion */
+  window.location.href = './client.html';
 }
 
 /* Déconnexion */
