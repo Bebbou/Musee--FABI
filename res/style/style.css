@@ -151,6 +151,7 @@ body {
 nav ul {
   list-style: none;
   display: flex;
+  align-items: center;
   gap: 2rem;
 }
 nav ul li a {
@@ -352,7 +353,7 @@ nav ul li a:hover::after {
 }
 .hero-eyebrow {
   font-family: var(--sans);
-  font-size: 0.56rem;
+  font-size: 0.65rem;
   letter-spacing: 0.5em;
   text-transform: uppercase;
   color: var(--terra);
@@ -406,6 +407,7 @@ nav ul li a:hover::after {
   line-height: 1.85;
   color: rgba(232, 221, 208, 0.78);
   max-width: 500px;
+  text-indent: 2em;
 }
 .hero-subtitle strong {
   font-weight: 600;
