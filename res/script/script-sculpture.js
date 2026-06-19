@@ -9,13 +9,19 @@ const base = location.pathname.replace(/\/res\/.*$/, '');
 
   let sculptures;
   try {
-    /* Essaie d'abord la BDD MySQL via PHP, sinon le JSON statique */
-    let res = await fetch(base + '/res/api/sculptures_bdd.php');
-    if (!res.ok) res = await fetch(base + '/res/database/bdd_sculpture.json');
-    sculptures = (await res.json()).sculptures;
-  } catch (e) {
-    console.error('Impossible de charger les sculptures', e);
-    return;
+    /* Essaie d'abord la BDD MySQL via PHP */
+    const phpRes = await fetch(base + '/res/api/sculptures_bdd.php');
+    if (!phpRes.ok) throw new Error('HTTP ' + phpRes.status);
+    sculptures = (await phpRes.json()).sculptures;
+  } catch (_) {
+    /* Fallback JSON statique (PHP absent ou non exécuté sur le serveur) */
+    try {
+      const jsonRes = await fetch(base + '/res/database/bdd_sculpture.json');
+      sculptures = (await jsonRes.json()).sculptures;
+    } catch (e) {
+      console.error('Impossible de charger les sculptures', e);
+      return;
+    }
   }
 
   let s;
