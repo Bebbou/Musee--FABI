@@ -188,7 +188,13 @@ const PSYCHE_GLB = 'model_sculpture/psyche_revived_by_cupid.glb';
 </script>
 <script type="module">
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { GLTFLoader }  from 'three/addons/loaders/GLTFLoader.js';
+import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+
+const _dracoLoader = new DRACOLoader();
+_dracoLoader.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/libs/draco/');
+const _gltfLoader = new GLTFLoader();
+_gltfLoader.setDRACOLoader(_dracoLoader);
 
 // ─── Seeded RNG ───────────────────────────────────────────────────────────────
 function mkRng(seed) {
@@ -717,7 +723,7 @@ function checkLazyLoaders() {
     const d = p.distanceTo(s.center);
     if (!s.model && !s.loading && d < s.loadD) {
       s.loading = true;
-      new GLTFLoader().load(s.glbPath, gltf => {
+      _gltfLoader.load(s.glbPath, gltf => {
         s.loading = false;
         if (p.distanceTo(s.center) > s.unloadD) return;
         s.model = s.buildFn(gltf.scene);
