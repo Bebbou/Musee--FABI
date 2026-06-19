@@ -183,7 +183,7 @@ const VENUS_GLB = 'model_sculpture/Venus_de_milos.glb';
 const NIKE_GLB = 'model_sculpture/Victoire_de_samothrace.glb';
 
 const DISCO_GLB = 'model_sculpture/discobolus.glb';
-const JULIUS_GLB = 'model_sculpture/julius_caesar_bust.glb';
+const JULIUS_GLB = 'model_sculpture/buste_jules_cesar.glb';
 const PSYCHE_GLB = 'model_sculpture/psyche_revived_by_cupid.glb';
 </script>
 <script type="module">
@@ -505,97 +505,101 @@ function addSculpture(rng, lx, lz, parent) {
   parent.add(sc);
 }
 
-// ─── Artworks ─────────────────────────────────────────────────────────────────
-// Un mouvement artistique par salle
-const MOVEMENTS = [
-  { name:'Classicisme',    hBg:[30,50],  sBg:[20,45], lBg:[12,38], hFg:[35,55],  sFg:[30,55], style:1 },
-  { name:'Impressionnisme',hBg:[160,310],sBg:[30,65], lBg:[55,80], hFg:[150,320],sFg:[50,85], style:3 },
-  { name:'Baroque',        hBg:[0,25],   sBg:[40,70], lBg:[5,18],  hFg:[0,35],   sFg:[55,85], style:0 },
-  { name:'Renaissance',    hBg:[20,200], sBg:[25,55], lBg:[18,42], hFg:[30,220], sFg:[30,60], style:2 },
-  { name:'Romantisme',     hBg:[210,280],sBg:[30,60], lBg:[8,28],  hFg:[220,290],sFg:[35,65], style:5 },
-  { name:'Art Moderne',    hBg:[0,360],  sBg:[75,100],lBg:[80,95], hFg:[0,360],  sFg:[80,100],style:1 },
+// ─── Artworks — images réelles, 1 salle = 1 mouvement ────────────────────────
+// Images : ../img/peintures/{id}.webp (relatif à res/assets/3d/)
+const ROOM_PAINTINGS = [
+  // 0 · Classicisme (8 slots − 1 Joconde = 7 libres)
+  [
+    {id:18,title:'Le Serment des Horaces',          author:'J.-L. David, 1784'},
+    {id:19,title:'La Mort de Marat',                author:'J.-L. David, 1793'},
+    {id:17,title:'Les Époux Arnolfini',             author:'Jan van Eyck, 1434'},
+    {id:4, title:'La Jeune Fille à la perle',       author:'J. Vermeer, 1665'},
+    {id:16,title:'La Laitière',                     author:'J. Vermeer, 1658'},
+    {id:14,title:'La Création d\'Adam',             author:'Michel-Ange, 1512'},
+    {id:22,title:'Temple Antique',                  author:'G.P. Panini, 1758'},
+  ],
+  // 1 · Impressionnisme (9 slots)
+  [
+    {id:9, title:'Impression, soleil levant',       author:'C. Monet, 1872'},
+    {id:51,title:'La Gare Saint-Lazare',            author:'C. Monet, 1877'},
+    {id:53,title:'Les Coquelicots',                 author:'C. Monet, 1873'},
+    {id:8, title:'Le Déjeuner sur l\'herbe',        author:'É. Manet, 1863'},
+    {id:47,title:'Le Moulin de la Galette',         author:'P.-A. Renoir, 1876'},
+    {id:49,title:'Le Déjeuner des canotiers',       author:'P.-A. Renoir, 1881'},
+    {id:48,title:'Paris Street, Rainy Day',         author:'G. Caillebotte, 1877'},
+    {id:27,title:'Sunset Near Overschie',           author:'J.B. Jongkind, 1855'},
+    {id:10,title:'Les Tournesols',                  author:'V. van Gogh, 1888'},
+  ],
+  // 2 · Baroque (10 slots)
+  [
+    {id:6, title:'Les Ménines',                     author:'D. Velázquez, 1656'},
+    {id:20,title:'Le Jardin des délices',           author:'J. Bosch, 1490–1510'},
+    {id:54,title:'Le Christ dans la tempête',       author:'Rembrandt, 1633'},
+    {id:37,title:'Le Trois Mai 1808',               author:'F. de Goya, 1814'},
+    {id:55,title:'Saturne dévorant un de ses fils', author:'F. de Goya, 1823'},
+    {id:26,title:'Burning of the Houses of Parliament', author:'J.M.W. Turner, 1835'},
+    {id:11,title:'La Grande Vague de Kanagawa',     author:'K. Hokusai, 1831'},
+    {id:50,title:'The Singing Butler',              author:'J. Vettriano, 1992'},
+    {id:24,title:'La Mort et le Fossoyeur',         author:'C. Schwabe, 1895'},
+    {id:25,title:"L'Île des morts",                 author:'A. Böcklin, 1880'},
+  ],
+  // 3 · Renaissance (9 slots)
+  [
+    {id:5, title:'La Naissance de Vénus',           author:'S. Botticelli, 1485'},
+    {id:15,title:'Le Radeau de la Méduse',          author:'T. Géricault, 1819'},
+    {id:23,title:'Voyageur sur une mer de nuages',  author:'C.D. Friedrich, 1818'},
+    {id:7, title:'La Liberté guidant le peuple',    author:'E. Delacroix, 1830'},
+    {id:28,title:'The Fog Warning',                 author:'W. Homer, 1885'},
+    {id:13,title:'Le Baiser',                       author:'G. Klimt, 1907'},
+    {id:52,title:'La Tour des chevaux bleus',       author:'F. Marc, 1913'},
+    {id:2, title:'La Nuit étoilée',                 author:'V. van Gogh, 1889'},
+    {id:3, title:'Le Cri',                          author:'E. Munch, 1893'},
+  ],
+  // 4 · Romantisme (9 slots)
+  [
+    {id:29,title:'Les Amants',                      author:'R. Magritte, 1928'},
+    {id:30,title:'Guernica',                        author:'P. Picasso, 1937'},
+    {id:31,title:"Les Demoiselles d'Avignon",       author:'P. Picasso, 1907'},
+    {id:32,title:'Le Grand Masturbateur',           author:'S. Dalí, 1929'},
+    {id:33,title:'La Persistance de la mémoire',    author:'S. Dalí, 1931'},
+    {id:35,title:'Le Fils de l\'homme',             author:'R. Magritte, 1964'},
+    {id:36,title:'Golconde',                        author:'R. Magritte, 1953'},
+    {id:38,title:"Ceci n'est pas une pipe",         author:'R. Magritte, 1929'},
+    {id:39,title:"Campbell's Soup Cans",            author:'A. Warhol, 1962'},
+  ],
+  // 5 · Art Moderne (10 slots)
+  [
+    {id:40,title:'Marilyn Diptych',                 author:'A. Warhol, 1962'},
+    {id:41,title:'Eight Elvises',                   author:'A. Warhol, 1963'},
+    {id:42,title:"Femme assise près d'une fenêtre", author:'P. Picasso, 1932'},
+    {id:43,title:"Autoportrait à l'oreille bandée", author:'V. van Gogh, 1889'},
+    {id:44,title:'Terrasse du café le soir',        author:'V. van Gogh, 1888'},
+    {id:45,title:'Champ de blé aux corbeaux',       author:'V. van Gogh, 1890'},
+    {id:46,title:'La Chambre à Arles',              author:'V. van Gogh, 1888'},
+    {id:21,title:'Nighthawks',                      author:'E. Hopper, 1942'},
+    {id:34,title:'Massacre en Corée',               author:'P. Picasso, 1951'},
+    {id:12,title:'American Gothic',                 author:'G. Wood, 1930'},
+  ],
 ];
-const TITLES_BY_MVMT = [
-  ['La Raison triomphante','Allégorie de la Vertu','Portrait de cour','L\'Ordre éternel','Harmonie antique'],
-  ['Reflets sur l\'eau','Lumière du matin','Promenade au jardin','Après la pluie','Ciel de juillet'],
-  ['Vanitas','Le Festin','Clair-obscur','La Chute','Drapé d\'or'],
-  ['Annonciation','Paysage toscan','Portrait de noble','L\'Atelier du maître','Grâce divine'],
-  ['Tempête en mer','Le Rêve','Mélancolie','La Nuit étoilée','Désir et ruine'],
-  ['Composition No.3','Abstraction bleue','Formes libres','Plan rouge','Signal'],
-];
-const AUTHORS_BY_MVMT = [
-  ['N. Poussin, 1648','J.-L. David, 1791','P. Mignard, 1670','C. Le Brun, 1661','R. de Champaigne, 1655'],
-  ['C. Monet, 1876','A. Renoir, 1882','B. Morisot, 1873','A. Sisley, 1872','C. Pissarro, 1880'],
-  ['P.P. Rubens, 1614','G. de La Tour, 1645','D. Velázquez, 1634','Caravage, 1601','J. de Ribera, 1630'],
-  ['Raphaël, 1511','L. de Vinci, 1490','Botticelli, 1485','Fra Angelico, 1440','Ghirlandaio, 1490'],
-  ['E. Delacroix, 1827','C.D. Friedrich, 1818','J.M.W. Turner, 1840','T. Géricault, 1819','F. Goya, 1823'],
-  ['P. Mondrian, 1921','W. Kandinsky, 1913','J. Miró, 1925','P. Klee, 1922','F. Léger, 1920'],
-];
 
-function makeArtwork(idx, mvmt = 0) {
-  const mv = MOVEMENTS[mvmt % MOVEMENTS.length];
-  const rng = mkRng(idx*7919+1);
-  const rf = (a,b) => rng()*(b-a)+a;
-  const ri = (a,b) => Math.floor(rng()*(b-a+1))+a;
-  const rh = (r) => ri(r[0], r[1]);
-  const W = 1.2+rng()*0.9, H = 0.85+rng()*0.7;
-  const SZ = 256, ch = Math.round(SZ*H/W);
-  const cnv = document.createElement('canvas');
-  cnv.width = SZ; cnv.height = ch;
-  const ctx = cnv.getContext('2d');
+function makeArtwork(painting) {
+  const W = 1.25, H = 0.95;
+  const mat = new THREE.MeshLambertMaterial({ color: 0x1a1410 });
+  const plane = new THREE.Mesh(new THREE.PlaneGeometry(W, H), mat);
 
-  const h1 = rh(mv.hBg), h2 = (h1+ri(20,140))%360;
-  const bg = ctx.createLinearGradient(0,0,SZ,ch);
-  bg.addColorStop(0, `hsl(${h1},${ri(mv.sBg[0],mv.sBg[1])}%,${ri(mv.lBg[0],mv.lBg[1])}%)`);
-  bg.addColorStop(1, `hsl(${h2},${ri(mv.sBg[0],mv.sBg[1])}%,${ri(mv.lBg[0],mv.lBg[1]+12)}%)`);
-  ctx.fillStyle = bg; ctx.fillRect(0,0,SZ,ch);
-
-  const style = mv.style;
-  const fh=()=>rh(mv.hFg), fs=()=>ri(mv.sFg[0],mv.sFg[1]);
-  if (style===0) {
-    for (let i=0;i<8;i++) {
-      ctx.beginPath(); ctx.arc(rf(0,SZ),rf(0,ch),rf(20,120),0,Math.PI*2);
-      ctx.fillStyle=`hsla(${fh()},${fs()}%,${ri(25,70)}%,${rf(0.3,0.6)})`; ctx.fill();
+  new THREE.TextureLoader().load(
+    `../img/peintures/${painting.id}.webp`,
+    tex => {
+      tex.generateMipmaps = false;
+      tex.minFilter = THREE.LinearFilter;
+      mat.map = tex;
+      mat.color.set(0xffffff);
+      mat.needsUpdate = true;
     }
-  } else if (style===1) {
-    for (let i=0;i<12;i++) {
-      ctx.save(); ctx.translate(rf(0,SZ),rf(0,ch)); ctx.rotate(rf(0,Math.PI));
-      const s=rf(22,100); ctx.fillStyle=`hsla(${fh()},${fs()}%,${ri(30,70)}%,${rf(0.3,0.6)})`;
-      ctx.fillRect(-s/2,-s/2,s,s); ctx.restore();
-    }
-  } else if (style===2) {
-    const sh = ch*(0.4+rf(0,0.2));
-    ctx.fillStyle=`hsl(${fh()},${fs()}%,${ri(22,48)}%)`; ctx.fillRect(0,0,SZ,sh);
-    ctx.fillStyle=`hsl(${fh()},${fs()}%,${ri(12,32)}%)`; ctx.fillRect(0,sh,SZ,ch);
-    for (let i=0;i<4;i++) {
-      ctx.beginPath(); const tx=rf(0,SZ),ty=sh*rf(0.4,0.9);
-      ctx.moveTo(tx,ty); ctx.bezierCurveTo(tx+rf(-60,60),ty-rf(25,80),tx+rf(-60,60),ty-rf(15,55),tx+rf(-18,18),ty-rf(60,150));
-      ctx.lineWidth=rf(6,18); ctx.strokeStyle=`hsl(${fh()},${fs()}%,${ri(10,40)}%)`; ctx.stroke();
-    }
-  } else if (style===3) {
-    for (let i=0;i<500;i++) {
-      ctx.beginPath(); ctx.arc(rf(0,SZ),rf(0,ch),rf(2,6),0,Math.PI*2);
-      ctx.fillStyle=`hsl(${fh()},${fs()}%,${ri(40,80)}%)`; ctx.fill();
-    }
-  } else if (style===4) {
-    ctx.fillStyle=`hsl(${fh()},${fs()}%,${ri(50,80)}%)`; ctx.fillRect(0,0,SZ,ch);
-    ctx.fillStyle=`hsl(${fh()},${ri(20,50)}%,${ri(8,22)}%)`;
-    const px=SZ/2, py=ch*0.35;
-    ctx.beginPath(); ctx.arc(px,py,SZ*0.18,0,Math.PI*2); ctx.fill();
-    ctx.fillRect(px-SZ*0.14, py+SZ*0.17, SZ*0.28, ch*0.43);
-  } else {
-    for (let y=0;y<ch;y+=8) {
-      ctx.beginPath(); ctx.moveTo(0,y);
-      for (let x=0;x<=SZ;x+=5) ctx.lineTo(x, y+Math.sin(x/26+y/17)*10);
-      ctx.strokeStyle=`hsla(${fh()},${fs()}%,${ri(35,75)}%,0.32)`; ctx.lineWidth=4; ctx.stroke();
-    }
-  }
-
-  const tex = new THREE.CanvasTexture(cnv);
-  tex.generateMipmaps = false; tex.minFilter = THREE.LinearFilter;
+  );
 
   const fg = new THREE.Group();
-  fg.add(new THREE.Mesh(new THREE.PlaneGeometry(W,H), new THREE.MeshLambertMaterial({ map: tex })));
+  fg.add(plane);
 
   [[0,H/2+0.035,W+0.12,0.065],[0,-H/2-0.035,W+0.12,0.065],
    [-W/2-0.035,0,0.065,H+0.13],[W/2+0.035,0,0.065,H+0.13]].forEach(([x,y,bw,bh]) => {
@@ -606,8 +610,7 @@ function makeArtwork(idx, mvmt = 0) {
     new THREE.MeshLambertMaterial({ color: 0xb89038 }));
   pl.position.set(0,-H/2-0.12,0.018); fg.add(pl);
 
-  const tl = TITLES_BY_MVMT[mvmt % MOVEMENTS.length]; const al = AUTHORS_BY_MVMT[mvmt % MOVEMENTS.length];
-  fg._label = { title: tl[idx % tl.length], author: al[idx % al.length] };
+  fg._label = { title: painting.title, author: painting.author };
   return fg;
 }
 
@@ -623,12 +626,14 @@ const SLOTS = [
 
 const roomArt = rooms.map(() => []);
 const artworks = [];
-let gIdx = 0;
 rooms.forEach((room, ri) => {
   const cfg = SLOTS[ri], [rw,rd] = cfg.sz, Y = WH*0.42, T = 0.12;
+  let localIdx = 0;
   cfg.s.forEach((sl, si) => {
     if (ri === 0 && si === 0) return; // slot réservé à la Joconde
-    const fg = makeArtwork(gIdx++, ri);
+    const paintings = ROOM_PAINTINGS[ri];
+    if (localIdx >= paintings.length) return;
+    const fg = makeArtwork(paintings[localIdx++]);
     let px=0, pz=0, ry=0;
     if (sl.w==='N') { pz=-rd/2+T; px=sl.a; ry=0; }
     if (sl.w==='S') { pz= rd/2-T; px=sl.a; ry=Math.PI; }
@@ -638,15 +643,6 @@ rooms.forEach((room, ri) => {
     room.add(fg);
     roomArt[ri].push(fg);
     artworks.push({ wp: new THREE.Vector3(px+room.position.x, Y, pz+room.position.z), label: fg._label });
-  });
-  const rng = mkRng(ri*31337);
-  cfg.sc.forEach(([sx,sz]) => {
-    if (ri === 0) return; // Vénus
-    if (ri === 1) return; // Discobole
-    if (ri === 2) return; // Psyché
-    if (ri === 3) return; // Jules César
-    if (ri === 4) return; // Victoire de Samothrace
-    addSculpture(rng, sx, sz, room);
   });
 });
 
@@ -1028,6 +1024,61 @@ registerLazy(
       if (!m) return;
       if (!m.map) m.color.set(0xe8d8c0);
       m.roughness = 0.55; m.metalness = 0;
+    });
+    return model;
+  }
+);
+
+// ─── Le Penseur — Salle Art Moderne ──────────────────────────────────────────
+const penseurRoom = rooms[5]; // (14, 22)
+
+const P_BASE_H = 0.14, P_COL_H = 0.75, P_SLAB_H = 0.10;
+const P_PED_TOP = P_BASE_H + P_COL_H + P_SLAB_H;
+
+const penseurBase = new THREE.Mesh(new THREE.BoxGeometry(0.88, P_BASE_H, 0.68), MAT.mould);
+penseurBase.position.y = P_BASE_H / 2;
+penseurRoom.add(penseurBase);
+const penseurCol = new THREE.Mesh(new THREE.BoxGeometry(0.66, P_COL_H, 0.52), MAT.pedest);
+penseurCol.position.y = P_BASE_H + P_COL_H / 2;
+penseurRoom.add(penseurCol);
+const penseurSlab = new THREE.Mesh(new THREE.BoxGeometry(0.76, P_SLAB_H, 0.60), MAT.mould);
+penseurSlab.position.y = P_BASE_H + P_COL_H + P_SLAB_H / 2;
+penseurRoom.add(penseurSlab);
+
+const penseurSpot = new THREE.PointLight(0xfff0d8, 3.0, 7);
+penseurSpot.position.set(0, WH - 0.3, 0);
+penseurRoom.add(penseurSpot);
+
+artworks.push({
+  wp: new THREE.Vector3(0 + penseurRoom.position.x, 1.5, 0 + penseurRoom.position.z),
+  label: { title: 'Le Penseur', author: 'Auguste Rodin, 1904' }
+});
+
+registerLazy(
+  new THREE.Vector3(14, 0, 22), 'model_sculpture/le_penseur_rodin.glb', penseurRoom,
+  (scene) => {
+    const model = scene;
+    const tmpBox = new THREE.Box3();
+    model.traverse(child => {
+      if (child.isMesh && child.geometry) {
+        child.updateWorldMatrix(true, false);
+        const geomBox = new THREE.Box3().setFromBufferAttribute(child.geometry.attributes.position);
+        geomBox.applyMatrix4(child.matrixWorld);
+        tmpBox.union(geomBox);
+      }
+    });
+    const rawH = tmpBox.getSize(new THREE.Vector3()).y || 1;
+    model.scale.setScalar(1.60 / rawH);
+    model.updateMatrixWorld(true);
+    const box    = new THREE.Box3().setFromObject(model);
+    const center = box.getCenter(new THREE.Vector3());
+    model.position.set(-center.x, P_PED_TOP - box.min.y, -center.z);
+    model.traverse(child => {
+      if (!child.isMesh) return;
+      const m = child.material;
+      if (!m) return;
+      if (!m.map) m.color.set(0xc8a060);
+      m.roughness = 0.60; m.metalness = 0.15;
     });
     return model;
   }

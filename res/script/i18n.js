@@ -5,6 +5,7 @@ const TRANSLATIONS = {
     /* ── NAV ── */
     nav_catalogue:  'Catalogue',
     nav_contact:    'Contact',
+    nav_visite3d:   'Visite 3D',
     nav_connexion:  'Connexion',
     nav_espace:     'Mon espace',
     nav_logout:     'Déconnexion',
@@ -256,6 +257,7 @@ const TRANSLATIONS = {
     /* ── NAV ── */
     nav_catalogue:  'Catalogue',
     nav_contact:    'Contact',
+    nav_visite3d:   '3D Tour',
     nav_connexion:  'Log in',
     nav_espace:     'My account',
     nav_logout:     'Log out',
