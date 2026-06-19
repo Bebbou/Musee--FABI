@@ -25,6 +25,12 @@ const TRANSLATIONS = {
     footer_privacy:      'Politique de confidentialité',
     footer_contact:      'Contact',
     footer_copyright:    '© 2026 Musée FABI. Tous droits réservés.',
+    newsletter_title:    'Newsletter',
+    newsletter_desc:     'Recevez notre newsletter mensuelle',
+    newsletter_placeholder: 'Votre e-mail',
+    newsletter_btn:      "S'abonner",
+    newsletter_success:  '✓ Newsletter envoyée !',
+    newsletter_error:    'Une erreur est survenue.',
 
     /* ── INDEX ── */
     hero_eyebrow:      'Exposition permanente · 2025',
@@ -269,6 +275,12 @@ const TRANSLATIONS = {
     footer_privacy:      'Privacy policy',
     footer_contact:      'Contact',
     footer_copyright:    '© 2026 Musée FABI. All rights reserved.',
+    newsletter_title:    'Newsletter',
+    newsletter_desc:     'Receive our monthly newsletter',
+    newsletter_placeholder: 'Your e-mail',
+    newsletter_btn:      'Subscribe',
+    newsletter_success:  '✓ Newsletter sent!',
+    newsletter_error:    'An error occurred.',
 
     /* ── INDEX ── */
     hero_eyebrow:      'Permanent exhibition · 2025',
