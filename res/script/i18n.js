@@ -27,6 +27,7 @@ const TRANSLATIONS = {
     footer_copyright:    '© 2026 Musée FABI. Tous droits réservés.',
 
     /* ── INDEX ── */
+    hero_eyebrow:      'Exposition permanente · 2025',
     hero_title_main:   'BIENVENUE',
     hero_title_sub:    'AU MUSÉE FABI',
     hero_desc:         'Le Musée FABI vous ouvre ses portes. Découvrez un lieu unique où les plus grands chefs-d\'œuvre de l\'histoire de l\'art se rencontrent enfin. Le Musée FABI — Fake Achément Bien Imité — réunit en un seul espace les reproductions fidèles des œuvres les plus célèbres du monde. Un seul lieu, un seul billet, des milliers d\'œuvres à explorer.',
@@ -270,6 +271,7 @@ const TRANSLATIONS = {
     footer_copyright:    '© 2026 Musée FABI. All rights reserved.',
 
     /* ── INDEX ── */
+    hero_eyebrow:      'Permanent exhibition · 2025',
     hero_title_main:   'WELCOME',
     hero_title_sub:    'TO MUSÉE FABI',
     hero_desc:         'Musée FABI opens its doors to you. Discover a unique place where the greatest masterpieces in art history finally come together. One place, one ticket, thousands of works to explore.',

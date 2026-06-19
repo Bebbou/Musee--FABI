@@ -27,9 +27,11 @@
       </svg>
       ${u.prenom} ${u.nom}`;
   } else {
+    const lang = localStorage.getItem('fabi-lang') || 'fr';
+    const label = (window.FABI_I18N?.TRANSLATIONS?.[lang]?.nav_connexion) || 'Connexion';
     btn.innerHTML = `
       <i class="ti ti-login" style="font-size:18px;" aria-hidden="true"></i>
-      Connexion`;
+      ${label}`;
   }
 })();
 
